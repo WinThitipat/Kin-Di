@@ -282,8 +282,8 @@ export const INGREDIENTS_CATALOG: Record<string, IngredientRecord> = {
   },
   rice_noodles: {
     id: 'rice_noodles',
-    name_th: 'เส้นจันท์ / เส้นใหญ่ (ทำจากข้าวเจ้า)',
-    name_en: 'Rice Noodles',
+    name_th: 'เส้นหมี่ / เส้นจันท์ / เส้นใหญ่ (ทำจากข้าวเจ้า)',
+    name_en: 'Rice Noodles / Vermicelli',
     category: 'carb',
     allergens: [],
     dietary_compatible: ['vegetarian', 'vegan', 'halal'],
@@ -291,7 +291,7 @@ export const INGREDIENTS_CATALOG: Record<string, IngredientRecord> = {
   },
   wheat_noodles: {
     id: 'wheat_noodles',
-    name_th: 'บะหมี่กึ่งสำเร็จรูป / เส้นพาสต้าแป้งสาลี',
+    name_th: 'บะหมี่เหลือง / บะหมี่กึ่งสำเร็จรูป / เส้นพาสต้าแป้งสาลี',
     name_en: 'Wheat Noodles / Pasta',
     category: 'carb',
     allergens: ['wheat_gluten'],
@@ -367,8 +367,8 @@ export const INGREDIENTS_CATALOG: Record<string, IngredientRecord> = {
   },
   soy_sauce: {
     id: 'soy_sauce',
-    name_th: 'ซีอิ๊วขาว (หมักถั่วเหลืองและข้าวสาลี)',
-    name_en: 'Light Soy Sauce',
+    name_th: 'ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)',
+    name_en: 'Light Soy Sauce / Shoyu',
     category: 'condiment',
     allergens: ['soy', 'wheat_gluten'],
     dietary_compatible: ['vegetarian', 'vegan', 'halal'],

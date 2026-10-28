@@ -48,17 +48,17 @@ export function RecipeReveal({
       className="kindi-reveal-panel kindi-surface-card w-full max-w-2xl mx-auto rounded-3xl overflow-hidden"
     >
       {/* Top Celebration Banner */}
-      <div className="kindi-hero-surface border-0 border-b border-[#171717]/20 rounded-none shadow-none px-5 py-3 flex flex-wrap items-center justify-between gap-2">
+      <div className="bg-[#FEF9C3] border-b border-[#EAE5D9] px-5 py-3 flex flex-wrap items-center justify-between gap-2">
         <div className="inline-flex items-center gap-2">
-          <span className="w-7 h-7 rounded-xl bg-[#171717] text-[#F8D84A] flex items-center justify-center">
+          <span className="w-7 h-7 rounded-xl bg-[#141413] text-[#FACC15] flex items-center justify-center">
             <Sparkles className="w-4 h-4" aria-hidden="true" />
           </span>
-          <span className="font-extrabold text-sm sm:text-base text-[#171717]">
+          <span className="font-extrabold text-sm sm:text-base text-[#141413]">
             ได้เมนูนี้แล้ว วันนี้กินดิ!
           </span>
         </div>
         {cardIndex !== undefined && (
-          <span className="text-xs font-extrabold px-2.5 py-1 rounded-full bg-white border border-[#171717]/30 text-[#171717]">
+          <span className="text-xs font-extrabold px-2.5 py-1 rounded-full bg-white border border-[#EAE5D9] text-[#141413] tabular-nums">
             จากไพ่ใบที่ #{cardIndex}
           </span>
         )}
@@ -67,7 +67,7 @@ export function RecipeReveal({
       {/* Main Content Layout */}
       <div className="grid grid-cols-1 sm:grid-cols-12">
         {/* Recipe Image Column */}
-        <div className="sm:col-span-5 relative min-h-[200px] sm:min-h-[260px] bg-[#FFF3C4] border-b sm:border-b-0 sm:border-r border-[#171717]/15">
+        <div className="sm:col-span-5 relative min-h-[200px] sm:min-h-[260px] bg-[#F5F2EA] border-b sm:border-b-0 sm:border-r border-[#EAE5D9]">
           <RecipeImage
             src={recipe.image_url}
             alt={recipe.name}
@@ -80,12 +80,12 @@ export function RecipeReveal({
             onClick={() => onToggleFavorite(recipe.id)}
             aria-label={isFavorite ? 'ลบออกจากเมนูโปรด' : 'บันทึกเป็นเมนูโปรด'}
             aria-pressed={isFavorite}
-            className={`absolute top-3 right-3 w-10 h-10 rounded-2xl border border-[#171717]/25 shadow-sm flex items-center justify-center transition-colors cursor-pointer ${
-              isFavorite ? 'bg-[#FFE4E6] text-red-600' : 'bg-white/95 text-[#171717] hover:bg-[#EAE5DA]'
+            className={`absolute top-3 right-3 w-10 h-10 rounded-2xl border border-[#EAE5D9] shadow-xs flex items-center justify-center transition-colors cursor-pointer ${
+              isFavorite ? 'bg-rose-50 text-rose-600' : 'bg-white/95 text-[#141413] hover:bg-white'
             }`}
           >
             <Heart
-              className={`w-5 h-5 ${isFavorite ? 'fill-current text-red-600' : ''}`}
+              className={`w-5 h-5 ${isFavorite ? 'fill-current text-rose-600' : ''}`}
               aria-hidden="true"
             />
           </button>
@@ -96,14 +96,14 @@ export function RecipeReveal({
           <div className="space-y-2.5">
             {/* Category & Meal Type Badges */}
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="px-2.5 py-0.5 rounded-lg bg-[#171717] text-[#F8D84A] text-xs font-bold">
+              <span className="px-2.5 py-0.5 rounded-lg bg-[#141413] text-[#FACC15] text-xs font-bold">
                 {FOOD_CATEGORY_LABELS[recipe.category]}
               </span>
               {Array.isArray(recipe.meal_types) &&
                 recipe.meal_types.map((mt) => (
                   <span
                     key={mt}
-                    className="px-2 py-0.5 rounded-lg bg-[#EAE5DA] text-[#171717] text-xs font-semibold"
+                    className="px-2 py-0.5 rounded-lg bg-[#F5F2EA] border border-[#EAE5D9] text-[#141413] text-xs font-semibold"
                   >
                     {MEAL_TYPE_LABELS[mt]}
                   </span>
@@ -111,33 +111,33 @@ export function RecipeReveal({
             </div>
 
             {/* Recipe Name */}
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[#171717] leading-snug break-words tracking-tight">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[#141413] leading-snug break-words tracking-tight">
               {recipe.name}
             </h3>
 
             {/* Description */}
-            <p className="text-xs sm:text-sm text-[#77736B] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed">
               {recipe.description}
             </p>
 
             {/* Key Metrics (Time & Difficulty, no Budget) */}
             <div className="grid grid-cols-2 gap-2.5 pt-2">
-              <div className="p-2.5 rounded-xl bg-[#FFF9EC] border border-[#171717]/15">
-                <div className="flex items-center gap-1 text-xs font-semibold text-[#77736B]">
-                  <Clock className="w-3.5 h-3.5 text-[#171717]" aria-hidden="true" />
+              <div className="p-2.5 rounded-xl bg-[#FCFBF7] border border-[#EAE5D9]">
+                <div className="flex items-center gap-1 text-xs font-semibold text-[#57534E]">
+                  <Clock className="w-3.5 h-3.5 text-[#141413]" aria-hidden="true" />
                   <span>เวลาทำ</span>
                 </div>
-                <p className="text-xs sm:text-sm font-extrabold text-[#171717] mt-0.5">
+                <p className="text-xs sm:text-sm font-extrabold text-[#141413] mt-0.5 tabular-nums">
                   {recipe.cooking_time} นาที
                 </p>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-[#FFF9EC] border border-[#171717]/15">
-                <div className="flex items-center gap-1 text-xs font-semibold text-[#77736B]">
-                  <ChefHat className="w-3.5 h-3.5 text-[#171717]" aria-hidden="true" />
+              <div className="p-2.5 rounded-xl bg-[#FCFBF7] border border-[#EAE5D9]">
+                <div className="flex items-center gap-1 text-xs font-semibold text-[#57534E]">
+                  <ChefHat className="w-3.5 h-3.5 text-[#141413]" aria-hidden="true" />
                   <span>ความยาก</span>
                 </div>
-                <p className="text-xs sm:text-sm font-extrabold text-[#171717] mt-0.5">
+                <p className="text-xs sm:text-sm font-extrabold text-[#141413] mt-0.5">
                   {DIFFICULTY_LABELS[recipe.difficulty]}
                 </p>
               </div>
@@ -149,7 +149,7 @@ export function RecipeReveal({
                 {verifiedDietaryTags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-950 border border-emerald-300 text-xs font-bold"
+                    className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-200 text-xs font-bold"
                   >
                     <ShieldCheck className="w-3 h-3" aria-hidden="true" />
                     <span>{DIETARY_PREFERENCE_LABELS[tag]?.label ?? tag}</span>
@@ -157,35 +157,18 @@ export function RecipeReveal({
                 ))}
               </div>
             )}
-
-            {/* External Recipe Sources */}
-            <div className="pt-1 flex flex-wrap items-center gap-1.5">
-              <span className="text-xs font-bold text-[#77736B]">เว็บสูตรอาหาร:</span>
-              {externalLinks.sources.map((src) => (
-                <a
-                  key={src.name}
-                  href={src.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-[#FFF9EC] border border-[#171717]/20 hover:border-[#171717] hover:bg-[#F8D84A]/40 text-xs font-bold text-[#171717] transition-colors"
-                >
-                  <span>{src.name}</span>
-                  <ExternalLink className="w-3 h-3" aria-hidden="true" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Primary & Secondary Actions */}
-          <div className="pt-3 border-t border-[#EAE5DA] space-y-2">
+          <div className="pt-3 border-t border-[#EAE5D9] space-y-2">
             {/* Primary Action: Open External Recipe Website directly in New Tab */}
             <a
               href={externalLinks.primaryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="kindi-btn-primary w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl font-extrabold text-sm"
+              className="kindi-btn-primary min-h-11 w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl font-extrabold text-sm"
             >
-              <span>ดูสูตรอาหาร ({externalLinks.primarySourceName})</span>
+              <span>ลิงก์สูตรอาหาร</span>
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
             </a>
 
@@ -194,7 +177,7 @@ export function RecipeReveal({
               <Link
                 href={`/recipes/${encodeURIComponent(recipe.id)}`}
                 onClick={onCloseModal}
-                className="kindi-btn-secondary flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm"
+                className="kindi-btn-secondary min-h-10 flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm"
               >
                 <FileText className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>ข้อมูลส่วนผสม & ภูมิแพ้</span>
@@ -203,7 +186,7 @@ export function RecipeReveal({
               <button
                 type="button"
                 onClick={onNewRound}
-                className="kindi-btn-accent flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm cursor-pointer"
+                className="kindi-btn-accent min-h-10 flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm cursor-pointer"
               >
                 <RefreshCw className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>สุ่มรอบใหม่ (เอาอีกใบไหม?)</span>

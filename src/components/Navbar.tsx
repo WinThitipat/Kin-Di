@@ -26,37 +26,42 @@ export function Navbar({ restrictions, onOpenRestrictions }: NavbarProps) {
   const isCommunityActive = pathname?.startsWith('/community');
 
   return (
-    <header className="sticky top-0 z-30 bg-[#FFF9EC]/90 backdrop-blur-md border-b border-[#171717]/12">
+    <header className="sticky top-0 z-30 bg-[#FCFBF7]/92 backdrop-blur-md border-b border-[#EAE5D9]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-        {/* Brand Logo */}
+        {/* Brand Identity */}
         <Link
           href="/"
-          className="inline-flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#171717] rounded-xl"
+          className="inline-flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#141413] rounded-xl"
         >
-          <div className="w-10 h-10 rounded-xl bg-[#F8D84A] border border-[#171717]/15 shadow-xs flex items-center justify-center group-hover:bg-[#F2CC22] transition-colors">
-            <Utensils className="w-5 h-5 text-[#171717]" aria-hidden="true" />
+          <div className="w-10 h-10 rounded-xl bg-[#141413] text-[#FACC15] flex items-center justify-center shadow-xs group-hover:bg-[#292826] transition-colors">
+            <Utensils className="w-5 h-5" aria-hidden="true" />
           </div>
           <div>
-            <span className="font-extrabold text-lg tracking-tight text-[#171717] block leading-none">
-              กินดิ! — KIN DI
-            </span>
-            <span className="text-xs font-medium text-[#6E6A63] block mt-0.5">
-              Stop thinking. Start eating.
+            <div className="flex items-center gap-2">
+              <span className="font-extrabold text-lg tracking-tight text-[#141413] leading-none">
+                กินดิ!
+              </span>
+              <span className="px-1.5 py-0.5 rounded-md bg-[#FEF9C3] border border-[#EAE5D9] text-[10px] font-extrabold tracking-wider text-[#141413] uppercase">
+                KIN DI
+              </span>
+            </div>
+            <span className="text-xs font-medium text-[#78716C] block mt-0.5">
+              สุ่มไพ่เมนู & ค้นของในตู้เย็น
             </span>
           </div>
         </Link>
 
-        {/* Segmented Primary Navigation Pill */}
+        {/* Primary Segmented Navigation */}
         <nav
           aria-label="เมนูหลัก"
-          className="hidden md:flex items-center gap-1 p-1 rounded-2xl bg-[#EAE5DA]/75 border border-[#171717]/8"
+          className="hidden md:flex items-center gap-1 p-1 rounded-2xl bg-[#F5F2EA] border border-[#EAE5D9]"
         >
           <Link
             href="/"
-            className={`px-3.5 py-1.5 rounded-xl text-sm font-bold inline-flex items-center gap-1.5 transition-all ${
+            className={`min-h-9 px-4 py-1.5 rounded-xl text-sm font-bold inline-flex items-center gap-2 transition-all ${
               isRouletteActive
-                ? 'bg-[#F8D84A] text-[#171717] border border-[#171717]/15 shadow-xs'
-                : 'border border-transparent text-[#171717]/75 hover:text-[#171717] hover:bg-white/60'
+                ? 'bg-[#141413] text-[#FACC15] shadow-xs'
+                : 'text-[#57534E] hover:text-[#141413] hover:bg-white/80'
             }`}
           >
             <Sparkles className="w-4 h-4" aria-hidden="true" />
@@ -65,10 +70,10 @@ export function Navbar({ restrictions, onOpenRestrictions }: NavbarProps) {
 
           <Link
             href="/fridge"
-            className={`px-3.5 py-1.5 rounded-xl text-sm font-bold inline-flex items-center gap-1.5 transition-all ${
+            className={`min-h-9 px-4 py-1.5 rounded-xl text-sm font-bold inline-flex items-center gap-2 transition-all ${
               isFridgeActive
-                ? 'bg-[#F8D84A] text-[#171717] border border-[#171717]/15 shadow-xs'
-                : 'border border-transparent text-[#171717]/75 hover:text-[#171717] hover:bg-white/60'
+                ? 'bg-[#141413] text-[#FACC15] shadow-xs'
+                : 'text-[#57534E] hover:text-[#141413] hover:bg-white/80'
             }`}
           >
             <Refrigerator className="w-4 h-4" aria-hidden="true" />
@@ -77,10 +82,10 @@ export function Navbar({ restrictions, onOpenRestrictions }: NavbarProps) {
 
           <Link
             href="/community"
-            className={`px-3.5 py-1.5 rounded-xl text-sm font-bold inline-flex items-center gap-1.5 transition-all ${
+            className={`min-h-9 px-4 py-1.5 rounded-xl text-sm font-bold inline-flex items-center gap-2 transition-all ${
               isCommunityActive
-                ? 'bg-[#F8D84A] text-[#171717] border border-[#171717]/15 shadow-xs'
-                : 'border border-transparent text-[#171717]/75 hover:text-[#171717] hover:bg-white/60'
+                ? 'bg-[#141413] text-[#FACC15] shadow-xs'
+                : 'text-[#57534E] hover:text-[#141413] hover:bg-white/80'
             }`}
           >
             <PlusCircle className="w-4 h-4" aria-hidden="true" />
@@ -88,33 +93,40 @@ export function Navbar({ restrictions, onOpenRestrictions }: NavbarProps) {
           </Link>
         </nav>
 
-        {/* Shared Food Restrictions Button */}
+        {/* Shared Food Restrictions Trigger */}
         <button
           type="button"
           onClick={onOpenRestrictions}
-          className="kindi-btn-secondary inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold cursor-pointer shrink-0"
+          className="kindi-btn-secondary min-h-10 inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold cursor-pointer shrink-0"
         >
-          <ShieldCheck className="w-4 h-4 text-[#171717]" aria-hidden="true" />
+          <ShieldCheck
+            className={`w-4 h-4 ${
+              activeRestrictionsCount > 0 ? 'text-emerald-700' : 'text-[#57534E]'
+            }`}
+            aria-hidden="true"
+          />
           <span>ข้อจำกัดทางอาหาร</span>
-          {activeRestrictionsCount > 0 && (
-            <span className="px-2 py-0.5 rounded-full bg-[#171717] text-[#F8D84A] text-xs font-extrabold leading-none">
+          {activeRestrictionsCount > 0 ? (
+            <span className="px-2 py-0.5 rounded-full bg-[#141413] text-[#FACC15] text-xs font-extrabold tabular-nums leading-none">
               {activeRestrictionsCount}
             </span>
+          ) : (
+            <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-[#D8D1C2]" />
           )}
         </button>
       </div>
 
-      {/* Mobile Navigation Bar */}
+      {/* Mobile Navigation Dock */}
       <nav
         aria-label="เมนูมือถือ"
-        className="flex md:hidden items-center justify-around border-t border-[#171717]/10 bg-[#FFF9EC] px-2 py-1.5 gap-1"
+        className="flex md:hidden items-center justify-around border-t border-[#EAE5D9] bg-[#FCFBF7] px-2.5 py-1.5 gap-1.5"
       >
         <Link
           href="/"
-          className={`flex-1 py-1.5 rounded-xl text-center text-xs font-bold inline-flex items-center justify-center gap-1.5 ${
+          className={`flex-1 min-h-10 py-1.5 rounded-xl text-center text-xs font-bold inline-flex items-center justify-center gap-1.5 transition-colors ${
             isRouletteActive
-              ? 'bg-[#F8D84A] text-[#171717] border border-[#171717]'
-              : 'text-[#6E6A63]'
+              ? 'bg-[#141413] text-[#FACC15]'
+              : 'text-[#57534E] hover:bg-[#F5F2EA]'
           }`}
         >
           <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
@@ -122,10 +134,10 @@ export function Navbar({ restrictions, onOpenRestrictions }: NavbarProps) {
         </Link>
         <Link
           href="/fridge"
-          className={`flex-1 py-1.5 rounded-xl text-center text-xs font-bold inline-flex items-center justify-center gap-1.5 ${
+          className={`flex-1 min-h-10 py-1.5 rounded-xl text-center text-xs font-bold inline-flex items-center justify-center gap-1.5 transition-colors ${
             isFridgeActive
-              ? 'bg-[#F8D84A] text-[#171717] border border-[#171717]'
-              : 'text-[#6E6A63]'
+              ? 'bg-[#141413] text-[#FACC15]'
+              : 'text-[#57534E] hover:bg-[#F5F2EA]'
           }`}
         >
           <Refrigerator className="w-3.5 h-3.5" aria-hidden="true" />
@@ -133,10 +145,10 @@ export function Navbar({ restrictions, onOpenRestrictions }: NavbarProps) {
         </Link>
         <Link
           href="/community"
-          className={`flex-1 py-1.5 rounded-xl text-center text-xs font-bold inline-flex items-center justify-center gap-1.5 ${
+          className={`flex-1 min-h-10 py-1.5 rounded-xl text-center text-xs font-bold inline-flex items-center justify-center gap-1.5 transition-colors ${
             isCommunityActive
-              ? 'bg-[#F8D84A] text-[#171717] border border-[#171717]'
-              : 'text-[#6E6A63]'
+              ? 'bg-[#141413] text-[#FACC15]'
+              : 'text-[#57534E] hover:bg-[#F5F2EA]'
           }`}
         >
           <PlusCircle className="w-3.5 h-3.5" aria-hidden="true" />

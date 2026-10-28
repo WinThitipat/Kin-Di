@@ -82,26 +82,31 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         isHydrated,
       }}
     >
-      <div className="min-h-dvh flex flex-col bg-[#FFF9EC] text-[#171717]">
+      <div className="min-h-dvh flex flex-col bg-[#FCFBF7] text-[#141413]">
         <Navbar
           restrictions={restrictions}
           onOpenRestrictions={() => setIsRestrictionsOpen(true)}
         />
 
-        <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+        <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
           {children}
         </main>
 
-        <footer className="border-t border-[#171717]/10 bg-[#EAE5DA]/50 py-6 px-4 sm:px-6 mt-12">
-          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#6E6A63]">
+        <footer className="border-t border-[#EAE5D9] bg-white py-6 px-4 sm:px-6 mt-12">
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#78716C]">
             <div>
-              <p className="font-bold text-[#171717]">
-                กินดิ! — KIN DI · Stop thinking. Start eating.
+              <div className="flex items-center gap-2">
+                <span className="font-extrabold text-[#141413]">กินดิ!</span>
+                <span className="px-1.5 py-0.5 rounded bg-[#FEF9C3] border border-[#EAE5D9] text-[10px] font-extrabold text-[#141413]">
+                  KIN DI
+                </span>
+                <span className="text-[#57534E] font-medium">
+                  สุ่มไพ่เมนูอาหารและค้นหาเมนูจากของในตู้เย็น
+                </span>
+              </div>
+              <p className="mt-1.5 max-w-2xl leading-relaxed text-[#78716C]">
+                {SAFETY_DISCLAIMER_TH}
               </p>
-              <p className="mt-1 max-w-2xl leading-relaxed">{SAFETY_DISCLAIMER_TH}</p>
-            </div>
-            <div className="text-xs font-medium text-[#6E6A63] shrink-0">
-              สุ่มไพ่เมนูอาหารและค้นหาเมนูจากของในตู้เย็น
             </div>
           </div>
         </footer>

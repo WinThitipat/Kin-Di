@@ -29,7 +29,7 @@ export function isSafeHttpUrl(rawUrl?: string | null): boolean {
  */
 export function inferExternalSourceName(rawUrl?: string | null): string {
   if (!rawUrl || !isSafeHttpUrl(rawUrl)) {
-    return 'เว็บไซต์สูตรอาหาร';
+    return 'ลิงก์สูตรอาหาร';
   }
 
   try {
@@ -51,42 +51,28 @@ export function inferExternalSourceName(rawUrl?: string | null): string {
 
     return host;
   } catch {
-    return 'เว็บไซต์สูตรอาหาร';
+    return 'ลิงก์สูตรอาหาร';
   }
 }
 
 /**
- * Resolves the primary external recipe link (any platform/domain) for a given recipe,
- * along with alternative search links for convenience.
+ * Resolves the external recipe link for a given recipe without adding extra third-party search buttons.
  */
 export function getExternalRecipeLinks(recipe: Recipe): ResolvedExternalRecipeLinks {
   const cleanQuery = encodeURIComponent(recipe.name.trim());
-
-  const wongnaiSearchUrl = `https://www.wongnai.com/recipes?q=${cleanQuery}`;
-  const kruaSearchUrl = `https://krua.co/recipe?s=${cleanQuery}`;
-  const kapookSearchUrl = `https://cooking.kapook.com/search?q=${cleanQuery}`;
+  const fallbackUrl = `https://www.google.com/search?q=${cleanQuery}`;
 
   const hasValidCustomUrl = isSafeHttpUrl(recipe.external_recipe_url);
-  const primaryUrl = hasValidCustomUrl ? recipe.external_recipe_url!.trim() : wongnaiSearchUrl;
+  const primaryUrl = hasValidCustomUrl ? recipe.external_recipe_url!.trim() : fallbackUrl;
   const primarySourceName =
     recipe.external_source_name?.trim() || inferExternalSourceName(primaryUrl);
 
   const sources: ExternalRecipeSourceLink[] = [
     {
-      name: primarySourceName,
+      name: 'ลิงก์สูตรอาหาร',
       url: primaryUrl,
     },
   ];
-
-  if (!primaryUrl.includes('wongnai.com')) {
-    sources.push({ name: 'Wongnai Cooking', url: wongnaiSearchUrl });
-  }
-  if (!primaryUrl.includes('krua.co')) {
-    sources.push({ name: 'Krua.co', url: kruaSearchUrl });
-  }
-  if (!primaryUrl.includes('kapook.com')) {
-    sources.push({ name: 'Kapook Cooking', url: kapookSearchUrl });
-  }
 
   return {
     primaryUrl,

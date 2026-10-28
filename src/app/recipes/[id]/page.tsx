@@ -67,8 +67,8 @@ export default function RecipeDetailPage() {
   if (isLoading) {
     return (
       <div className="max-w-4xl mx-auto py-12 space-y-4">
-        <div className="h-10 w-44 rounded-xl bg-[#171717]/10 animate-pulse" />
-        <div className="h-80 w-full rounded-3xl bg-[#171717]/10 border-2 border-[#171717]/20 animate-pulse" />
+        <div className="h-10 w-44 rounded-xl bg-[#EAE5D9] animate-pulse" />
+        <div className="h-80 w-full rounded-3xl bg-[#F5F2EA] border border-[#EAE5D9] animate-pulse" />
       </div>
     );
   }
@@ -76,19 +76,19 @@ export default function RecipeDetailPage() {
   if (!recipe) {
     return (
       <div className="kindi-surface-card max-w-lg mx-auto my-12 p-8 text-center space-y-4">
-        <div className="w-14 h-14 rounded-2xl bg-[#FFE4E6] border border-red-200 flex items-center justify-center mx-auto">
-          <AlertTriangle className="w-7 h-7 text-[#171717]" aria-hidden="true" />
+        <div className="w-14 h-14 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center mx-auto">
+          <AlertTriangle className="w-7 h-7 text-[#141413]" aria-hidden="true" />
         </div>
-        <h1 className="text-xl font-extrabold text-[#171717]">
+        <h1 className="text-xl font-extrabold text-[#141413]">
           ไม่พบสูตรอาหารนี้ในระบบ
         </h1>
-        <p className="text-sm text-[#6E6A63]">
+        <p className="text-sm text-[#57534E]">
           เมนูนี้อาจถูกลบ หรือรหัสไม่ถูกต้อง
         </p>
         <div className="pt-2 flex flex-wrap justify-center gap-3">
           <Link
             href="/"
-            className="kindi-btn-accent inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-sm"
+            className="kindi-btn-accent min-h-11 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-sm"
           >
             <Sparkles className="w-4 h-4" aria-hidden="true" />
             <span>กลับไปสุ่มไพ่เมนู</span>
@@ -112,7 +112,7 @@ export default function RecipeDetailPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
           href="/"
-          className="kindi-btn-secondary inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold"
+          className="kindi-btn-secondary min-h-10 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold"
         >
           <ArrowLeft className="w-4 h-4" aria-hidden="true" />
           <span>กลับไปหน้าสุ่มไพ่</span>
@@ -121,7 +121,7 @@ export default function RecipeDetailPage() {
         <div className="flex items-center gap-2">
           <Link
             href="/fridge"
-            className="kindi-btn-secondary inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold"
+            className="kindi-btn-secondary min-h-10 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold"
           >
             <Refrigerator className="w-4 h-4" aria-hidden="true" />
             <span>โหมดค้นตู้เย็น</span>
@@ -131,14 +131,14 @@ export default function RecipeDetailPage() {
             type="button"
             onClick={() => toggleFavorite(recipe.id)}
             aria-pressed={isFavorite}
-            className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border text-xs sm:text-sm font-extrabold transition-all cursor-pointer ${
+            className={`min-h-10 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border text-xs sm:text-sm font-extrabold transition-all cursor-pointer ${
               isFavorite
-                ? 'bg-[#FFE4E6] text-red-700 border-[#171717] shadow-[0_2px_0_#171717]'
+                ? 'bg-rose-50 text-rose-700 border-rose-200 shadow-xs'
                 : 'kindi-btn-secondary'
             }`}
           >
             <Heart
-              className={`w-4 h-4 ${isFavorite ? 'fill-current text-red-600' : ''}`}
+              className={`w-4 h-4 ${isFavorite ? 'fill-current text-rose-600' : ''}`}
               aria-hidden="true"
             />
             <span>{isFavorite ? 'บันทึกเป็นเมนูโปรดแล้ว' : 'เพิ่มเป็นเมนูโปรด'}</span>
@@ -150,21 +150,21 @@ export default function RecipeDetailPage() {
       {!isSafeForCurrentUser ? (
         <div
           role="alert"
-          className="p-4 rounded-2xl bg-[#FFE4E6] border border-red-300 flex items-start gap-3"
+          className="p-4 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-3"
         >
-          <ShieldAlert className="w-5 h-5 text-red-700 shrink-0 mt-0.5" aria-hidden="true" />
-          <div className="text-xs sm:text-sm text-[#171717]">
-            <p className="font-extrabold text-red-900">
+          <ShieldAlert className="w-5 h-5 text-rose-700 shrink-0 mt-0.5" aria-hidden="true" />
+          <div className="text-xs sm:text-sm text-[#141413]">
+            <p className="font-extrabold text-rose-900">
               คำเตือน: เมนูนี้ไม่ตรงกับ &ldquo;ข้อจำกัดทางอาหาร&rdquo; ที่คุณตั้งค่าไว้ในปัจจุบัน
             </p>
-            <p className="mt-0.5 text-[#171717]/85">
+            <p className="mt-0.5 text-[#57534E]">
               ระบบสุ่มไพ่จะคัดเมนูนี้ออกโดยอัตโนมัติ โปรดตรวจสอบรายการวัตถุดิบและสารก่อภูมิแพ้ด้านล่างอย่างละเอียด
             </p>
           </div>
         </div>
       ) : (
-        <div className="p-3.5 rounded-2xl bg-emerald-100/90 border border-emerald-300 flex items-center gap-2.5 text-xs sm:text-sm font-bold text-emerald-950">
-          <ShieldCheck className="w-5 h-5 text-emerald-800 shrink-0" aria-hidden="true" />
+        <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center gap-2.5 text-xs sm:text-sm font-bold text-emerald-950">
+          <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0" aria-hidden="true" />
           <span>เมนูนี้ผ่านเกณฑ์ข้อจำกัดทางอาหารและสารก่อภูมิแพ้ที่คุณตั้งค่าไว้</span>
         </div>
       )}
@@ -172,7 +172,7 @@ export default function RecipeDetailPage() {
       {/* Recipe Hero Card */}
       <div className="kindi-surface-card rounded-3xl overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-12">
-          <div className="md:col-span-5 min-h-[240px] md:min-h-[320px] bg-[#FFF3C4] border-b md:border-b-0 md:border-r border-[#171717]/15">
+          <div className="md:col-span-5 min-h-[240px] md:min-h-[320px] bg-[#F5F2EA] border-b md:border-b-0 md:border-r border-[#EAE5D9]">
             <RecipeImage
               src={recipe.image_url}
               alt={recipe.name}
@@ -184,46 +184,46 @@ export default function RecipeDetailPage() {
           <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
             <div className="space-y-3">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-xl bg-[#F8D84A] text-xs font-extrabold text-[#171717]">
+                <span className="px-3 py-1 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] text-xs font-extrabold text-[#141413]">
                   {FOOD_CATEGORY_LABELS[recipe.category]}
                 </span>
                 {recipe.meal_types.map((mt) => (
                   <span
                     key={mt}
-                    className="px-2.5 py-1 rounded-xl bg-[#EAE5DA] text-xs font-bold text-[#171717]"
+                    className="px-2.5 py-1 rounded-xl bg-[#F5F2EA] border border-[#EAE5D9] text-xs font-bold text-[#141413]"
                   >
                     {MEAL_TYPE_LABELS[mt]}
                   </span>
                 ))}
               </div>
 
-              <h1 className="text-[clamp(1.6rem,1.3rem+1.5vw,2.35rem)] font-extrabold text-[#171717] leading-tight tracking-tight">
+              <h1 className="text-[clamp(1.6rem,1.3rem+1.5vw,2.35rem)] font-extrabold text-[#141413] leading-tight tracking-tight">
                 {recipe.name}
               </h1>
 
-              <p className="text-sm sm:text-base text-[#77736B] leading-relaxed">
+              <p className="text-sm sm:text-base text-[#57534E] leading-relaxed">
                 {recipe.description}
               </p>
             </div>
 
             {/* Metadata Metrics (Time & Difficulty, without Budget) */}
             <div className="grid grid-cols-2 gap-3 pt-2">
-              <div className="p-3.5 rounded-2xl bg-[#FFF9EC] border border-[#171717]/15">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#77736B]">
-                  <Clock className="w-4 h-4 text-[#171717]" aria-hidden="true" />
+              <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9]">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#57534E]">
+                  <Clock className="w-4 h-4 text-[#141413]" aria-hidden="true" />
                   <span>เวลาทำ</span>
                 </div>
-                <p className="text-base sm:text-lg font-extrabold text-[#171717] mt-1">
+                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1 tabular-nums">
                   {recipe.cooking_time} นาที
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-[#FFF9EC] border border-[#171717]/15">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#77736B]">
-                  <ChefHat className="w-4 h-4 text-[#171717]" aria-hidden="true" />
+              <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9]">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#57534E]">
+                  <ChefHat className="w-4 h-4 text-[#141413]" aria-hidden="true" />
                   <span>ความยาก</span>
                 </div>
-                <p className="text-base sm:text-lg font-extrabold text-[#171717] mt-1">
+                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1">
                   {DIFFICULTY_LABELS[recipe.difficulty]}
                 </p>
               </div>
@@ -235,7 +235,7 @@ export default function RecipeDetailPage() {
                 {recipe.dietary_tags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-950 border border-emerald-400 text-xs font-extrabold"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-950 border border-emerald-200 text-xs font-extrabold"
                   >
                     <CheckCircle2 className="w-3.5 h-3.5" aria-hidden="true" />
                     <span>{DIETARY_PREFERENCE_LABELS[tag]?.label ?? tag}</span>
@@ -244,28 +244,21 @@ export default function RecipeDetailPage() {
               </div>
             )}
 
-            {/* External Recipe Website Links */}
-            <div className="pt-3 border-t border-[#EAE5DA] space-y-2.5">
-              <span className="text-xs font-extrabold text-[#171717] block">
-                เปิดดูสูตรอาหารและวิธีทำฉบับเต็มบนเว็บไซต์ต้นทาง:
+            {/* External Recipe Website Link */}
+            <div className="pt-3 border-t border-[#EAE5D9] space-y-2.5">
+              <span className="text-xs font-extrabold text-[#141413] block">
+                เปิดดูสูตรอาหารและวิธีทำฉบับเต็ม:
               </span>
               <div className="flex flex-wrap items-center gap-2">
-                {externalLinks.sources.map((src, idx) => (
-                  <a
-                    key={src.name}
-                    href={src.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-extrabold transition-all ${
-                      idx === 0
-                        ? 'kindi-btn-primary'
-                        : 'kindi-btn-secondary'
-                    }`}
-                  >
-                    <span>ดูสูตรบน {src.name}</span>
-                    <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
-                  </a>
-                ))}
+                <a
+                  href={externalLinks.primaryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="kindi-btn-primary min-h-10 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all"
+                >
+                  <span>ลิงก์สูตรอาหาร</span>
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                </a>
               </div>
             </div>
           </div>
@@ -279,25 +272,25 @@ export default function RecipeDetailPage() {
           aria-labelledby="ingredients-heading"
           className="kindi-surface-card md:col-span-5 rounded-3xl p-6 space-y-4"
         >
-          <h2 id="ingredients-heading" className="text-lg font-extrabold text-[#171717]">
+          <h2 id="ingredients-heading" className="text-lg font-extrabold text-[#141413] tabular-nums">
             วัตถุดิบและปริมาณ ({recipe.ingredients?.length ?? 0} รายการ)
           </h2>
 
-          <ul className="divide-y divide-[#EAE5DA]">
+          <ul className="divide-y divide-[#EAE5D9]">
             {(recipe.ingredients ?? []).map((item, idx) => {
               const catalogEntry = catalog[item.ingredient_id];
               return (
                 <li key={`${item.ingredient_id}-${idx}`} className="py-3 flex justify-between gap-3">
                   <div>
-                    <p className="text-sm font-bold text-[#171717]">
+                    <p className="text-sm font-bold text-[#141413]">
                       {catalogEntry?.name_th ?? item.ingredient_id}
                     </p>
-                    <span className="text-xs font-semibold text-[#77736B]">
+                    <span className="text-xs font-semibold text-[#57534E]">
                       {ROLE_LABELS[item.role] ?? item.role}
                       {item.is_optional ? ' (ไม่บังคับ)' : ''}
                     </span>
                   </div>
-                  <span className="text-sm font-extrabold text-[#171717] shrink-0">
+                  <span className="text-sm font-extrabold text-[#141413] shrink-0">
                     {item.quantity}
                   </span>
                 </li>
@@ -311,20 +304,20 @@ export default function RecipeDetailPage() {
           aria-labelledby="instructions-heading"
           className="kindi-surface-card md:col-span-7 rounded-3xl p-6 space-y-4"
         >
-          <h2 id="instructions-heading" className="text-lg font-extrabold text-[#171717]">
+          <h2 id="instructions-heading" className="text-lg font-extrabold text-[#141413]">
             ขั้นตอนวิธีทำ
           </h2>
 
-          <ol className="space-y-3.5">
+          <ol className="space-y-3">
             {recipe.instructions.map((step, index) => (
               <li
                 key={index}
-                className="p-4 rounded-2xl bg-[#FFF9EC] border border-[#171717]/15 flex items-start gap-3.5"
+                className="p-4 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] flex items-start gap-3.5"
               >
-                <span className="w-7 h-7 rounded-xl bg-[#F8D84A] border border-[#171717]/30 text-[#171717] font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-7 h-7 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] text-[#141413] font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 tabular-nums">
                   {index + 1}
                 </span>
-                <p className="text-sm text-[#171717] leading-relaxed font-medium">{step}</p>
+                <p className="text-sm text-[#141413] leading-relaxed font-medium">{step}</p>
               </li>
             ))}
           </ol>
@@ -336,12 +329,12 @@ export default function RecipeDetailPage() {
         aria-labelledby="allergen-info-heading"
         className="kindi-surface-card rounded-3xl p-6 space-y-4"
       >
-        <h2 id="allergen-info-heading" className="text-base sm:text-lg font-extrabold text-[#171717]">
+        <h2 id="allergen-info-heading" className="text-base sm:text-lg font-extrabold text-[#141413]">
           ข้อมูลประเมินสารก่อภูมิแพ้และความปลอดภัยของเมนูนี้
         </h2>
 
         {presentAllergens.length === 0 ? (
-          <p className="text-sm font-bold text-emerald-900 bg-emerald-50 border border-emerald-300 rounded-xl p-3">
+          <p className="text-sm font-bold text-emerald-900 bg-emerald-50 border border-emerald-200 rounded-xl p-3">
             เมนูนี้ไม่มีส่วนผสมของสารก่อภูมิแพ้หลักทั้ง 9 ชนิดตามรายการวัตถุดิบที่ระบุ
           </p>
         ) : (
@@ -351,13 +344,13 @@ export default function RecipeDetailPage() {
               return (
                 <div
                   key={alg}
-                  className="p-3 rounded-xl bg-[#FFE4E6]/70 border border-red-300 flex flex-col justify-between"
+                  className="p-3 rounded-xl bg-rose-50/80 border border-rose-200 flex flex-col justify-between"
                 >
-                  <span className="text-xs sm:text-sm font-extrabold text-[#171717]">
+                  <span className="text-xs sm:text-sm font-extrabold text-[#141413]">
                     มีส่วนผสมของ: {ALLERGEN_LABELS[alg].label}
                   </span>
                   {assessment?.notes && (
-                    <span className="text-xs text-[#77736B] mt-0.5">{assessment.notes}</span>
+                    <span className="text-xs text-[#57534E] mt-0.5">{assessment.notes}</span>
                   )}
                 </div>
               );
@@ -365,7 +358,7 @@ export default function RecipeDetailPage() {
           </div>
         )}
 
-        <div className="p-3.5 rounded-2xl bg-[#EAE5DA]/80 text-xs font-medium text-[#171717] leading-relaxed">
+        <div className="p-3.5 rounded-2xl bg-[#F5F2EA] text-xs font-medium text-[#57534E] leading-relaxed">
           {SAFETY_DISCLAIMER_TH}
         </div>
       </section>

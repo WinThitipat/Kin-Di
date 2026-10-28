@@ -50,7 +50,6 @@ export function FoodRouletteModal({
 }: FoodRouletteModalProps) {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-  // Sync open state with native <dialog>.showModal() / .close()
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
@@ -62,7 +61,6 @@ export function FoodRouletteModal({
     }
   }, [isOpen]);
 
-  // Native close listener + fallback for browsers without native `closedby="any"` support
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
@@ -100,7 +98,6 @@ export function FoodRouletteModal({
     };
   }, [onClose]);
 
-  // Failsafe timer for card flip completion so reduced-motion or interrupted CSS transitions always settle cleanly
   useEffect(() => {
     if (!round || !round.isTransitioning) return;
 
@@ -126,38 +123,42 @@ export function FoodRouletteModal({
       {...({ closedby: 'any' } as React.DialogHTMLAttributes<HTMLDialogElement>)}
       aria-labelledby="roulette-dialog-title"
       aria-describedby="roulette-dialog-desc"
-      className="kindi-modal m-auto w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-4xl max-h-[92dvh] rounded-3xl bg-[#FFF9EC] text-[#171717] p-0 overflow-hidden"
+      className="kindi-modal m-auto w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-4xl max-h-[92dvh] rounded-3xl bg-[#FCFBF7] text-[#141413] p-0 overflow-hidden"
     >
-      {/* Modal Header */}
-      <div className="kindi-hero-surface border-0 border-b border-[#171717]/10 rounded-none shadow-none px-5 py-4 sm:px-6 sm:py-5 flex items-start justify-between gap-3 shrink-0">
-        <div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#171717] text-[#F8D84A] text-xs font-bold mb-1.5">
-            <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-            <span>เปิดไพ่สุ่มเมนู · กินดิ!</span>
+      {/* Clean Editorial Modal Header */}
+      <div className="bg-white border-b border-[#EAE5D9] px-5 py-4 sm:px-6 sm:py-5 flex items-start justify-between gap-3 shrink-0">
+        <div className="flex items-start gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] flex items-center justify-center shrink-0 mt-0.5">
+            <Sparkles className="w-5 h-5 text-[#141413]" aria-hidden="true" />
           </div>
-          <h2
-            id="roulette-dialog-title"
-            className="text-lg sm:text-2xl font-extrabold text-[#171717] leading-tight tracking-tight"
-          >
-            เลือกไพ่ของคุณ
-          </h2>
-          <p id="roulette-dialog-desc" className="text-xs sm:text-sm text-[#171717]/80 mt-0.5">
-            เลือกไพ่ 1 ใบ แล้วมาดูกันว่ามื้อนี้จะกินอะไรดี
-          </p>
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F5F2EA] border border-[#EAE5D9] text-[#57534E] text-xs font-bold mb-1">
+              <span>เปิดไพ่สุ่มเมนู · กินดิ!</span>
+            </div>
+            <h2
+              id="roulette-dialog-title"
+              className="text-lg sm:text-2xl font-extrabold text-[#141413] leading-tight tracking-tight"
+            >
+              เลือกไพ่ของคุณ
+            </h2>
+            <p id="roulette-dialog-desc" className="text-xs sm:text-sm text-[#57534E] mt-0.5">
+              เลือกไพ่ 1 ใบ แล้วมาดูกันว่ามื้อนี้จะกินอะไรดี
+            </p>
+          </div>
         </div>
 
         <button
           type="button"
           onClick={() => dialogRef.current?.close()}
           aria-label="ปิดหน้าต่างสุ่มไพ่"
-          className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/90 border border-[#171717]/15 flex items-center justify-center hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#171717] shrink-0 cursor-pointer"
+          className="w-10 h-10 rounded-xl bg-[#F5F2EA] border border-[#EAE5D9] flex items-center justify-center hover:bg-[#EAE5D9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#141413] shrink-0 cursor-pointer transition-colors"
         >
-          <X className="w-5 h-5 text-[#171717]" aria-hidden="true" />
+          <X className="w-5 h-5 text-[#141413]" aria-hidden="true" />
         </button>
       </div>
 
       {/* Controls Bar (Card Count Selector & Available Pool Indicator) */}
-      <div className="px-5 py-3 sm:px-6 bg-[#EAE5DA]/55 border-b border-[#171717]/10 flex flex-wrap items-center justify-between gap-3 shrink-0">
+      <div className="px-5 py-3 sm:px-6 bg-[#F5F2EA]/80 border-b border-[#EAE5D9] flex flex-wrap items-center justify-between gap-3 shrink-0">
         <CardCountSelector
           selectedCount={cardCount}
           onSelectCount={onChangeCardCount}
@@ -166,7 +167,7 @@ export function FoodRouletteModal({
 
         <div className="flex items-center gap-2.5">
           {round && !isLoading && !error && (
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#171717] bg-white/90 px-3 py-1.5 rounded-xl border border-[#171717]/12">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#141413] bg-white px-3 py-1.5 rounded-xl border border-[#EAE5D9] tabular-nums">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" />
               <span>พร้อมสุ่ม {round.totalEligibleCount} เมนู</span>
             </span>
@@ -177,7 +178,7 @@ export function FoodRouletteModal({
               type="button"
               onClick={onStartNewRound}
               disabled={round.isTransitioning}
-              className="kindi-btn-secondary inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold disabled:opacity-50 cursor-pointer"
+              className="kindi-btn-secondary min-h-9 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold disabled:opacity-50 cursor-pointer"
             >
               <RefreshCw className="w-3.5 h-3.5" aria-hidden="true" />
               <span>สับไพ่รอบใหม่</span>
@@ -207,7 +208,7 @@ export function FoodRouletteModal({
             {/* Step Instruction Banner before reveal */}
             {!round.isRevealed && (
               <div className="text-center">
-                <span className="inline-block px-3.5 py-1 rounded-full bg-[#171717] text-[#F8D84A] text-xs sm:text-sm font-extrabold">
+                <span className="inline-block px-3.5 py-1 rounded-full bg-[#141413] text-[#FACC15] text-xs sm:text-sm font-extrabold">
                   {round.isTransitioning
                     ? 'กำลังเปิดไพ่ของคุณ...'
                     : 'เลือกไพ่ที่ใช่ แล้วเปิดเลย!'}
@@ -238,12 +239,12 @@ export function FoodRouletteModal({
       </div>
 
       {/* Modal Footer */}
-      <div className="px-4 py-2.5 sm:px-6 bg-white border-t border-[#171717]/15 flex items-center justify-between gap-2 text-xs text-[#77736B] shrink-0">
+      <div className="px-4 py-2.5 sm:px-6 bg-white border-t border-[#EAE5D9] flex items-center justify-between gap-2 text-xs text-[#78716C] shrink-0">
         <span className="truncate">{SAFETY_DISCLAIMER_TH}</span>
         <button
           type="button"
           onClick={() => dialogRef.current?.close()}
-          className="px-3 py-1 rounded-lg font-bold text-[#171717] hover:bg-[#EAE5DA] shrink-0 cursor-pointer"
+          className="px-3 py-1 rounded-lg font-bold text-[#141413] hover:bg-[#F5F2EA] shrink-0 cursor-pointer transition-colors"
         >
           ปิด (Esc)
         </button>

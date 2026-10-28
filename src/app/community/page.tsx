@@ -211,17 +211,17 @@ export default function CommunityRecipesPage() {
   const totalSelectedIngredients = ingredientIds.length + customIngredientNames.length;
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8">
-      {/* Header Banner */}
-      <section className="kindi-hero-surface p-6 sm:p-8 space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#171717] text-[#F8D84A] text-xs font-bold">
+    <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
+      {/* Editorial Bento Header */}
+      <section className="kindi-surface-card p-6 sm:p-8 space-y-2.5">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF9C3] border border-[#EAE5D9] text-[#141413] text-xs font-extrabold">
           <PlusCircle className="w-3.5 h-3.5" aria-hidden="true" />
           <span>เพิ่มเมนูอาหาร</span>
         </div>
-        <h1 className="text-[clamp(1.6rem,1.2rem+2vw,2.4rem)] font-extrabold text-[#171717] leading-tight">
+        <h1 className="text-[clamp(1.6rem,1.2rem+2vw,2.4rem)] font-extrabold text-[#141413] leading-tight tracking-tight">
           มีเมนูโปรดในใจ? เพิ่มสูตรเก็บไว้กินดิ!
         </h1>
-        <p className="text-sm sm:text-base text-[#171717]/85 font-medium max-w-3xl leading-relaxed">
+        <p className="text-sm sm:text-base text-[#57534E] font-medium max-w-3xl leading-relaxed">
           วางลิงก์สูตรอาหารจากเว็บหรือโซเชียลไหนก็ได้ พร้อมใส่รูปและวัตถุดิบหลักเพื่อเก็บไว้สุ่มไพ่หรือค้นจากของในตู้เย็นได้ทันที
         </p>
       </section>
@@ -231,11 +231,11 @@ export default function CommunityRecipesPage() {
           onSubmit={handleSubmit}
           className="lg:col-span-7 kindi-surface-card p-6 sm:p-7 space-y-5"
         >
-          <div className="border-b border-[#EAE5DA] pb-3.5">
-            <h2 className="text-lg sm:text-xl font-extrabold text-[#171717]">
+          <div className="border-b border-[#EAE5D9] pb-3.5">
+            <h2 className="text-lg sm:text-xl font-extrabold text-[#141413]">
               เพิ่มเมนูอาหารใหม่
             </h2>
-            <p className="text-xs text-[#6E6A63] mt-0.5">
+            <p className="text-xs text-[#57534E] mt-0.5">
               กรอกข้อมูลเมนู ลิงก์สูตร และเลือกวัตถุดิบหลักเพื่อให้ระบบช่วยจับคู่เมนูได้อย่างแม่นยำ
             </p>
           </div>
@@ -245,12 +245,12 @@ export default function CommunityRecipesPage() {
               role={statusMessage.type === 'error' ? 'alert' : 'status'}
               className={`p-3.5 rounded-2xl border text-xs sm:text-sm font-bold flex items-start gap-2.5 ${
                 statusMessage.type === 'error'
-                  ? 'bg-[#FFE4E6] text-red-950 border-red-300'
-                  : 'bg-emerald-50 text-emerald-950 border-emerald-300'
+                  ? 'bg-rose-50 text-rose-950 border-rose-200'
+                  : 'bg-emerald-50 text-emerald-950 border-emerald-200'
               }`}
             >
               {statusMessage.type === 'error' ? (
-                <ShieldAlert className="w-5 h-5 shrink-0 text-red-700" aria-hidden="true" />
+                <ShieldAlert className="w-5 h-5 shrink-0 text-rose-700" aria-hidden="true" />
               ) : (
                 <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-700" aria-hidden="true" />
               )}
@@ -260,7 +260,7 @@ export default function CommunityRecipesPage() {
 
           {/* 1. ชื่อเมนูอาหาร */}
           <div className="kindi-input-group">
-            <label htmlFor="recipe-name" className="block text-xs font-bold text-[#171717] mb-1.5">
+            <label htmlFor="recipe-name" className="block text-xs font-bold text-[#141413] mb-1.5">
               ชื่อเมนูอาหาร *
             </label>
             <input
@@ -276,7 +276,7 @@ export default function CommunityRecipesPage() {
 
           {/* 2. ลิงก์สูตรอาหาร (บังคับ ไม่จำกัดค่าย) */}
           <div className="kindi-input-group">
-            <label htmlFor="recipe-link" className="block text-xs font-bold text-[#171717] mb-1.5">
+            <label htmlFor="recipe-link" className="block text-xs font-bold text-[#141413] mb-1.5">
               ลิงก์สูตรอาหาร (เว็บไหนหรือแพลตฟอร์มไหนก็ได้) *
             </label>
             <div className="relative">
@@ -293,11 +293,11 @@ export default function CommunityRecipesPage() {
                 className="kindi-input-field w-full pl-9 pr-3.5 py-2.5 text-sm font-medium"
               />
               <Link2
-                className="w-4 h-4 text-[#6E6A63] absolute left-3 top-1/2 -translate-y-1/2"
+                className="w-4 h-4 text-[#78716C] absolute left-3 top-1/2 -translate-y-1/2"
                 aria-hidden="true"
               />
             </div>
-            <p className="text-xs text-[#6E6A63] mt-1">
+            <p className="text-xs text-[#57534E] mt-1">
               เมื่อกดปุ่ม &ldquo;ดูสูตรอาหาร&rdquo; ระบบจะพาไปที่ลิงก์นี้ทันที
             </p>
           </div>
@@ -305,15 +305,15 @@ export default function CommunityRecipesPage() {
           {/* 3. รูปภาพอาหาร (บังคับ อัปโหลดไฟล์ หรือ วางลิงก์รูป) */}
           <div className="space-y-2.5">
             <div className="flex items-center justify-between gap-2">
-              <span className="block text-xs font-bold text-[#171717]">รูปภาพอาหาร *</span>
-              <div className="inline-flex p-0.5 rounded-xl bg-[#EAE5DA]/80 border border-[#171717]/10 text-xs font-bold">
+              <span className="block text-xs font-bold text-[#141413]">รูปภาพอาหาร *</span>
+              <div className="inline-flex p-0.5 rounded-xl bg-[#F5F2EA] border border-[#EAE5D9] text-xs font-bold">
                 <button
                   type="button"
                   onClick={() => setImageMode('upload')}
                   className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
                     imageMode === 'upload'
-                      ? 'bg-[#171717] text-[#F8D84A]'
-                      : 'text-[#6E6A63] hover:text-[#171717]'
+                      ? 'bg-[#141413] text-[#FACC15]'
+                      : 'text-[#57534E] hover:text-[#141413]'
                   }`}
                 >
                   อัปโหลดรูป
@@ -323,8 +323,8 @@ export default function CommunityRecipesPage() {
                   onClick={() => setImageMode('url')}
                   className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
                     imageMode === 'url'
-                      ? 'bg-[#171717] text-[#F8D84A]'
-                      : 'text-[#6E6A63] hover:text-[#171717]'
+                      ? 'bg-[#141413] text-[#FACC15]'
+                      : 'text-[#57534E] hover:text-[#141413]'
                   }`}
                 >
                   วางลิงก์รูป (URL)
@@ -335,13 +335,13 @@ export default function CommunityRecipesPage() {
             {imageMode === 'upload' ? (
               <label
                 htmlFor="recipe-image-upload"
-                className="flex flex-col items-center justify-center gap-2 p-5 rounded-2xl bg-[#FAF6EC] border-[1.5px] border-dashed border-[#171717]/30 hover:border-[#171717] hover:bg-[#FFF3C4]/35 transition-colors cursor-pointer text-center"
+                className="flex flex-col items-center justify-center gap-2 p-5 rounded-2xl bg-[#FCFBF7] border border-dashed border-[#D8D1C2] hover:border-[#141413] hover:bg-[#FEF9C3]/35 transition-colors cursor-pointer text-center"
               >
-                <ImagePlus className="w-6 h-6 text-[#171717]" aria-hidden="true" />
-                <span className="text-xs font-bold text-[#171717]">
+                <ImagePlus className="w-6 h-6 text-[#141413]" aria-hidden="true" />
+                <span className="text-xs font-bold text-[#141413]">
                   คลิกเพื่อเลือกรูปอาหารจากเครื่องของคุณ
                 </span>
-                <span className="text-xs text-[#6E6A63]">รองรับไฟล์ JPG, PNG, WEBP</span>
+                <span className="text-xs text-[#57534E]">รองรับไฟล์ JPG, PNG, WEBP</span>
                 <input
                   id="recipe-image-upload"
                   type="file"
@@ -365,7 +365,7 @@ export default function CommunityRecipesPage() {
             )}
 
             {imageUrl && (
-              <div className="relative rounded-2xl overflow-hidden border border-[#171717]/20 bg-[#EAE5DA] h-48">
+              <div className="relative rounded-2xl overflow-hidden border border-[#EAE5D9] bg-[#F5F2EA] h-48">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={imageUrl}
@@ -375,7 +375,7 @@ export default function CommunityRecipesPage() {
                 <button
                   type="button"
                   onClick={() => setImageUrl('')}
-                  className="absolute top-3 right-3 px-3 py-1 rounded-xl bg-[#171717]/85 text-white text-xs font-bold inline-flex items-center gap-1 hover:bg-[#171717] cursor-pointer"
+                  className="absolute top-3 right-3 px-3 py-1 rounded-xl bg-[#141413]/85 text-white text-xs font-bold inline-flex items-center gap-1 hover:bg-[#141413] cursor-pointer"
                 >
                   <X className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>เปลี่ยนรูป</span>
@@ -386,7 +386,7 @@ export default function CommunityRecipesPage() {
 
           {/* 4. คำอธิบายสั้นๆ */}
           <div className="kindi-input-group">
-            <label htmlFor="recipe-desc" className="block text-xs font-bold text-[#171717] mb-1.5">
+            <label htmlFor="recipe-desc" className="block text-xs font-bold text-[#141413] mb-1.5">
               คำอธิบายสั้นๆ *
             </label>
             <textarea
@@ -403,7 +403,7 @@ export default function CommunityRecipesPage() {
           {/* 5. หมวดหมู่ + เวลาทำ (Range Slider แทนการใส่ Text) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center pt-1">
             <div className="kindi-input-group">
-              <label htmlFor="recipe-cat" className="block text-xs font-bold text-[#171717] mb-1.5">
+              <label htmlFor="recipe-cat" className="block text-xs font-bold text-[#141413] mb-1.5">
                 หมวดหมู่ *
               </label>
               <select
@@ -422,10 +422,10 @@ export default function CommunityRecipesPage() {
 
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label htmlFor="recipe-time-range" className="text-xs font-bold text-[#171717]">
+                <label htmlFor="recipe-time-range" className="text-xs font-bold text-[#141413]">
                   เวลาทำโดยประมาณ *
                 </label>
-                <span className="px-2.5 py-0.5 rounded-lg bg-[#FFF3C4] border border-[#171717]/20 text-[#171717] text-xs font-extrabold">
+                <span className="px-2.5 py-0.5 rounded-lg bg-[#FEF9C3] border border-[#EAE5D9] text-[#141413] text-xs font-extrabold tabular-nums">
                   {cookingTime} นาที
                 </span>
               </div>
@@ -447,7 +447,7 @@ export default function CommunityRecipesPage() {
                 }
                 className="kindi-range-slider"
               />
-              <div className="flex justify-between text-xs font-medium text-[#6E6A63] mt-0.5">
+              <div className="flex justify-between text-xs font-medium text-[#57534E] mt-0.5 tabular-nums">
                 <span>5 นาที</span>
                 <span>60 นาที</span>
                 <span>120 นาที</span>
@@ -458,7 +458,7 @@ export default function CommunityRecipesPage() {
           {/* 6. มื้ออาหารที่เหมาะ & 7. ระดับความยาก */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <span className="block text-xs font-bold text-[#171717] mb-2">
+              <span className="block text-xs font-bold text-[#141413] mb-2">
                 มื้ออาหารที่เหมาะ *
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -472,8 +472,8 @@ export default function CommunityRecipesPage() {
                       aria-pressed={active}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                         active
-                          ? 'bg-[#171717] text-[#F8D84A] border-[#171717]'
-                          : 'bg-[#FAF6EC] text-[#171717] border-[#171717]/15 hover:border-[#171717]/50'
+                          ? 'bg-[#141413] text-[#FACC15] border-[#141413]'
+                          : 'bg-[#FCFBF7] text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
                       }`}
                     >
                       {MEAL_TYPE_LABELS[mt]}
@@ -484,7 +484,7 @@ export default function CommunityRecipesPage() {
             </div>
 
             <div>
-              <span className="block text-xs font-bold text-[#171717] mb-2">ระดับความยาก</span>
+              <span className="block text-xs font-bold text-[#141413] mb-2">ระดับความยาก</span>
               <div className="flex flex-wrap gap-1.5">
                 {(Object.keys(DIFFICULTY_LABELS) as RecipeDifficulty[]).map((diff) => (
                   <button
@@ -494,8 +494,8 @@ export default function CommunityRecipesPage() {
                     aria-pressed={difficulty === diff}
                     className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                       difficulty === diff
-                        ? 'bg-[#F8D84A] text-[#171717] border-[#171717]'
-                        : 'bg-[#FAF6EC] text-[#171717] border-[#171717]/15 hover:border-[#171717]/50'
+                        ? 'bg-[#FEF9C3] text-[#141413] border-[#141413]'
+                        : 'bg-[#FCFBF7] text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
                     }`}
                   >
                     {DIFFICULTY_LABELS[diff]}
@@ -508,11 +508,11 @@ export default function CommunityRecipesPage() {
           {/* 8. เลือกวัตถุดิบที่ใช้ + อื่นๆ */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-bold text-[#171717]">
+              <span className="text-xs font-bold text-[#141413] tabular-nums">
                 เลือกวัตถุดิบหลักที่ใช้ ({totalSelectedIngredients} รายการ) *
               </span>
             </div>
-            <div className="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto p-3.5 rounded-2xl bg-[#FAF6EC] border border-[#171717]/15">
+            <div className="flex flex-wrap gap-1.5 max-h-48 overflow-y-auto p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9]">
               {allAvailableIngredients.map((ing) => {
                 const selected = ingredientIds.includes(ing.id);
                 return (
@@ -523,8 +523,8 @@ export default function CommunityRecipesPage() {
                     aria-pressed={selected}
                     className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                       selected
-                        ? 'bg-[#171717] text-[#F8D84A] border-[#171717]'
-                        : 'bg-white text-[#171717] border-[#171717]/15 hover:border-[#171717]/50'
+                        ? 'bg-[#141413] text-[#FACC15] border-[#141413]'
+                        : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
                     }`}
                   >
                     {ing.name_th}
@@ -539,8 +539,8 @@ export default function CommunityRecipesPage() {
                 aria-expanded={showOtherIngredientInput || customIngredientNames.length > 0}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer inline-flex items-center gap-1 ${
                   showOtherIngredientInput || customIngredientNames.length > 0
-                    ? 'bg-[#F8D84A] text-[#171717] border-[#171717]'
-                    : 'bg-white text-[#171717] border-dashed border-[#171717]/45 hover:border-[#171717]'
+                    ? 'bg-[#FEF9C3] text-[#141413] border-[#141413]'
+                    : 'bg-white text-[#141413] border-dashed border-[#D8D1C2] hover:border-[#141413]'
                 }`}
               >
                 <Plus className="w-3.5 h-3.5" aria-hidden="true" />
@@ -549,10 +549,10 @@ export default function CommunityRecipesPage() {
             </div>
 
             {(showOtherIngredientInput || customIngredientNames.length > 0) && (
-              <div className="mt-2.5 p-3.5 rounded-2xl bg-[#FAF6EC] border border-[#171717]/25 space-y-2.5">
+              <div className="mt-2.5 p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] space-y-2.5">
                 <label
                   htmlFor="custom-ingredient-input"
-                  className="block text-xs font-bold text-[#171717]"
+                  className="block text-xs font-bold text-[#141413]"
                 >
                   เพิ่มวัตถุดิบอื่นๆ ที่ไม่มีในรายการ:
                 </label>
@@ -574,7 +574,7 @@ export default function CommunityRecipesPage() {
                   <button
                     type="button"
                     onClick={addCustomIngredient}
-                    className="px-3.5 py-2 rounded-xl bg-[#171717] text-[#F8D84A] text-xs font-bold cursor-pointer shrink-0"
+                    className="kindi-btn-primary px-3.5 py-2 rounded-xl text-xs font-bold cursor-pointer shrink-0"
                   >
                     + เพิ่มวัตถุดิบ
                   </button>
@@ -585,7 +585,7 @@ export default function CommunityRecipesPage() {
                     {customIngredientNames.map((item) => (
                       <span
                         key={item}
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#171717] text-[#F8D84A] text-xs font-bold"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#141413] text-[#FACC15] text-xs font-bold"
                       >
                         <span>{item}</span>
                         <button
@@ -605,9 +605,9 @@ export default function CommunityRecipesPage() {
           </div>
 
           {/* 9. ข้อมูลข้อจำกัดทางอาหารของสูตรนี้ */}
-          <div className="p-4 rounded-2xl bg-[#FAF6EC] border border-[#171717]/15 space-y-3.5">
+          <div className="p-4 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] space-y-3.5">
             <div>
-              <span className="block text-xs font-bold text-[#171717] mb-1.5">
+              <span className="block text-xs font-bold text-[#141413] mb-1.5">
                 รองรับรูปแบบการกิน (ถ้ามี)
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -621,8 +621,8 @@ export default function CommunityRecipesPage() {
                       aria-pressed={active}
                       className={`px-3 py-1 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                         active
-                          ? 'bg-emerald-800 text-white border-emerald-950'
-                          : 'bg-white text-[#171717] border-[#171717]/15 hover:border-[#171717]/50'
+                          ? 'bg-emerald-800 text-white border-emerald-900'
+                          : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
                       }`}
                     >
                       {opt.label}
@@ -633,7 +633,7 @@ export default function CommunityRecipesPage() {
             </div>
 
             <div>
-              <span className="block text-xs font-bold text-[#171717] mb-1.5">
+              <span className="block text-xs font-bold text-[#141413] mb-1.5">
                 สารก่อภูมิแพ้ที่มีในเมนูนี้ (เพื่อช่วยซ่อนเมนูจากคนที่แพ้อัตโนมัติ)
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -647,8 +647,8 @@ export default function CommunityRecipesPage() {
                       aria-pressed={active}
                       className={`px-3 py-1 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                         active
-                          ? 'bg-[#FFE4E6] text-red-950 border-red-400'
-                          : 'bg-white text-[#171717] border-[#171717]/15 hover:border-[#171717]/50'
+                          ? 'bg-rose-50 text-rose-950 border-rose-300'
+                          : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
                       }`}
                     >
                       {ALLERGEN_LABELS[alg].label}
@@ -662,7 +662,7 @@ export default function CommunityRecipesPage() {
           {/* 10. ขั้นตอนวิธีทำย่อๆ & 11. ชื่อผู้เพิ่มสูตร */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="kindi-input-group">
-              <label htmlFor="recipe-steps" className="block text-xs font-bold text-[#171717] mb-1.5">
+              <label htmlFor="recipe-steps" className="block text-xs font-bold text-[#141413] mb-1.5">
                 โน้ตวิธีทำ / เคล็ดลับสั้นๆ (ไม่บังคับ)
               </label>
               <input
@@ -676,7 +676,7 @@ export default function CommunityRecipesPage() {
             </div>
 
             <div className="kindi-input-group">
-              <label htmlFor="recipe-author" className="block text-xs font-bold text-[#171717] mb-1.5">
+              <label htmlFor="recipe-author" className="block text-xs font-bold text-[#141413] mb-1.5">
                 ชื่อคนเพิ่มสูตร (ไม่บังคับ)
               </label>
               <input
@@ -693,7 +693,7 @@ export default function CommunityRecipesPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="kindi-btn-primary w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl font-extrabold text-sm cursor-pointer"
+            className="kindi-btn-primary min-h-12 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl font-extrabold text-sm cursor-pointer"
           >
             <Send className="w-4 h-4" aria-hidden="true" />
             <span>{isSubmitting ? 'กำลังบันทึกเมนูอาหาร...' : 'บันทึกเมนูอาหารเข้าสำรับ!'}</span>
@@ -705,20 +705,23 @@ export default function CommunityRecipesPage() {
           aria-labelledby="shared-recipes-heading"
           className="lg:col-span-5 kindi-surface-card p-6 space-y-4"
         >
-          <div className="flex items-center justify-between gap-2 border-b border-[#EAE5DA] pb-3">
-            <h2 id="shared-recipes-heading" className="text-base font-extrabold text-[#171717]">
+          <div className="flex items-center justify-between gap-2 border-b border-[#EAE5D9] pb-3">
+            <h2
+              id="shared-recipes-heading"
+              className="text-base font-extrabold text-[#141413] tabular-nums"
+            >
               เมนูอาหารที่เพิ่มแล้ว ({sharedRecipes.length} เมนู)
             </h2>
           </div>
-          <p className="text-xs text-[#6E6A63] leading-relaxed">
+          <p className="text-xs text-[#57534E] leading-relaxed">
             เมนูทั้งหมดในรายการนี้พร้อมใช้ใน <strong>สุ่มไพ่เมนู</strong>,{' '}
             <strong>มีอะไรในตู้</strong> และ <strong>รวมเมนูทั้งหมด</strong> ทันที
           </p>
 
           {sharedRecipes.length === 0 ? (
-            <div className="p-6 rounded-2xl bg-[#FAF6EC] border border-dashed border-[#171717]/25 text-center space-y-1.5">
-              <p className="text-sm font-bold text-[#171717]">ยังไม่มีเมนูอาหารที่เพิ่มไว้</p>
-              <p className="text-xs text-[#6E6A63]">
+            <div className="p-6 rounded-2xl bg-[#FCFBF7] border border-dashed border-[#D8D1C2] text-center space-y-1.5">
+              <p className="text-sm font-bold text-[#141413]">ยังไม่มีเมนูอาหารที่เพิ่มไว้</p>
+              <p className="text-xs text-[#57534E]">
                 เพิ่มเมนูโปรดทางด้านซ้ายเพื่อเริ่มสร้างสำรับไพ่ของคุณได้เลย
               </p>
             </div>
@@ -736,12 +739,12 @@ export default function CommunityRecipesPage() {
                       <img
                         src={item.image_url}
                         alt={item.name}
-                        className="w-16 h-16 rounded-xl object-cover border border-[#171717]/15 shrink-0 bg-[#EAE5DA]"
+                        className="w-16 h-16 rounded-xl object-cover border border-[#EAE5D9] shrink-0 bg-[#F5F2EA]"
                       />
                     )}
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-extrabold text-[#171717] truncate">{item.name}</p>
-                      <p className="text-xs text-[#6E6A63] font-medium">
+                      <p className="text-sm font-extrabold text-[#141413] truncate">{item.name}</p>
+                      <p className="text-xs text-[#57534E] font-medium tabular-nums">
                         {FOOD_CATEGORY_LABELS[item.category]} · {item.cooking_time} นาที
                       </p>
                       <div className="flex items-center gap-2 mt-2">
@@ -749,16 +752,16 @@ export default function CommunityRecipesPage() {
                           href={ext.primaryUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#171717] text-[#F8D84A] text-xs font-bold hover:bg-[#262626] transition-colors"
+                          className="kindi-btn-primary inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold"
                         >
-                          <span>ดูสูตร ({ext.primarySourceName})</span>
+                          <span>ลิงก์สูตรอาหาร</span>
                           <ExternalLink className="w-3 h-3" aria-hidden="true" />
                         </a>
                         <button
                           type="button"
                           onClick={() => handleDeleteRecipe(item.id)}
                           aria-label={`ลบเมนู ${item.name}`}
-                          className="p-1.5 rounded-lg text-red-700 hover:bg-red-50 cursor-pointer"
+                          className="p-1.5 rounded-lg text-rose-700 hover:bg-rose-50 cursor-pointer"
                         >
                           <Trash2 className="w-3.5 h-3.5" aria-hidden="true" />
                         </button>

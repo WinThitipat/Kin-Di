@@ -21,10 +21,10 @@ export function CardCountSelector({
     <div
       role="group"
       aria-label="เลือกจำนวนไพ่ปริศนา"
-      className="inline-flex items-center gap-1 bg-white/95 p-1 rounded-2xl border border-[#171717]/12 shadow-xs"
+      className="inline-flex items-center gap-1 bg-white p-1 rounded-2xl border border-[#EAE5D9] shadow-xs"
     >
-      <span className="inline-flex items-center gap-1.5 px-2.5 text-xs font-bold text-[#6E6A63]">
-        <Layers className="w-3.5 h-3.5 text-[#171717]" aria-hidden="true" />
+      <span className="inline-flex items-center gap-1.5 px-2.5 text-xs font-bold text-[#57534E]">
+        <Layers className="w-3.5 h-3.5 text-[#141413]" aria-hidden="true" />
         <span>จำนวนไพ่:</span>
       </span>
       {CARD_COUNT_OPTIONS.map((count) => {
@@ -40,10 +40,10 @@ export function CardCountSelector({
               }
             }}
             aria-pressed={isActive}
-            className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold tabular-nums transition-all cursor-pointer ${
               isActive
-                ? 'bg-[#F8D84A] text-[#171717] border border-[#171717]/20 shadow-xs'
-                : 'bg-transparent text-[#171717]/75 border border-transparent hover:bg-[#EAE5DA]/60 hover:text-[#171717]'
+                ? 'bg-[#141413] text-[#FACC15] shadow-xs'
+                : 'bg-transparent text-[#57534E] hover:bg-[#F5F2EA] hover:text-[#141413]'
             } disabled:opacity-50 disabled:cursor-not-allowed`}
           >
             {count} ใบ
