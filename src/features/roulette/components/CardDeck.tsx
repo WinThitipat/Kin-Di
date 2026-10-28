@@ -28,12 +28,12 @@ export function CardDeck({ round, onSelectCard, onFlipTransitionEnd }: CardDeckP
       {hasFewerThanRequested && (
         <div
           role="status"
-          className="mx-auto max-w-xl px-4 py-2.5 rounded-2xl bg-[#FFF3C4] border-2 border-[#171717] flex items-center gap-2.5 text-xs sm:text-sm text-[#171717] font-semibold"
+          className="mx-auto max-w-xl px-4 py-2.5 rounded-2xl bg-[#FFF3C4]/85 border border-[#171717]/15 flex items-center gap-2.5 text-xs sm:text-sm text-[#171717] font-medium"
         >
           <Info className="w-4 h-4 shrink-0 text-[#171717]" aria-hidden="true" />
           <span>
-            คุณเลือกไว้ {requestedCardCount} ใบ แต่ตอนนี้มีเมนูที่ตรงเงื่อนไขทั้งหมด{' '}
-            <strong>{cards.length} เมนู</strong> ระบบจึงจัดไพ่ให้ {cards.length} ใบแบบไม่ซ้ำกัน!
+            คุณเลือกไว้ {requestedCardCount} ใบ แต่ตอนนี้มีเมนูที่ตรงเงื่อนไข{' '}
+            <strong>{cards.length} เมนู</strong> จึงจัดไพ่ให้ {cards.length} ใบแบบไม่ซ้ำกัน
           </span>
         </div>
       )}

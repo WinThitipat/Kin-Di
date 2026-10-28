@@ -92,16 +92,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           {children}
         </main>
 
-        <footer className="border-t-2 border-[#171717]/15 bg-[#EAE5DA]/60 py-6 px-4 sm:px-6 mt-12">
-          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#77736B]">
+        <footer className="border-t border-[#171717]/10 bg-[#EAE5DA]/50 py-6 px-4 sm:px-6 mt-12">
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#6E6A63]">
             <div>
               <p className="font-bold text-[#171717]">
                 กินดิ! — KIN DI · Stop thinking. Start eating.
               </p>
               <p className="mt-1 max-w-2xl leading-relaxed">{SAFETY_DISCLAIMER_TH}</p>
             </div>
-            <div className="text-[11px] font-semibold text-[#77736B] shrink-0">
-              ระบบคัดกรองข้อจำกัดทางอาหารและสุ่มไพ่เมนูอาหาร
+            <div className="text-xs font-medium text-[#6E6A63] shrink-0">
+              สุ่มไพ่เมนูอาหารและค้นหาเมนูจากของในตู้เย็น
             </div>
           </div>
         </footer>

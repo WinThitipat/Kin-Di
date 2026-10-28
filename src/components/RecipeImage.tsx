@@ -28,14 +28,14 @@ export function RecipeImage({ src, alt, category, className = '' }: RecipeImageP
         role="img"
         aria-label={alt}
       >
-        <div className="w-12 h-12 rounded-2xl bg-[#F8D84A] border-2 border-[#171717] flex items-center justify-center shadow-[2px_2px_0px_#171717] mb-2">
+        <div className="w-12 h-12 rounded-2xl bg-[#F8D84A] border border-[#171717]/15 flex items-center justify-center shadow-xs mb-2">
           <UtensilsCrossed className="w-6 h-6 text-[#171717]" aria-hidden="true" />
         </div>
-        <span className="text-xs font-bold tracking-wide uppercase text-[#171717]">
+        <span className="text-xs font-bold tracking-wide text-[#171717]">
           กินดิ! — KIN DI
         </span>
         {category && (
-          <span className="text-[11px] text-[#77736B] mt-0.5">
+          <span className="text-xs text-[#6E6A63] mt-0.5">
             {FOOD_CATEGORY_LABELS[category]}
           </span>
         )}

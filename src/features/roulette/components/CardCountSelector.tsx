@@ -21,9 +21,9 @@ export function CardCountSelector({
     <div
       role="group"
       aria-label="เลือกจำนวนไพ่ปริศนา"
-      className="inline-flex items-center gap-1.5 bg-white p-1.5 rounded-2xl border-2 border-[#171717] shadow-[2px_2px_0px_#171717]"
+      className="inline-flex items-center gap-1 bg-white/95 p-1 rounded-2xl border border-[#171717]/12 shadow-xs"
     >
-      <span className="inline-flex items-center gap-1.5 px-2.5 text-xs font-bold text-[#77736B]">
+      <span className="inline-flex items-center gap-1.5 px-2.5 text-xs font-bold text-[#6E6A63]">
         <Layers className="w-3.5 h-3.5 text-[#171717]" aria-hidden="true" />
         <span>จำนวนไพ่:</span>
       </span>
@@ -40,10 +40,10 @@ export function CardCountSelector({
               }
             }}
             aria-pressed={isActive}
-            className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-extrabold transition-colors cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               isActive
-                ? 'bg-[#F8D84A] text-[#171717] border-2 border-[#171717]'
-                : 'bg-transparent text-[#171717] border-2 border-transparent hover:bg-[#EAE5DA]/60'
+                ? 'bg-[#F8D84A] text-[#171717] border border-[#171717]/20 shadow-xs'
+                : 'bg-transparent text-[#171717]/75 border border-transparent hover:bg-[#EAE5DA]/60 hover:text-[#171717]'
             } disabled:opacity-50 disabled:cursor-not-allowed`}
           >
             {count} ใบ

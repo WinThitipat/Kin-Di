@@ -55,13 +55,13 @@ export function MysteryCard({
           {/* FRONT FACE: Face-down Mystery Card */}
           <div
             aria-hidden={isFlipped}
-            className="kindi-card-face kindi-card-face-front bg-[#171717] text-[#FFF9EC] border-2 border-[#171717] shadow-[4px_4px_0px_#F8D84A] group-hover:shadow-[6px_6px_0px_#F8D84A] p-2.5 sm:p-3 flex flex-col justify-between overflow-hidden"
+            className="kindi-card-face kindi-card-face-front bg-[#171717] text-[#FFF9EC] border border-[#171717] shadow-[0_8px_20px_rgba(23,23,23,0.18)] group-hover:shadow-[0_14px_28px_rgba(23,23,23,0.26)] p-2.5 sm:p-3 flex flex-col justify-between overflow-hidden transition-shadow"
           >
             {/* Inner ornamental card frame */}
-            <div className="w-full h-full rounded-xl border border-[#F8D84A]/35 bg-[radial-gradient(#F8D84A_1px,transparent_1px)] [background-size:14px_14px] p-2.5 flex flex-col justify-between relative">
+            <div className="w-full h-full rounded-xl border border-[#F8D84A]/25 p-2.5 flex flex-col justify-between relative">
               {/* Top corner badge */}
               <div className="flex items-center justify-between">
-                <span className="inline-flex items-center justify-center px-2 py-0.5 rounded-md bg-[#F8D84A] text-[#171717] text-[11px] font-extrabold tracking-wide">
+                <span className="inline-flex items-center justify-center px-2 py-0.5 rounded-md bg-[#F8D84A] text-[#171717] text-xs font-extrabold tracking-wide">
                   #{cardIndex}
                 </span>
                 <Sparkles className="w-4 h-4 text-[#F8D84A]" aria-hidden="true" />
@@ -69,19 +69,19 @@ export function MysteryCard({
 
               {/* Center Mystery Brand Emblem */}
               <div className="my-auto flex flex-col items-center text-center py-1">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#F8D84A] border-2 border-[#FFF9EC] flex items-center justify-center shadow-[0_4px_14px_rgba(248,216,74,0.3)] group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#F8D84A] flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
                   <UtensilsCrossed className="w-6 h-6 sm:w-7 sm:h-7 text-[#171717]" aria-hidden="true" />
                 </div>
-                <span className="mt-2 text-xs sm:text-sm font-extrabold tracking-tight text-[#F8D84A]">
+                <span className="mt-2.5 text-xs sm:text-sm font-extrabold tracking-tight text-[#F8D84A]">
                   กินดิ!
                 </span>
-                <span className="text-[10px] sm:text-[11px] text-[#FFF9EC]/85 font-medium leading-tight mt-0.5">
-                  เลือกไพ่ที่ใช่ แล้วเปิดเลย!
+                <span className="text-xs text-[#FFF9EC]/80 font-medium leading-tight mt-0.5">
+                  กดเพื่อเปิดไพ่
                 </span>
               </div>
 
               {/* Bottom corner label */}
-              <div className="flex items-center justify-between text-[10px] font-bold text-[#F8D84A]/80 uppercase tracking-wider">
+              <div className="flex items-center justify-between text-xs font-bold text-[#F8D84A]/75 tracking-wide">
                 <span>KIN DI</span>
                 <span>ใบที่ {cardIndex}</span>
               </div>
@@ -91,15 +91,15 @@ export function MysteryCard({
           {/* BACK FACE: Revealed Recipe Card */}
           <div
             aria-hidden={!isFlipped}
-            className="kindi-card-face kindi-card-face-back bg-white text-[#171717] border-2 border-[#171717] shadow-[5px_5px_0px_#171717] flex flex-col overflow-hidden"
+            className="kindi-card-face kindi-card-face-back bg-white text-[#171717] border border-[#171717]/15 shadow-[0_10px_24px_rgba(23,23,23,0.14)] flex flex-col overflow-hidden"
           >
             {/* Non-color-only selected indicator header */}
-            <div className="bg-[#F8D84A] px-2.5 py-1.5 border-b-2 border-[#171717] flex items-center justify-between gap-1">
-              <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#171717]">
+            <div className="bg-[#F8D84A] px-2.5 py-1.5 border-b border-[#171717]/15 flex items-center justify-between gap-1">
+              <span className="inline-flex items-center gap-1 text-xs font-extrabold text-[#171717]">
                 <CheckCircle2 className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-                <span>เลือกใบที่ #{cardIndex}</span>
+                <span>ใบที่ #{cardIndex}</span>
               </span>
-              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#171717] text-[#F8D84A] truncate">
+              <span className="text-xs font-bold px-1.5 py-0.5 rounded bg-[#171717] text-[#F8D84A] truncate">
                 {FOOD_CATEGORY_LABELS[recipe.category]}
               </span>
             </div>
@@ -120,7 +120,7 @@ export function MysteryCard({
                 {recipe.name}
               </h3>
 
-              <div className="flex items-center justify-between gap-1 text-[11px] font-bold text-[#77736B] pt-1 border-t border-[#EAE5DA]">
+              <div className="flex items-center justify-between gap-1 text-xs font-bold text-[#6E6A63] pt-1 border-t border-[#EAE5DA]">
                 <span className="inline-flex items-center gap-1">
                   <Clock className="w-3 h-3 text-[#171717]" aria-hidden="true" />
                   <span>{recipe.cooking_time} นาที</span>
