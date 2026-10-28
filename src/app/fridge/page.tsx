@@ -451,7 +451,7 @@ export default function FridgeModePage() {
                             </div>
                           </div>
 
-                          <h3 className="text-base sm:text-lg font-semibold text-[#302923] leading-snug break-words">
+                          <h3 className="text-base sm:text-lg font-semibold text-[#302923] leading-relaxed break-words">
                             {recipe.name}
                           </h3>
                         </div>
@@ -523,7 +523,7 @@ export default function FridgeModePage() {
                           <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#F1EADF] text-[#302923] tabular-nums whitespace-nowrap">
                             {FOOD_CATEGORY_LABELS[recipe.category]} · {recipe.cooking_time} นาที
                           </span>
-                          <h3 className="text-base sm:text-lg font-semibold text-[#302923] mt-1.5 leading-snug">
+                          <h3 className="text-base sm:text-lg font-semibold text-[#302923] mt-1.5 leading-relaxed">
                             {recipe.name}
                           </h3>
                         </div>

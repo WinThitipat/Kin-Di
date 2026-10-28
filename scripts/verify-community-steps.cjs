@@ -9,6 +9,7 @@ fs.mkdirSync('artifacts/community-steps', {recursive:true});
   for (const mobile of [true,false]) {
    const context = await browser.newContext({viewport:{width:mobile?390:1440,height:900},isMobile:mobile,hasTouch:mobile});
    const page = await context.newPage();
+   await require('./mock-recipe-api.cjs').mockRecipeAPI(context);
    const errors=[]; page.on('pageerror',error=>errors.push(error.message));
    const click = async locator => mobile ? locator.tap() : locator.click();
    await page.goto(base+'/community');await page.waitForLoadState('networkidle');
@@ -49,7 +50,7 @@ fs.mkdirSync('artifacts/community-steps', {recursive:true});
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
    await page.screenshot({path:`artifacts/community-steps/review-${mobile?'mobile':'desktop'}.png`,fullPage:true});
    await click(page.getByRole('button',{name:'บันทึกเมนูอาหารเข้าสำรับ!'}));
-   await page.getByRole('status').filter({hasText:'เพิ่มเมนูอาหารเรียบร้อยแล้ว'}).waitFor();await step(0);
+   await page.getByRole('status').filter({hasText:'บันทึกเมนูลงฐานข้อมูลเรียบร้อยแล้ว'}).waitFor();await step(0);
    assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('kindi:shared-recipes:v1')).length),1);
    assert.equal(await page.locator('#recipe-name').inputValue(),'');
    assert.equal(await page.locator('#recipe-author').inputValue(),'');

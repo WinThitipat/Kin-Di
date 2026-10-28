@@ -267,7 +267,7 @@ export default function RecipeDetailPage() {
           <div className="w-9 h-9 rounded-xl bg-white border border-emerald-200 flex items-center justify-center shrink-0 text-emerald-700">
             <ShieldCheck className="w-5 h-5" aria-hidden="true" />
           </div>
-          <div className="leading-snug">
+          <div className="leading-relaxed">
             <span className="font-semibold text-[#302923]">ปลอดภัยสำหรับคุณ:</span>{' '}
             <span className="font-medium text-emerald-900">
               เมนูนี้ผ่านเกณฑ์ข้อจำกัดทางอาหารและสารก่อภูมิแพ้ที่คุณตั้งค่าไว้ทั้งหมด
@@ -311,7 +311,7 @@ export default function RecipeDetailPage() {
               <div className="space-y-2">
                 <h1
                   id="recipe-title"
-                  className="text-[clamp(1.6rem,1.3rem+1.5vw,2.35rem)] font-semibold text-[#302923] leading-tight tracking-tight"
+                  className="text-[clamp(1.6rem,1.3rem+1.5vw,2.35rem)] font-semibold text-[#302923] leading-relaxed tracking-tight"
                 >
                   {recipe.name}
                 </h1>

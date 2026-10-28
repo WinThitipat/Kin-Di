@@ -111,7 +111,7 @@ export function RecipeReveal({
             </div>
 
             {/* Recipe Name */}
-            <h3 className="text-xl sm:text-2xl font-semibold text-[#302923] leading-snug break-words tracking-tight">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#302923] leading-relaxed break-words tracking-tight">
               {recipe.name}
             </h3>
 

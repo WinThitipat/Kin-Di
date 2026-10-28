@@ -66,6 +66,7 @@ const recipes = [
   const browser = await chromium.launch({ headless: true, channel: "chrome" });
   const context = await browser.newContext(process.env.TEST_DEVICE === 'mobile' ? { isMobile: true, hasTouch: true } : {});
   const page = await context.newPage();
+  await require('./mock-recipe-api.cjs').mockRecipeAPI(context);
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   async function go(path) {
@@ -254,7 +255,7 @@ const recipes = [
       .click();
     await page
       .getByRole("status")
-      .filter({ hasText: "เพิ่มเมนูอาหารเรียบร้อยแล้ว" })
+      .filter({ hasText: "บันทึกเมนูลงฐานข้อมูลเรียบร้อยแล้ว" })
       .waitFor();
     assert.equal(
       await page.evaluate(

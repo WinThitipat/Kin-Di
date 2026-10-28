@@ -1,308 +1,172 @@
-import { buildAllergenAssessments, INITIAL_RECIPES } from '@/data/recipes-seed';
-import { inferExternalSourceName } from '@/lib/external-recipes';
-import { getSupabaseBrowserClient, isSupabaseConfigured } from '@/lib/supabase';
+import { INGREDIENTS_CATALOG, INITIAL_RECIPES } from "@/data/recipes-seed";
 import {
   getMergedIngredientsCatalog,
   loadSharedRecipes,
+  loadCustomIngredients,
   saveCustomIngredient,
   saveSharedRecipe,
-} from '@/lib/user-storage';
+} from "@/lib/user-storage";
 import {
-  AllergenId,
   CommunityRecipeSubmissionInput,
   CommunityRecipeSubmissionSchema,
-  IngredientRecord,
   Recipe,
-  RecipeAllergenAssessment,
   RecipeIdSchema,
-} from '@/types/recipe';
-
-const PUBLIC_RECIPE_SELECT_COLUMNS = `
-  id,
-  name,
-  description,
-  category,
-  meal_types,
-  cooking_time,
-  estimated_cost,
-  difficulty,
-  image_url,
-  external_recipe_url,
-  external_source_name,
-  status,
-  dietary_tags,
-  instructions,
-  safety_metadata_complete,
-  cross_contact_risk,
-  submitted_by,
-  created_at,
-  recipe_ingredients (
-    ingredient_id,
-    quantity,
-    role,
-    is_optional,
-    composition_verified
-  ),
-  recipe_allergen_assessments (
-    allergen,
-    status,
-    cross_contact_risk,
-    notes
-  )
-`;
+} from "@/types/recipe";
 
 export interface FetchRecipesResult {
   recipes: Recipe[];
-  source: 'supabase' | 'local-seed';
+  source: "supabase" | "local-seed";
   error: string | null;
+  databaseRecipeIds?: string[];
 }
 
-/**
- * Fetches publicly visible, approved recipes from Supabase when configured,
- * merged with user-shared recipes stored in localStorage (`loadSharedRecipes()`).
- * Note: `INITIAL_RECIPES` is empty (`[]`) as requested, so only user-shared or Supabase-approved recipes appear.
- */
-export async function fetchApprovedRecipes(): Promise<FetchRecipesResult> {
-  const supabase = getSupabaseBrowserClient();
-  const localShared = loadSharedRecipes().filter((r) => r.status === 'approved');
-
-  if (!isSupabaseConfigured || !supabase) {
-    const approvedSeed = INITIAL_RECIPES.filter((r) => r.status === 'approved');
-    return {
-      recipes: [...localShared, ...approvedSeed],
-      source: 'local-seed',
-      error: null,
-    };
-  }
-
-  try {
-    const { data, error } = await supabase
-      .from('recipes')
-      .select(PUBLIC_RECIPE_SELECT_COLUMNS)
-      .eq('status', 'approved')
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      return {
-        recipes: localShared,
-        source: 'supabase',
-        error: 'ไม่สามารถโหลดข้อมูลเมนูอาหารจากระบบได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง',
-      };
-    }
-
-    if (!data || data.length === 0) {
-      return {
-        recipes: localShared,
-        source: 'supabase',
-        error: null,
-      };
-    }
-
-    const mapped: Recipe[] = data.map((row: Record<string, unknown>) => {
-      const rawAssessments = Array.isArray(row.recipe_allergen_assessments)
-        ? row.recipe_allergen_assessments
-        : [];
-      let assessmentMap: Record<AllergenId, RecipeAllergenAssessment> | null = null;
-
-      if (rawAssessments.length > 0) {
-        assessmentMap = {} as Record<AllergenId, RecipeAllergenAssessment>;
-        for (const item of rawAssessments as RecipeAllergenAssessment[]) {
-          if (item && item.allergen) {
-            assessmentMap[item.allergen] = {
-              allergen: item.allergen,
-              status: item.status ?? 'unknown',
-              cross_contact_risk: item.cross_contact_risk ?? 'unknown',
-              notes: item.notes,
-            };
-          }
-        }
+function cacheIngredientNames(recipes: Recipe[]) {
+  const saved = new Map(loadCustomIngredients().map((item) => [item.id, item]));
+  for (const recipe of recipes)
+    for (const ingredient of recipe.ingredient_catalog ?? []) {
+      if (
+        !INGREDIENTS_CATALOG[ingredient.id] &&
+        JSON.stringify(saved.get(ingredient.id)) !== JSON.stringify(ingredient)
+      ) {
+        saveCustomIngredient(ingredient);
+        saved.set(ingredient.id, ingredient);
       }
+    }
+}
 
-      return {
-        id: String(row.id ?? ''),
-        name: String(row.name ?? ''),
-        description: String(row.description ?? ''),
-        category: row.category as Recipe['category'],
-        meal_types: Array.isArray(row.meal_types) ? (row.meal_types as Recipe['meal_types']) : [],
-        cooking_time: Number(row.cooking_time ?? 15),
-        estimated_cost: typeof row.estimated_cost === 'number' ? row.estimated_cost : undefined,
-        difficulty: (row.difficulty as Recipe['difficulty']) ?? 'easy',
-        image_url: typeof row.image_url === 'string' ? row.image_url : null,
-        external_recipe_url:
-          typeof row.external_recipe_url === 'string' ? row.external_recipe_url : null,
-        external_source_name:
-          typeof row.external_source_name === 'string' ? row.external_source_name : null,
-        status: 'approved',
-        dietary_tags: Array.isArray(row.dietary_tags)
-          ? (row.dietary_tags as Recipe['dietary_tags'])
-          : [],
-        instructions: Array.isArray(row.instructions) ? (row.instructions as string[]) : [],
-        safety_metadata_complete: Boolean(row.safety_metadata_complete),
-        cross_contact_risk: (row.cross_contact_risk as Recipe['cross_contact_risk']) ?? 'unknown',
-        ingredients: Array.isArray(row.recipe_ingredients)
-          ? (row.recipe_ingredients as Recipe['ingredients'])
-          : [],
-        allergen_assessments: assessmentMap,
-        submitted_by: typeof row.submitted_by === 'string' ? row.submitted_by : undefined,
-        created_at: String(row.created_at ?? new Date().toISOString()),
-      };
-    });
-
+export async function fetchApprovedRecipes(): Promise<FetchRecipesResult> {
+  const local = [...loadSharedRecipes(), ...INITIAL_RECIPES].filter(
+    (recipe) => recipe.status === "approved",
+  );
+  if (typeof window === "undefined")
+    return { recipes: local, source: "local-seed", error: null };
+  try {
+    const response = await fetch("/api/recipes", { cache: "no-store" });
+    const body = await response.json();
+    if (!response.ok || !Array.isArray(body.recipes))
+      throw new Error(body.error || "โหลดเมนูจากฐานข้อมูลไม่สำเร็จ");
+    const remote = body.recipes as Recipe[];
+    const deletedIds = new Set<string>(body.deletedIds ?? []);
+    const merged = new Map(
+      local
+        .filter((recipe) => !deletedIds.has(recipe.id))
+        .map((recipe) => [recipe.id, recipe]),
+    );
+    remote.forEach((recipe) => merged.set(recipe.id, recipe));
+    const recipes = [...merged.values()];
+    cacheIngredientNames(recipes);
     return {
-      recipes: [...localShared, ...mapped.filter((r) => r.status === 'approved')],
-      source: 'supabase',
+      recipes,
+      source: "supabase",
       error: null,
+      databaseRecipeIds: remote.map((recipe) => recipe.id),
     };
   } catch {
     return {
-      recipes: localShared,
-      source: 'supabase',
-      error: 'เกิดข้อผิดพลาดในการเชื่อมต่อฐานข้อมูล กรุณาตรวจสอบสัญญาณอินเทอร์เน็ตแล้วลองใหม่',
+      recipes: local,
+      source: "supabase",
+      error: "ยังโหลดเมนูจากฐานข้อมูลไม่ได้ กรุณาลองใหม่อีกครั้ง",
     };
   }
 }
 
-/**
- * Retrieves a single approved recipe by ID after validating the ID with Zod.
- */
-export async function fetchApprovedRecipeById(rawId: string): Promise<Recipe | null> {
-  const parsedId = RecipeIdSchema.safeParse(rawId);
-  if (!parsedId.success) {
-    return null;
-  }
-
-  const validId = parsedId.data;
-  const { recipes } = await fetchApprovedRecipes();
-  const found = recipes.find((r) => r.id === validId && r.status === 'approved');
-  return found ?? null;
+export async function fetchApprovedRecipeById(
+  rawId: string,
+): Promise<Recipe | null> {
+  const id = RecipeIdSchema.safeParse(rawId);
+  if (!id.success) return null;
+  return (
+    (await fetchApprovedRecipes()).recipes.find(
+      (recipe) => recipe.id === id.data,
+    ) ?? null
+  );
 }
 
-/**
- * Shares a recipe via "แบ่งปันสูตรอาหาร" (/community).
- * Validates external link (any website/platform), food image, cooking time range,
- * ingredients (including custom "อื่นๆ" ingredients), and food safety metadata.
- */
+// Reuse the same ID after a network failure. The database insert is idempotent
+// and cannot overwrite an existing recipe with the same ID.
+let retryKey: { signature: string; id: string } | null = null;
 export async function submitCommunityRecipeForModeration(
-  input: CommunityRecipeSubmissionInput
+  input: CommunityRecipeSubmissionInput,
+  legacyRecipeId?: string,
 ): Promise<{ success: boolean; message: string; submittedRecipe?: Recipe }> {
-  const parsed = CommunityRecipeSubmissionSchema.safeParse(input);
-  if (!parsed.success) {
-    const firstIssue = parsed.error.issues[0];
+  const catalog = getMergedIngredientsCatalog();
+  const customNames = [...(input.customIngredientNames ?? [])];
+  const ingredientIds = input.ingredientIds.filter((id) => {
+    if (INGREDIENTS_CATALOG[id] || !catalog[id]) return true;
+    customNames.push(catalog[id].name_th);
+    return false;
+  });
+  const parsed = CommunityRecipeSubmissionSchema.safeParse({
+    ...input,
+    ingredientIds,
+    customIngredientNames: [...new Set(customNames)],
+  });
+  if (!parsed.success)
+    return { success: false, message: parsed.error.issues[0].message };
+  const signature = JSON.stringify({ data: parsed.data, legacyRecipeId });
+  if (retryKey?.signature !== signature)
+    retryKey = { signature, id: crypto.randomUUID() };
+  try {
+    const response = await fetch("/api/recipes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...parsed.data,
+        submissionId: retryKey.id,
+        legacyRecipeId,
+      }),
+    });
+    const result = await response.json();
+    if (!response.ok || !result.recipe?.id)
+      return {
+        success: false,
+        message:
+          result.error ||
+          "บันทึกลงฐานข้อมูลไม่สำเร็จ ข้อมูลในฟอร์มยังอยู่ กรุณาลองใหม่",
+      };
+    const recipe = result.recipe as Recipe;
+    // This is only a backward-compatible cache. Database commit has already
+    // succeeded, so a full/disabled browser store must not lose the recipe.
+    saveSharedRecipe(recipe);
+    cacheIngredientNames([recipe]);
+    if (typeof window !== "undefined")
+      window.dispatchEvent(new Event("kindi-recipes-updated"));
+    retryKey = null;
+    return {
+      success: true,
+      message: "บันทึกเมนูลงฐานข้อมูลเรียบร้อยแล้ว พร้อมเปิดดูจากอุปกรณ์อื่น",
+      submittedRecipe: recipe,
+    };
+  } catch {
     return {
       success: false,
-      message: firstIssue?.message ?? 'ข้อมูลเมนูไม่ครบถ้วน กรุณาตรวจสอบอีกครั้ง',
+      message: "เชื่อมต่อฐานข้อมูลไม่สำเร็จ ข้อมูลในฟอร์มยังอยู่ กรุณาลองใหม่",
     };
   }
+}
 
-  const data = parsed.data;
-  const instructions = (data.instructionsText ?? '')
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean);
-
-  const catalog = getMergedIngredientsCatalog();
-
-  // Register any custom ingredients ("อื่นๆ") into the local catalog so Fridge Mode & Roulette recognize them
-  const customIngredientIds: string[] = [];
-  for (const rawCustomName of data.customIngredientNames ?? []) {
-    const cleanName = rawCustomName.trim();
-    if (!cleanName) continue;
-    const slugId = `custom_${cleanName.toLowerCase().replace(/[^a-z0-9ก-๙]+/g, '_')}`;
-    const record: IngredientRecord = {
-      id: slugId,
-      name_th: cleanName,
-      category: 'other',
-      allergens: data.allergens ?? [],
-      dietary_compatible: data.dietary_tags ?? [],
-      composition_known: true,
-    };
-    saveCustomIngredient(record);
-    catalog[slugId] = record;
-    customIngredientIds.push(slugId);
-  }
-
-  const allIngredientIds = Array.from(new Set([...data.ingredientIds, ...customIngredientIds]));
-
-  // Combine declared allergens with any catalog ingredient allergens
-  const combinedAllergens = new Set<AllergenId>(data.allergens ?? []);
-  for (const ingId of allIngredientIds) {
-    const item = catalog[ingId];
-    if (item && Array.isArray(item.allergens)) {
-      for (const alg of item.allergens) {
-        combinedAllergens.add(alg);
-      }
-    }
-  }
-
-  const allergenOverrides: Partial<Record<AllergenId, { status: 'contains' | 'free'; notes?: string }>> = {};
-  for (const alg of combinedAllergens) {
-    allergenOverrides[alg] = { status: 'contains', notes: 'ระบุจากส่วนผสมของสูตรอาหาร' };
-  }
-
-  const externalUrl = data.external_recipe_url.trim();
-  const sourceName = inferExternalSourceName(externalUrl);
-
-  const sharedRecipe: Recipe = {
-    id: `shared-${Date.now()}`,
-    name: data.name,
-    description: data.description,
-    category: data.category,
-    meal_types: data.meal_types,
-    cooking_time: data.cooking_time,
-    difficulty: data.difficulty,
-    image_url: data.image_url.trim(),
-    external_recipe_url: externalUrl,
-    external_source_name: sourceName,
-    status: 'approved',
-    dietary_tags: data.dietary_tags ?? [],
-    safety_metadata_complete: true,
-    cross_contact_risk: 'low',
-    ingredients: allIngredientIds.map((id) => ({
-      ingredient_id: id,
-      quantity: 'ตามสูตรต้นฉบับ',
-      role: 'main',
-      is_optional: false,
-      composition_verified: true,
-    })),
-    custom_ingredients: data.customIngredientNames ?? [],
-    allergen_assessments: buildAllergenAssessments(allergenOverrides, 'low'),
-    instructions:
-      instructions.length > 0
-        ? instructions
-        : [`ดูขั้นตอนวิธีทำอย่างละเอียดได้ที่ลิงก์สูตรอาหาร (${sourceName})`],
-    submitted_by: data.submitted_by || 'เพื่อนนักกิน KIN DI',
-    created_at: new Date().toISOString(),
-  };
-
-  // Persist to localStorage so it immediately appears in Roulette, Fridge Mode, and Browse All Recipes
-  saveSharedRecipe(sharedRecipe);
-
-  const supabase = getSupabaseBrowserClient();
-  if (isSupabaseConfigured && supabase) {
-    await supabase.from('recipes').insert({
-      id: sharedRecipe.id,
-      name: sharedRecipe.name,
-      description: sharedRecipe.description,
-      category: sharedRecipe.category,
-      meal_types: sharedRecipe.meal_types,
-      cooking_time: sharedRecipe.cooking_time,
-      difficulty: sharedRecipe.difficulty,
-      image_url: sharedRecipe.image_url,
-      external_recipe_url: sharedRecipe.external_recipe_url,
-      external_source_name: sharedRecipe.external_source_name,
-      status: 'approved',
-      dietary_tags: sharedRecipe.dietary_tags,
-      instructions: sharedRecipe.instructions,
-      safety_metadata_complete: true,
-      cross_contact_risk: 'low',
-      submitted_by: sharedRecipe.submitted_by,
-    });
-  }
-
-  return {
-    success: true,
-    message:
-      'เพิ่มเมนูอาหารเรียบร้อยแล้ว! เมนูของคุณพร้อมให้สุ่มไพ่ ค้นหาในโหมดตู้เย็น และดูในรวมเมนูทั้งหมดได้ทันที',
-    submittedRecipe: sharedRecipe,
-  };
+export async function importLocalRecipe(recipe: Recipe) {
+  return submitCommunityRecipeForModeration(
+    {
+      name: recipe.name,
+      description: recipe.description,
+      external_recipe_url: recipe.external_recipe_url ?? "",
+      image_url: recipe.image_url ?? "",
+      category: recipe.category,
+      meal_types: recipe.meal_types,
+      cooking_time: recipe.cooking_time,
+      difficulty: recipe.difficulty,
+      ingredientIds: (recipe.ingredients ?? []).map(
+        (item) => item.ingredient_id,
+      ),
+      customIngredientNames: recipe.custom_ingredients ?? [],
+      dietary_tags: recipe.dietary_tags ?? [],
+      allergens: Object.values(recipe.allergen_assessments ?? {})
+        .filter((item) => item.status === "contains")
+        .map((item) => item.allergen),
+      instructionsText: recipe.instructions.join("\n"),
+      submitted_by: recipe.submitted_by,
+    },
+    recipe.id,
+  );
 }

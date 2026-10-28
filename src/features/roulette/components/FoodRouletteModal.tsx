@@ -138,7 +138,7 @@ export function FoodRouletteModal({
             </div>
             <h2
               id="roulette-dialog-title"
-              className="text-lg sm:text-2xl font-semibold text-[#302923] leading-tight tracking-tight"
+              className="text-lg sm:text-2xl font-semibold text-[#302923] leading-relaxed tracking-tight"
             >
               เลือกไพ่ของคุณ
             </h2>

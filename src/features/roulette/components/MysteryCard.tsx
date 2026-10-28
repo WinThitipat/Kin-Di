@@ -126,7 +126,7 @@ export function MysteryCard({
                 <span className="mt-2.5 text-xs sm:text-sm font-semibold tracking-tight text-[#FBF0DC]">
                   กินดิ!
                 </span>
-                <span className="text-xs text-[#FBF7EF]/80 font-medium leading-tight mt-0.5">
+                <span className="text-xs text-[#FBF7EF]/80 font-medium leading-relaxed mt-0.5">
                   กดเพื่อเปิดไพ่
                 </span>
               </div>
@@ -170,7 +170,7 @@ export function MysteryCard({
 
             {/* Recipe Summary on Card Face */}
             <div className="p-2.5 flex-1 flex flex-col justify-between bg-white">
-              <h3 className="text-xs sm:text-sm font-semibold text-[#302923] line-clamp-2 leading-snug">
+              <h3 className="text-xs sm:text-sm font-semibold text-[#302923] line-clamp-2 leading-relaxed">
                 {recipe.name}
               </h3>
 

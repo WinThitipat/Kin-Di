@@ -1,0 +1,18 @@
+{
+  "draftAfterNavigation": "",
+  "unknownIngredient": {
+    "assessmentStatuses": [
+      "free"
+    ],
+    "metadataComplete": true,
+    "crossContact": "low"
+  },
+  "deleteDialogs": 0,
+  "recipesAfterDelete": 0,
+  "undoVisible": false,
+  "quotaFailure": {
+    "successMessageShown": true,
+    "savedCount": 0,
+    "formNameAfterSave": ""
+  }
+}

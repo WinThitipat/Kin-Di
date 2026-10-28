@@ -1,4 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { buildCommunityRecipe } from '@/lib/build-community-recipe';
+afterEach(() => vi.restoreAllMocks());
 import {
   ALL_ALLERGEN_IDS,
   buildAllergenAssessments,
@@ -526,6 +528,10 @@ describe('KIN DI UI State, Share Recipe Form ("แบ่งปันสูตร
     expect(missingLinkAndImage.success).toBe(false);
 
     // Sharing a recipe with an arbitrary platform link (e.g. YouTube or TikTok) and custom ingredient ("อื่นๆ")
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (_url, init) => {
+      const payload = JSON.parse(String(init?.body));
+      return new Response(JSON.stringify({ recipe: buildCommunityRecipe(payload, 'shared-test') }), { status: 201 });
+    });
     const validShare = await submitCommunityRecipeForModeration({
       name: 'ยำแหนมข้าวทอดสูตรเด็ด',
       description: 'ยำแหนมรสจัดจ้าน หอมพริกมะนาวสด ทำตามง่ายมาก',

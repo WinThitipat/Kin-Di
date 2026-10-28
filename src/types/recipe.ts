@@ -95,6 +95,8 @@ export interface Recipe {
   ingredients?: RecipeIngredientEntry[] | null;
   /** Custom ingredient names added via "อื่นๆ" */
   custom_ingredients?: string[] | null;
+  /** Server-produced snapshots for custom ingredient names on other devices. */
+  ingredient_catalog?: IngredientRecord[];
   /** Explicit allergen assessments for fail-closed filtering */
   allergen_assessments?: Record<AllergenId, RecipeAllergenAssessment> | null;
   /** Overall cross-contact risk for the recipe preparation */
