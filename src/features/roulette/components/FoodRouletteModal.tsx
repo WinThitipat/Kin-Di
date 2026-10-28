@@ -105,7 +105,8 @@ export function FoodRouletteModal({
       typeof window !== 'undefined' &&
       window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
-    const delayMs = prefersReducedMotion ? 100 : 540;
+    // Slightly longer than the 720ms flip keyframes so the animation always finishes first
+    const delayMs = prefersReducedMotion ? 100 : 800;
     const timer = window.setTimeout(() => {
       onFlipComplete();
     }, delayMs);

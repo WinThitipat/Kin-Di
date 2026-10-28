@@ -117,6 +117,65 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--bento-radius);
   box-shadow: var(--shadow-stage);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle playing card felt texture pattern for stage background */
+.kindi-stage-surface::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Tactile 3-Card Fan Stage Preview */
+.kindi-fan-deck {
+  perspective: 1000px;
+}
+
+.kindi-fan-card-left {
+  transform: rotate(-9deg) translate(-20px, 8px);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.kindi-fan-deck:hover .kindi-fan-card-left {
+  transform: rotate(-16deg) translate(-34px, 14px);
+}
+
+.kindi-fan-card-right {
+  transform: rotate(9deg) translate(20px, 8px);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.kindi-fan-deck:hover .kindi-fan-card-right {
+  transform: rotate(16deg) translate(34px, 14px);
+}
+
+.kindi-fan-card-center {
+  transform: translate(0, 0) scale(1);
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.32s ease-out;
+}
+
+.kindi-fan-deck:hover .kindi-fan-card-center {
+  transform: translate(0, -8px) scale(1.03);
+  box-shadow:
+    0 22px 38px -6px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(250, 204, 21, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kindi-fan-card-left,
+  .kindi-fan-card-right,
+  .kindi-fan-card-center {
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* Interactive Recipe Catalog Card */
@@ -293,18 +352,109 @@ dialog::backdrop {
   perspective: 1100px;
 }
 
+/* ---------------------------------------------------------------------------
+   Deal-in: every card starts stacked at the centre of the table (offsets are
+   measured in JS and written to --from-x / --from-y), then gets dealt out to
+   its slot one at a time, like a dealer sliding cards off the top of a deck.
+   --------------------------------------------------------------------------- */
+.kindi-deal-card {
+  position: relative;
+  z-index: calc(40 - var(--deal-index, 0));
+  transform: translate(0, 0) scale(1);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.4s ease-out;
+  animation: kindi-deal 640ms cubic-bezier(0.2, 0.85, 0.25, 1) backwards;
+  animation-delay: calc(var(--deal-index, 0) * 80ms + 120ms);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: kindi-fade-in 0.2s ease-out backwards;
+    transition: opacity 0.15s ease-out;
+  }
+}
+
+@keyframes kindi-deal {
+  0% {
+    transform: translate(var(--from-x, 0px), var(--from-y, 0px)) rotate(var(--from-rot, 0deg))
+      scale(0.86);
+  }
+  55% {
+    transform: translate(0, -6px) rotate(0deg) scale(1.03);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes kindi-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The picked card rises off the table; the rest settle back and dim */
+.kindi-deal-card.is-chosen {
+  z-index: 50;
+  transform: translate(0, -10px) scale(1.04);
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+}
+
+.kindi-deal-card.is-dismissed {
+  opacity: 0.38;
+  filter: saturate(0.55);
+  transform: translate(0, 10px) scale(0.95);
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+}
+
+/* One soft saffron ring pulse once the recipe face is showing */
+.kindi-deal-card.is-revealed .kindi-card-face-back {
+  animation: kindi-reveal-ring 900ms ease-out 1;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes kindi-reveal-ring {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(250, 204, 21, 0.6),
+      0 10px 24px rgba(20, 20, 19, 0.14);
+  }
+  100% {
+    box-shadow:
+      0 0 0 16px rgba(250, 204, 21, 0),
+      0 10px 24px rgba(20, 20, 19, 0.14);
+  }
+}
+
 .kindi-card-btn {
   translate: 0px 0px;
   rotate: 0deg;
   scale: 1;
+  /* Pointer-follow tilt (values set from JS on mouse move) */
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
   transition:
     translate 0.22s cubic-bezier(0.22, 1, 0.36, 1),
     scale 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.18s ease-out,
     box-shadow 0.22s ease-out;
 
   @media (prefers-reduced-motion: reduce) {
     translate: none;
     scale: 1;
+    transform: none;
     transition-duration: 0.1s;
   }
 }
@@ -335,16 +485,31 @@ dialog::backdrop {
   height: 100%;
   transform-style: preserve-3d;
   transform: rotateY(0deg);
-  transition: transform 0.56s cubic-bezier(0.22, 1, 0.36, 1);
 
   @media (prefers-reduced-motion: reduce) {
     transition: opacity 0.15s ease-out;
     transform: none !important;
+    animation: none !important;
   }
 }
 
+/* Flip with a short lift toward the viewer, so it reads as a card being
+   picked up and turned over rather than a flat spin */
 .kindi-card-inner.is-flipped {
   transform: rotateY(180deg);
+  animation: kindi-flip 720ms cubic-bezier(0.32, 0.72, 0.24, 1) both;
+}
+
+@keyframes kindi-flip {
+  0% {
+    transform: translateZ(0px) rotateY(0deg) scale(1);
+  }
+  40% {
+    transform: translateZ(70px) rotateY(75deg) scale(1.06);
+  }
+  100% {
+    transform: translateZ(0px) rotateY(180deg) scale(1);
+  }
 }
 
 .kindi-card-face {

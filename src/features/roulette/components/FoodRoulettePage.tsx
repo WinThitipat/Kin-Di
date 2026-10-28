@@ -397,29 +397,66 @@ export function FoodRoulettePage() {
           </div>
 
           {/* Center Interactive 3-Card Fan */}
-          <div className="my-auto py-2 flex justify-center">
+          <div className="my-auto py-3 flex justify-center">
             <button
               type="button"
               onClick={handleOpenRouletteModal}
               aria-label={`เปิดสำรับไพ่ปริศนา ${cardCount} ใบ`}
-              className="relative w-40 sm:w-44 aspect-[3/4] cursor-pointer group select-none text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FACC15] rounded-2xl"
+              className="kindi-fan-deck relative w-48 sm:w-52 aspect-[3/4] cursor-pointer select-none text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FACC15] rounded-2xl"
             >
-              {/* Left Fanned Card */}
-              <div className="absolute inset-0 rounded-2xl bg-[#292826] border border-white/15 rotate-[-8deg] translate-x-[-16px] translate-y-[6px] transition-transform duration-200 group-hover:rotate-[-13deg] group-hover:translate-x-[-22px]" />
-              {/* Right Fanned Card */}
-              <div className="absolute inset-0 rounded-2xl bg-[#292826] border border-white/15 rotate-[8deg] translate-x-[16px] translate-y-[6px] transition-transform duration-200 group-hover:rotate-[13deg] group-hover:translate-x-[22px]" />
-              {/* Center Active Mystery Card */}
-              <div className="relative w-full h-full rounded-2xl bg-[#141413] text-[#FCFBF7] border border-[#FACC15]/45 shadow-[0_14px_30px_rgba(0,0,0,0.45)] p-2.5 flex flex-col justify-between transition-transform duration-200 group-hover:-translate-y-1.5">
-                <div className="w-full h-full rounded-xl border border-[#FACC15]/20 p-3 flex flex-col items-center justify-center text-center">
-                  <div className="w-11 h-11 rounded-2xl bg-[#FACC15] text-[#141413] flex items-center justify-center mb-2.5 shadow-xs group-hover:scale-105 transition-transform">
-                    <UtensilsCrossed className="w-5 h-5" aria-hidden="true" />
+              {/* Left Fanned Card (#1) */}
+              <div className="kindi-fan-card-left absolute inset-0 rounded-2xl bg-[#1E1D1B] border border-white/15 p-2.5 flex flex-col justify-between shadow-lg">
+                <div className="flex items-center justify-between text-[11px] font-extrabold text-[#FACC15]/70">
+                  <span>#1</span>
+                  <span>✦</span>
+                </div>
+                <div className="w-full h-24 rounded-xl border border-white/8 flex items-center justify-center">
+                  <UtensilsCrossed className="w-6 h-6 text-white/20" aria-hidden="true" />
+                </div>
+                <div className="flex items-center justify-between text-[10px] text-white/40">
+                  <span>KIN DI</span>
+                  <span>#1</span>
+                </div>
+              </div>
+
+              {/* Right Fanned Card (#3) */}
+              <div className="kindi-fan-card-right absolute inset-0 rounded-2xl bg-[#1E1D1B] border border-white/15 p-2.5 flex flex-col justify-between shadow-lg">
+                <div className="flex items-center justify-between text-[11px] font-extrabold text-[#FACC15]/70">
+                  <span>#3</span>
+                  <span>✦</span>
+                </div>
+                <div className="w-full h-24 rounded-xl border border-white/8 flex items-center justify-center">
+                  <UtensilsCrossed className="w-6 h-6 text-white/20" aria-hidden="true" />
+                </div>
+                <div className="flex items-center justify-between text-[10px] text-white/40">
+                  <span>KIN DI</span>
+                  <span>#3</span>
+                </div>
+              </div>
+
+              {/* Center Active Mystery Card (#2) */}
+              <div className="kindi-fan-card-center relative z-10 w-full h-full rounded-2xl bg-[#141413] text-[#FCFBF7] border border-[#FACC15]/50 shadow-[0_16px_36px_rgba(0,0,0,0.5)] p-3 flex flex-col justify-between">
+                <div className="flex items-center justify-between text-xs font-extrabold text-[#FACC15]">
+                  <span>#2</span>
+                  <span className="text-[10px] uppercase tracking-wider text-[#FACC15]/80 font-bold">กินดิ!</span>
+                  <span>#2</span>
+                </div>
+
+                <div className="w-full rounded-xl border border-[#FACC15]/25 p-3.5 flex flex-col items-center justify-center text-center my-auto bg-white/[0.02]">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FACC15] text-[#141413] flex items-center justify-center mb-2.5 shadow-sm">
+                    <UtensilsCrossed className="w-6 h-6" aria-hidden="true" />
                   </div>
-                  <span className="text-sm font-extrabold text-[#FACC15] tracking-tight">
+                  <span className="text-base font-extrabold text-[#FACC15] tracking-tight">
                     ไพ่ปริศนามื้อนี้
                   </span>
-                  <span className="text-[11px] text-[#FCFBF7]/75 mt-1 tabular-nums">
+                  <span className="text-xs text-[#FCFBF7]/80 mt-1 tabular-nums font-medium">
                     แตะเพื่อสับไพ่ {cardCount} ใบ
                   </span>
+                </div>
+
+                <div className="flex items-center justify-between text-[10px] font-bold text-[#FCFBF7]/50 pt-1">
+                  <span>MYSTERY DECK</span>
+                  <span className="text-[#FACC15]">★ ★ ★</span>
                 </div>
               </div>
             </button>
@@ -446,14 +483,22 @@ export function FoodRoulettePage() {
         className="kindi-surface-card p-5 sm:p-6 space-y-4"
       >
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#EAE5D9] pb-3.5">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] flex items-center justify-center">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] flex items-center justify-center shrink-0">
               <Filter className="w-4 h-4 text-[#141413]" aria-hidden="true" />
             </div>
             <div>
-              <h2 id="quick-filters-heading" className="text-sm sm:text-base font-extrabold text-[#141413]">
-                ตัวกรองด่วนก่อนเปิดไพ่
-              </h2>
+              <div className="flex items-center gap-2">
+                <h2 id="quick-filters-heading" className="text-sm sm:text-base font-extrabold text-[#141413]">
+                  ตัวกรองด่วนก่อนเปิดไพ่
+                </h2>
+                <span className="px-2 py-0.5 rounded-md bg-[#F5F2EA] border border-[#EAE5D9] text-[11px] font-bold text-[#57534E] tabular-nums">
+                  ตรงเงื่อนไข {eligiblePreview.length} เมนู
+                </span>
+              </div>
+              <p className="text-xs text-[#57534E]">
+                จำกัดขอบเขตการสุ่มตามมื้ออาหาร หมวดหมู่ หรือเวลาที่คุณมี
+              </p>
             </div>
           </div>
 
@@ -471,7 +516,7 @@ export function FoodRoulettePage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* 1. Meal Type Filter */}
           <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] space-y-2">
             <span className="block text-xs font-extrabold text-[#57534E]">
@@ -578,28 +623,32 @@ export function FoodRoulettePage() {
       {/* "รวมเมนูทั้งหมด" (BROWSE & SEARCH ALL RECIPES SECTION) */}
       <section
         aria-labelledby="browse-all-recipes-heading"
-        className="kindi-surface-card p-5 sm:p-7 space-y-5"
+        className="space-y-5 pt-2"
       >
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#EAE5D9] pb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] flex items-center justify-center shrink-0">
-              <BookOpen className="w-5 h-5 text-[#141413]" aria-hidden="true" />
-            </div>
-            <div>
+        {/* Editorial Section Header & Search Toolbar */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#EAE5D9] pb-4">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] flex items-center justify-center shrink-0">
+                <BookOpen className="w-4 h-4 text-[#141413]" aria-hidden="true" />
+              </div>
               <h2
                 id="browse-all-recipes-heading"
-                className="text-lg sm:text-xl font-extrabold text-[#141413] tabular-nums"
+                className="text-xl sm:text-2xl font-extrabold text-[#141413] tracking-tight tabular-nums"
               >
-                รวมเมนูทั้งหมด ({browsableRecipes.length} เมนู)
+                รวมเมนูทั้งหมด
               </h2>
-              <p className="text-xs text-[#57534E]">
-                ค้นหาเมนูที่อยากกิน หรือกดเปิดดูวิธีทำจากเว็บต้นทางได้ทันที
-              </p>
+              <span className="px-2.5 py-0.5 rounded-full bg-[#141413] text-[#FACC15] text-xs font-extrabold tabular-nums">
+                {browsableRecipes.length} เมนู
+              </span>
             </div>
+            <p className="text-xs sm:text-sm text-[#57534E] font-medium">
+              ค้นหาเมนูที่อยากกิน หรือกดเปิดดูสูตรวิธีทำจากเว็บต้นทางได้ทันที
+            </p>
           </div>
 
           {/* Semantic <search> Landmark */}
-          <search className="w-full md:w-72">
+          <search className="w-full md:w-80">
             <div className="relative kindi-input-group">
               <input
                 type="search"
@@ -610,7 +659,7 @@ export function FoodRoulettePage() {
                 onChange={(e) => setCatalogSearchQuery(e.target.value)}
                 placeholder="ค้นหาชื่อเมนู หรือวัตถุดิบ..."
                 aria-label="ค้นหาเมนูอาหาร"
-                className="kindi-input-field w-full pl-9 pr-3.5 py-2 text-xs sm:text-sm font-medium"
+                className="kindi-input-field w-full pl-9 pr-3.5 py-2.5 text-xs sm:text-sm font-medium shadow-xs"
               />
               <Search
                 className="w-4 h-4 text-[#78716C] absolute left-3 top-1/2 -translate-y-1/2"
@@ -620,7 +669,7 @@ export function FoodRoulettePage() {
           </search>
         </div>
 
-        {/* Category Tabs */}
+        {/* Category Filter Pills Bar */}
         <div className="flex flex-wrap gap-1.5">
           <button
             type="button"
@@ -628,8 +677,8 @@ export function FoodRoulettePage() {
             aria-pressed={catalogCategoryFilter === 'all'}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
               catalogCategoryFilter === 'all'
-                ? 'bg-[#141413] text-[#FACC15] border-[#141413]'
-                : 'bg-[#FCFBF7] text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                ? 'bg-[#141413] text-[#FACC15] border-[#141413] shadow-xs'
+                : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
             }`}
           >
             ทั้งหมด
@@ -642,8 +691,8 @@ export function FoodRoulettePage() {
               aria-pressed={catalogCategoryFilter === cat}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                 catalogCategoryFilter === cat
-                  ? 'bg-[#141413] text-[#FACC15] border-[#141413]'
-                  : 'bg-[#FCFBF7] text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                  ? 'bg-[#141413] text-[#FACC15] border-[#141413] shadow-xs'
+                  : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
               }`}
             >
               {FOOD_CATEGORY_LABELS[cat]}
@@ -651,20 +700,24 @@ export function FoodRoulettePage() {
           ))}
         </div>
 
+        {/* Recipe Grid / Empty State */}
         {browsableRecipes.length === 0 ? (
-          <div className="p-8 sm:p-10 rounded-2xl bg-[#FCFBF7] border border-dashed border-[#D8D1C2] text-center space-y-3">
-            <p className="text-base font-extrabold text-[#141413]">
+          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-dashed border-[#D8D1C2] text-center space-y-3.5 shadow-xs">
+            <div className="w-12 h-12 rounded-2xl bg-[#FEF9C3] border border-[#EAE5D9] flex items-center justify-center mx-auto text-[#141413]">
+              <BookOpen className="w-6 h-6" aria-hidden="true" />
+            </div>
+            <p className="text-base sm:text-lg font-extrabold text-[#141413]">
               {allRecipes.length === 0
                 ? 'ยังไม่มีเมนูอาหารในระบบ มาเพิ่มเมนูอาหารจานแรกกัน!'
                 : 'ไม่พบเมนูที่ตรงกับคำค้นหาหรือข้อจำกัดทางอาหารของคุณ'}
             </p>
-            <p className="text-xs sm:text-sm text-[#57534E] max-w-md mx-auto">
+            <p className="text-xs sm:text-sm text-[#57534E] max-w-md mx-auto leading-relaxed">
               คุณสามารถเพิ่มเมนูโปรดพร้อมแปะลิงก์สูตรจากเว็บไหนก็ได้ที่หน้า &ldquo;เพิ่มเมนูอาหาร&rdquo;
             </p>
-            <div className="pt-1">
+            <div className="pt-2">
               <Link
                 href="/community"
-                className="kindi-btn-primary min-h-11 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm"
+                className="kindi-btn-primary min-h-11 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm"
               >
                 <PlusCircle className="w-4 h-4" aria-hidden="true" />
                 <span>ไปหน้าเพิ่มเมนูอาหาร</span>
@@ -672,72 +725,82 @@ export function FoodRoulettePage() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {browsableRecipes.map((recipe) => {
               const ext = getExternalRecipeLinks(recipe);
               const isFav = favoriteIds.includes(recipe.id);
               return (
                 <div
                   key={recipe.id}
-                  className="kindi-recipe-card overflow-hidden flex flex-col justify-between"
+                  className="kindi-recipe-card overflow-hidden flex flex-col justify-between group"
                 >
-                  <div className="relative h-44 w-full bg-[#F5F2EA] border-b border-[#EAE5D9]">
+                  {/* Recipe Image & Floating Badges */}
+                  <div className="relative aspect-[16/10] w-full bg-[#F5F2EA] border-b border-[#EAE5D9] overflow-hidden">
                     <RecipeImage
                       src={recipe.image_url}
                       alt={recipe.name}
                       category={recipe.category}
-                      className="w-full h-full"
+                      className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                     />
-                    <button
-                      type="button"
-                      onClick={() => toggleFavorite(recipe.id)}
-                      aria-label={isFav ? 'ลบออกจากเมนูโปรด' : 'บันทึกเป็นเมนูโปรด'}
-                      aria-pressed={isFav}
-                      className={`absolute top-3 right-3 w-9 h-9 rounded-xl border border-[#EAE5D9] shadow-xs flex items-center justify-center transition-colors cursor-pointer ${
-                        isFav ? 'bg-rose-50 text-rose-600' : 'bg-white/95 text-[#141413] hover:bg-white'
-                      }`}
-                    >
-                      <Heart
-                        className={`w-4 h-4 ${isFav ? 'fill-current text-rose-600' : ''}`}
-                        aria-hidden="true"
-                      />
-                    </button>
+
+                    {/* Top Floating Badges */}
+                    <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-2 pointer-events-none">
+                      <span className="pointer-events-auto text-xs font-extrabold px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-xs border border-[#EAE5D9] text-[#141413] shadow-xs">
+                        {FOOD_CATEGORY_LABELS[recipe.category]}
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() => toggleFavorite(recipe.id)}
+                        aria-label={isFav ? 'ลบออกจากเมนูโปรด' : 'บันทึกเป็นเมนูโปรด'}
+                        aria-pressed={isFav}
+                        className={`pointer-events-auto w-9 h-9 rounded-xl border border-[#EAE5D9] shadow-xs flex items-center justify-center transition-colors cursor-pointer ${
+                          isFav ? 'bg-rose-50 text-rose-600' : 'bg-white/95 text-[#141413] hover:bg-white'
+                        }`}
+                      >
+                        <Heart
+                          className={`w-4 h-4 ${isFav ? 'fill-current text-rose-600' : ''}`}
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </div>
+
+                    {/* Bottom Metadata Pill on Image */}
+                    <div className="absolute bottom-2.5 right-2.5 pointer-events-none">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#141413]/80 backdrop-blur-xs text-[#FCFBF7] text-xs font-bold tabular-nums shadow-xs">
+                        <Clock className="w-3 h-3 text-[#FACC15]" aria-hidden="true" />
+                        {recipe.cooking_time} นาที
+                      </span>
+                    </div>
                   </div>
 
-                  <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
+                  {/* Card Content & Action Buttons */}
+                  <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-4">
                     <div className="space-y-1.5">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#FEF9C3] border border-[#EAE5D9] text-[#141413]">
-                          {FOOD_CATEGORY_LABELS[recipe.category]}
-                        </span>
-                        <span className="inline-flex items-center gap-1 text-xs font-medium text-[#57534E] tabular-nums">
-                          <Clock className="w-3.5 h-3.5 text-[#141413]" aria-hidden="true" />
-                          {recipe.cooking_time} นาที
-                        </span>
-                      </div>
-                      <h3 className="text-base font-extrabold text-[#141413] line-clamp-1 pt-0.5">
+                      <h3 className="text-base sm:text-lg font-extrabold text-[#141413] line-clamp-1 group-hover:text-[#141413]">
                         {recipe.name}
                       </h3>
-                      <p className="text-xs text-[#57534E] line-clamp-2 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[#57534E] line-clamp-2 leading-relaxed">
                         {recipe.description}
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-[#EAE5D9] flex items-center justify-between gap-2">
+                    {/* Action Row: Spacious, zero cramping, explicit whitespace-nowrap */}
+                    <div className="pt-3 border-t border-[#EAE5D9] flex items-center justify-between gap-2.5">
                       <a
                         href={ext.primaryUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="kindi-btn-primary flex-1 min-h-10 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold"
+                        className="kindi-btn-primary flex-1 min-h-11 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap cursor-pointer"
                       >
                         <span>ลิงก์สูตรอาหาร</span>
-                        <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                        <ExternalLink className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                       </a>
                       <Link
                         href={`/recipes/${encodeURIComponent(recipe.id)}`}
-                        className="kindi-btn-secondary min-h-10 inline-flex items-center justify-center px-3 py-2 rounded-xl text-xs font-bold"
+                        className="kindi-btn-secondary min-h-11 inline-flex items-center justify-center px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap cursor-pointer"
                       >
-                        ส่วนผสม
+                        ดูส่วนผสม
                       </Link>
                     </div>
                   </div>

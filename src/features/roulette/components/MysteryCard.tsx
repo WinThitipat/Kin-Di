@@ -28,24 +28,54 @@ export function MysteryCard({
   const isFlipped = isSelected && (isTransitioning || isRevealed);
   const isDisabled = isTransitioning || isRevealed || isOtherSelected;
 
+  const resetTilt = (el: HTMLElement) => {
+    el.style.setProperty('--tilt-x', '0deg');
+    el.style.setProperty('--tilt-y', '0deg');
+  };
+
+  // Subtle 3D tilt that follows the mouse (mouse only, never on touch)
+  const handlePointerMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.pointerType !== 'mouse' || isDisabled) return;
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    el.style.setProperty('--tilt-x', `${(-py * 10).toFixed(2)}deg`);
+    el.style.setProperty('--tilt-y', `${(px * 12).toFixed(2)}deg`);
+  };
+
+  const sceneStateClass = [
+    isSelected ? 'is-chosen' : '',
+    isOtherSelected ? 'is-dismissed' : '',
+    isSelected && isRevealed ? 'is-revealed' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <div className="kindi-card-scene w-full aspect-[3/4] max-w-[200px] mx-auto">
+    <div
+      data-deal-card
+      className={`kindi-card-scene kindi-deal-card w-full aspect-[3/4] max-w-[200px] mx-auto ${sceneStateClass}`}
+    >
       <button
         type="button"
         disabled={isDisabled}
-        onClick={() => onSelect(cardId)}
+        onClick={(e) => {
+          resetTilt(e.currentTarget);
+          onSelect(cardId);
+        }}
+        onPointerMove={handlePointerMove}
+        onPointerLeave={(e) => resetTilt(e.currentTarget)}
         aria-label={
           isSelected
             ? `ไพ่ใบที่ ${cardIndex} เลือกแล้ว: ${recipe.name}`
             : `ไพ่ปริศนาใบที่ ${cardIndex} กดเพื่อเปิดไพ่`
         }
         aria-pressed={isSelected}
-        className={`kindi-card-btn group relative w-full h-full rounded-2xl text-left focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#141413] cursor-pointer disabled:cursor-default ${
-          isOtherSelected ? 'opacity-45 grayscale-[35%]' : 'opacity-100'
-        }`}
+        className="kindi-card-btn group relative w-full h-full rounded-2xl text-left focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#141413] cursor-pointer disabled:cursor-default"
       >
         <div
-          onTransitionEnd={(e) => {
+          onAnimationEnd={(e) => {
             if (e.target === e.currentTarget && isSelected && isTransitioning) {
               onFlipTransitionEnd?.();
             }
