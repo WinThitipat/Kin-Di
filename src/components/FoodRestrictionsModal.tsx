@@ -185,25 +185,25 @@ export function FoodRestrictionsModal({
       {...({ closedby: 'any' } as React.DialogHTMLAttributes<HTMLDialogElement>)}
       aria-labelledby="restrictions-dialog-title"
       aria-describedby="restrictions-dialog-desc"
-      className="kindi-modal m-auto w-[calc(100%-1.5rem)] max-w-2xl max-h-[88dvh] rounded-3xl bg-[#FCFBF7] text-[#141413] p-0 overflow-hidden"
+      className="kindi-modal m-auto w-[calc(100%-1.5rem)] max-w-2xl max-h-[88dvh] rounded-xl bg-[#FBF7EF] text-[#302923] p-0 overflow-hidden"
     >
       {/* Clean Editorial Modal Header (No heavy yellow slab) */}
-      <div className="bg-white border-b border-[#EAE5D9] flex items-start justify-between gap-4 px-5 py-4 sm:px-6 sm:py-5 shrink-0">
+      <div className="bg-white border-b border-[#DDD2C2] flex items-start justify-between gap-4 px-5 py-4 sm:px-6 sm:py-5 shrink-0">
         <div className="flex items-start gap-3.5">
-          <div className="w-10 h-10 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] flex items-center justify-center shrink-0 mt-0.5">
-            <ShieldCheck className="w-5 h-5 text-[#141413]" aria-hidden="true" />
+          <div className="w-10 h-10 rounded-xl bg-[#F3E3D2] border border-[#DDD2C2] flex items-center justify-center shrink-0 mt-0.5">
+            <ShieldCheck className="w-5 h-5 text-[#302923]" aria-hidden="true" />
           </div>
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F5F2EA] border border-[#EAE5D9] text-[#57534E] text-xs font-bold mb-1">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F1EADF] border border-[#DDD2C2] text-[#6E5D50] text-xs font-bold mb-1">
               <span>ใช้ร่วมกันทั้งโหมดสุ่มไพ่และค้นตู้เย็น</span>
             </div>
             <h2
               id="restrictions-dialog-title"
-              className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#141413]"
+              className="text-xl sm:text-2xl font-semibold tracking-tight text-[#302923]"
             >
               ข้อจำกัดทางอาหาร
             </h2>
-            <p id="restrictions-dialog-desc" className="text-xs sm:text-sm text-[#57534E] mt-0.5">
+            <p id="restrictions-dialog-desc" className="text-xs sm:text-sm text-[#6E5D50] mt-0.5">
               ตั้งค่าอาหารที่แพ้หรือวัตถุดิบที่ไม่กิน ระบบจะคัดเมนูให้ตรงตามที่คุณทานได้อัตโนมัติ
             </p>
           </div>
@@ -212,9 +212,9 @@ export function FoodRestrictionsModal({
           type="button"
           onClick={() => dialogRef.current?.close()}
           aria-label="ปิดหน้าต่างตั้งค่าข้อจำกัดทางอาหาร"
-          className="w-10 h-10 rounded-xl bg-[#F5F2EA] border border-[#EAE5D9] flex items-center justify-center hover:bg-[#EAE5D9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#141413] shrink-0 cursor-pointer transition-colors"
+          className="w-10 h-10 rounded-xl bg-[#F1EADF] border border-[#DDD2C2] flex items-center justify-center hover:bg-[#DDD2C2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#302923] shrink-0 cursor-pointer transition-colors"
         >
-          <X className="w-5 h-5 text-[#141413]" aria-hidden="true" />
+          <X className="w-5 h-5 text-[#302923]" aria-hidden="true" />
         </button>
       </div>
 
@@ -223,7 +223,7 @@ export function FoodRestrictionsModal({
         {/* 1. Dietary Preference */}
         <section aria-labelledby="diet-section-heading">
           <div className="flex items-center justify-between gap-2 mb-3">
-            <h3 id="diet-section-heading" className="text-sm sm:text-base font-extrabold text-[#141413]">
+            <h3 id="diet-section-heading" className="text-sm sm:text-base font-semibold text-[#302923]">
               1. รูปแบบการกินหลัก
             </h3>
           </div>
@@ -237,23 +237,23 @@ export function FoodRestrictionsModal({
                   type="button"
                   onClick={() => setDiet(diet)}
                   aria-pressed={isSelected}
-                  className={`text-left p-3.5 rounded-2xl border transition-all cursor-pointer ${
+                  className={`text-left p-3.5 rounded-lg border transition-colors cursor-pointer ${
                     isSelected
-                      ? 'bg-[#141413] text-white border-[#141413] shadow-xs'
-                      : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                      ? 'bg-[#302923] text-white border-[#302923] shadow-xs'
+                      : 'bg-white text-[#302923] border-[#DDD2C2] hover:border-[#C6B7A5]'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-bold text-sm">{info.label}</span>
                     {isSelected && (
-                      <span className="w-5 h-5 rounded-full bg-[#FACC15] text-[#141413] flex items-center justify-center shrink-0">
+                      <span className="w-5 h-5 rounded-full bg-[#FBF0DC] text-[#302923] flex items-center justify-center shrink-0">
                         <Check className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
                       </span>
                     )}
                   </div>
                   <p
                     className={`text-xs mt-1 leading-relaxed ${
-                      isSelected ? 'text-white/80' : 'text-[#78716C]'
+                      isSelected ? 'text-white/80' : 'text-[#76685C]'
                     }`}
                   >
                     {info.description}
@@ -267,7 +267,7 @@ export function FoodRestrictionsModal({
         {/* 2. Allergens + "อื่นๆ" */}
         <section aria-labelledby="allergen-section-heading">
           <div className="flex items-center justify-between gap-2 mb-3">
-            <h3 id="allergen-section-heading" className="text-sm sm:text-base font-extrabold text-[#141413]">
+            <h3 id="allergen-section-heading" className="text-sm sm:text-base font-semibold text-[#302923]">
               2. อาหารหรือสารก่อภูมิแพ้ที่ต้องเลี่ยงเด็ดขาด
             </h3>
             {restrictions.allergens.length + customAllergens.length > 0 && (
@@ -286,10 +286,10 @@ export function FoodRestrictionsModal({
                   type="button"
                   onClick={() => toggleAllergen(allergenId)}
                   aria-pressed={isSelected}
-                  className={`text-left p-3 rounded-xl border transition-all cursor-pointer ${
+                  className={`text-left p-3 rounded-xl border transition-colors cursor-pointer ${
                     isSelected
-                      ? 'bg-rose-50/90 text-[#141413] border-rose-300 shadow-xs'
-                      : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                      ? 'bg-rose-50/90 text-[#302923] border-rose-300 shadow-xs'
+                      : 'bg-white text-[#302923] border-[#DDD2C2] hover:border-[#C6B7A5]'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2">
@@ -297,14 +297,14 @@ export function FoodRestrictionsModal({
                     <span
                       className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 ${
                         isSelected
-                          ? 'bg-[#141413] border-[#141413] text-[#FACC15]'
-                          : 'border-[#D8D1C2] bg-transparent'
+                          ? 'bg-[#302923] border-[#302923] text-[#FBF0DC]'
+                          : 'border-[#C6B7A5] bg-transparent'
                       }`}
                     >
                       {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />}
                     </span>
                   </div>
-                  <p className="text-xs text-[#78716C] mt-0.5">{info.detail}</p>
+                  <p className="text-xs text-[#76685C] mt-0.5">{info.detail}</p>
                 </button>
               );
             })}
@@ -314,19 +314,19 @@ export function FoodRestrictionsModal({
               type="button"
               onClick={() => setShowOtherAllergenInput((prev) => !prev)}
               aria-expanded={showOtherAllergenInput || customAllergens.length > 0}
-              className={`text-left p-3 rounded-xl border transition-all cursor-pointer ${
+              className={`text-left p-3 rounded-xl border transition-colors cursor-pointer ${
                 showOtherAllergenInput || customAllergens.length > 0
-                  ? 'bg-rose-50/90 text-[#141413] border-rose-300 shadow-xs'
-                  : 'bg-white text-[#141413] border-dashed border-[#D8D1C2] hover:border-[#141413]/50'
+                  ? 'bg-rose-50/90 text-[#302923] border-rose-300 shadow-xs'
+                  : 'bg-white text-[#302923] border-dashed border-[#C6B7A5] hover:border-[#302923]/50'
               }`}
             >
               <div className="flex items-center justify-between gap-2">
                 <span className="font-bold text-sm">อื่นๆ (ระบุอาหารที่แพ้เพิ่มเติม)</span>
-                <span className="w-5 h-5 rounded-md bg-[#FEF9C3] border border-[#EAE5D9] text-[#141413] flex items-center justify-center shrink-0">
+                <span className="w-5 h-5 rounded-md bg-[#F3E3D2] border border-[#DDD2C2] text-[#302923] flex items-center justify-center shrink-0">
                   <Plus className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
                 </span>
               </div>
-              <p className="text-xs text-[#78716C] mt-0.5">
+              <p className="text-xs text-[#76685C] mt-0.5">
                 เพิ่มอาหารหรือส่วนผสมที่แพ้นอกเหนือจากรายการด้านบน
               </p>
             </button>
@@ -334,8 +334,8 @@ export function FoodRestrictionsModal({
 
           {/* Custom Allergens Input & Tags */}
           {(showOtherAllergenInput || customAllergens.length > 0) && (
-            <div className="kindi-input-group mt-3 p-4 rounded-2xl bg-white border border-[#EAE5D9] space-y-2.5">
-              <label htmlFor="custom-allergen-input" className="block text-xs font-extrabold text-[#141413]">
+            <div className="kindi-input-group mt-3 p-4 rounded-lg bg-white border border-[#DDD2C2] space-y-2.5">
+              <label htmlFor="custom-allergen-input" className="block text-xs font-semibold text-[#302923]">
                 ระบุอาหารหรือสารก่อภูมิแพ้อื่นๆ ที่ต้องเลี่ยงเด็ดขาด:
               </label>
               <div className="flex gap-2">
@@ -387,7 +387,7 @@ export function FoodRestrictionsModal({
 
         {/* 3. Avoided Ingredients + "อื่นๆ" */}
         <section aria-labelledby="avoid-section-heading">
-          <h3 id="avoid-section-heading" className="text-sm sm:text-base font-extrabold text-[#141413] mb-2.5">
+          <h3 id="avoid-section-heading" className="text-sm sm:text-base font-semibold text-[#302923] mb-2.5">
             3. วัตถุดิบที่ไม่กิน / อยากเลี่ยง (รวมในน้ำซุปและซอส)
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -401,10 +401,10 @@ export function FoodRestrictionsModal({
                   onClick={() => toggleAvoidedIngredient(opt.id)}
                   aria-pressed={isSelected}
                   title={catalogName}
-                  className={`min-h-9 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer inline-flex items-center gap-1.5 ${
+                  className={`min-h-9 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold border transition-colors cursor-pointer inline-flex items-center gap-1.5 ${
                     isSelected
-                      ? 'bg-[#141413] text-[#FACC15] border-[#141413] shadow-xs'
-                      : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                      ? 'bg-[#302923] text-[#FBF0DC] border-[#302923] shadow-xs'
+                      : 'bg-white text-[#302923] border-[#DDD2C2] hover:border-[#C6B7A5]'
                   }`}
                 >
                   <span>{opt.label}</span>
@@ -418,10 +418,10 @@ export function FoodRestrictionsModal({
               type="button"
               onClick={() => setShowOtherAvoidInput((prev) => !prev)}
               aria-expanded={showOtherAvoidInput || customAvoidedTerms.length > 0}
-              className={`min-h-9 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer inline-flex items-center gap-1.5 ${
+              className={`min-h-9 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold border transition-colors cursor-pointer inline-flex items-center gap-1.5 ${
                 showOtherAvoidInput || customAvoidedTerms.length > 0
-                  ? 'bg-[#FEF9C3] text-[#141413] border-[#D8D1C2]'
-                  : 'bg-white text-[#141413] border-dashed border-[#D8D1C2] hover:border-[#141413]/50'
+                  ? 'bg-[#F3E3D2] text-[#302923] border-[#C6B7A5]'
+                  : 'bg-white text-[#302923] border-dashed border-[#C6B7A5] hover:border-[#302923]/50'
               }`}
             >
               <Plus className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
@@ -431,8 +431,8 @@ export function FoodRestrictionsModal({
 
           {/* Custom Avoided Ingredients Input & Tags */}
           {(showOtherAvoidInput || customAvoidedTerms.length > 0) && (
-            <div className="kindi-input-group mt-3 p-4 rounded-2xl bg-white border border-[#EAE5D9] space-y-2.5">
-              <label htmlFor="custom-avoid-input" className="block text-xs font-extrabold text-[#141413]">
+            <div className="kindi-input-group mt-3 p-4 rounded-lg bg-white border border-[#DDD2C2] space-y-2.5">
+              <label htmlFor="custom-avoid-input" className="block text-xs font-semibold text-[#302923]">
                 ระบุวัตถุดิบอื่นๆ ที่ไม่กินหรืออยากเลี่ยง:
               </label>
               <div className="flex gap-2">
@@ -463,7 +463,7 @@ export function FoodRestrictionsModal({
                   {customAvoidedTerms.map((item) => (
                     <span
                       key={item}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#FEF9C3] text-[#141413] border border-[#EAE5D9] text-xs font-bold"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#F3E3D2] text-[#302923] border border-[#DDD2C2] text-xs font-bold"
                     >
                       <span>ไม่กิน: {item}</span>
                       <button
@@ -485,20 +485,20 @@ export function FoodRestrictionsModal({
         {/* Mandatory Safety Disclaimer */}
         <div
           role="note"
-          className="p-3.5 rounded-2xl bg-[#F5F2EA] border border-[#EAE5D9] flex items-start gap-3 text-xs text-[#57534E]"
+          className="p-3.5 rounded-lg bg-[#F1EADF] border border-[#DDD2C2] flex items-start gap-3 text-xs text-[#6E5D50]"
         >
-          <ShieldAlert className="w-4 h-4 text-[#141413] shrink-0 mt-0.5" aria-hidden="true" />
+          <ShieldAlert className="w-4 h-4 text-[#302923] shrink-0 mt-0.5" aria-hidden="true" />
           <p className="leading-relaxed font-medium">{SAFETY_DISCLAIMER_TH}</p>
         </div>
       </div>
 
       {/* Footer Actions */}
-      <div className="px-5 py-3.5 sm:px-6 bg-white border-t border-[#EAE5D9] flex items-center justify-between gap-3 shrink-0">
+      <div className="px-5 py-3.5 sm:px-6 bg-white border-t border-[#DDD2C2] flex items-center justify-between gap-3 shrink-0">
         <button
           type="button"
           onClick={resetAll}
           disabled={activeCount === 0}
-          className="min-h-10 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold text-[#57534E] border border-[#EAE5D9] hover:bg-[#F5F2EA] hover:text-[#141413] disabled:opacity-40 disabled:pointer-events-none cursor-pointer transition-colors"
+          className="min-h-10 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold text-[#6E5D50] border border-[#DDD2C2] hover:bg-[#F1EADF] hover:text-[#302923] disabled:opacity-40 disabled:pointer-events-none cursor-pointer transition-colors"
         >
           <RotateCcw className="w-4 h-4" aria-hidden="true" />
           <span>ล้างข้อจำกัดทั้งหมด</span>

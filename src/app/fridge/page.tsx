@@ -161,41 +161,11 @@ export default function FridgeModePage() {
   }, [customIngredients]);
 
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div className="interior-page fridge-page">
       {/* Editorial Bento Header */}
-      <section className="kindi-surface-card p-6 sm:p-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
-          <div className="space-y-2.5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF9C3] border border-[#EAE5D9] text-[#141413] text-xs font-extrabold">
-              <Refrigerator className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>ค้นตู้เย็นทำอาหาร</span>
-            </div>
-            <h1 className="text-[clamp(1.75rem,1.4rem+1.8vw,2.65rem)] font-extrabold text-[#141413] tracking-tight leading-[1.15]">
-              มีอะไรในตู้ ก็กินดิ!
-            </h1>
-            <p className="text-sm sm:text-base text-[#57534E] font-medium max-w-2xl leading-relaxed">
-              ติ๊กวัตถุดิบที่มีในบ้านเพื่อดูเมนูที่ทำได้ทันที หรือเมนูที่ขาดของอีกแค่ 1–2 อย่าง
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2.5 shrink-0">
-            <button
-              type="button"
-              onClick={openRestrictionsModal}
-              className="kindi-btn-secondary min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold cursor-pointer"
-            >
-              <ShieldCheck className="w-4 h-4 text-emerald-700" aria-hidden="true" />
-              <span>ข้อจำกัดทางอาหาร</span>
-            </button>
-            <Link
-              href="/"
-              className="kindi-btn-primary min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold"
-            >
-              <Sparkles className="w-4 h-4" aria-hidden="true" />
-              <span>ไปสุ่มไพ่เมนูแทน</span>
-            </Link>
-          </div>
-        </div>
+      <section className="interior-header fridge-header">
+        <div><h1>เปิดตู้เย็น<br /><span>เจอมื้อถัดไป</span></h1><p>ของที่มีอยู่ อาจอร่อยกว่าที่คิด เลือกวัตถุดิบในบ้าน<br className="hidden sm:block" /> แล้วค้นหาเมนูที่ทำได้ หรือขาดอีกแค่นิดเดียว</p></div>
+        <div className="interior-header-actions"><Refrigerator size={64} strokeWidth={1} aria-hidden="true" /><button onClick={openRestrictionsModal} className="text-link"><ShieldCheck size={17} aria-hidden="true" /> ตั้งค่าข้อจำกัดทางอาหาร</button></div>
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -204,20 +174,20 @@ export default function FridgeModePage() {
           aria-labelledby="fridge-picker-heading"
           className="kindi-surface-card lg:col-span-6 p-5 sm:p-6 space-y-5"
         >
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#EAE5D9] pb-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DDD2C2] pb-4">
             <div>
               <div className="flex items-center gap-2">
                 <h2
                   id="fridge-picker-heading"
-                  className="text-lg font-extrabold text-[#141413] tabular-nums"
+                  className="text-lg font-semibold text-[#302923] tabular-nums"
                 >
                   เลือกวัตถุดิบที่มีในบ้าน
                 </h2>
-                <span className="px-2.5 py-0.5 rounded-full bg-[#141413] text-[#FACC15] text-xs font-extrabold tabular-nums">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#302923] text-[#FBF0DC] text-xs font-semibold tabular-nums">
                   {selectedIngredientIds.length} อย่าง
                 </span>
               </div>
-              <p className="text-xs text-[#57534E] mt-0.5">
+              <p className="text-xs text-[#6E5D50] mt-0.5">
                 แตะเพื่อเลือกหรือเพิ่มวัตถุดิบ ระบบจะคำนวณเมนูที่ทำได้แบบเรียลไทม์
               </p>
             </div>
@@ -225,7 +195,7 @@ export default function FridgeModePage() {
               <button
                 type="button"
                 onClick={() => setSelectedIngredientIds([])}
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#F5F2EA] text-xs font-bold text-[#141413] hover:bg-[#EAE5D9] transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#F1EADF] text-xs font-bold text-[#302923] hover:bg-[#DDD2C2] transition-colors cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>ล้างที่เลือก</span>
@@ -235,8 +205,8 @@ export default function FridgeModePage() {
 
           {/* Active Selected Tray */}
           {selectedIngredientIds.length > 0 && (
-            <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] space-y-2">
-              <span className="block text-xs font-extrabold text-[#57534E]">
+            <div className="p-3.5 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2] space-y-2">
+              <span className="block text-xs font-semibold text-[#6E5D50]">
                 วัตถุดิบที่คุณเลือกไว้แล้ว ({selectedIngredientIds.length}):
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -248,10 +218,10 @@ export default function FridgeModePage() {
                       type="button"
                       onClick={() => toggleIngredient(id)}
                       title={`แตะเพื่อเอา ${name} ออก`}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#141413] text-[#FCFBF7] text-xs font-bold hover:bg-[#292826] transition-colors cursor-pointer group shadow-xs"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#302923] text-[#FBF7EF] text-xs font-bold hover:bg-[#4A352B] transition-colors cursor-pointer group shadow-xs"
                     >
                       <span>{name}</span>
-                      <X className="w-3.5 h-3.5 text-[#FACC15] group-hover:scale-110 transition-transform" aria-hidden="true" />
+                      <X className="w-3.5 h-3.5 text-[#FBF0DC] group-hover:scale-110 transition-transform" aria-hidden="true" />
                     </button>
                   );
                 })}
@@ -265,10 +235,10 @@ export default function FridgeModePage() {
               type="button"
               onClick={() => setActiveIngredientCategory('all')}
               aria-pressed={activeIngredientCategory === 'all'}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors cursor-pointer ${
                 activeIngredientCategory === 'all'
-                  ? 'bg-[#141413] text-[#FACC15] border-[#141413] shadow-xs'
-                  : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                  ? 'bg-[#302923] text-[#FBF0DC] border-[#302923] shadow-xs'
+                  : 'bg-white text-[#302923] border-[#DDD2C2] hover:border-[#C6B7A5]'
               }`}
             >
               ทั้งหมด
@@ -281,10 +251,10 @@ export default function FridgeModePage() {
                   type="button"
                   onClick={() => setActiveIngredientCategory(catKey)}
                   aria-pressed={active}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors cursor-pointer ${
                     active
-                      ? 'bg-[#141413] text-[#FACC15] border-[#141413] shadow-xs'
-                      : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                      ? 'bg-[#302923] text-[#FBF0DC] border-[#302923] shadow-xs'
+                      : 'bg-white text-[#302923] border-[#DDD2C2] hover:border-[#C6B7A5]'
                   }`}
                 >
                   {INGREDIENT_CATEGORY_LABELS[catKey]}
@@ -294,12 +264,12 @@ export default function FridgeModePage() {
           </div>
 
           {/* Basic Pantry Condiments Toggle */}
-          <label className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] hover:border-[#D8D1C2] transition-colors cursor-pointer select-none">
+          <label className="flex items-center justify-between gap-3 p-4 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2] hover:border-[#C6B7A5] transition-colors cursor-pointer select-none">
             <div>
-              <span className="text-xs sm:text-sm font-extrabold text-[#141413] block">
+              <span className="text-xs sm:text-sm font-semibold text-[#302923] block">
                 มีเครื่องปรุงพื้นฐานติดครัวอยู่แล้ว
               </span>
-              <span className="text-xs text-[#57534E] mt-0.5 block">
+              <span className="text-xs text-[#6E5D50] mt-0.5 block">
                 (น้ำปลา, ซีอิ๊ว, ซอสหอยนางรม, เกลือ, น้ำมัน, พริกกระเทียม)
               </span>
             </div>
@@ -307,7 +277,7 @@ export default function FridgeModePage() {
               type="checkbox"
               checked={assumeBasicCondiments}
               onChange={(e) => setAssumeBasicCondiments(e.target.checked)}
-              className="w-5 h-5 accent-[#141413] shrink-0 cursor-pointer"
+              className="w-5 h-5 accent-[#302923] shrink-0 cursor-pointer"
             />
           </label>
 
@@ -320,8 +290,8 @@ export default function FridgeModePage() {
               const items = groupedIngredients[catKey];
               if ((!items || items.length === 0) && catKey !== 'other') return null;
               return (
-                <div key={catKey} className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] space-y-2.5">
-                  <h3 className="text-xs font-extrabold text-[#57534E]">
+                <div key={catKey} className="ingredient-group space-y-2.5">
+                  <h3 className="text-xs font-semibold text-[#6E5D50]">
                     {INGREDIENT_CATEGORY_LABELS[catKey]}
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -333,10 +303,10 @@ export default function FridgeModePage() {
                           type="button"
                           onClick={() => toggleIngredient(ing.id)}
                           aria-pressed={isSelected}
-                          className={`min-h-9 px-3 py-1.5 rounded-xl text-xs font-bold border transition-all inline-flex items-center gap-1.5 cursor-pointer ${
+                          className={`min-h-9 px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors inline-flex items-center gap-1.5 cursor-pointer ${
                             isSelected
-                              ? 'bg-[#141413] text-[#FACC15] border-[#141413] shadow-xs'
-                              : 'bg-white text-[#141413] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                              ? 'bg-[#302923] text-[#FBF0DC] border-[#302923] shadow-xs'
+                              : 'bg-white text-[#302923] border-[#DDD2C2] hover:border-[#C6B7A5]'
                           }`}
                         >
                           <span>{ing.name_th}</span>
@@ -351,7 +321,7 @@ export default function FridgeModePage() {
                       <button
                         type="button"
                         onClick={() => setShowOtherInput((prev) => !prev)}
-                        className="min-h-9 px-3 py-1.5 rounded-xl text-xs font-extrabold border border-dashed border-[#D8D1C2] bg-white text-[#141413] hover:border-[#141413] inline-flex items-center gap-1 transition-colors cursor-pointer"
+                        className="min-h-9 px-3 py-1.5 rounded-xl text-xs font-semibold border border-dashed border-[#C6B7A5] bg-white text-[#302923] hover:border-[#302923] inline-flex items-center gap-1 transition-colors cursor-pointer"
                       >
                         <Plus className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
                         <span>อื่นๆ (พิมพ์เพิ่มเอง)</span>
@@ -363,10 +333,10 @@ export default function FridgeModePage() {
             })}
 
             {showOtherInput && (
-              <div className="kindi-input-group p-4 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] space-y-2">
+              <div className="kindi-input-group p-4 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2] space-y-2">
                 <label
                   htmlFor="fridge-other-ing"
-                  className="block text-xs font-extrabold text-[#141413]"
+                  className="block text-xs font-semibold text-[#302923]"
                 >
                   เพิ่มวัตถุดิบอื่นๆ ที่มีในตู้เย็น:
                 </label>
@@ -405,7 +375,7 @@ export default function FridgeModePage() {
             aria-labelledby="fridge-results-heading"
             className="kindi-surface-card p-5 sm:p-6 space-y-4"
           >
-            <div className="flex items-center justify-between gap-2 border-b border-[#EAE5D9] pb-3">
+            <div className="flex items-center justify-between gap-2 border-b border-[#DDD2C2] pb-3">
               <div className="flex items-center gap-2">
                 <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-900 border border-emerald-200 flex items-center justify-center">
                   <Check className="w-4 h-4 stroke-[3]" aria-hidden="true" />
@@ -413,7 +383,7 @@ export default function FridgeModePage() {
                 <div>
                   <h2
                     id="fridge-results-heading"
-                    className="text-base sm:text-lg font-extrabold text-[#141413] tabular-nums"
+                    className="text-base sm:text-lg font-semibold text-[#302923] tabular-nums"
                   >
                     เมนูที่ทำได้ทันที ({matchedRecipes.length} เมนู)
                   </h2>
@@ -422,13 +392,13 @@ export default function FridgeModePage() {
             </div>
 
             {matchedRecipes.length === 0 ? (
-              <div className="py-10 px-4 text-center space-y-3 bg-[#FCFBF7] rounded-2xl border border-dashed border-[#D8D1C2]">
-                <p className="text-sm sm:text-base font-extrabold text-[#141413]">
+              <div className="py-10 px-4 text-center space-y-3 bg-[#FBF7EF] rounded-lg border border-dashed border-[#C6B7A5]">
+                <p className="text-sm sm:text-base font-semibold text-[#302923]">
                   {recipes.length === 0
                     ? 'ยังไม่มีสูตรอาหารในระบบ'
                     : 'ยังไม่มีเมนูที่ทำได้ครบ 100% จากวัตถุดิบที่เลือก'}
                 </p>
-                <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed max-w-sm mx-auto">
+                <p className="text-xs sm:text-sm text-[#6E5D50] leading-relaxed max-w-sm mx-auto">
                   {recipes.length === 0
                     ? 'ไปที่หน้า "เพิ่มเมนูอาหาร" เพื่อเพิ่มเมนูแรกเข้าสู่ระบบกันเลย!'
                     : 'ลองเลือกวัตถุดิบเพิ่ม หรือดูหมวด "ขาดอีกนิดเดียว!" ด้านล่างได้เลย'}
@@ -437,7 +407,7 @@ export default function FridgeModePage() {
                   <div className="pt-1">
                     <Link
                       href="/community"
-                      className="kindi-btn-primary min-h-11 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold"
+                      className="kindi-btn-primary min-h-11 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold"
                     >
                       <Share2 className="w-4 h-4" aria-hidden="true" />
                       <span>ไปหน้าเพิ่มเมนูอาหาร</span>
@@ -452,9 +422,9 @@ export default function FridgeModePage() {
                   return (
                     <div
                       key={recipe.id}
-                      className="kindi-recipe-card rounded-2xl overflow-hidden flex flex-col sm:flex-row group"
+                      className="kindi-recipe-card rounded-lg overflow-hidden flex flex-col sm:flex-row group"
                     >
-                      <div className="sm:w-40 h-40 sm:h-auto shrink-0 bg-[#F5F2EA] border-b sm:border-b-0 sm:border-r border-[#EAE5D9]">
+                      <div className="sm:w-40 h-40 sm:h-auto shrink-0 bg-[#F1EADF] border-b sm:border-b-0 sm:border-r border-[#DDD2C2]">
                         <RecipeImage
                           src={recipe.image_url}
                           alt={recipe.name}
@@ -465,40 +435,40 @@ export default function FridgeModePage() {
                       <div className="p-4 sm:p-5 flex-1 min-w-0 flex flex-col justify-between gap-3.5">
                         <div className="space-y-2">
                           <div className="flex flex-wrap items-center justify-between gap-2">
-                            <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#FEF9C3] border border-[#EAE5D9] text-[#141413] whitespace-nowrap">
+                            <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#F3E3D2] border border-[#DDD2C2] text-[#302923] whitespace-nowrap">
                               {FOOD_CATEGORY_LABELS[recipe.category]}
                             </span>
 
-                            <div className="flex items-center gap-2.5 text-xs font-semibold text-[#57534E] tabular-nums whitespace-nowrap">
+                            <div className="flex items-center gap-2.5 text-xs font-semibold text-[#6E5D50] tabular-nums whitespace-nowrap">
                               <span className="inline-flex items-center gap-1">
-                                <Clock className="w-3.5 h-3.5 text-[#141413]" aria-hidden="true" />
+                                <Clock className="w-3.5 h-3.5 text-[#302923]" aria-hidden="true" />
                                 {recipe.cooking_time} นาที
                               </span>
                               <span className="inline-flex items-center gap-1">
-                                <ChefHat className="w-3.5 h-3.5 text-[#141413]" aria-hidden="true" />
+                                <ChefHat className="w-3.5 h-3.5 text-[#302923]" aria-hidden="true" />
                                 {DIFFICULTY_LABELS[recipe.difficulty]}
                               </span>
                             </div>
                           </div>
 
-                          <h3 className="text-base sm:text-lg font-extrabold text-[#141413] leading-snug break-words">
+                          <h3 className="text-base sm:text-lg font-semibold text-[#302923] leading-snug break-words">
                             {recipe.name}
                           </h3>
                         </div>
 
-                        <div className="flex items-center gap-2.5 pt-3 border-t border-[#EAE5D9]">
+                        <div className="flex items-center gap-2.5 pt-3 border-t border-[#DDD2C2]">
                           <a
                             href={ext.primaryUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="kindi-btn-primary flex-1 min-h-11 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap cursor-pointer"
+                            className="kindi-btn-primary flex-1 min-h-11 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap cursor-pointer"
                           >
                             <span>ลิงก์สูตรอาหาร</span>
                             <ExternalLink className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                           </a>
                           <Link
                             href={`/recipes/${encodeURIComponent(recipe.id)}`}
-                            className="kindi-btn-secondary min-h-11 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-[#141413] whitespace-nowrap cursor-pointer"
+                            className="kindi-btn-secondary min-h-11 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-[#302923] whitespace-nowrap cursor-pointer"
                           >
                             <span>ดูส่วนผสม</span>
                             <ArrowRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
@@ -517,7 +487,7 @@ export default function FridgeModePage() {
             aria-labelledby="fridge-nearmatch-heading"
             className="kindi-surface-card p-5 sm:p-6 space-y-4"
           >
-            <div className="flex items-center justify-between gap-2 border-b border-[#EAE5D9] pb-3">
+            <div className="flex items-center justify-between gap-2 border-b border-[#DDD2C2] pb-3">
               <div>
                 <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-900 border border-amber-200 text-xs font-bold mb-1">
                   <AlertCircle className="w-3.5 h-3.5" aria-hidden="true" />
@@ -525,7 +495,7 @@ export default function FridgeModePage() {
                 </div>
                 <h2
                   id="fridge-nearmatch-heading"
-                  className="text-base sm:text-lg font-extrabold text-[#141413] tabular-nums"
+                  className="text-base sm:text-lg font-semibold text-[#302923] tabular-nums"
                 >
                   ขาดอีกนิดเดียว! ({nearMatchRecipes.length} เมนู)
                 </h2>
@@ -533,7 +503,7 @@ export default function FridgeModePage() {
             </div>
 
             {nearMatchRecipes.length === 0 ? (
-              <p className="text-xs sm:text-sm text-[#57534E] py-6 text-center bg-[#FCFBF7] rounded-2xl border border-dashed border-[#D8D1C2]">
+              <p className="text-xs sm:text-sm text-[#6E5D50] py-6 text-center bg-[#FBF7EF] rounded-lg border border-dashed border-[#C6B7A5]">
                 ยังไม่มีเมนูที่ขาดวัตถุดิบเพียง 1–2 อย่างจากรายการที่คุณเลือก
               </p>
             ) : (
@@ -546,47 +516,47 @@ export default function FridgeModePage() {
                   return (
                     <div
                       key={recipe.id}
-                      className="p-4 sm:p-5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] space-y-3.5"
+                      className="p-4 sm:p-5 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2] space-y-3.5"
                     >
                       <div className="flex items-start justify-between gap-2">
                         <div>
-                          <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#F5F2EA] text-[#141413] tabular-nums whitespace-nowrap">
+                          <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#F1EADF] text-[#302923] tabular-nums whitespace-nowrap">
                             {FOOD_CATEGORY_LABELS[recipe.category]} · {recipe.cooking_time} นาที
                           </span>
-                          <h3 className="text-base sm:text-lg font-extrabold text-[#141413] mt-1.5 leading-snug">
+                          <h3 className="text-base sm:text-lg font-semibold text-[#302923] mt-1.5 leading-snug">
                             {recipe.name}
                           </h3>
                         </div>
-                        <span className="px-2.5 py-1 rounded-full bg-amber-100 text-amber-950 border border-amber-200 text-xs font-extrabold shrink-0 tabular-nums whitespace-nowrap">
+                        <span className="px-2.5 py-1 rounded-full bg-amber-100 text-amber-950 border border-amber-200 text-xs font-semibold shrink-0 tabular-nums whitespace-nowrap">
                           ขาดอีก {missingRequiredIds.length} อย่าง
                         </span>
                       </div>
 
                       <div className="flex flex-wrap items-center gap-1.5 text-xs">
-                        <span className="font-bold text-[#57534E]">วัตถุดิบที่ต้องหาเพิ่ม:</span>
+                        <span className="font-bold text-[#6E5D50]">วัตถุดิบที่ต้องหาเพิ่ม:</span>
                         {missingNames.map((mName) => (
                           <span
                             key={mName}
-                            className="px-2.5 py-1 rounded-lg bg-white border border-[#EAE5D9] text-xs font-extrabold text-amber-900 shadow-xs"
+                            className="px-2.5 py-1 rounded-lg bg-white border border-[#DDD2C2] text-xs font-semibold text-amber-900 shadow-xs"
                           >
                             + {mName}
                           </span>
                         ))}
                       </div>
 
-                      <div className="flex items-center gap-2.5 pt-3 border-t border-[#EAE5D9]">
+                      <div className="flex items-center gap-2.5 pt-3 border-t border-[#DDD2C2]">
                         <a
                           href={ext.primaryUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="kindi-btn-primary flex-1 min-h-11 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap cursor-pointer"
+                          className="kindi-btn-primary flex-1 min-h-11 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap cursor-pointer"
                         >
                           <span>ลิงก์สูตรอาหาร</span>
                           <ExternalLink className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                         </a>
                         <Link
                           href={`/recipes/${encodeURIComponent(recipe.id)}`}
-                          className="kindi-btn-secondary min-h-11 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-[#141413] whitespace-nowrap cursor-pointer"
+                          className="kindi-btn-secondary min-h-11 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-[#302923] whitespace-nowrap cursor-pointer"
                         >
                           <span>ดูส่วนผสม</span>
                           <ArrowRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />

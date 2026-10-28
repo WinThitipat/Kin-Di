@@ -20,12 +20,12 @@ export function RouletteEmptyState({
       role="status"
       className="kindi-surface-card max-w-lg mx-auto my-4 p-6 sm:p-8 text-center space-y-4"
     >
-      <div className="w-14 h-14 rounded-2xl bg-[#FFF3C4] border border-[#171717]/15 flex items-center justify-center mx-auto">
+      <div className="w-14 h-14 rounded-lg bg-[#FFF3C4] border border-[#171717]/15 flex items-center justify-center mx-auto">
         <SearchX className="w-7 h-7 text-[#171717]" aria-hidden="true" />
       </div>
 
       <div className="space-y-1.5">
-        <h3 className="text-lg sm:text-xl font-extrabold text-[#171717]">
+        <h3 className="text-lg sm:text-xl font-semibold text-[#171717]">
           วันนี้ยังไม่มีเมนูที่ตรงเงื่อนไข ลองปรับตัวกรองดูไหม?
         </h3>
         <p className="text-xs sm:text-sm text-[#6E6A63] leading-relaxed">
@@ -38,7 +38,7 @@ export function RouletteEmptyState({
         <Link
           href="/community"
           onClick={onCloseModal}
-          className="kindi-btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-extrabold text-sm"
+          className="kindi-btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm"
         >
           <Share2 className="w-4 h-4" aria-hidden="true" />
           <span>ไปหน้าเพิ่มเมนูอาหาร</span>
@@ -48,7 +48,7 @@ export function RouletteEmptyState({
           <button
             type="button"
             onClick={onResetOptionalFilters}
-            className="kindi-btn-accent w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-extrabold text-sm cursor-pointer"
+            className="kindi-btn-accent w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" aria-hidden="true" />
             <span>ล้างตัวกรองด่วนแล้วสุ่มใหม่</span>
@@ -80,12 +80,12 @@ export function RouletteErrorState({ message, onRetry, onCloseModal }: RouletteE
       role="alert"
       className="kindi-surface-card max-w-lg mx-auto my-4 p-6 sm:p-8 text-center space-y-4"
     >
-      <div className="w-14 h-14 rounded-2xl bg-[#FFE4E6] border border-red-200 flex items-center justify-center mx-auto">
+      <div className="w-14 h-14 rounded-lg bg-[#FFE4E6] border border-red-200 flex items-center justify-center mx-auto">
         <AlertTriangle className="w-7 h-7 text-[#171717]" aria-hidden="true" />
       </div>
 
       <div className="space-y-1.5">
-        <h3 className="text-lg sm:text-xl font-extrabold text-[#171717]">
+        <h3 className="text-lg sm:text-xl font-semibold text-[#171717]">
           โหลดสำรับไพ่ไม่สำเร็จ
         </h3>
         <p className="text-xs sm:text-sm text-[#6E6A63] leading-relaxed">{message}</p>
@@ -95,7 +95,7 @@ export function RouletteErrorState({ message, onRetry, onCloseModal }: RouletteE
         <button
           type="button"
           onClick={onRetry}
-          className="kindi-btn-accent w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-sm cursor-pointer"
+          className="kindi-btn-accent w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm cursor-pointer"
         >
           <RotateCcw className="w-4 h-4" aria-hidden="true" />
           <span>ลองใหม่อีกครั้ง</span>

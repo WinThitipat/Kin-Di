@@ -1,0 +1,63 @@
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:3100';
+fs.mkdirSync('artifacts/community-steps', {recursive:true});
+(async()=>{
+ const browser = await chromium.launch({headless:true,channel:'chrome'});
+ try {
+  for (const mobile of [true,false]) {
+   const context = await browser.newContext({viewport:{width:mobile?390:1440,height:900},isMobile:mobile,hasTouch:mobile});
+   const page = await context.newPage();
+   const errors=[]; page.on('pageerror',error=>errors.push(error.message));
+   const click = async locator => mobile ? locator.tap() : locator.click();
+   await page.goto(base+'/community');await page.waitForLoadState('networkidle');
+   const next=()=>page.getByRole('button',{name:'ถัดไป',exact:true});
+   const step=async n=>assert.equal(await page.locator('.step-intro h2').innerText(),['ข้อมูลเมนู','หมวดหมู่และเวลา','วัตถุดิบและสารก่อภูมิแพ้','ตรวจสอบก่อนบันทึก'][n]);
+   await step(0);
+   assert.equal(await page.locator('fieldset:visible').count(),1);
+   assert.equal(await page.getByRole('button',{name:'บันทึกเมนูอาหารเข้าสำรับ!'}).count(),0);
+   await click(next());await step(0);assert(await page.locator('#community-step-error').isVisible());
+   await page.locator('#recipe-name').fill('สูตรทดสอบทีละขั้น');
+   await page.locator('#recipe-link').fill('javascript:alert(1)');
+   await page.locator('#recipe-desc').fill('ทดสอบการกรอกและย้อนกลับโดยข้อมูลไม่หาย');
+   await page.locator('#recipe-image-upload').setInputFiles('public/images/thai-table.jpg');
+   await page.getByAltText('ตัวอย่างรูปอาหาร').waitFor();
+   await click(next());await step(0);assert(await page.locator('#community-step-error').isVisible());
+   await page.locator('#recipe-link').fill('https://www.wongnai.com/recipes');
+   await click(next());await step(1);
+   assert.equal(await page.locator('#community-step-title').evaluate(el=>el===document.activeElement),true);
+   assert.equal(await page.locator('#recipe-name').isVisible(),false);
+   await click(page.getByRole('button',{name:'มื้อเที่ยง',exact:true}));
+   await click(next());await step(1);assert(await page.locator('#community-step-error').isVisible());
+   await click(page.getByRole('button',{name:'มื้อเย็น',exact:true}));
+   await click(page.getByRole('button',{name:'ย้อนกลับ'}));await step(0);
+   assert.equal(await page.locator('#recipe-name').inputValue(),'สูตรทดสอบทีละขั้น');
+   assert(await page.getByAltText('ตัวอย่างรูปอาหาร').isVisible());
+   await click(next());await step(1);await click(next());await step(2);
+   await click(page.getByRole('button',{name:'ถัดไป: ตรวจสอบสูตร'}));await step(2);assert(await page.locator('#community-step-error').isVisible());
+   await click(page.getByRole('button',{name:'หมูสับ / เนื้อหมู',exact:true}));
+   await page.locator('#recipe-author').fill('ผู้ทดสอบ');
+   await click(page.getByRole('button',{name:'ถัดไป: ตรวจสอบสูตร'}));await step(3);
+   assert.equal(await page.locator('fieldset:visible').count(),0);
+   assert(await page.locator('.recipe-review').getByText('สูตรทดสอบทีละขั้น',{exact:true}).isVisible());
+   assert(await page.locator('.recipe-review').getByText('หมูสับ / เนื้อหมู',{exact:true}).isVisible());
+   assert.equal(await page.evaluate(()=>localStorage.getItem('kindi:shared-recipes:v1')),null);
+   await click(page.getByRole('button',{name:'ย้อนกลับ'}));await step(2);
+   assert.equal(await page.locator('#recipe-author').inputValue(),'ผู้ทดสอบ');
+   await click(page.getByRole('button',{name:'ถัดไป: ตรวจสอบสูตร'}));await step(3);
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+   await page.screenshot({path:`artifacts/community-steps/review-${mobile?'mobile':'desktop'}.png`,fullPage:true});
+   await click(page.getByRole('button',{name:'บันทึกเมนูอาหารเข้าสำรับ!'}));
+   await page.getByRole('status').filter({hasText:'เพิ่มเมนูอาหารเรียบร้อยแล้ว'}).waitFor();await step(0);
+   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('kindi:shared-recipes:v1')).length),1);
+   assert.equal(await page.locator('#recipe-name').inputValue(),'');
+   assert.equal(await page.locator('#recipe-author').inputValue(),'');
+   await page.locator('#recipe-image-upload').setInputFiles('public/images/thai-table.jpg');
+   await page.getByAltText('ตัวอย่างรูปอาหาร').waitFor();
+   assert.deepEqual(errors,[]);
+   console.log(`PASS ${mobile?'mobile touch':'desktop'}: required fields and URL validation, meal and ingredient gates, back retains data, focus advances, review before save, exactly one saved recipe, reset and repeat upload, no overflow/runtime errors`);
+   await context.close();
+  }
+ } finally {await browser.close();}
+})().catch(error=>{console.error(error);process.exitCode=1;});

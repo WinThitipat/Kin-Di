@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { FoodRestrictionsModal } from '@/components/FoodRestrictionsModal';
-import { Navbar } from '@/components/Navbar';
-import { DEFAULT_USER_RESTRICTIONS } from '@/features/food-safety/eligibility';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { FoodRestrictionsModal } from "@/components/FoodRestrictionsModal";
+import { Navbar } from "@/components/Navbar";
+import { DEFAULT_USER_RESTRICTIONS } from "@/features/food-safety/eligibility";
 import {
   loadFavoriteRecipeIds,
   loadUserRestrictions,
   saveUserRestrictions,
   toggleFavoriteRecipeId,
-} from '@/lib/user-storage';
-import { SAFETY_DISCLAIMER_TH, UserFoodRestrictions } from '@/types/recipe';
+} from "@/lib/user-storage";
+import { SAFETY_DISCLAIMER_TH, UserFoodRestrictions } from "@/types/recipe";
 
 interface KinDiAppContextValue {
   restrictions: UserFoodRestrictions;
@@ -36,7 +36,7 @@ export function useKinDiApp() {
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [restrictions, setRestrictionsState] = useState<UserFoodRestrictions>(
-    DEFAULT_USER_RESTRICTIONS
+    DEFAULT_USER_RESTRICTIONS,
   );
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [isRestrictionsOpen, setIsRestrictionsOpen] = useState(false);
@@ -46,18 +46,25 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     setRestrictionsState(loadUserRestrictions());
     setFavoriteIds(loadFavoriteRecipeIds());
     setIsHydrated(true);
-    // Open the Food Restrictions ("ข้อจำกัดทางอาหาร") modal automatically when entering the website
-    setIsRestrictionsOpen(true);
-
-    const handleRestrictionsSync = () => setRestrictionsState(loadUserRestrictions());
+    const handleRestrictionsSync = () =>
+      setRestrictionsState(loadUserRestrictions());
     const handleFavoritesSync = () => setFavoriteIds(loadFavoriteRecipeIds());
 
-    window.addEventListener('kindi-restrictions-updated', handleRestrictionsSync);
-    window.addEventListener('kindi-favorites-updated', handleFavoritesSync);
+    window.addEventListener(
+      "kindi-restrictions-updated",
+      handleRestrictionsSync,
+    );
+    window.addEventListener("kindi-favorites-updated", handleFavoritesSync);
 
     return () => {
-      window.removeEventListener('kindi-restrictions-updated', handleRestrictionsSync);
-      window.removeEventListener('kindi-favorites-updated', handleFavoritesSync);
+      window.removeEventListener(
+        "kindi-restrictions-updated",
+        handleRestrictionsSync,
+      );
+      window.removeEventListener(
+        "kindi-favorites-updated",
+        handleFavoritesSync,
+      );
     };
   }, []);
 
@@ -82,32 +89,28 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         isHydrated,
       }}
     >
-      <div className="min-h-dvh flex flex-col bg-[#FCFBF7] text-[#141413]">
+      <div className="app-shell">
+        <a href="#main-content" className="skip-link">
+          ข้ามไปเนื้อหา
+        </a>
         <Navbar
           restrictions={restrictions}
           onOpenRestrictions={() => setIsRestrictionsOpen(true)}
         />
 
-        <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <main id="main-content" className="site-main">
           {children}
         </main>
 
-        <footer className="border-t border-[#EAE5D9] bg-white py-6 px-4 sm:px-6 mt-12">
-          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#78716C]">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-[#141413]">กินดิ!</span>
-                <span className="px-1.5 py-0.5 rounded bg-[#FEF9C3] border border-[#EAE5D9] text-[10px] font-extrabold text-[#141413]">
-                  KIN DI
-                </span>
-                <span className="text-[#57534E] font-medium">
-                  สุ่มไพ่เมนูอาหารและค้นหาเมนูจากของในตู้เย็น
-                </span>
-              </div>
-              <p className="mt-1.5 max-w-2xl leading-relaxed text-[#78716C]">
-                {SAFETY_DISCLAIMER_TH}
-              </p>
+        <footer className="site-footer">
+          <div className="footer-inner">
+            <div className="footer-brand">
+              กินดิ!<small>คิดน้อยลง อร่อยมากขึ้น</small>
             </div>
+            <p>{SAFETY_DISCLAIMER_TH}</p>
+            <span className="footer-signoff">
+              MADE FOR THE EVERYDAY APPETITE.
+            </span>
           </div>
         </footer>
 

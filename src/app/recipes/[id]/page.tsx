@@ -152,13 +152,13 @@ export default function RecipeDetailPage() {
     return (
       <div className="max-w-4xl mx-auto py-10 space-y-6 animate-pulse">
         <div className="flex items-center justify-between">
-          <div className="h-11 w-36 rounded-xl bg-[#EAE5D9]" />
-          <div className="h-11 w-44 rounded-xl bg-[#EAE5D9]" />
+          <div className="h-11 w-36 rounded-xl bg-[#DDD2C2]" />
+          <div className="h-11 w-44 rounded-xl bg-[#DDD2C2]" />
         </div>
-        <div className="h-96 w-full rounded-3xl bg-white border border-[#EAE5D9]" />
+        <div className="h-96 w-full rounded-xl bg-white border border-[#DDD2C2]" />
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          <div className="md:col-span-5 h-80 rounded-3xl bg-white border border-[#EAE5D9]" />
-          <div className="md:col-span-7 h-80 rounded-3xl bg-white border border-[#EAE5D9]" />
+          <div className="md:col-span-5 h-80 rounded-xl bg-white border border-[#DDD2C2]" />
+          <div className="md:col-span-7 h-80 rounded-xl bg-white border border-[#DDD2C2]" />
         </div>
       </div>
     );
@@ -168,21 +168,21 @@ export default function RecipeDetailPage() {
   if (!recipe) {
     return (
       <div className="kindi-surface-card max-w-lg mx-auto my-14 p-8 sm:p-10 text-center space-y-4">
-        <div className="w-16 h-16 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center mx-auto text-rose-700">
+        <div className="w-16 h-16 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center mx-auto text-rose-700">
           <AlertTriangle className="w-8 h-8" aria-hidden="true" />
         </div>
-        <h1 className="text-xl sm:text-2xl font-extrabold text-[#141413]">
+        <h1 className="text-xl sm:text-2xl font-semibold text-[#302923]">
           ไม่พบสูตรอาหารนี้ในระบบ
         </h1>
-        <p className="text-sm text-[#57534E] leading-relaxed max-w-sm mx-auto">
+        <p className="text-sm text-[#6E5D50] leading-relaxed max-w-sm mx-auto">
           เมนูนี้อาจถูกลบไปแล้ว หรือรหัสสูตรอาหารไม่ถูกต้อง
         </p>
         <div className="pt-2 flex flex-wrap justify-center gap-3">
           <Link
             href="/"
-            className="kindi-btn-primary min-h-11 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl font-extrabold text-sm whitespace-nowrap cursor-pointer"
+            className="kindi-btn-primary min-h-11 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl font-semibold text-sm whitespace-nowrap cursor-pointer"
           >
-            <Sparkles className="w-4 h-4 text-[#FACC15]" aria-hidden="true" />
+            <Sparkles className="w-4 h-4 text-[#FBF0DC]" aria-hidden="true" />
             <span>กลับไปสุ่มไพ่เมนู</span>
           </Link>
         </div>
@@ -203,14 +203,14 @@ export default function RecipeDetailPage() {
   const progressPercent = totalCount > 0 ? Math.round((checkedCount / totalCount) * 100) : 0;
 
   return (
-    <article className="max-w-4xl mx-auto space-y-6 sm:space-y-8 pb-12">
+    <article className="recipe-detail-page space-y-6 sm:space-y-8 pb-12">
       {/* Top Action & Navigation Bar */}
       <nav aria-label="แถบนำทางหน้ารายละเอียดสูตรอาหาร" className="flex flex-wrap items-center justify-between gap-3">
         <Link
           href="/"
-          className="kindi-btn-secondary min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap cursor-pointer"
+          className="kindi-btn-secondary min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap cursor-pointer"
         >
-          <ArrowLeft className="w-4 h-4 shrink-0 text-[#141413]" aria-hidden="true" />
+          <ArrowLeft className="w-4 h-4 shrink-0 text-[#302923]" aria-hidden="true" />
           <span>กลับไปหน้าสุ่มไพ่</span>
         </Link>
 
@@ -219,7 +219,7 @@ export default function RecipeDetailPage() {
             href="/fridge"
             className="kindi-btn-secondary min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap cursor-pointer"
           >
-            <Refrigerator className="w-4 h-4 shrink-0 text-[#57534E]" aria-hidden="true" />
+            <Refrigerator className="w-4 h-4 shrink-0 text-[#6E5D50]" aria-hidden="true" />
             <span className="hidden xs:inline">โหมดค้นตู้เย็น</span>
             <span className="xs:hidden">ค้นตู้เย็น</span>
           </Link>
@@ -229,14 +229,14 @@ export default function RecipeDetailPage() {
             onClick={() => toggleFavorite(recipe.id)}
             aria-pressed={isFavorite}
             aria-label={isFavorite ? 'ลบออกจากเมนูโปรด' : 'บันทึกเป็นเมนูโปรด'}
-            className={`min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-extrabold whitespace-nowrap cursor-pointer transition-all ${
+            className={`min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-semibold whitespace-nowrap cursor-pointer transition-colors ${
               isFavorite
                 ? 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100/70 shadow-xs'
                 : 'kindi-btn-secondary'
             }`}
           >
             <Heart
-              className={`w-4 h-4 shrink-0 ${isFavorite ? 'fill-current text-rose-600' : 'text-[#141413]'}`}
+              className={`w-4 h-4 shrink-0 ${isFavorite ? 'fill-current text-rose-600' : 'text-[#302923]'}`}
               aria-hidden="true"
             />
             <span>{isFavorite ? 'บันทึกแล้ว' : 'เพิ่มเป็นเมนูโปรด'}</span>
@@ -248,27 +248,27 @@ export default function RecipeDetailPage() {
       {!isSafeForCurrentUser ? (
         <div
           role="alert"
-          className="p-4 sm:p-5 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-3.5 shadow-xs"
+          className="p-4 sm:p-5 rounded-lg bg-rose-50 border border-rose-200 flex items-start gap-3.5 shadow-xs"
         >
           <div className="w-10 h-10 rounded-xl bg-white border border-rose-200 flex items-center justify-center shrink-0 text-rose-700">
             <ShieldAlert className="w-5 h-5" aria-hidden="true" />
           </div>
-          <div className="text-xs sm:text-sm text-[#141413] space-y-1">
-            <p className="font-extrabold text-rose-900 text-sm sm:text-base">
+          <div className="text-xs sm:text-sm text-[#302923] space-y-1">
+            <p className="font-semibold text-rose-900 text-sm sm:text-base">
               คำเตือน: เมนูนี้ไม่ตรงกับ &ldquo;ข้อจำกัดทางอาหาร&rdquo; ที่คุณตั้งค่าไว้ในปัจจุบัน
             </p>
-            <p className="text-[#57534E] leading-relaxed">
+            <p className="text-[#6E5D50] leading-relaxed">
               ระบบสุ่มไพ่จะคัดเมนูนี้ออกโดยอัตโนมัติ โปรดตรวจสอบรายการวัตถุดิบและสารก่อภูมิแพ้ด้านล่างอย่างละเอียดก่อนรับประทาน
             </p>
           </div>
         </div>
       ) : (
-        <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center gap-3.5 text-xs sm:text-sm text-emerald-950 shadow-xs">
+        <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center gap-3.5 text-xs sm:text-sm text-emerald-950 shadow-xs">
           <div className="w-9 h-9 rounded-xl bg-white border border-emerald-200 flex items-center justify-center shrink-0 text-emerald-700">
             <ShieldCheck className="w-5 h-5" aria-hidden="true" />
           </div>
           <div className="leading-snug">
-            <span className="font-extrabold text-[#141413]">ปลอดภัยสำหรับคุณ:</span>{' '}
+            <span className="font-semibold text-[#302923]">ปลอดภัยสำหรับคุณ:</span>{' '}
             <span className="font-medium text-emerald-900">
               เมนูนี้ผ่านเกณฑ์ข้อจำกัดทางอาหารและสารก่อภูมิแพ้ที่คุณตั้งค่าไว้ทั้งหมด
             </span>
@@ -277,10 +277,10 @@ export default function RecipeDetailPage() {
       )}
 
       {/* Recipe Hero Bento Card */}
-      <section aria-labelledby="recipe-title" className="kindi-surface-card rounded-3xl overflow-hidden">
+      <section aria-labelledby="recipe-title" className="kindi-surface-card rounded-xl overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-12">
           {/* Hero Image */}
-          <div className="md:col-span-5 relative min-h-[260px] md:min-h-[360px] bg-[#F5F2EA] border-b md:border-b-0 md:border-r border-[#EAE5D9]">
+          <div className="md:col-span-5 relative min-h-[260px] md:min-h-[360px] bg-[#F1EADF] border-b md:border-b-0 md:border-r border-[#DDD2C2]">
             <RecipeImage
               src={recipe.image_url}
               alt={recipe.name}
@@ -294,13 +294,13 @@ export default function RecipeDetailPage() {
             <div className="space-y-4">
               {/* Category & Meal Type Badges */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] text-xs font-extrabold text-[#141413] whitespace-nowrap">
+                <span className="px-3 py-1 rounded-xl bg-[#F3E3D2] border border-[#DDD2C2] text-xs font-semibold text-[#302923] whitespace-nowrap">
                   {FOOD_CATEGORY_LABELS[recipe.category]}
                 </span>
                 {recipe.meal_types.map((mt) => (
                   <span
                     key={mt}
-                    className="px-2.5 py-1 rounded-xl bg-[#F5F2EA] border border-[#EAE5D9] text-xs font-bold text-[#141413] whitespace-nowrap"
+                    className="px-2.5 py-1 rounded-xl bg-[#F1EADF] border border-[#DDD2C2] text-xs font-bold text-[#302923] whitespace-nowrap"
                   >
                     {MEAL_TYPE_LABELS[mt]}
                   </span>
@@ -311,11 +311,11 @@ export default function RecipeDetailPage() {
               <div className="space-y-2">
                 <h1
                   id="recipe-title"
-                  className="text-[clamp(1.6rem,1.3rem+1.5vw,2.35rem)] font-extrabold text-[#141413] leading-tight tracking-tight"
+                  className="text-[clamp(1.6rem,1.3rem+1.5vw,2.35rem)] font-semibold text-[#302923] leading-tight tracking-tight"
                 >
                   {recipe.name}
                 </h1>
-                <p className="text-sm sm:text-base text-[#57534E] leading-relaxed">
+                <p className="text-sm sm:text-base text-[#6E5D50] leading-relaxed">
                   {recipe.description}
                 </p>
               </div>
@@ -326,7 +326,7 @@ export default function RecipeDetailPage() {
                   {recipe.dietary_tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-950 border border-emerald-200 text-xs font-extrabold whitespace-nowrap"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-950 border border-emerald-200 text-xs font-semibold whitespace-nowrap"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" />
                       <span>{DIETARY_PREFERENCE_LABELS[tag]?.label ?? tag}</span>
@@ -338,40 +338,40 @@ export default function RecipeDetailPage() {
 
             {/* Quick Metrics Bento Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9]">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#57534E]">
-                  <Clock className="w-4 h-4 text-[#141413]" aria-hidden="true" />
+              <div className="p-3.5 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2]">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#6E5D50]">
+                  <Clock className="w-4 h-4 text-[#302923]" aria-hidden="true" />
                   <span>เวลาทำ</span>
                 </div>
-                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1 tabular-nums whitespace-nowrap">
+                <p className="text-base sm:text-lg font-semibold text-[#302923] mt-1 tabular-nums whitespace-nowrap">
                   {recipe.cooking_time} นาที
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9]">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#57534E]">
-                  <ChefHat className="w-4 h-4 text-[#141413]" aria-hidden="true" />
+              <div className="p-3.5 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2]">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#6E5D50]">
+                  <ChefHat className="w-4 h-4 text-[#302923]" aria-hidden="true" />
                   <span>ระดับความยาก</span>
                 </div>
-                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1 whitespace-nowrap">
+                <p className="text-base sm:text-lg font-semibold text-[#302923] mt-1 whitespace-nowrap">
                   {DIFFICULTY_LABELS[recipe.difficulty]}
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] col-span-2 sm:col-span-1">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#57534E]">
-                  <UtensilsCrossed className="w-4 h-4 text-[#141413]" aria-hidden="true" />
+              <div className="p-3.5 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2] col-span-2 sm:col-span-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#6E5D50]">
+                  <UtensilsCrossed className="w-4 h-4 text-[#302923]" aria-hidden="true" />
                   <span>วัตถุดิบ</span>
                 </div>
-                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1 tabular-nums whitespace-nowrap">
+                <p className="text-base sm:text-lg font-semibold text-[#302923] mt-1 tabular-nums whitespace-nowrap">
                   {totalCount} รายการ
                 </p>
               </div>
             </div>
 
             {/* External Recipe Link Button (Direct single button, labeled: ลิงก์สูตรอาหาร) */}
-            <div className="pt-4 border-t border-[#EAE5D9] space-y-2">
-              <span className="text-xs font-extrabold text-[#141413] block">
+            <div className="pt-4 border-t border-[#DDD2C2] space-y-2">
+              <span className="text-xs font-semibold text-[#302923] block">
                 เปิดดูสูตรอาหารและวิธีทำฉบับเต็มจากต้นทาง:
               </span>
               <div className="flex flex-wrap items-center gap-3">
@@ -379,14 +379,14 @@ export default function RecipeDetailPage() {
                   href={externalLinks.primaryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="kindi-btn-primary min-h-11 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap cursor-pointer transition-all"
+                  className="kindi-btn-primary min-h-11 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap cursor-pointer transition-colors"
                 >
                   <span>ลิงก์สูตรอาหาร</span>
                   <ExternalLink className="w-4 h-4 shrink-0" aria-hidden="true" />
                 </a>
 
                 {recipe.external_source_name && (
-                  <span className="text-xs text-[#78716C] font-semibold whitespace-nowrap">
+                  <span className="text-xs text-[#76685C] font-semibold whitespace-nowrap">
                     แหล่งที่มา: {recipe.external_source_name}
                   </span>
                 )}
@@ -401,28 +401,28 @@ export default function RecipeDetailPage() {
         {/* Left Column: Interactive Ingredient Checklist */}
         <section
           aria-labelledby="ingredients-checklist-heading"
-          className="kindi-surface-card md:col-span-5 rounded-3xl p-6 sm:p-7 space-y-5"
+          className="kindi-surface-card md:col-span-5 rounded-xl p-6 sm:p-7 space-y-5"
         >
           <div className="space-y-3">
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <ListChecks className="w-5 h-5 text-[#141413]" aria-hidden="true" />
+                <ListChecks className="w-5 h-5 text-[#302923]" aria-hidden="true" />
                 <h2
                   id="ingredients-checklist-heading"
-                  className="text-lg font-extrabold text-[#141413]"
+                  className="text-lg font-semibold text-[#302923]"
                 >
                   เช็กลิสต์วัตถุดิบ
                 </h2>
               </div>
 
-              <span className="text-xs font-extrabold text-[#57534E] tabular-nums whitespace-nowrap">
+              <span className="text-xs font-semibold text-[#6E5D50] tabular-nums whitespace-nowrap">
                 {checkedCount}/{totalCount}
               </span>
             </div>
 
             {/* Subtle Progress Bar */}
             <div
-              className="w-full h-2 rounded-full bg-[#F5F2EA] overflow-hidden"
+              className="w-full h-2 rounded-full bg-[#F1EADF] overflow-hidden"
               role="progressbar"
               aria-valuenow={progressPercent}
               aria-valuemin={0}
@@ -430,14 +430,14 @@ export default function RecipeDetailPage() {
               aria-label="ความคืบหน้าในการเตรียมวัตถุดิบ"
             >
               <div
-                className="h-full bg-[#141413] transition-all duration-300 rounded-full"
+                className="h-full bg-[#302923] transition-colors duration-300 rounded-full"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
 
             {/* Quick Action Toggle Buttons */}
             <div className="flex items-center justify-between gap-2 pt-1">
-              <span className="text-xs text-[#78716C] font-medium">
+              <span className="text-xs text-[#76685C] font-medium">
                 {isAllChecked
                   ? 'เตรียมวัตถุดิบครบถ้วนแล้ว!'
                   : 'แตะที่รายการเพื่อทำเครื่องหมาย'}
@@ -448,7 +448,7 @@ export default function RecipeDetailPage() {
                   <button
                     type="button"
                     onClick={clearCheckedIngredients}
-                    className="min-h-8 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold text-[#57534E] hover:text-[#141413] hover:bg-[#F5F2EA] transition-colors cursor-pointer"
+                    className="min-h-8 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold text-[#6E5D50] hover:text-[#302923] hover:bg-[#F1EADF] transition-colors cursor-pointer"
                   >
                     <RotateCcw className="w-3 h-3" aria-hidden="true" />
                     <span>ล้าง</span>
@@ -457,7 +457,7 @@ export default function RecipeDetailPage() {
                   <button
                     type="button"
                     onClick={checkAllIngredients}
-                    className="min-h-8 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold text-[#141413] hover:bg-[#F5F2EA] transition-colors cursor-pointer"
+                    className="min-h-8 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold text-[#302923] hover:bg-[#F1EADF] transition-colors cursor-pointer"
                   >
                     <Check className="w-3 h-3" aria-hidden="true" />
                     <span>เลือกหมด</span>
@@ -468,7 +468,7 @@ export default function RecipeDetailPage() {
           </div>
 
           {/* Interactive Checklist Rows */}
-          <ul className="divide-y divide-[#EAE5D9] border-t border-[#EAE5D9]">
+          <ul className="divide-y divide-[#DDD2C2] border-t border-[#DDD2C2]">
             {checklistItems.map((item) => {
               const isChecked = checkedIngredients.has(item.id);
               return (
@@ -478,15 +478,15 @@ export default function RecipeDetailPage() {
                     role="checkbox"
                     aria-checked={isChecked}
                     onClick={() => toggleIngredient(item.id)}
-                    className="w-full min-h-11 flex items-center justify-between gap-3 text-left p-2 rounded-xl transition-colors hover:bg-[#FCFBF7] cursor-pointer group"
+                    className="w-full min-h-11 flex items-center justify-between gap-3 text-left p-2 rounded-xl transition-colors hover:bg-[#FBF7EF] cursor-pointer group"
                   >
                     {/* Checkbox box & Name */}
                     <div className="flex items-center gap-3 min-w-0">
                       <div
-                        className={`w-6 h-6 rounded-lg border flex items-center justify-center shrink-0 transition-all ${
+                        className={`w-6 h-6 rounded-lg border flex items-center justify-center shrink-0 transition-colors ${
                           isChecked
-                            ? 'bg-[#141413] border-[#141413] text-[#FACC15]'
-                            : 'bg-white border-[#D8D1C2] group-hover:border-[#141413] text-transparent'
+                            ? 'bg-[#302923] border-[#302923] text-[#FBF0DC]'
+                            : 'bg-white border-[#C6B7A5] group-hover:border-[#302923] text-transparent'
                         }`}
                       >
                         <Check className="w-3.5 h-3.5 stroke-[2.5]" aria-hidden="true" />
@@ -494,20 +494,20 @@ export default function RecipeDetailPage() {
 
                       <div className="min-w-0">
                         <p
-                          className={`text-sm font-bold transition-all line-clamp-1 ${
+                          className={`text-sm font-bold transition-colors line-clamp-1 ${
                             isChecked
-                              ? 'text-[#78716C] line-through'
-                              : 'text-[#141413]'
+                              ? 'text-[#76685C] line-through'
+                              : 'text-[#302923]'
                           }`}
                         >
                           {item.name}
                         </p>
                         <div className="flex items-center gap-1.5 mt-0.5">
-                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-[#F5F2EA] text-[#57534E] border border-[#EAE5D9] whitespace-nowrap">
+                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-[#F1EADF] text-[#6E5D50] border border-[#DDD2C2] whitespace-nowrap">
                             {item.roleText}
                           </span>
                           {item.isOptional && (
-                            <span className="text-[11px] font-medium text-[#78716C] whitespace-nowrap">
+                            <span className="text-[11px] font-medium text-[#76685C] whitespace-nowrap">
                               (ไม่บังคับ)
                             </span>
                           )}
@@ -517,8 +517,8 @@ export default function RecipeDetailPage() {
 
                     {/* Quantity Badge */}
                     <span
-                      className={`text-xs sm:text-sm font-extrabold shrink-0 tabular-nums whitespace-nowrap transition-colors ${
-                        isChecked ? 'text-[#78716C]' : 'text-[#141413]'
+                      className={`text-xs sm:text-sm font-semibold shrink-0 tabular-nums whitespace-nowrap transition-colors ${
+                        isChecked ? 'text-[#76685C]' : 'text-[#302923]'
                       }`}
                     >
                       {item.quantity}
@@ -533,19 +533,19 @@ export default function RecipeDetailPage() {
         {/* Right Column: Step-by-Step Cooking Steps */}
         <section
           aria-labelledby="cooking-steps-heading"
-          className="kindi-surface-card md:col-span-7 rounded-3xl p-6 sm:p-7 space-y-5"
+          className="kindi-surface-card md:col-span-7 rounded-xl p-6 sm:p-7 space-y-5"
         >
           <div className="flex items-center justify-between gap-2">
             <div>
-              <h2 id="cooking-steps-heading" className="text-lg font-extrabold text-[#141413]">
+              <h2 id="cooking-steps-heading" className="text-lg font-semibold text-[#302923]">
                 ขั้นตอนวิธีทำ
               </h2>
-              <p className="text-xs text-[#57534E] mt-0.5">
+              <p className="text-xs text-[#6E5D50] mt-0.5">
                 แตะเพื่อทำเครื่องหมายขั้นตอนที่ทำเสร็จแล้ว
               </p>
             </div>
 
-            <span className="text-xs font-extrabold text-[#57534E] tabular-nums whitespace-nowrap">
+            <span className="text-xs font-semibold text-[#6E5D50] tabular-nums whitespace-nowrap">
               {completedSteps.size}/{recipe.instructions.length} ขั้นตอน
             </span>
           </div>
@@ -560,18 +560,18 @@ export default function RecipeDetailPage() {
                     type="button"
                     onClick={() => toggleStep(index)}
                     aria-pressed={isStepDone}
-                    className={`w-full min-h-11 text-left p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer flex items-start gap-4 ${
+                    className={`w-full min-h-11 text-left p-4 sm:p-5 rounded-lg border transition-colors cursor-pointer flex items-start gap-4 ${
                       isStepDone
-                        ? 'bg-[#F5F2EA]/60 border-[#D8D1C2]'
-                        : 'bg-[#FCFBF7] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                        ? 'bg-[#F1EADF]/60 border-[#C6B7A5]'
+                        : 'bg-[#FBF7EF] border-[#DDD2C2] hover:border-[#C6B7A5]'
                     }`}
                   >
                     {/* Step Number Badge */}
                     <div
-                      className={`w-8 h-8 rounded-xl font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 tabular-nums border transition-colors ${
+                      className={`w-8 h-8 rounded-xl font-semibold text-xs flex items-center justify-center shrink-0 mt-0.5 tabular-nums border transition-colors ${
                         isStepDone
                           ? 'bg-emerald-700 text-white border-emerald-700'
-                          : 'bg-[#FEF9C3] text-[#141413] border-[#EAE5D9]'
+                          : 'bg-[#F3E3D2] text-[#302923] border-[#DDD2C2]'
                       }`}
                     >
                       {isStepDone ? (
@@ -583,12 +583,12 @@ export default function RecipeDetailPage() {
 
                     {/* Step Instruction Text */}
                     <div className="flex-1 space-y-1">
-                      <span className="text-xs font-bold text-[#57534E] block">
+                      <span className="text-xs font-bold text-[#6E5D50] block">
                         ขั้นตอนที่ {stepNumber}
                       </span>
                       <p
                         className={`text-sm sm:text-base leading-relaxed font-medium transition-colors ${
-                          isStepDone ? 'text-[#78716C] line-through' : 'text-[#141413]'
+                          isStepDone ? 'text-[#76685C] line-through' : 'text-[#302923]'
                         }`}
                       >
                         {stepText}
@@ -605,22 +605,22 @@ export default function RecipeDetailPage() {
       {/* Allergen & Food Safety Assessment Section */}
       <section
         aria-labelledby="allergen-assessment-heading"
-        className="kindi-surface-card rounded-3xl p-6 sm:p-8 space-y-5"
+        className="kindi-surface-card rounded-xl p-6 sm:p-8 space-y-5"
       >
         <div className="space-y-1">
           <h2
             id="allergen-assessment-heading"
-            className="text-base sm:text-lg font-extrabold text-[#141413]"
+            className="text-base sm:text-lg font-semibold text-[#302923]"
           >
             ข้อมูลประเมินสารก่อภูมิแพ้และความปลอดภัยของเมนูนี้
           </h2>
-          <p className="text-xs sm:text-sm text-[#57534E]">
+          <p className="text-xs sm:text-sm text-[#6E5D50]">
             ประเมินจากรายการวัตถุดิบหลัก 9 หมวดหมู่อาหารและสารก่อภูมิแพ้สากล
           </p>
         </div>
 
         {presentAllergens.length === 0 ? (
-          <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center gap-3 text-xs sm:text-sm font-bold text-emerald-950">
+          <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center gap-3 text-xs sm:text-sm font-bold text-emerald-950">
             <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0" aria-hidden="true" />
             <span>
               เมนูนี้ไม่มีส่วนผสมของสารก่อภูมิแพ้หลักทั้ง 9 ชนิดตามรายการวัตถุดิบที่ระบุในสูตร
@@ -633,13 +633,13 @@ export default function RecipeDetailPage() {
               return (
                 <div
                   key={alg}
-                  className="p-3.5 rounded-2xl bg-rose-50/80 border border-rose-200 flex flex-col justify-between space-y-1"
+                  className="p-3.5 rounded-lg bg-rose-50/80 border border-rose-200 flex flex-col justify-between space-y-1"
                 >
-                  <span className="text-xs sm:text-sm font-extrabold text-rose-950">
+                  <span className="text-xs sm:text-sm font-semibold text-rose-950">
                     มีส่วนผสมของ: {ALLERGEN_LABELS[alg].label}
                   </span>
                   {assessment?.notes && (
-                    <span className="text-xs text-[#57534E] leading-relaxed">
+                    <span className="text-xs text-[#6E5D50] leading-relaxed">
                       {assessment.notes}
                     </span>
                   )}
@@ -650,7 +650,7 @@ export default function RecipeDetailPage() {
         )}
 
         {/* Safety Disclaimer */}
-        <div className="p-4 rounded-2xl bg-[#F5F2EA] text-xs font-medium text-[#57534E] leading-relaxed border border-[#EAE5D9]">
+        <div className="p-4 rounded-lg bg-[#F1EADF] text-xs font-medium text-[#6E5D50] leading-relaxed border border-[#DDD2C2]">
           {SAFETY_DISCLAIMER_TH}
         </div>
       </section>
