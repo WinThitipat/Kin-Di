@@ -302,7 +302,7 @@ export async function submitCommunityRecipeForModeration(
   return {
     success: true,
     message:
-      'แบ่งปันสูตรอาหารเรียบร้อยแล้ว! เมนูของคุณพร้อมให้สุ่มไพ่ ค้นหาในโหมดตู้เย็น และดูในรวมเมนูทั้งหมดได้ทันที',
+      'เพิ่มเมนูอาหารเรียบร้อยแล้ว! เมนูของคุณพร้อมให้สุ่มไพ่ ค้นหาในโหมดตู้เย็น และดูในรวมเมนูทั้งหมดได้ทันที',
     submittedRecipe: sharedRecipe,
   };
 }

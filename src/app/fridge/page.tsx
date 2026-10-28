@@ -346,7 +346,7 @@ export default function FridgeModePage() {
                 </p>
                 <p className="text-xs text-[#77736B] leading-relaxed">
                   {recipes.length === 0
-                    ? 'ไปที่หน้า "แบ่งปันสูตรอาหาร" เพื่อเพิ่มเมนูแรกเข้าสู่ระบบกันเลย!'
+                    ? 'ไปที่หน้า "เพิ่มเมนูอาหาร" เพื่อเพิ่มเมนูแรกเข้าสู่ระบบกันเลย!'
                     : 'ลองเลือกวัตถุดิบเพิ่ม หรือดูหมวด "ขาดอีกนิดเดียว!" ด้านล่างได้เลย'}
                 </p>
                 {recipes.length === 0 && (
@@ -355,7 +355,7 @@ export default function FridgeModePage() {
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#171717] text-[#F8D84A] text-xs font-extrabold"
                   >
                     <Share2 className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>ไปหน้าแบ่งปันสูตรอาหาร</span>
+                    <span>ไปหน้าเพิ่มเมนูอาหาร</span>
                   </Link>
                 )}
               </div>

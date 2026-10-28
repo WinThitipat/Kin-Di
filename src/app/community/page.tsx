@@ -216,14 +216,14 @@ export default function CommunityRecipesPage() {
       <section className="rounded-3xl bg-[#F8D84A] border-2 border-[#171717] shadow-[6px_6px_0px_#171717] p-6 sm:p-8 space-y-2">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#171717] text-[#F8D84A] text-xs font-extrabold">
           <Share2 className="w-3.5 h-3.5" aria-hidden="true" />
-          <span>SHARE RECIPES · แบ่งปันสูตรอาหาร</span>
+          <span>ADD RECIPES · เพิ่มเมนูอาหาร</span>
         </div>
         <h1 className="text-2xl sm:text-4xl font-extrabold text-[#171717]">
-          แบ่งปันสูตรอาหารเด็ดๆ ให้เพื่อนกินดิ!
+          มีเมนูโปรดในใจ? เพิ่มสูตรเก็บไว้กินดิ!
         </h1>
         <p className="text-sm sm:text-base text-[#171717]/85 font-semibold">
-          แชร์ลิงก์สูตรอาหารจากเว็บไหนก็ได้ (Wongnai, Krua.co, YouTube, TikTok, Lemon8, Facebook ฯลฯ)
-          พร้อมรูปอาหารและวัตถุดิบ เพื่อให้ระบบนำไปสุ่มไพ่และจับคู่วัตถุดิบในตู้เย็นได้ทันที!
+          แปะลิงก์สูตรจากเว็บไหนก็ได้ (Wongnai, Krua.co, YouTube, TikTok, Lemon8, Facebook ฯลฯ)
+          ใส่รูปกับวัตถุดิบไว้ เอาไว้สุ่มไพ่หรือค้นจากของในตู้เย็นได้ทันที
         </p>
       </section>
 
@@ -233,7 +233,7 @@ export default function CommunityRecipesPage() {
           className="lg:col-span-7 rounded-3xl bg-white border-2 border-[#171717] shadow-[4px_4px_0px_#171717] p-6 space-y-5"
         >
           <h2 className="text-lg sm:text-xl font-extrabold text-[#171717]">
-            แบบฟอร์มแบ่งปันสูตรอาหาร
+            แบบฟอร์มเพิ่มเมนูอาหาร
           </h2>
 
           {statusMessage && (
@@ -686,28 +686,28 @@ export default function CommunityRecipesPage() {
             className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-[#171717] text-[#F8D84A] font-extrabold text-sm shadow-[3px_3px_0px_#F8D84A] hover:bg-[#171717]/90 cursor-pointer"
           >
             <Send className="w-4 h-4" aria-hidden="true" />
-            <span>{isSubmitting ? 'กำลังบันทึกสูตรอาหาร...' : 'แบ่งปันสูตรอาหารเลย!'}</span>
+            <span>{isSubmitting ? 'กำลังบันทึกเมนูอาหาร...' : 'เพิ่มเมนูอาหารเลย!'}</span>
           </button>
         </form>
 
-        {/* รายการสูตรอาหารที่แบ่งปันแล้ว */}
+        {/* รายการเมนูอาหารที่เพิ่มแล้ว */}
         <section
           aria-labelledby="shared-recipes-heading"
           className="lg:col-span-5 rounded-3xl bg-white border-2 border-[#171717] shadow-[4px_4px_0px_#171717] p-6 space-y-4"
         >
           <div className="flex items-center justify-between gap-2">
             <h2 id="shared-recipes-heading" className="text-base font-extrabold text-[#171717]">
-              สูตรอาหารที่แบ่งปันแล้ว ({sharedRecipes.length} เมนู)
+              เมนูอาหารที่เพิ่มแล้ว ({sharedRecipes.length} เมนู)
             </h2>
           </div>
           <p className="text-xs text-[#77736B] leading-relaxed">
-            ทุกเมนูที่คุณแบ่งปันที่นี่จะถูกนำไปใช้ใน <strong>สุ่มไพ่เมนู (Food Roulette)</strong>,{' '}
+            ทุกเมนูที่คุณเพิ่มที่นี่จะถูกนำไปใช้ใน <strong>สุ่มไพ่เมนู (Food Roulette)</strong>,{' '}
             <strong>มีอะไรในตู้ (Fridge Mode)</strong> และ <strong>รวมเมนูทั้งหมด</strong> ทันที
           </p>
 
           {sharedRecipes.length === 0 ? (
             <div className="p-6 rounded-2xl bg-[#FFF9EC] border-2 border-dashed border-[#171717]/30 text-center space-y-2">
-              <p className="text-sm font-extrabold text-[#171717]">ยังไม่มีเมนูที่แบ่งปัน</p>
+              <p className="text-sm font-extrabold text-[#171717]">ยังไม่มีเมนูอาหารที่เพิ่มไว้</p>
               <p className="text-xs text-[#77736B]">
                 กรอกฟอร์มด้านซ้ายเพื่อเพิ่มเมนูแรกเข้าสู่ระบบ กินดิ! — KIN DI ได้เลย
               </p>

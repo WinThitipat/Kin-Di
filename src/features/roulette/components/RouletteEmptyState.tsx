@@ -29,7 +29,7 @@ export function RouletteEmptyState({
           วันนี้ยังไม่มีเมนูที่ตรงเงื่อนไข ลองปรับตัวกรองดูไหม?
         </h3>
         <p className="text-xs sm:text-sm text-[#77736B] leading-relaxed">
-          หากยังไม่มีสูตรอาหารในระบบ คุณสามารถไปที่หน้า &ldquo;แบ่งปันสูตรอาหาร&rdquo;
+          หากยังไม่มีสูตรอาหารในระบบ คุณสามารถไปที่หน้า &ldquo;เพิ่มเมนูอาหาร&rdquo;
           เพื่อเพิ่มเมนูโปรดของคุณ หรือปรับตัวกรองมื้ออาหารและเวลาทำอาหารได้
         </p>
       </div>
@@ -41,7 +41,7 @@ export function RouletteEmptyState({
           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#171717] text-[#F8D84A] border-2 border-[#171717] font-extrabold text-sm hover:bg-[#171717]/90"
         >
           <Share2 className="w-4 h-4" aria-hidden="true" />
-          <span>ไปหน้าแบ่งปันสูตรอาหาร</span>
+          <span>ไปหน้าเพิ่มเมนูอาหาร</span>
         </Link>
 
         {hasOptionalFilters && (

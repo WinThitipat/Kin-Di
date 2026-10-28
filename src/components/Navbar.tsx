@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Refrigerator, Share2, ShieldCheck, Sparkles, Utensils } from 'lucide-react';
+import { PlusCircle, Refrigerator, ShieldCheck, Sparkles, Utensils } from 'lucide-react';
 import { UserFoodRestrictions } from '@/types/recipe';
 
 interface NavbarProps {
@@ -80,8 +80,8 @@ export function Navbar({ restrictions, onOpenRestrictions }: NavbarProps) {
                 : 'border-transparent text-[#171717] hover:bg-[#EAE5DA]/70'
             }`}
           >
-            <Share2 className="w-4 h-4" aria-hidden="true" />
-            <span>แบ่งปันสูตรอาหาร</span>
+            <PlusCircle className="w-4 h-4" aria-hidden="true" />
+            <span>เพิ่มเมนูอาหาร</span>
           </Link>
         </nav>
 
@@ -136,8 +136,8 @@ export function Navbar({ restrictions, onOpenRestrictions }: NavbarProps) {
               : 'text-[#77736B]'
           }`}
         >
-          <Share2 className="w-3.5 h-3.5" aria-hidden="true" />
-          <span>แบ่งปันสูตรอาหาร</span>
+          <PlusCircle className="w-3.5 h-3.5" aria-hidden="true" />
+          <span>เพิ่มเมนูอาหาร</span>
         </Link>
       </nav>
     </header>

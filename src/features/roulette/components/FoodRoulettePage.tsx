@@ -308,7 +308,7 @@ export function FoodRoulettePage() {
                 className="inline-flex items-center gap-2 px-4 py-3.5 rounded-2xl bg-[#FFF9EC] text-[#171717] border-2 border-[#171717] shadow-[3px_3px_0px_#171717] font-bold text-sm hover:bg-white transition-colors"
               >
                 <Share2 className="w-4 h-4" aria-hidden="true" />
-                <span>แบ่งปันสูตรอาหาร</span>
+                <span>เพิ่มเมนูอาหาร</span>
               </Link>
             </div>
 
@@ -597,11 +597,11 @@ export function FoodRoulettePage() {
           <div className="p-8 rounded-2xl bg-[#FFF9EC] border-2 border-dashed border-[#171717]/30 text-center space-y-3">
             <p className="text-base font-extrabold text-[#171717]">
               {allRecipes.length === 0
-                ? 'ยังไม่มีเมนูอาหารในระบบ มาแบ่งปันสูตรอาหารเมนูแรกกัน!'
+                ? 'ยังไม่มีเมนูอาหารในระบบ มาเพิ่มเมนูอาหารจานแรกกัน!'
                 : 'ไม่พบเมนูที่ตรงกับคำค้นหาหรือข้อจำกัดทางอาหารของคุณ'}
             </p>
             <p className="text-xs sm:text-sm text-[#77736B] max-w-md mx-auto">
-              คุณสามารถเพิ่มเมนูใหม่พร้อมลิงก์สูตรอาหารไม่จำกัดค่ายได้ที่หน้า &ldquo;แบ่งปันสูตรอาหาร&rdquo;
+              คุณสามารถเพิ่มเมนูใหม่พร้อมลิงก์สูตรอาหารไม่จำกัดค่ายได้ที่หน้า &ldquo;เพิ่มเมนูอาหาร&rdquo;
             </p>
             <div className="pt-1">
               <Link
@@ -609,7 +609,7 @@ export function FoodRoulettePage() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#171717] text-[#F8D84A] border-2 border-[#171717] font-extrabold text-xs sm:text-sm hover:bg-[#171717]/90"
               >
                 <Share2 className="w-4 h-4" aria-hidden="true" />
-                <span>ไปหน้าแบ่งปันสูตรอาหาร</span>
+                <span>ไปหน้าเพิ่มเมนูอาหาร</span>
               </Link>
             </div>
           </div>
