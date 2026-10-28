@@ -1,20 +1,24 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import {
   AlertTriangle,
   ArrowLeft,
+  Check,
   CheckCircle2,
   ChefHat,
   Clock,
   ExternalLink,
   Heart,
+  ListChecks,
   Refrigerator,
+  RotateCcw,
   ShieldAlert,
   ShieldCheck,
   Sparkles,
+  UtensilsCrossed,
 } from 'lucide-react';
 import { useKinDiApp } from '@/components/AppShell';
 import { RecipeImage } from '@/components/RecipeImage';
@@ -42,6 +46,14 @@ const ROLE_LABELS: Record<string, string> = {
   garnish: 'โรยหน้า / เครื่องเคียง',
 };
 
+interface ChecklistItem {
+  id: string;
+  name: string;
+  roleText: string;
+  isOptional: boolean;
+  quantity: string;
+}
+
 export default function RecipeDetailPage() {
   const params = useParams<{ id: string }>();
   const rawId = typeof params?.id === 'string' ? decodeURIComponent(params.id) : '';
@@ -49,6 +61,11 @@ export default function RecipeDetailPage() {
   const { restrictions, favoriteIds, toggleFavorite } = useKinDiApp();
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  // Interactive ingredient checklist tracking
+  const [checkedIngredients, setCheckedIngredients] = useState<Set<string>>(new Set());
+  // Interactive cooking steps tracking
+  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     let active = true;
@@ -64,33 +81,108 @@ export default function RecipeDetailPage() {
     };
   }, [rawId]);
 
+  const catalog = useMemo(() => getMergedIngredientsCatalog(), []);
+
+  // Assemble full checklist items (catalog ingredients + custom ingredients)
+  const checklistItems = useMemo<ChecklistItem[]>(() => {
+    if (!recipe) return [];
+
+    const items: ChecklistItem[] = [];
+
+    (recipe.ingredients ?? []).forEach((item, index) => {
+      const entry = catalog[item.ingredient_id];
+      const name = entry?.name_th || item.ingredient_id;
+      const roleText = ROLE_LABELS[item.role] || item.role;
+      items.push({
+        id: `ing-${item.ingredient_id}-${index}`,
+        name,
+        roleText,
+        isOptional: Boolean(item.is_optional),
+        quantity: item.quantity,
+      });
+    });
+
+    (recipe.custom_ingredients ?? []).forEach((customName, index) => {
+      items.push({
+        id: `custom-${index}-${customName}`,
+        name: customName,
+        roleText: 'วัตถุดิบเพิ่มเติม',
+        isOptional: false,
+        quantity: 'ตามชอบ',
+      });
+    });
+
+    return items;
+  }, [recipe, catalog]);
+
+  const toggleIngredient = useCallback((id: string) => {
+    setCheckedIngredients((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  }, []);
+
+  const checkAllIngredients = useCallback(() => {
+    setCheckedIngredients(new Set(checklistItems.map((item) => item.id)));
+  }, [checklistItems]);
+
+  const clearCheckedIngredients = useCallback(() => {
+    setCheckedIngredients(new Set());
+  }, []);
+
+  const toggleStep = useCallback((stepIndex: number) => {
+    setCompletedSteps((prev) => {
+      const next = new Set(prev);
+      if (next.has(stepIndex)) {
+        next.delete(stepIndex);
+      } else {
+        next.add(stepIndex);
+      }
+      return next;
+    });
+  }, []);
+
+  // Loading skeleton state
   if (isLoading) {
     return (
-      <div className="max-w-4xl mx-auto py-12 space-y-4">
-        <div className="h-10 w-44 rounded-xl bg-[#EAE5D9] animate-pulse" />
-        <div className="h-80 w-full rounded-3xl bg-[#F5F2EA] border border-[#EAE5D9] animate-pulse" />
+      <div className="max-w-4xl mx-auto py-10 space-y-6 animate-pulse">
+        <div className="flex items-center justify-between">
+          <div className="h-11 w-36 rounded-xl bg-[#EAE5D9]" />
+          <div className="h-11 w-44 rounded-xl bg-[#EAE5D9]" />
+        </div>
+        <div className="h-96 w-full rounded-3xl bg-white border border-[#EAE5D9]" />
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div className="md:col-span-5 h-80 rounded-3xl bg-white border border-[#EAE5D9]" />
+          <div className="md:col-span-7 h-80 rounded-3xl bg-white border border-[#EAE5D9]" />
+        </div>
       </div>
     );
   }
 
+  // Not found state
   if (!recipe) {
     return (
-      <div className="kindi-surface-card max-w-lg mx-auto my-12 p-8 text-center space-y-4">
-        <div className="w-14 h-14 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center mx-auto">
-          <AlertTriangle className="w-7 h-7 text-[#141413]" aria-hidden="true" />
+      <div className="kindi-surface-card max-w-lg mx-auto my-14 p-8 sm:p-10 text-center space-y-4">
+        <div className="w-16 h-16 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center mx-auto text-rose-700">
+          <AlertTriangle className="w-8 h-8" aria-hidden="true" />
         </div>
-        <h1 className="text-xl font-extrabold text-[#141413]">
+        <h1 className="text-xl sm:text-2xl font-extrabold text-[#141413]">
           ไม่พบสูตรอาหารนี้ในระบบ
         </h1>
-        <p className="text-sm text-[#57534E]">
-          เมนูนี้อาจถูกลบ หรือรหัสไม่ถูกต้อง
+        <p className="text-sm text-[#57534E] leading-relaxed max-w-sm mx-auto">
+          เมนูนี้อาจถูกลบไปแล้ว หรือรหัสสูตรอาหารไม่ถูกต้อง
         </p>
         <div className="pt-2 flex flex-wrap justify-center gap-3">
           <Link
             href="/"
-            className="kindi-btn-accent min-h-11 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-sm"
+            className="kindi-btn-primary min-h-11 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl font-extrabold text-sm whitespace-nowrap cursor-pointer"
           >
-            <Sparkles className="w-4 h-4" aria-hidden="true" />
+            <Sparkles className="w-4 h-4 text-[#FACC15]" aria-hidden="true" />
             <span>กลับไปสุ่มไพ่เมนู</span>
           </Link>
         </div>
@@ -98,7 +190,6 @@ export default function RecipeDetailPage() {
     );
   }
 
-  const catalog = getMergedIngredientsCatalog();
   const isSafeForCurrentUser = isRecipeSafeForUser(recipe, restrictions, catalog);
   const isFavorite = favoriteIds.includes(recipe.id);
   const externalLinks = getExternalRecipeLinks(recipe);
@@ -106,114 +197,153 @@ export default function RecipeDetailPage() {
     (alg) => recipe.allergen_assessments?.[alg]?.status !== 'free'
   );
 
+  const checkedCount = checkedIngredients.size;
+  const totalCount = checklistItems.length;
+  const isAllChecked = totalCount > 0 && checkedCount === totalCount;
+  const progressPercent = totalCount > 0 ? Math.round((checkedCount / totalCount) * 100) : 0;
+
   return (
-    <article className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
-      {/* Top Navigation Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
+    <article className="max-w-4xl mx-auto space-y-6 sm:space-y-8 pb-12">
+      {/* Top Action & Navigation Bar */}
+      <nav aria-label="แถบนำทางหน้ารายละเอียดสูตรอาหาร" className="flex flex-wrap items-center justify-between gap-3">
         <Link
           href="/"
-          className="kindi-btn-secondary min-h-10 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold"
+          className="kindi-btn-secondary min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap cursor-pointer"
         >
-          <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+          <ArrowLeft className="w-4 h-4 shrink-0 text-[#141413]" aria-hidden="true" />
           <span>กลับไปหน้าสุ่มไพ่</span>
         </Link>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           <Link
             href="/fridge"
-            className="kindi-btn-secondary min-h-10 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold"
+            className="kindi-btn-secondary min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap cursor-pointer"
           >
-            <Refrigerator className="w-4 h-4" aria-hidden="true" />
-            <span>โหมดค้นตู้เย็น</span>
+            <Refrigerator className="w-4 h-4 shrink-0 text-[#57534E]" aria-hidden="true" />
+            <span className="hidden xs:inline">โหมดค้นตู้เย็น</span>
+            <span className="xs:hidden">ค้นตู้เย็น</span>
           </Link>
 
           <button
             type="button"
             onClick={() => toggleFavorite(recipe.id)}
             aria-pressed={isFavorite}
-            className={`min-h-10 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border text-xs sm:text-sm font-extrabold transition-all cursor-pointer ${
+            aria-label={isFavorite ? 'ลบออกจากเมนูโปรด' : 'บันทึกเป็นเมนูโปรด'}
+            className={`min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-extrabold whitespace-nowrap cursor-pointer transition-all ${
               isFavorite
-                ? 'bg-rose-50 text-rose-700 border-rose-200 shadow-xs'
+                ? 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100/70 shadow-xs'
                 : 'kindi-btn-secondary'
             }`}
           >
             <Heart
-              className={`w-4 h-4 ${isFavorite ? 'fill-current text-rose-600' : ''}`}
+              className={`w-4 h-4 shrink-0 ${isFavorite ? 'fill-current text-rose-600' : 'text-[#141413]'}`}
               aria-hidden="true"
             />
-            <span>{isFavorite ? 'บันทึกเป็นเมนูโปรดแล้ว' : 'เพิ่มเป็นเมนูโปรด'}</span>
+            <span>{isFavorite ? 'บันทึกแล้ว' : 'เพิ่มเป็นเมนูโปรด'}</span>
           </button>
         </div>
-      </div>
+      </nav>
 
-      {/* Compatibility Banner with Current User Restrictions */}
+      {/* Food Safety & Dietary Allergen Warning Banner */}
       {!isSafeForCurrentUser ? (
         <div
           role="alert"
-          className="p-4 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-3"
+          className="p-4 sm:p-5 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-3.5 shadow-xs"
         >
-          <ShieldAlert className="w-5 h-5 text-rose-700 shrink-0 mt-0.5" aria-hidden="true" />
-          <div className="text-xs sm:text-sm text-[#141413]">
-            <p className="font-extrabold text-rose-900">
+          <div className="w-10 h-10 rounded-xl bg-white border border-rose-200 flex items-center justify-center shrink-0 text-rose-700">
+            <ShieldAlert className="w-5 h-5" aria-hidden="true" />
+          </div>
+          <div className="text-xs sm:text-sm text-[#141413] space-y-1">
+            <p className="font-extrabold text-rose-900 text-sm sm:text-base">
               คำเตือน: เมนูนี้ไม่ตรงกับ &ldquo;ข้อจำกัดทางอาหาร&rdquo; ที่คุณตั้งค่าไว้ในปัจจุบัน
             </p>
-            <p className="mt-0.5 text-[#57534E]">
-              ระบบสุ่มไพ่จะคัดเมนูนี้ออกโดยอัตโนมัติ โปรดตรวจสอบรายการวัตถุดิบและสารก่อภูมิแพ้ด้านล่างอย่างละเอียด
+            <p className="text-[#57534E] leading-relaxed">
+              ระบบสุ่มไพ่จะคัดเมนูนี้ออกโดยอัตโนมัติ โปรดตรวจสอบรายการวัตถุดิบและสารก่อภูมิแพ้ด้านล่างอย่างละเอียดก่อนรับประทาน
             </p>
           </div>
         </div>
       ) : (
-        <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center gap-2.5 text-xs sm:text-sm font-bold text-emerald-950">
-          <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0" aria-hidden="true" />
-          <span>เมนูนี้ผ่านเกณฑ์ข้อจำกัดทางอาหารและสารก่อภูมิแพ้ที่คุณตั้งค่าไว้</span>
+        <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center gap-3.5 text-xs sm:text-sm text-emerald-950 shadow-xs">
+          <div className="w-9 h-9 rounded-xl bg-white border border-emerald-200 flex items-center justify-center shrink-0 text-emerald-700">
+            <ShieldCheck className="w-5 h-5" aria-hidden="true" />
+          </div>
+          <div className="leading-snug">
+            <span className="font-extrabold text-[#141413]">ปลอดภัยสำหรับคุณ:</span>{' '}
+            <span className="font-medium text-emerald-900">
+              เมนูนี้ผ่านเกณฑ์ข้อจำกัดทางอาหารและสารก่อภูมิแพ้ที่คุณตั้งค่าไว้ทั้งหมด
+            </span>
+          </div>
         </div>
       )}
 
-      {/* Recipe Hero Card */}
-      <div className="kindi-surface-card rounded-3xl overflow-hidden">
+      {/* Recipe Hero Bento Card */}
+      <section aria-labelledby="recipe-title" className="kindi-surface-card rounded-3xl overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-12">
-          <div className="md:col-span-5 min-h-[240px] md:min-h-[320px] bg-[#F5F2EA] border-b md:border-b-0 md:border-r border-[#EAE5D9]">
+          {/* Hero Image */}
+          <div className="md:col-span-5 relative min-h-[260px] md:min-h-[360px] bg-[#F5F2EA] border-b md:border-b-0 md:border-r border-[#EAE5D9]">
             <RecipeImage
               src={recipe.image_url}
               alt={recipe.name}
               category={recipe.category}
-              className="w-full h-full min-h-[240px] md:min-h-full"
+              className="w-full h-full min-h-[260px] md:min-h-full object-cover"
             />
           </div>
 
-          <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
-            <div className="space-y-3">
+          {/* Hero Content Details */}
+          <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              {/* Category & Meal Type Badges */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] text-xs font-extrabold text-[#141413]">
+                <span className="px-3 py-1 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] text-xs font-extrabold text-[#141413] whitespace-nowrap">
                   {FOOD_CATEGORY_LABELS[recipe.category]}
                 </span>
                 {recipe.meal_types.map((mt) => (
                   <span
                     key={mt}
-                    className="px-2.5 py-1 rounded-xl bg-[#F5F2EA] border border-[#EAE5D9] text-xs font-bold text-[#141413]"
+                    className="px-2.5 py-1 rounded-xl bg-[#F5F2EA] border border-[#EAE5D9] text-xs font-bold text-[#141413] whitespace-nowrap"
                   >
                     {MEAL_TYPE_LABELS[mt]}
                   </span>
                 ))}
               </div>
 
-              <h1 className="text-[clamp(1.6rem,1.3rem+1.5vw,2.35rem)] font-extrabold text-[#141413] leading-tight tracking-tight">
-                {recipe.name}
-              </h1>
+              {/* Title & Description */}
+              <div className="space-y-2">
+                <h1
+                  id="recipe-title"
+                  className="text-[clamp(1.6rem,1.3rem+1.5vw,2.35rem)] font-extrabold text-[#141413] leading-tight tracking-tight"
+                >
+                  {recipe.name}
+                </h1>
+                <p className="text-sm sm:text-base text-[#57534E] leading-relaxed">
+                  {recipe.description}
+                </p>
+              </div>
 
-              <p className="text-sm sm:text-base text-[#57534E] leading-relaxed">
-                {recipe.description}
-              </p>
+              {/* Verified Dietary Badges */}
+              {Array.isArray(recipe.dietary_tags) && recipe.dietary_tags.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  {recipe.dietary_tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-950 border border-emerald-200 text-xs font-extrabold whitespace-nowrap"
+                    >
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" />
+                      <span>{DIETARY_PREFERENCE_LABELS[tag]?.label ?? tag}</span>
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Metadata Metrics (Time & Difficulty, without Budget) */}
-            <div className="grid grid-cols-2 gap-3 pt-2">
+            {/* Quick Metrics Bento Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
               <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9]">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-[#57534E]">
                   <Clock className="w-4 h-4 text-[#141413]" aria-hidden="true" />
                   <span>เวลาทำ</span>
                 </div>
-                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1 tabular-nums">
+                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1 tabular-nums whitespace-nowrap">
                   {recipe.cooking_time} นาที
                 </p>
               </div>
@@ -221,136 +351,297 @@ export default function RecipeDetailPage() {
               <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9]">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-[#57534E]">
                   <ChefHat className="w-4 h-4 text-[#141413]" aria-hidden="true" />
-                  <span>ความยาก</span>
+                  <span>ระดับความยาก</span>
                 </div>
-                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1">
+                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1 whitespace-nowrap">
                   {DIFFICULTY_LABELS[recipe.difficulty]}
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] col-span-2 sm:col-span-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#57534E]">
+                  <UtensilsCrossed className="w-4 h-4 text-[#141413]" aria-hidden="true" />
+                  <span>วัตถุดิบ</span>
+                </div>
+                <p className="text-base sm:text-lg font-extrabold text-[#141413] mt-1 tabular-nums whitespace-nowrap">
+                  {totalCount} รายการ
                 </p>
               </div>
             </div>
 
-            {/* Verified Dietary Tags */}
-            {Array.isArray(recipe.dietary_tags) && recipe.dietary_tags.length > 0 && (
-              <div className="flex flex-wrap items-center gap-2 pt-1">
-                {recipe.dietary_tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-950 border border-emerald-200 text-xs font-extrabold"
-                  >
-                    <CheckCircle2 className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>{DIETARY_PREFERENCE_LABELS[tag]?.label ?? tag}</span>
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {/* External Recipe Website Link */}
-            <div className="pt-3 border-t border-[#EAE5D9] space-y-2.5">
+            {/* External Recipe Link Button (Direct single button, labeled: ลิงก์สูตรอาหาร) */}
+            <div className="pt-4 border-t border-[#EAE5D9] space-y-2">
               <span className="text-xs font-extrabold text-[#141413] block">
-                เปิดดูสูตรอาหารและวิธีทำฉบับเต็ม:
+                เปิดดูสูตรอาหารและวิธีทำฉบับเต็มจากต้นทาง:
               </span>
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center gap-3">
                 <a
                   href={externalLinks.primaryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="kindi-btn-primary min-h-10 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all"
+                  className="kindi-btn-primary min-h-11 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap cursor-pointer transition-all"
                 >
                   <span>ลิงก์สูตรอาหาร</span>
-                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                  <ExternalLink className="w-4 h-4 shrink-0" aria-hidden="true" />
                 </a>
+
+                {recipe.external_source_name && (
+                  <span className="text-xs text-[#78716C] font-semibold whitespace-nowrap">
+                    แหล่งที่มา: {recipe.external_source_name}
+                  </span>
+                )}
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Ingredients & Cooking Instructions Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-        {/* Ingredients Column */}
+      {/* Main Grid: Interactive Checklist & Step-by-Step Instructions */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
+        {/* Left Column: Interactive Ingredient Checklist */}
         <section
-          aria-labelledby="ingredients-heading"
-          className="kindi-surface-card md:col-span-5 rounded-3xl p-6 space-y-4"
+          aria-labelledby="ingredients-checklist-heading"
+          className="kindi-surface-card md:col-span-5 rounded-3xl p-6 sm:p-7 space-y-5"
         >
-          <h2 id="ingredients-heading" className="text-lg font-extrabold text-[#141413] tabular-nums">
-            วัตถุดิบและปริมาณ ({recipe.ingredients?.length ?? 0} รายการ)
-          </h2>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <ListChecks className="w-5 h-5 text-[#141413]" aria-hidden="true" />
+                <h2
+                  id="ingredients-checklist-heading"
+                  className="text-lg font-extrabold text-[#141413]"
+                >
+                  เช็กลิสต์วัตถุดิบ
+                </h2>
+              </div>
 
-          <ul className="divide-y divide-[#EAE5D9]">
-            {(recipe.ingredients ?? []).map((item, idx) => {
-              const catalogEntry = catalog[item.ingredient_id];
+              <span className="text-xs font-extrabold text-[#57534E] tabular-nums whitespace-nowrap">
+                {checkedCount}/{totalCount}
+              </span>
+            </div>
+
+            {/* Subtle Progress Bar */}
+            <div
+              className="w-full h-2 rounded-full bg-[#F5F2EA] overflow-hidden"
+              role="progressbar"
+              aria-valuenow={progressPercent}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-label="ความคืบหน้าในการเตรียมวัตถุดิบ"
+            >
+              <div
+                className="h-full bg-[#141413] transition-all duration-300 rounded-full"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+
+            {/* Quick Action Toggle Buttons */}
+            <div className="flex items-center justify-between gap-2 pt-1">
+              <span className="text-xs text-[#78716C] font-medium">
+                {isAllChecked
+                  ? 'เตรียมวัตถุดิบครบถ้วนแล้ว!'
+                  : 'แตะที่รายการเพื่อทำเครื่องหมาย'}
+              </span>
+
+              <div className="flex items-center gap-1.5">
+                {checkedCount > 0 ? (
+                  <button
+                    type="button"
+                    onClick={clearCheckedIngredients}
+                    className="min-h-8 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold text-[#57534E] hover:text-[#141413] hover:bg-[#F5F2EA] transition-colors cursor-pointer"
+                  >
+                    <RotateCcw className="w-3 h-3" aria-hidden="true" />
+                    <span>ล้าง</span>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={checkAllIngredients}
+                    className="min-h-8 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold text-[#141413] hover:bg-[#F5F2EA] transition-colors cursor-pointer"
+                  >
+                    <Check className="w-3 h-3" aria-hidden="true" />
+                    <span>เลือกหมด</span>
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Checklist Rows */}
+          <ul className="divide-y divide-[#EAE5D9] border-t border-[#EAE5D9]">
+            {checklistItems.map((item) => {
+              const isChecked = checkedIngredients.has(item.id);
               return (
-                <li key={`${item.ingredient_id}-${idx}`} className="py-3 flex justify-between gap-3">
-                  <div>
-                    <p className="text-sm font-bold text-[#141413]">
-                      {catalogEntry?.name_th ?? item.ingredient_id}
-                    </p>
-                    <span className="text-xs font-semibold text-[#57534E]">
-                      {ROLE_LABELS[item.role] ?? item.role}
-                      {item.is_optional ? ' (ไม่บังคับ)' : ''}
+                <li key={item.id} className="py-2.5">
+                  <button
+                    type="button"
+                    role="checkbox"
+                    aria-checked={isChecked}
+                    onClick={() => toggleIngredient(item.id)}
+                    className="w-full min-h-11 flex items-center justify-between gap-3 text-left p-2 rounded-xl transition-colors hover:bg-[#FCFBF7] cursor-pointer group"
+                  >
+                    {/* Checkbox box & Name */}
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div
+                        className={`w-6 h-6 rounded-lg border flex items-center justify-center shrink-0 transition-all ${
+                          isChecked
+                            ? 'bg-[#141413] border-[#141413] text-[#FACC15]'
+                            : 'bg-white border-[#D8D1C2] group-hover:border-[#141413] text-transparent'
+                        }`}
+                      >
+                        <Check className="w-3.5 h-3.5 stroke-[2.5]" aria-hidden="true" />
+                      </div>
+
+                      <div className="min-w-0">
+                        <p
+                          className={`text-sm font-bold transition-all line-clamp-1 ${
+                            isChecked
+                              ? 'text-[#78716C] line-through'
+                              : 'text-[#141413]'
+                          }`}
+                        >
+                          {item.name}
+                        </p>
+                        <div className="flex items-center gap-1.5 mt-0.5">
+                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-[#F5F2EA] text-[#57534E] border border-[#EAE5D9] whitespace-nowrap">
+                            {item.roleText}
+                          </span>
+                          {item.isOptional && (
+                            <span className="text-[11px] font-medium text-[#78716C] whitespace-nowrap">
+                              (ไม่บังคับ)
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Quantity Badge */}
+                    <span
+                      className={`text-xs sm:text-sm font-extrabold shrink-0 tabular-nums whitespace-nowrap transition-colors ${
+                        isChecked ? 'text-[#78716C]' : 'text-[#141413]'
+                      }`}
+                    >
+                      {item.quantity}
                     </span>
-                  </div>
-                  <span className="text-sm font-extrabold text-[#141413] shrink-0">
-                    {item.quantity}
-                  </span>
+                  </button>
                 </li>
               );
             })}
           </ul>
         </section>
 
-        {/* Cooking Instructions Column */}
+        {/* Right Column: Step-by-Step Cooking Steps */}
         <section
-          aria-labelledby="instructions-heading"
-          className="kindi-surface-card md:col-span-7 rounded-3xl p-6 space-y-4"
+          aria-labelledby="cooking-steps-heading"
+          className="kindi-surface-card md:col-span-7 rounded-3xl p-6 sm:p-7 space-y-5"
         >
-          <h2 id="instructions-heading" className="text-lg font-extrabold text-[#141413]">
-            ขั้นตอนวิธีทำ
-          </h2>
+          <div className="flex items-center justify-between gap-2">
+            <div>
+              <h2 id="cooking-steps-heading" className="text-lg font-extrabold text-[#141413]">
+                ขั้นตอนวิธีทำ
+              </h2>
+              <p className="text-xs text-[#57534E] mt-0.5">
+                แตะเพื่อทำเครื่องหมายขั้นตอนที่ทำเสร็จแล้ว
+              </p>
+            </div>
 
-          <ol className="space-y-3">
-            {recipe.instructions.map((step, index) => (
-              <li
-                key={index}
-                className="p-4 rounded-2xl bg-[#FCFBF7] border border-[#EAE5D9] flex items-start gap-3.5"
-              >
-                <span className="w-7 h-7 rounded-xl bg-[#FEF9C3] border border-[#EAE5D9] text-[#141413] font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 tabular-nums">
-                  {index + 1}
-                </span>
-                <p className="text-sm text-[#141413] leading-relaxed font-medium">{step}</p>
-              </li>
-            ))}
+            <span className="text-xs font-extrabold text-[#57534E] tabular-nums whitespace-nowrap">
+              {completedSteps.size}/{recipe.instructions.length} ขั้นตอน
+            </span>
+          </div>
+
+          <ol className="space-y-3.5">
+            {recipe.instructions.map((stepText, index) => {
+              const isStepDone = completedSteps.has(index);
+              const stepNumber = index + 1;
+              return (
+                <li key={index}>
+                  <button
+                    type="button"
+                    onClick={() => toggleStep(index)}
+                    aria-pressed={isStepDone}
+                    className={`w-full min-h-11 text-left p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer flex items-start gap-4 ${
+                      isStepDone
+                        ? 'bg-[#F5F2EA]/60 border-[#D8D1C2]'
+                        : 'bg-[#FCFBF7] border-[#EAE5D9] hover:border-[#D8D1C2]'
+                    }`}
+                  >
+                    {/* Step Number Badge */}
+                    <div
+                      className={`w-8 h-8 rounded-xl font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 tabular-nums border transition-colors ${
+                        isStepDone
+                          ? 'bg-emerald-700 text-white border-emerald-700'
+                          : 'bg-[#FEF9C3] text-[#141413] border-[#EAE5D9]'
+                      }`}
+                    >
+                      {isStepDone ? (
+                        <Check className="w-4 h-4 stroke-[2.5]" aria-hidden="true" />
+                      ) : (
+                        `Step ${stepNumber}`
+                      )}
+                    </div>
+
+                    {/* Step Instruction Text */}
+                    <div className="flex-1 space-y-1">
+                      <span className="text-xs font-bold text-[#57534E] block">
+                        ขั้นตอนที่ {stepNumber}
+                      </span>
+                      <p
+                        className={`text-sm sm:text-base leading-relaxed font-medium transition-colors ${
+                          isStepDone ? 'text-[#78716C] line-through' : 'text-[#141413]'
+                        }`}
+                      >
+                        {stepText}
+                      </p>
+                    </div>
+                  </button>
+                </li>
+              );
+            })}
           </ol>
         </section>
       </div>
 
-      {/* Allergen & Safety Information Section */}
+      {/* Allergen & Food Safety Assessment Section */}
       <section
-        aria-labelledby="allergen-info-heading"
-        className="kindi-surface-card rounded-3xl p-6 space-y-4"
+        aria-labelledby="allergen-assessment-heading"
+        className="kindi-surface-card rounded-3xl p-6 sm:p-8 space-y-5"
       >
-        <h2 id="allergen-info-heading" className="text-base sm:text-lg font-extrabold text-[#141413]">
-          ข้อมูลประเมินสารก่อภูมิแพ้และความปลอดภัยของเมนูนี้
-        </h2>
+        <div className="space-y-1">
+          <h2
+            id="allergen-assessment-heading"
+            className="text-base sm:text-lg font-extrabold text-[#141413]"
+          >
+            ข้อมูลประเมินสารก่อภูมิแพ้และความปลอดภัยของเมนูนี้
+          </h2>
+          <p className="text-xs sm:text-sm text-[#57534E]">
+            ประเมินจากรายการวัตถุดิบหลัก 9 หมวดหมู่อาหารและสารก่อภูมิแพ้สากล
+          </p>
+        </div>
 
         {presentAllergens.length === 0 ? (
-          <p className="text-sm font-bold text-emerald-900 bg-emerald-50 border border-emerald-200 rounded-xl p-3">
-            เมนูนี้ไม่มีส่วนผสมของสารก่อภูมิแพ้หลักทั้ง 9 ชนิดตามรายการวัตถุดิบที่ระบุ
-          </p>
+          <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center gap-3 text-xs sm:text-sm font-bold text-emerald-950">
+            <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0" aria-hidden="true" />
+            <span>
+              เมนูนี้ไม่มีส่วนผสมของสารก่อภูมิแพ้หลักทั้ง 9 ชนิดตามรายการวัตถุดิบที่ระบุในสูตร
+            </span>
+          </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {presentAllergens.map((alg) => {
               const assessment = recipe.allergen_assessments?.[alg];
               return (
                 <div
                   key={alg}
-                  className="p-3 rounded-xl bg-rose-50/80 border border-rose-200 flex flex-col justify-between"
+                  className="p-3.5 rounded-2xl bg-rose-50/80 border border-rose-200 flex flex-col justify-between space-y-1"
                 >
-                  <span className="text-xs sm:text-sm font-extrabold text-[#141413]">
+                  <span className="text-xs sm:text-sm font-extrabold text-rose-950">
                     มีส่วนผสมของ: {ALLERGEN_LABELS[alg].label}
                   </span>
                   {assessment?.notes && (
-                    <span className="text-xs text-[#57534E] mt-0.5">{assessment.notes}</span>
+                    <span className="text-xs text-[#57534E] leading-relaxed">
+                      {assessment.notes}
+                    </span>
                   )}
                 </div>
               );
@@ -358,7 +649,8 @@ export default function RecipeDetailPage() {
           </div>
         )}
 
-        <div className="p-3.5 rounded-2xl bg-[#F5F2EA] text-xs font-medium text-[#57534E] leading-relaxed">
+        {/* Safety Disclaimer */}
+        <div className="p-4 rounded-2xl bg-[#F5F2EA] text-xs font-medium text-[#57534E] leading-relaxed border border-[#EAE5D9]">
           {SAFETY_DISCLAIMER_TH}
         </div>
       </section>
