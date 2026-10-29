@@ -1,0 +1,247 @@
+[
+  {
+    "name": "กะเพราไก่",
+    "url": "https://www.wongnai.com/recipes/ugc/57ffca8e634f4a98861799dc486a266d",
+    "author": "Alice Kiatwaranalin",
+    "ids": [
+      "chicken",
+      "holy_basil",
+      "garlic",
+      "chili",
+      "fish_sauce"
+    ],
+    "custom": [
+      "น้ำตาลทราย",
+      "น้ำมันพืช"
+    ]
+  },
+  {
+    "name": "ไข่เจียวไทย",
+    "url": "https://cookpad.com/th/recipes/1854398",
+    "author": "วรรณา สกุลณี",
+    "ids": [
+      "egg",
+      "fish_sauce"
+    ],
+    "custom": [
+      "น้ำมันพืช"
+    ]
+  },
+  {
+    "name": "ผัดซีอิ๊วหมู",
+    "url": "https://www.wongnai.com/recipes/pad-se-ew-moo",
+    "author": "Wongnai Cooking"
+  },
+  {
+    "name": "แกงจืดวุ้นเส้นเต้าหู้ไข่หมูสับ",
+    "url": "https://www.wongnai.com/recipes/soup-with-egg-tofu-and-mine-pork",
+    "author": "Wongnai Cooking"
+  },
+  {
+    "name": "กะหล่ำปลีผัดน้ำปลา",
+    "url": "https://www.wongnai.com/recipes/ugc/e50e4dd7f92f463299d513f2861df567",
+    "author": "Nat Natwarin",
+    "ids": [
+      "cabbage",
+      "garlic",
+      "fish_sauce"
+    ],
+    "custom": [
+      "น้ำตาลทราย",
+      "น้ำมันพืช"
+    ]
+  },
+  {
+    "name": "ไก่ผัดพริกกระเทียม",
+    "url": "https://www.wongnai.com/recipes/ugc/90d59192a2e0458db325648887583f77",
+    "author": "Nn.T",
+    "description": "อกไก่ผัดพริกสดและกระเทียม ใช้น้ำผัดและปรุงด้วยซีอิ๊วขาว",
+    "ids": [
+      "chicken",
+      "garlic",
+      "chili",
+      "soy_sauce"
+    ],
+    "custom": []
+  },
+  {
+    "name": "ผัดวุ้นเส้นหมูใส่ไข่",
+    "url": "https://www.wongnai.com/recipes/mix-vegetable-fried-with-vermicelli",
+    "author": "Wongnai Cooking"
+  },
+  {
+    "name": "ข้าวผัดไก่อบ",
+    "newName": "ข้าวผัดไก่",
+    "url": "https://www.wongnai.com/recipes/ugc/41220f696b644fbcb58d5b6ef79e31bd",
+    "author": "ImAiw Wattanakorn",
+    "description": "ข้าวผัดไก่ใส่ไข่ คะน้า กะหล่ำปลี และแครอท",
+    "ids": [
+      "chicken",
+      "egg",
+      "jasmine_rice",
+      "garlic",
+      "cabbage",
+      "oyster_sauce",
+      "soy_sauce"
+    ],
+    "custom": [
+      "คะน้า",
+      "น้ำมันพืช",
+      "น้ำตาลทราย",
+      "ผงปรุงรส",
+      "พริกไทย",
+      "แครอท"
+    ]
+  },
+  {
+    "name": "ต้มยำกุ้งน้ำใส",
+    "url": "https://www.wongnai.com/recipes/ugc/63d7a4ba16104015bb6634ee5e96cb2f",
+    "author": "tata",
+    "ids": [
+      "shrimp",
+      "mushroom",
+      "chili",
+      "fish_sauce",
+      "lime"
+    ],
+    "custom": [
+      "ตะไคร้",
+      "ข่า",
+      "ใบมะกรูด",
+      "ซุปก้อนรสไก่",
+      "ต้นหอม",
+      "ผักชี"
+    ]
+  },
+  {
+    "name": "แกงเขียวหวานไก่",
+    "url": "https://www.wongnai.com/recipes/ugc/e2c5e3f47eb64d6d8839b04dc61e824c",
+    "author": "Jiji Boon"
+  },
+  {
+    "name": "ลาบหมูอีสาน",
+    "url": "https://www.wongnai.com/recipes/ugc/31c27d573a3e40e5b76e95f77de0fcb9",
+    "author": "Nickktwf"
+  },
+  {
+    "name": "ข้าวผัดสับปะรดกุ้ง",
+    "url": "https://www.wongnai.com/recipes/ugc/919347b8c4184ffaa5644ee754737787",
+    "author": "Sukanda H",
+    "description": "ข้าวผัดสับปะรดใส่กุ้ง แฮม ลูกเกด และเม็ดมะม่วงหิมพานต์",
+    "ids": [
+      "shrimp",
+      "jasmine_rice",
+      "onion"
+    ],
+    "custom": [
+      "สับปะรด",
+      "แฮม",
+      "ลูกเกด",
+      "ถั่วแระญี่ปุ่น",
+      "ผงกะหรี่",
+      "ซอสปรุงรสรสหมู",
+      "เม็ดมะม่วงหิมพานต์",
+      "น้ำมันรำข้าว",
+      "ต้นหอม",
+      "หมูหยอง",
+      "หอมเจียว",
+      "ผักชี",
+      "แครอท"
+    ],
+    "allergens": [
+      "shellfish",
+      "soy",
+      "wheat_gluten",
+      "tree_nuts"
+    ]
+  },
+  {
+    "name": "โอยาโกะด้ง — ข้าวหน้าไก่ไข่ญี่ปุ่น",
+    "url": "https://www.wongnai.com/recipes/ugc/0f4d718e5459468594c8f83f429064cb",
+    "author": "Pabair",
+    "ids": [
+      "chicken",
+      "egg",
+      "onion",
+      "soy_sauce",
+      "jasmine_rice"
+    ],
+    "custom": [
+      "สาหร่ายคอมบุ",
+      "ปลาโอแห้ง",
+      "ต้นหอม",
+      "มิริน",
+      "น้ำตาลทราย",
+      "น้ำซุปดาชิ",
+      "พริกป่นญี่ปุ่น"
+    ],
+    "allergens": [
+      "fish",
+      "eggs",
+      "soy",
+      "wheat_gluten"
+    ]
+  },
+  {
+    "name": "ข้าวผัดกิมจิเบคอน",
+    "url": "https://www.wongnai.com/recipes/ugc/0da985b29acf41a2bf1e5c42f4d587f8",
+    "author": "Natpavee Pook Binmu-In",
+    "ids": [
+      "jasmine_rice",
+      "onion",
+      "garlic",
+      "soy_sauce"
+    ],
+    "custom": [
+      "กิมจิผักกาดขาว",
+      "เบคอน",
+      "โคชูจัง",
+      "ต้นหอม",
+      "ผักชี",
+      "สาหร่าย",
+      "งาขาว",
+      "น้ำมันพืช"
+    ],
+    "allergens": [
+      "soy",
+      "wheat_gluten",
+      "sesame"
+    ]
+  },
+  {
+    "name": "สปาเกตตีคาร์โบนาราแบบอิตาลี",
+    "url": "https://www.wongnai.com/recipes/ugc/25d38bf7a36e49289462e60d8181c7e9",
+    "author": "Tamahan Easy",
+    "ids": [
+      "egg",
+      "cheese",
+      "garlic",
+      "sea_salt"
+    ],
+    "custom": [
+      "เส้นสปาเกตตี",
+      "เบคอน",
+      "พาร์เมซานชีส",
+      "พริกไทยดำ",
+      "น้ำมันมะกอก"
+    ],
+    "allergens": [
+      "eggs",
+      "dairy",
+      "wheat_gluten"
+    ],
+    "description": "อิตาลี · สปาเกตตีคลุกซอสไข่และพาร์เมซานชีส ใส่เบคอน ไม่ใส่ครีม"
+  },
+  {
+    "name": "แซนด์วิชกริลล์ชีส",
+    "url": "https://cookpad.com/th/recipes/16862616",
+    "author": "Preeya A.",
+    "description": "ขนมปังย่างเนยสอดไส้ชีส ทำในกระทะ",
+    "ids": [
+      "bread",
+      "butter",
+      "cheese"
+    ],
+    "custom": []
+  }
+]

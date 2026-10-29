@@ -1,0 +1,4323 @@
+[
+  {
+    "id": "shared-347364b9-1c2a-e1b0-e00e-f9a3e598d61d",
+    "name": "กะเพราไก่",
+    "description": "ไก่ผัดกะเพราหอมกระเทียมพริก เสิร์ฟกับข้าวสวย",
+    "category": "rice",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/93f56035585061738d24532a3299fcb46fa20799c4a2bdf4f0928841edb647b3.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/57ffca8e634f4a98861799dc486a266d",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Alice Kiatwaranalin ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "chicken",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "holy_basil",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "garlic",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "chili",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "fish_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_น้ำตาลทราย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำมันพืช",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "chicken",
+        "name_th": "อกไก่ / เนื้อไก่",
+        "name_en": "Chicken",
+        "category": "meat",
+        "allergens": [],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "holy_basil",
+        "name_th": "ใบกะเพรา",
+        "name_en": "Holy Basil",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "garlic",
+        "name_th": "กระเทียม",
+        "name_en": "Garlic",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "chili",
+        "name_th": "พริกขี้หนู / พริกจินดา",
+        "name_en": "Chili",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "fish_sauce",
+        "name_th": "น้ำปลาแท้",
+        "name_en": "Fish Sauce",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_น้ำตาลทราย",
+        "name_th": "น้ำตาลทราย",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "eggs"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "eggs"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "น้ำตาลทราย",
+      "น้ำมันพืช"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Alice Kiatwaranalin (Wongnai Cooking)",
+    "created_at": "2026-10-29T09:37:09.458Z",
+    "updated_at": "2026-10-29T16:44:03.477Z"
+  },
+  {
+    "id": "shared-05d8d4b5-8edf-5e41-807a-88fb4d8dd225",
+    "name": "ไข่เจียวไทย",
+    "description": "ไข่เจียวปรุงน้ำปลา เมนูเรียบง่ายสำหรับวันที่มีของในตู้เย็นไม่มาก",
+    "category": "thai",
+    "meal_types": [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 8,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/4acaa44b065d25a5b3220e46194350981e6b8ef86df440431e7777807eb06a8e.webp",
+    "external_recipe_url": "https://cookpad.com/th/recipes/1854398",
+    "external_source_name": "Cookpad ภาษาไทย",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Cookpad ภาษาไทย โดย วรรณา สกุลณี ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "egg",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "fish_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_น้ำมันพืช",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "egg",
+        "name_th": "ไข่ไก่",
+        "name_en": "Chicken Egg",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "fish_sauce",
+        "name_th": "น้ำปลาแท้",
+        "name_en": "Fish Sauce",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "น้ำมันพืช"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · วรรณา สกุลณี (Cookpad ภาษาไทย)",
+    "created_at": "2026-10-29T09:37:09.621Z",
+    "updated_at": "2026-10-29T16:44:03.477Z"
+  },
+  {
+    "id": "shared-594889f6-ef2c-32c1-4427-a02eb9deb383",
+    "name": "ผัดซีอิ๊วหมู",
+    "description": "เส้นใหญ่ผัดหมู ไข่ และคะน้า พร้อมซอสผัดซีอิ๊ว เลือกทำทีละจานเพื่อให้เส้นหอมกระทะ",
+    "category": "noodles",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "medium",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/120b27201964236261ab200b1c34e6c47bc8a6c17cbea48dc67b14047d0bedce.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/pad-se-ew-moo",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Wongnai Cooking ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "pork",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "egg",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "garlic",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "oyster_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "soy_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_เส้นใหญ่",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_คะน้า",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ซีอิ๊วดำ",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำมันพืช",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำตาลทราย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_พริกไทย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ผงฟู",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "pork",
+        "name_th": "หมูสับ / เนื้อหมู",
+        "name_en": "Pork",
+        "category": "meat",
+        "allergens": [],
+        "dietary_compatible": [],
+        "composition_known": true
+      },
+      {
+        "id": "egg",
+        "name_th": "ไข่ไก่",
+        "name_en": "Chicken Egg",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "garlic",
+        "name_th": "กระเทียม",
+        "name_en": "Garlic",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "oyster_sauce",
+        "name_th": "ซอสหอยนางรม",
+        "name_en": "Oyster Sauce",
+        "category": "condiment",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "soy_sauce",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_เส้นใหญ่",
+        "name_th": "เส้นใหญ่",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_คะน้า",
+        "name_th": "คะน้า",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ซีอิ๊วดำ",
+        "name_th": "ซีอิ๊วดำ",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำตาลทราย",
+        "name_th": "น้ำตาลทราย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_พริกไทย",
+        "name_th": "พริกไทย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ผงฟู",
+        "name_th": "ผงฟู",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "เส้นใหญ่",
+      "คะน้า",
+      "ซีอิ๊วดำ",
+      "น้ำมันพืช",
+      "น้ำตาลทราย",
+      "พริกไทย",
+      "ผงฟู"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Wongnai Cooking (Wongnai Cooking)",
+    "created_at": "2026-10-29T09:37:09.745Z",
+    "updated_at": "2026-10-29T16:44:03.477Z"
+  },
+  {
+    "id": "shared-58077080-1cc6-0235-07df-64c8565a574e",
+    "name": "แกงจืดวุ้นเส้นเต้าหู้ไข่หมูสับ",
+    "description": "ซุปร้อนใส่หมูสับ เต้าหู้ไข่ วุ้นเส้น และผักกาดขาว เหมาะเป็นกับข้าวมื้อเย็น",
+    "category": "thai",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 60,
+    "difficulty": "medium",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/d18014fcfe41820064ac6ba334f7aff0e61ed23f5f11d7d06a7a111171fdcae6.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/soup-with-egg-tofu-and-mine-pork",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Wongnai Cooking ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "pork",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "garlic",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "fish_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "soy_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "sea_salt",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_เต้าหู้ไข่",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_วุ้นเส้น",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ผักกาดขาว",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_แครอท",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_รากผักชี",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_พริกไทย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ต้นหอม",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ขึ้นฉ่าย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "pork",
+        "name_th": "หมูสับ / เนื้อหมู",
+        "name_en": "Pork",
+        "category": "meat",
+        "allergens": [],
+        "dietary_compatible": [],
+        "composition_known": true
+      },
+      {
+        "id": "garlic",
+        "name_th": "กระเทียม",
+        "name_en": "Garlic",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "fish_sauce",
+        "name_th": "น้ำปลาแท้",
+        "name_en": "Fish Sauce",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "soy_sauce",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "sea_salt",
+        "name_th": "ดอกเกลือ / เกลือทะเล",
+        "name_en": "Sea Salt",
+        "category": "condiment",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_เต้าหู้ไข่",
+        "name_th": "เต้าหู้ไข่",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "fish",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_วุ้นเส้น",
+        "name_th": "วุ้นเส้น",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "fish",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ผักกาดขาว",
+        "name_th": "ผักกาดขาว",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "fish",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_แครอท",
+        "name_th": "แครอท",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "fish",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_รากผักชี",
+        "name_th": "รากผักชี",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "fish",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_พริกไทย",
+        "name_th": "พริกไทย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "fish",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ต้นหอม",
+        "name_th": "ต้นหอม",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "fish",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ขึ้นฉ่าย",
+        "name_th": "ขึ้นฉ่าย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "fish",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "เต้าหู้ไข่",
+      "วุ้นเส้น",
+      "ผักกาดขาว",
+      "แครอท",
+      "รากผักชี",
+      "พริกไทย",
+      "ต้นหอม",
+      "ขึ้นฉ่าย"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Wongnai Cooking (Wongnai Cooking)",
+    "created_at": "2026-10-29T09:37:09.861Z",
+    "updated_at": "2026-10-29T16:44:03.477Z"
+  },
+  {
+    "id": "shared-44f7c5e0-1eb2-3497-90ca-b925b222ef74",
+    "name": "กะหล่ำปลีผัดน้ำปลา",
+    "description": "กะหล่ำปลีผัดกระเทียมและน้ำปลา ใช้เครื่องปรุงน้อย กินคู่กับข้าวและกับข้าวจานอื่น",
+    "category": "thai",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 15,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/4d0d34db2306ce2c705ad9cadd2d48c5ae3d3dce6bdf4bb9d7fd6d362a2e70a8.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/e50e4dd7f92f463299d513f2861df567",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Nat Natwarin ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "cabbage",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "garlic",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "fish_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_น้ำตาลทราย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำมันพืช",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "cabbage",
+        "name_th": "กะหล่ำปลี",
+        "name_en": "Cabbage",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "garlic",
+        "name_th": "กระเทียม",
+        "name_en": "Garlic",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "fish_sauce",
+        "name_th": "น้ำปลาแท้",
+        "name_en": "Fish Sauce",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_น้ำตาลทราย",
+        "name_th": "น้ำตาลทราย",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "น้ำตาลทราย",
+      "น้ำมันพืช"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Nat Natwarin (Wongnai Cooking)",
+    "created_at": "2026-10-29T09:37:09.970Z",
+    "updated_at": "2026-10-29T16:44:03.477Z"
+  },
+  {
+    "id": "shared-b15124de-ec1a-8775-1cb6-ba215b52011c",
+    "name": "ไก่ผัดพริกกระเทียม",
+    "description": "อกไก่ผัดพริกสดและกระเทียม ใช้น้ำผัดและปรุงด้วยซีอิ๊วขาว",
+    "category": "thai",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/dd1c3b165e828f2aafd384b9e31df9df7fada6727df89cd8cf58f68a8f8ce7e0.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/90d59192a2e0458db325648887583f77",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Nn.T ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "chicken",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "garlic",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "chili",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "soy_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "chicken",
+        "name_th": "อกไก่ / เนื้อไก่",
+        "name_en": "Chicken",
+        "category": "meat",
+        "allergens": [],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "garlic",
+        "name_th": "กระเทียม",
+        "name_en": "Garlic",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "chili",
+        "name_th": "พริกขี้หนู / พริกจินดา",
+        "name_en": "Chili",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "soy_sauce",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      }
+    ],
+    "custom_ingredients": [],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Nn.T (Wongnai Cooking)",
+    "created_at": "2026-10-29T09:37:10.143Z",
+    "updated_at": "2026-10-29T16:44:03.477Z"
+  },
+  {
+    "id": "shared-7a240ef7-3f78-25ab-ae76-f987162c2719",
+    "name": "ผัดวุ้นเส้นหมูใส่ไข่",
+    "description": "วุ้นเส้นผัดหมู ไข่ และผักหลายชนิด เหมาะกับการใช้วัตถุดิบที่มีในตู้เย็น",
+    "category": "noodles",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/b4e86702957fbac06648c700e2b9f46af93be4c0bafffdb1a879ef8bb7e0388c.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/mix-vegetable-fried-with-vermicelli",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Wongnai Cooking ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "pork",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "egg",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "garlic",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "onion",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "cabbage",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "tomato",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "oyster_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "fish_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_วุ้นเส้น",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำมันพืช",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำตาลทราย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ต้นหอม",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ขึ้นฉ่าย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_พริกไทย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "pork",
+        "name_th": "หมูสับ / เนื้อหมู",
+        "name_en": "Pork",
+        "category": "meat",
+        "allergens": [],
+        "dietary_compatible": [],
+        "composition_known": true
+      },
+      {
+        "id": "egg",
+        "name_th": "ไข่ไก่",
+        "name_en": "Chicken Egg",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "garlic",
+        "name_th": "กระเทียม",
+        "name_en": "Garlic",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "onion",
+        "name_th": "หอมหัวใหญ่ / หอมแดง",
+        "name_en": "Onion / Shallot",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "cabbage",
+        "name_th": "กะหล่ำปลี",
+        "name_en": "Cabbage",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "tomato",
+        "name_th": "มะเขือเทศ",
+        "name_en": "Tomato",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "oyster_sauce",
+        "name_th": "ซอสหอยนางรม",
+        "name_en": "Oyster Sauce",
+        "category": "condiment",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "fish_sauce",
+        "name_th": "น้ำปลาแท้",
+        "name_en": "Fish Sauce",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_วุ้นเส้น",
+        "name_th": "วุ้นเส้น",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำตาลทราย",
+        "name_th": "น้ำตาลทราย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ต้นหอม",
+        "name_th": "ต้นหอม",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ขึ้นฉ่าย",
+        "name_th": "ขึ้นฉ่าย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_พริกไทย",
+        "name_th": "พริกไทย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "วุ้นเส้น",
+      "น้ำมันพืช",
+      "น้ำตาลทราย",
+      "ต้นหอม",
+      "ขึ้นฉ่าย",
+      "พริกไทย"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Wongnai Cooking (Wongnai Cooking)",
+    "created_at": "2026-10-29T09:37:10.294Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  },
+  {
+    "id": "shared-e33af958-17f4-2375-eba1-d29c60b9e795",
+    "name": "ข้าวผัดไก่",
+    "description": "ข้าวผัดไก่ใส่ไข่ คะน้า กะหล่ำปลี และแครอท",
+    "category": "rice",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 20,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/734f7d0a943702ec400d72d5c6c1a83f2f9ef4b5309c9ba5597bbeddde0b2c83.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/41220f696b644fbcb58d5b6ef79e31bd",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย ImAiw Wattanakorn ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "chicken",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "egg",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "jasmine_rice",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "garlic",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "cabbage",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "oyster_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "soy_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_คะน้า",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำมันพืช",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำตาลทราย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ผงปรุงรส",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_พริกไทย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_แครอท",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "chicken",
+        "name_th": "อกไก่ / เนื้อไก่",
+        "name_en": "Chicken",
+        "category": "meat",
+        "allergens": [],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "egg",
+        "name_th": "ไข่ไก่",
+        "name_en": "Chicken Egg",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "jasmine_rice",
+        "name_th": "ข้าวสวยหอมมะลิ",
+        "name_en": "Jasmine Rice",
+        "category": "carb",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "garlic",
+        "name_th": "กระเทียม",
+        "name_en": "Garlic",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "cabbage",
+        "name_th": "กะหล่ำปลี",
+        "name_en": "Cabbage",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "oyster_sauce",
+        "name_th": "ซอสหอยนางรม",
+        "name_en": "Oyster Sauce",
+        "category": "condiment",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "soy_sauce",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_คะน้า",
+        "name_th": "คะน้า",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำตาลทราย",
+        "name_th": "น้ำตาลทราย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ผงปรุงรส",
+        "name_th": "ผงปรุงรส",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_พริกไทย",
+        "name_th": "พริกไทย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_แครอท",
+        "name_th": "แครอท",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "คะน้า",
+      "น้ำมันพืช",
+      "น้ำตาลทราย",
+      "ผงปรุงรส",
+      "พริกไทย",
+      "แครอท"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · ImAiw Wattanakorn (Wongnai Cooking)",
+    "created_at": "2026-10-29T09:37:10.403Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  },
+  {
+    "id": "shared-955c74cf-0ccd-5f55-394e-653f96606667",
+    "name": "ต้มยำกุ้งน้ำใส",
+    "description": "ไทย · ต้มยำกุ้งใส่เห็ด หอมข่า ตะไคร้ และใบมะกรูด",
+    "category": "thai",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/2254ca786a4fd90ca247c03ac005bb98ba3f4dd4a4b00c087d5a5a99fc37445e.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/63d7a4ba16104015bb6634ee5e96cb2f",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย tata ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "shrimp",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "mushroom",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "chili",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "fish_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "lime",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_ตะไคร้",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ข่า",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ใบมะกรูด",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ซุปก้อนรสไก่",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ต้นหอม",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ผักชี",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "shrimp",
+        "name_th": "กุ้งสด",
+        "name_en": "Shrimp",
+        "category": "seafood",
+        "allergens": [
+          "shellfish"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "mushroom",
+        "name_th": "เห็ดรวม (ชิเมจิ / ออรินจิ)",
+        "name_en": "Mixed Mushrooms",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "chili",
+        "name_th": "พริกขี้หนู / พริกจินดา",
+        "name_en": "Chili",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "fish_sauce",
+        "name_th": "น้ำปลาแท้",
+        "name_en": "Fish Sauce",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "lime",
+        "name_th": "มะนาวสด",
+        "name_en": "Fresh Lime",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_ตะไคร้",
+        "name_th": "ตะไคร้",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ข่า",
+        "name_th": "ข่า",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ใบมะกรูด",
+        "name_th": "ใบมะกรูด",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ซุปก้อนรสไก่",
+        "name_th": "ซุปก้อนรสไก่",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ต้นหอม",
+        "name_th": "ต้นหอม",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ผักชี",
+        "name_th": "ผักชี",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "ตะไคร้",
+      "ข่า",
+      "ใบมะกรูด",
+      "ซุปก้อนรสไก่",
+      "ต้นหอม",
+      "ผักชี"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · tata (Wongnai Cooking)",
+    "created_at": "2026-10-29T16:33:14.022Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  },
+  {
+    "id": "shared-81fd38d9-56ee-8124-a5a5-4bc34fbaba7d",
+    "name": "แกงเขียวหวานไก่",
+    "description": "ไทย · แกงกะทิใส่ไก่ มะเขือ และใบโหระพา กินกับข้าวหรือขนมจีน",
+    "category": "thai",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 35,
+    "difficulty": "medium",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/ca147a3cf0b51ef085405e6b6555fd20068e268186b38107925a290a5e10ba80.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/e2c5e3f47eb64d6d8839b04dc61e824c",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Jiji Boon ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "chicken",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_พริกแกงเขียวหวาน",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_กะทิ",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_มะเขือเปราะ",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_มะเขือพวง",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ใบโหระพา",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_พริกหยวก",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_เครื่องปรุงรสตามชอบ",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "chicken",
+        "name_th": "อกไก่ / เนื้อไก่",
+        "name_en": "Chicken",
+        "category": "meat",
+        "allergens": [],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_พริกแกงเขียวหวาน",
+        "name_th": "พริกแกงเขียวหวาน",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_กะทิ",
+        "name_th": "กะทิ",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_มะเขือเปราะ",
+        "name_th": "มะเขือเปราะ",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_มะเขือพวง",
+        "name_th": "มะเขือพวง",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ใบโหระพา",
+        "name_th": "ใบโหระพา",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_พริกหยวก",
+        "name_th": "พริกหยวก",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_เครื่องปรุงรสตามชอบ",
+        "name_th": "เครื่องปรุงรสตามชอบ",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "พริกแกงเขียวหวาน",
+      "กะทิ",
+      "มะเขือเปราะ",
+      "มะเขือพวง",
+      "ใบโหระพา",
+      "พริกหยวก",
+      "เครื่องปรุงรสตามชอบ"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Jiji Boon (Wongnai Cooking)",
+    "created_at": "2026-10-29T16:33:17.101Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  },
+  {
+    "id": "shared-b504f57b-ac1a-4814-fcf0-903cfec31749",
+    "name": "ลาบหมูอีสาน",
+    "description": "ไทย · หมูสับคลุกข้าวคั่ว มะนาว พริกป่น และสมุนไพร กินคู่ผักสด",
+    "category": "thai",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/43aab09e617b42180e53a2e847dee1747f2aa5adf494a70700d8d143a29a1306.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/31c27d573a3e40e5b76e95f77de0fcb9",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Nickktwf ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "pork",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "lime",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "fish_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_หอมแดง",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ผักชีฝรั่ง",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ต้นหอม",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ข้าวคั่ว",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_พริกป่น",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำตาลทราย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "pork",
+        "name_th": "หมูสับ / เนื้อหมู",
+        "name_en": "Pork",
+        "category": "meat",
+        "allergens": [],
+        "dietary_compatible": [],
+        "composition_known": true
+      },
+      {
+        "id": "lime",
+        "name_th": "มะนาวสด",
+        "name_en": "Fresh Lime",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "fish_sauce",
+        "name_th": "น้ำปลาแท้",
+        "name_en": "Fish Sauce",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_หอมแดง",
+        "name_th": "หอมแดง",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ผักชีฝรั่ง",
+        "name_th": "ผักชีฝรั่ง",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ต้นหอม",
+        "name_th": "ต้นหอม",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ข้าวคั่ว",
+        "name_th": "ข้าวคั่ว",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_พริกป่น",
+        "name_th": "พริกป่น",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำตาลทราย",
+        "name_th": "น้ำตาลทราย",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "หอมแดง",
+      "ผักชีฝรั่ง",
+      "ต้นหอม",
+      "ข้าวคั่ว",
+      "พริกป่น",
+      "น้ำตาลทราย"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Nickktwf (Wongnai Cooking)",
+    "created_at": "2026-10-29T16:33:18.617Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  },
+  {
+    "id": "shared-aebebcdd-aa03-3734-2b1a-971eb56b4bb2",
+    "name": "ข้าวผัดสับปะรดกุ้ง",
+    "description": "ข้าวผัดสับปะรดใส่กุ้ง แฮม ลูกเกด และเม็ดมะม่วงหิมพานต์",
+    "category": "rice",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 33,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/4338f74515fba056532196283f4f1bd8ffad3fab302c0e76b84370fc0ee948fb.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/919347b8c4184ffaa5644ee754737787",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Sukanda H ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "shrimp",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "jasmine_rice",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "onion",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_สับปะรด",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_แฮม",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ลูกเกด",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ถั่วแระญี่ปุ่น",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ผงกะหรี่",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ซอสปรุงรสรสหมู",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_เม็ดมะม่วงหิมพานต์",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำมันรำข้าว",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ต้นหอม",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_หมูหยอง",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_หอมเจียว",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ผักชี",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_แครอท",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "shrimp",
+        "name_th": "กุ้งสด",
+        "name_en": "Shrimp",
+        "category": "seafood",
+        "allergens": [
+          "shellfish"
+        ],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "jasmine_rice",
+        "name_th": "ข้าวสวยหอมมะลิ",
+        "name_en": "Jasmine Rice",
+        "category": "carb",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "onion",
+        "name_th": "หอมหัวใหญ่ / หอมแดง",
+        "name_en": "Onion / Shallot",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_สับปะรด",
+        "name_th": "สับปะรด",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_แฮม",
+        "name_th": "แฮม",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ลูกเกด",
+        "name_th": "ลูกเกด",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ถั่วแระญี่ปุ่น",
+        "name_th": "ถั่วแระญี่ปุ่น",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ผงกะหรี่",
+        "name_th": "ผงกะหรี่",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ซอสปรุงรสรสหมู",
+        "name_th": "ซอสปรุงรสรสหมู",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_เม็ดมะม่วงหิมพานต์",
+        "name_th": "เม็ดมะม่วงหิมพานต์",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำมันรำข้าว",
+        "name_th": "น้ำมันรำข้าว",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ต้นหอม",
+        "name_th": "ต้นหอม",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_หมูหยอง",
+        "name_th": "หมูหยอง",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_หอมเจียว",
+        "name_th": "หอมเจียว",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ผักชี",
+        "name_th": "ผักชี",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_แครอท",
+        "name_th": "แครอท",
+        "category": "other",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "tree_nuts"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "สับปะรด",
+      "แฮม",
+      "ลูกเกด",
+      "ถั่วแระญี่ปุ่น",
+      "ผงกะหรี่",
+      "ซอสปรุงรสรสหมู",
+      "เม็ดมะม่วงหิมพานต์",
+      "น้ำมันรำข้าว",
+      "ต้นหอม",
+      "หมูหยอง",
+      "หอมเจียว",
+      "ผักชี",
+      "แครอท"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Sukanda H (Wongnai Cooking)",
+    "created_at": "2026-10-29T16:33:20.058Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  },
+  {
+    "id": "shared-1a1af59f-4263-e857-245f-732fe4271dce",
+    "name": "โอยาโกะด้ง — ข้าวหน้าไก่ไข่ญี่ปุ่น",
+    "description": "ญี่ปุ่น · ไก่กับไข่ตุ๋นในน้ำซุปดาชิปรุงโชยุและมิริน ราดบนข้าวญี่ปุ่น",
+    "category": "international",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 25,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/b9637f7cb3a5040d78687a287ce69398b73c286b47705c848e0f2ffb67bec311.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/0f4d718e5459468594c8f83f429064cb",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Pabair ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "chicken",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "egg",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "onion",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "soy_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "jasmine_rice",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_สาหร่ายคอมบุ",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ปลาโอแห้ง",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ต้นหอม",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_มิริน",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำตาลทราย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำซุปดาชิ",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_พริกป่นญี่ปุ่น",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "chicken",
+        "name_th": "อกไก่ / เนื้อไก่",
+        "name_en": "Chicken",
+        "category": "meat",
+        "allergens": [],
+        "dietary_compatible": [
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "egg",
+        "name_th": "ไข่ไก่",
+        "name_en": "Chicken Egg",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "onion",
+        "name_th": "หอมหัวใหญ่ / หอมแดง",
+        "name_en": "Onion / Shallot",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "soy_sauce",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "jasmine_rice",
+        "name_th": "ข้าวสวยหอมมะลิ",
+        "name_en": "Jasmine Rice",
+        "category": "carb",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_สาหร่ายคอมบุ",
+        "name_th": "สาหร่ายคอมบุ",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "eggs",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ปลาโอแห้ง",
+        "name_th": "ปลาโอแห้ง",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "eggs",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ต้นหอม",
+        "name_th": "ต้นหอม",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "eggs",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_มิริน",
+        "name_th": "มิริน",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "eggs",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำตาลทราย",
+        "name_th": "น้ำตาลทราย",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "eggs",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำซุปดาชิ",
+        "name_th": "น้ำซุปดาชิ",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "eggs",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_พริกป่นญี่ปุ่น",
+        "name_th": "พริกป่นญี่ปุ่น",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "eggs",
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "สาหร่ายคอมบุ",
+      "ปลาโอแห้ง",
+      "ต้นหอม",
+      "มิริน",
+      "น้ำตาลทราย",
+      "น้ำซุปดาชิ",
+      "พริกป่นญี่ปุ่น"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Pabair (Wongnai Cooking)",
+    "created_at": "2026-10-29T16:33:21.456Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  },
+  {
+    "id": "shared-2751fba8-0fc0-edb8-5c86-73e2281b80f3",
+    "name": "ข้าวผัดกิมจิเบคอน",
+    "description": "เกาหลี · ข้าวผัดกิมจิกับเบคอน เสิร์ฟพร้อมไข่ดาว หอมน้ำมันงา",
+    "category": "international",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 15,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/bd46592a6455b5d2fbc702df35838c0c37520c6c1eaed23d45ef3634d2a71489.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/0da985b29acf41a2bf1e5c42f4d587f8",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Natpavee Pook Binmu-In ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "jasmine_rice",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "onion",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "garlic",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "soy_sauce",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_กิมจิผักกาดขาว",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_เบคอน",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_โคชูจัง",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ต้นหอม",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_ผักชี",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_สาหร่าย",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_งาขาว",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำมันพืช",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "jasmine_rice",
+        "name_th": "ข้าวสวยหอมมะลิ",
+        "name_en": "Jasmine Rice",
+        "category": "carb",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "onion",
+        "name_th": "หอมหัวใหญ่ / หอมแดง",
+        "name_en": "Onion / Shallot",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "garlic",
+        "name_th": "กระเทียม",
+        "name_en": "Garlic",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "soy_sauce",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_กิมจิผักกาดขาว",
+        "name_th": "กิมจิผักกาดขาว",
+        "category": "other",
+        "allergens": [
+          "soy",
+          "wheat_gluten",
+          "sesame"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_เบคอน",
+        "name_th": "เบคอน",
+        "category": "other",
+        "allergens": [
+          "soy",
+          "wheat_gluten",
+          "sesame"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_โคชูจัง",
+        "name_th": "โคชูจัง",
+        "category": "other",
+        "allergens": [
+          "soy",
+          "wheat_gluten",
+          "sesame"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ต้นหอม",
+        "name_th": "ต้นหอม",
+        "category": "other",
+        "allergens": [
+          "soy",
+          "wheat_gluten",
+          "sesame"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_ผักชี",
+        "name_th": "ผักชี",
+        "category": "other",
+        "allergens": [
+          "soy",
+          "wheat_gluten",
+          "sesame"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_สาหร่าย",
+        "name_th": "สาหร่าย",
+        "category": "other",
+        "allergens": [
+          "soy",
+          "wheat_gluten",
+          "sesame"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_งาขาว",
+        "name_th": "งาขาว",
+        "category": "other",
+        "allergens": [
+          "soy",
+          "wheat_gluten",
+          "sesame"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "soy",
+          "wheat_gluten",
+          "sesame"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "กิมจิผักกาดขาว",
+      "เบคอน",
+      "โคชูจัง",
+      "ต้นหอม",
+      "ผักชี",
+      "สาหร่าย",
+      "งาขาว",
+      "น้ำมันพืช"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Natpavee Pook Binmu-In (Wongnai Cooking)",
+    "created_at": "2026-10-29T16:33:22.904Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  },
+  {
+    "id": "shared-0518d3c1-144b-078c-0457-85232c2bd567",
+    "name": "สปาเกตตีคาร์โบนาราแบบอิตาลี",
+    "description": "อิตาลี · สปาเกตตีคลุกซอสไข่และพาร์เมซานชีส ใส่เบคอน ไม่ใส่ครีม",
+    "category": "international",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 20,
+    "difficulty": "medium",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/d01b5dbd8c2789c607e750cebca50e1645c56b9317b4a3f3c6525a5262416154.webp",
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/25d38bf7a36e49289462e60d8181c7e9",
+    "external_source_name": "Wongnai Cooking",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Wongnai Cooking โดย Tamahan Easy ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "egg",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "cheese",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "garlic",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "sea_salt",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "custom_เส้นสปาเกตตี",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_เบคอน",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_พาร์เมซานชีส",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_พริกไทยดำ",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      },
+      {
+        "ingredient_id": "custom_น้ำมันมะกอก",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": false
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "egg",
+        "name_th": "ไข่ไก่",
+        "name_en": "Chicken Egg",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "cheese",
+        "name_th": "ชีส (เชดดาร์ / มอซซาเรลล่า)",
+        "name_en": "Cheese",
+        "category": "egg_dairy",
+        "allergens": [
+          "dairy"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "garlic",
+        "name_th": "กระเทียม",
+        "name_en": "Garlic",
+        "category": "vegetable",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "sea_salt",
+        "name_th": "ดอกเกลือ / เกลือทะเล",
+        "name_en": "Sea Salt",
+        "category": "condiment",
+        "allergens": [],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "custom_เส้นสปาเกตตี",
+        "name_th": "เส้นสปาเกตตี",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "dairy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_เบคอน",
+        "name_th": "เบคอน",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "dairy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_พาร์เมซานชีส",
+        "name_th": "พาร์เมซานชีส",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "dairy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_พริกไทยดำ",
+        "name_th": "พริกไทยดำ",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "dairy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      },
+      {
+        "id": "custom_น้ำมันมะกอก",
+        "name_th": "น้ำมันมะกอก",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "dairy",
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [],
+        "composition_known": false
+      }
+    ],
+    "custom_ingredients": [
+      "เส้นสปาเกตตี",
+      "เบคอน",
+      "พาร์เมซานชีส",
+      "พริกไทยดำ",
+      "น้ำมันมะกอก"
+    ],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Tamahan Easy (Wongnai Cooking)",
+    "created_at": "2026-10-29T16:33:24.448Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  },
+  {
+    "id": "shared-60c56a36-6ed4-7d9a-3ed7-42cc15b77513",
+    "name": "แซนด์วิชกริลล์ชีส",
+    "description": "ขนมปังย่างเนยสอดไส้ชีส ทำในกระทะ",
+    "category": "international",
+    "meal_types": [
+      "breakfast",
+      "lunch",
+      "snack"
+    ],
+    "cooking_time": 12,
+    "difficulty": "easy",
+    "image_url": "https://crspsvwptpvohcojlyst.supabase.co/storage/v1/object/public/recipe-images/7e4295d0a64ad01a06c9bb19d8f6f0e78483cbbaa0623a1682af0f0d2deeb286.webp",
+    "external_recipe_url": "https://cookpad.com/th/recipes/16862616",
+    "external_source_name": "Cookpad ภาษาไทย",
+    "status": "approved",
+    "dietary_tags": [],
+    "instructions": [
+      "อ่านสัดส่วนและวิธีทำฉบับเต็มภาษาไทยจาก Cookpad ภาษาไทย โดย Preeya A. ที่ปุ่มลิงก์สูตรอาหาร",
+      "รายการวัตถุดิบใช้ช่วยเลือกเมนู เวลาเตรียมและทำเป็นค่าประมาณ โปรดอ้างอิงสูตรต้นทางและตรวจฉลากเครื่องปรุงที่ใช้จริง ภาพเป็นภาพประกอบเมนู"
+    ],
+    "ingredients": [
+      {
+        "ingredient_id": "bread",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "butter",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      },
+      {
+        "ingredient_id": "cheese",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "role": "main",
+        "is_optional": false,
+        "composition_verified": true
+      }
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "bread",
+        "name_th": "ขนมปังโฮลวีต / ขนมปังปอนด์",
+        "name_en": "Bread",
+        "category": "carb",
+        "allergens": [
+          "wheat_gluten"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "butter",
+        "name_th": "เนยสด",
+        "name_en": "Butter",
+        "category": "egg_dairy",
+        "allergens": [
+          "dairy"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ],
+        "composition_known": true
+      },
+      {
+        "id": "cheese",
+        "name_th": "ชีส (เชดดาร์ / มอซซาเรลล่า)",
+        "name_en": "Cheese",
+        "category": "egg_dairy",
+        "allergens": [
+          "dairy"
+        ],
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ],
+        "composition_known": true
+      }
+    ],
+    "custom_ingredients": [],
+    "allergen_assessments": {
+      "peanuts": {
+        "allergen": "peanuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "allergen": "tree_nuts",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "allergen": "shellfish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "allergen": "fish",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "allergen": "eggs",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "allergen": "dairy",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "soy": {
+        "allergen": "soy",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "allergen": "wheat_gluten",
+        "status": "contains",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "allergen": "sesame",
+        "status": "unknown",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "safety_metadata_complete": false,
+    "cross_contact_risk": "unknown",
+    "submitted_by": "KIN DI · Preeya A. (Cookpad ภาษาไทย)",
+    "created_at": "2026-10-29T16:33:25.980Z",
+    "updated_at": "2026-10-29T16:44:03.478Z"
+  }
+]

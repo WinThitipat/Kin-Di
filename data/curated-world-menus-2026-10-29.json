@@ -1,0 +1,291 @@
+[
+  {
+    "name": "ต้มยำกุ้งน้ำใส",
+    "description": "ไทย · ต้มยำกุ้งใส่เห็ด หอมข่า ตะไคร้ และใบมะกรูด",
+    "category": "thai",
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "shrimp",
+      "mushroom",
+      "chili",
+      "fish_sauce",
+      "lime"
+    ],
+    "customIngredientNames": [
+      "น้ำสต๊อกกุ้ง",
+      "ตะไคร้",
+      "ข่า",
+      "ใบมะกรูด",
+      "น้ำพริกเผา",
+      "น้ำตาล",
+      "ผักชี",
+      "น้ำมันพืช"
+    ],
+    "allergens": [
+      "shellfish",
+      "fish"
+    ],
+    "dietary_tags": [],
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2013/03/tom-yum-goong-blog.jpg",
+    "external_recipe_url": "https://hot-thai-kitchen.com/tom-yum-goong/",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "instructionsText": "ดูปริมาณและวิธีทำฉบับเต็มจากลิงก์สูตรต้นฉบับ เวลาเตรียมและทำโดยประมาณ โปรดตรวจฉลากซอส เครื่องปรุง และสารก่อภูมิแพ้ของวัตถุดิบที่ใช้จริง"
+  },
+  {
+    "name": "แกงเขียวหวานไก่",
+    "description": "ไทย · แกงกะทิใส่ไก่ มะเขือ และใบโหระพา กินกับข้าวหรือขนมจีน",
+    "category": "thai",
+    "cooking_time": 35,
+    "difficulty": "medium",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "chicken",
+      "coconut_milk",
+      "fish_sauce"
+    ],
+    "customIngredientNames": [
+      "พริกแกงเขียวหวาน",
+      "น้ำสต๊อกไก่",
+      "น้ำตาลปี๊บ",
+      "มะเขือเปราะ",
+      "โหระพา",
+      "ใบมะกรูด",
+      "พริกชี้ฟ้า",
+      "กระชาย (ไม่บังคับ)",
+      "กะปิ"
+    ],
+    "allergens": [
+      "fish",
+      "shellfish"
+    ],
+    "dietary_tags": [],
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2022/04/Green-curry-chicken-sq-2.jpg",
+    "external_recipe_url": "https://hot-thai-kitchen.com/green-curry-new-2/",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "instructionsText": "ดูปริมาณและวิธีทำฉบับเต็มจากลิงก์สูตรต้นฉบับ เวลาเตรียมและทำโดยประมาณ โปรดตรวจฉลากซอส เครื่องปรุง และสารก่อภูมิแพ้ของวัตถุดิบที่ใช้จริง"
+  },
+  {
+    "name": "ลาบหมูอีสาน",
+    "description": "ไทย · หมูสับคลุกข้าวคั่ว มะนาว พริกป่น และสมุนไพร กินคู่ผักสด",
+    "category": "thai",
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "pork",
+      "fish_sauce",
+      "lime",
+      "jasmine_rice",
+      "cabbage"
+    ],
+    "customIngredientNames": [
+      "ข้าวคั่ว",
+      "หอมแดง",
+      "พริกป่น",
+      "สะระแหน่",
+      "ผักชี",
+      "ต้นหอม",
+      "ผักชีฝรั่ง (ไม่บังคับ)"
+    ],
+    "allergens": [
+      "fish"
+    ],
+    "dietary_tags": [],
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2026/09/laab-moo-pa-version-sq.jpg",
+    "external_recipe_url": "https://hot-thai-kitchen.com/laab-moo/",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "instructionsText": "ดูปริมาณและวิธีทำฉบับเต็มจากลิงก์สูตรต้นฉบับ เวลาเตรียมและทำโดยประมาณ โปรดตรวจฉลากซอส เครื่องปรุง และสารก่อภูมิแพ้ของวัตถุดิบที่ใช้จริง"
+  },
+  {
+    "name": "ข้าวผัดสับปะรดกุ้ง",
+    "description": "ไทย · ข้าวผัดกุ้งใส่สับปะรดและเม็ดมะม่วงหิมพานต์ หอมผงกะหรี่",
+    "category": "rice",
+    "cooking_time": 33,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "jasmine_rice",
+      "shrimp",
+      "egg",
+      "onion",
+      "tomato",
+      "cashew_nuts",
+      "soy_sauce",
+      "fish_sauce"
+    ],
+    "customIngredientNames": [
+      "สับปะรด",
+      "ผงกะหรี่",
+      "น้ำตาล",
+      "เกลือ",
+      "พริกไทย",
+      "ลูกเกด (ไม่บังคับ)",
+      "ต้นหอม",
+      "น้ำมันพืช"
+    ],
+    "allergens": [
+      "shellfish",
+      "eggs",
+      "tree_nuts",
+      "soy",
+      "wheat_gluten",
+      "fish"
+    ],
+    "dietary_tags": [],
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2014/02/Pineapple-fried-rice-sq-2.jpg",
+    "external_recipe_url": "https://hot-thai-kitchen.com/pineapple-fried-rice/",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "instructionsText": "ดูปริมาณและวิธีทำฉบับเต็มจากลิงก์สูตรต้นฉบับ เวลาเตรียมและทำโดยประมาณ โปรดตรวจฉลากซอส เครื่องปรุง และสารก่อภูมิแพ้ของวัตถุดิบที่ใช้จริง"
+  },
+  {
+    "name": "โอยาโกะด้ง — ข้าวหน้าไก่ไข่ญี่ปุ่น",
+    "description": "ญี่ปุ่น · ไก่กับไข่ตุ๋นในน้ำซุปดาชิปรุงโชยุและมิริน ราดบนข้าวญี่ปุ่น",
+    "category": "international",
+    "cooking_time": 25,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "chicken",
+      "egg",
+      "onion",
+      "soy_sauce"
+    ],
+    "customIngredientNames": [
+      "ข้าวญี่ปุ่นสุก",
+      "น้ำซุปดาชิ",
+      "มิริน",
+      "สาเก (ไม่บังคับ)",
+      "น้ำตาล",
+      "ต้นหอมหรือมิตสึบะ"
+    ],
+    "allergens": [
+      "eggs",
+      "soy",
+      "wheat_gluten",
+      "fish"
+    ],
+    "dietary_tags": [],
+    "image_url": "https://www.justonecookbook.com/wp-content/uploads/2022/10/Oyakodon-0613-I.jpg",
+    "external_recipe_url": "https://www.justonecookbook.com/oyakodon/",
+    "submitted_by": "KIN DI · คัดจาก Just One Cookbook",
+    "instructionsText": "ดูปริมาณและวิธีทำฉบับเต็มจากลิงก์สูตรต้นฉบับ เวลาเตรียมและทำโดยประมาณ โปรดตรวจฉลากซอส เครื่องปรุง และสารก่อภูมิแพ้ของวัตถุดิบที่ใช้จริง"
+  },
+  {
+    "name": "ข้าวผัดกิมจิเบคอน",
+    "description": "เกาหลี · ข้าวผัดกิมจิกับเบคอน เสิร์ฟพร้อมไข่ดาว หอมน้ำมันงา",
+    "category": "international",
+    "cooking_time": 15,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "egg",
+      "garlic",
+      "sesame_oil",
+      "mushroom"
+    ],
+    "customIngredientNames": [
+      "ข้าวเมล็ดสั้นสุก",
+      "กิมจิ",
+      "น้ำกิมจิ",
+      "เบคอน",
+      "งาคั่ว",
+      "น้ำมันพืช",
+      "ต้นหอม",
+      "สาหร่ายปรุงรส (ไม่บังคับ)"
+    ],
+    "allergens": [
+      "eggs",
+      "sesame"
+    ],
+    "dietary_tags": [],
+    "image_url": "https://mykoreankitchen.com/wp-content/uploads/2015/10/1.-Easy-Kimchi-Fried-Rice.jpg",
+    "external_recipe_url": "https://mykoreankitchen.com/kimchi-fried-rice/",
+    "submitted_by": "KIN DI · คัดจาก My Korean Kitchen",
+    "instructionsText": "ดูปริมาณและวิธีทำฉบับเต็มจากลิงก์สูตรต้นฉบับ เวลาเตรียมและทำโดยประมาณ โปรดตรวจฉลากซอส เครื่องปรุง และสารก่อภูมิแพ้ของวัตถุดิบที่ใช้จริง"
+  },
+  {
+    "name": "สปาเกตตีคาร์โบนาราแบบอิตาลี",
+    "description": "อิตาลี · ซอสจากไข่และชีส ใส่กวนชาเลหรือแพนเชตตา ไม่ใส่ครีม",
+    "category": "international",
+    "cooking_time": 20,
+    "difficulty": "medium",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "egg",
+      "cheese",
+      "garlic",
+      "sea_salt"
+    ],
+    "customIngredientNames": [
+      "เส้นสปาเกตตี",
+      "กวนชาเลหรือแพนเชตตา (ใช้เบคอนแทนได้)",
+      "ชีสพาร์มิจาโนเรจจาโนหรือพาร์เมซาน",
+      "พริกไทยดำ",
+      "พาร์สลีย์"
+    ],
+    "allergens": [
+      "eggs",
+      "dairy",
+      "wheat_gluten"
+    ],
+    "dietary_tags": [],
+    "image_url": "https://www.recipetineats.com/tachyon/2023/01/Carbonara_6a.jpg",
+    "external_recipe_url": "https://www.recipetineats.com/carbonara/",
+    "submitted_by": "KIN DI · คัดจาก RecipeTin Eats",
+    "instructionsText": "ดูปริมาณและวิธีทำฉบับเต็มจากลิงก์สูตรต้นฉบับ เวลาเตรียมและทำโดยประมาณ โปรดตรวจฉลากซอส เครื่องปรุง และสารก่อภูมิแพ้ของวัตถุดิบที่ใช้จริง"
+  },
+  {
+    "name": "แซนด์วิชกริลล์ชีส",
+    "description": "ตะวันตก · ขนมปังย่างเนย ไส้เชดดาร์และมอซซาเรลลาละลาย ทำในกระทะ",
+    "category": "international",
+    "cooking_time": 12,
+    "difficulty": "easy",
+    "meal_types": [
+      "breakfast",
+      "lunch",
+      "snack"
+    ],
+    "ingredientIds": [
+      "bread",
+      "butter",
+      "cheese"
+    ],
+    "customIngredientNames": [
+      "ขนมปังซาวร์โด",
+      "เชดดาร์หรือกรูแยร์",
+      "มอซซาเรลลา"
+    ],
+    "allergens": [
+      "wheat_gluten",
+      "dairy"
+    ],
+    "dietary_tags": [],
+    "image_url": "https://www.recipetineats.com/tachyon/2023/07/Grilled-Cheese-sandwich-photo-main.jpg",
+    "external_recipe_url": "https://www.recipetineats.com/grilled-cheese-sandwich/",
+    "submitted_by": "KIN DI · คัดจาก RecipeTin Eats",
+    "instructionsText": "ดูปริมาณและวิธีทำฉบับเต็มจากลิงก์สูตรต้นฉบับ เวลาเตรียมและทำโดยประมาณ โปรดตรวจฉลากซอส เครื่องปรุง และสารก่อภูมิแพ้ของวัตถุดิบที่ใช้จริง"
+  }
+]
