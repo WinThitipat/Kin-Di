@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 import { GET, POST } from "./route";
@@ -28,7 +29,7 @@ const request = (body: object, origin = "http://localhost:3100") =>
   });
 describe("Recipe database API", () => {
   beforeEach(() => {
-    vi.clearAllMocks();
+    vi.clearAllMocks(); sharedLimit.mockResolvedValue(null);
     database.listDatabaseRecipes.mockResolvedValue({
       recipes: [],
       deletedIds: [],
@@ -79,3 +80,8 @@ describe("Recipe database API", () => {
     expect((await GET()).status).toBe(503);
   });
 });
+
+
+const sharedLimit = vi.hoisted(() => vi.fn().mockResolvedValue(null));
+vi.mock("@/lib/shared-limits.server", () => ({enforceSharedLimit:sharedLimit}));
+vi.mock("@/lib/recipe-image.server", () => ({storeRecipeImage:vi.fn(async (source:string) => source)}));

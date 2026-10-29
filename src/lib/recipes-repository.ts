@@ -1,69 +1,66 @@
-import { INGREDIENTS_CATALOG, INITIAL_RECIPES } from "@/data/recipes-seed";
+import { INGREDIENTS_CATALOG } from "@/data/recipes-seed";
 import {
   getMergedIngredientsCatalog,
-  loadSharedRecipes,
   loadCustomIngredients,
   saveCustomIngredient,
-  saveSharedRecipe,
 } from "@/lib/user-storage";
 import {
   CommunityRecipeSubmissionInput,
   CommunityRecipeSubmissionSchema,
   Recipe,
   RecipeIdSchema,
+  IngredientRecord,
 } from "@/types/recipe";
 
 export interface FetchRecipesResult {
   recipes: Recipe[];
-  source: "supabase" | "local-seed";
+  source: "supabase";
+  deletedIds?: string[];
   error: string | null;
   databaseRecipeIds?: string[];
 }
 
 function cacheIngredientNames(recipes: Recipe[]) {
-  const saved = new Map(loadCustomIngredients().map((item) => [item.id, item]));
-  for (const recipe of recipes)
-    for (const ingredient of recipe.ingredient_catalog ?? []) {
-      if (
-        !INGREDIENTS_CATALOG[ingredient.id] &&
-        JSON.stringify(saved.get(ingredient.id)) !== JSON.stringify(ingredient)
-      ) {
-        saveCustomIngredient(ingredient);
-        saved.set(ingredient.id, ingredient);
-      }
-    }
+  const saved = new Map(loadCustomIngredients().map(item => [item.id, item]));
+  const merged = new Map<string, IngredientRecord>();
+  for (const recipe of recipes) for (const ingredient of recipe.ingredient_catalog ?? []) {
+    if (INGREDIENTS_CATALOG[ingredient.id]) continue;
+    const previous = merged.get(ingredient.id);
+    merged.set(ingredient.id, previous ? {
+      ...previous,
+      allergens: [...new Set([...previous.allergens, ...ingredient.allergens])].sort(),
+      dietary_compatible: previous.dietary_compatible.filter(diet => ingredient.dietary_compatible.includes(diet)),
+      composition_known: previous.composition_known && ingredient.composition_known,
+    } : {...ingredient, allergens: [...ingredient.allergens].sort()});
+  }
+  // A shared ingredient can have different recipe snapshots. Persist it once,
+  // after merging, so repeated reads cannot alternate between those snapshots.
+  for (const ingredient of merged.values()) {
+    if (JSON.stringify(saved.get(ingredient.id)) !== JSON.stringify(ingredient)) saveCustomIngredient(ingredient);
+  }
 }
 
 export async function fetchApprovedRecipes(): Promise<FetchRecipesResult> {
-  const local = [...loadSharedRecipes(), ...INITIAL_RECIPES].filter(
-    (recipe) => recipe.status === "approved",
-  );
   if (typeof window === "undefined")
-    return { recipes: local, source: "local-seed", error: null };
+    return { recipes: [], source: "supabase", error: null };
   try {
-    const response = await fetch("/api/recipes", { cache: "no-store" });
+    const response = await fetch("/api/recipes", { cache: "no-store", signal: AbortSignal.timeout(20_000) });
     const body = await response.json();
     if (!response.ok || !Array.isArray(body.recipes))
       throw new Error(body.error || "โหลดเมนูจากฐานข้อมูลไม่สำเร็จ");
     const remote = body.recipes as Recipe[];
-    const deletedIds = new Set<string>(body.deletedIds ?? []);
-    const merged = new Map(
-      local
-        .filter((recipe) => !deletedIds.has(recipe.id))
-        .map((recipe) => [recipe.id, recipe]),
-    );
-    remote.forEach((recipe) => merged.set(recipe.id, recipe));
-    const recipes = [...merged.values()];
+    const recipes = remote.filter(recipe => recipe.status === "approved");
     cacheIngredientNames(recipes);
     return {
       recipes,
       source: "supabase",
       error: null,
-      databaseRecipeIds: remote.map((recipe) => recipe.id),
+      databaseRecipeIds: recipes.map((recipe) => recipe.id),
+      deletedIds: body.deletedIds ?? [],
     };
   } catch {
     return {
-      recipes: local,
+      recipes: [],
       source: "supabase",
       error: "ยังโหลดเมนูจากฐานข้อมูลไม่ได้ กรุณาลองใหม่อีกครั้ง",
     };
@@ -75,8 +72,10 @@ export async function fetchApprovedRecipeById(
 ): Promise<Recipe | null> {
   const id = RecipeIdSchema.safeParse(rawId);
   if (!id.success) return null;
+  const result = await fetchApprovedRecipes();
+  if (result.error) throw new Error(result.error);
   return (
-    (await fetchApprovedRecipes()).recipes.find(
+    result.recipes.find(
       (recipe) => recipe.id === id.data,
     ) ?? null
   );
@@ -108,6 +107,7 @@ export async function submitCommunityRecipeForModeration(
     retryKey = { signature, id: crypto.randomUUID() };
   try {
     const response = await fetch("/api/recipes", {
+      signal: AbortSignal.timeout(50_000),
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -125,9 +125,6 @@ export async function submitCommunityRecipeForModeration(
           "บันทึกลงฐานข้อมูลไม่สำเร็จ ข้อมูลในฟอร์มยังอยู่ กรุณาลองใหม่",
       };
     const recipe = result.recipe as Recipe;
-    // This is only a backward-compatible cache. Database commit has already
-    // succeeded, so a full/disabled browser store must not lose the recipe.
-    saveSharedRecipe(recipe);
     cacheIngredientNames([recipe]);
     if (typeof window !== "undefined")
       window.dispatchEvent(new Event("kindi-recipes-updated"));
@@ -145,28 +142,67 @@ export async function submitCommunityRecipeForModeration(
   }
 }
 
+export function recipeToSubmission(
+  recipe: Recipe,
+): CommunityRecipeSubmissionInput {
+  return {
+    name: recipe.name,
+    description: recipe.description,
+    external_recipe_url: recipe.external_recipe_url ?? "",
+    image_url: recipe.image_url ?? "",
+    category: recipe.category,
+    meal_types: recipe.meal_types,
+    cooking_time: recipe.cooking_time,
+    difficulty: recipe.difficulty,
+    ingredientIds: (recipe.ingredients ?? [])
+      .filter((item) => !!INGREDIENTS_CATALOG[item.ingredient_id])
+      .map((item) => item.ingredient_id),
+    customIngredientNames: [
+      ...new Set([
+        ...(recipe.custom_ingredients ?? []),
+        ...(recipe.ingredient_catalog ?? [])
+          .filter((item) => !INGREDIENTS_CATALOG[item.id])
+          .map((item) => item.name_th),
+      ]),
+    ],
+    dietary_tags: recipe.dietary_tags ?? [],
+    allergens: Object.values(recipe.allergen_assessments ?? {})
+      .filter((item) => item.status === "contains")
+      .map((item) => item.allergen),
+    instructionsText: recipe.instructions.join("\n"),
+    submitted_by: recipe.submitted_by,
+  };
+}
 export async function importLocalRecipe(recipe: Recipe) {
   return submitCommunityRecipeForModeration(
-    {
-      name: recipe.name,
-      description: recipe.description,
-      external_recipe_url: recipe.external_recipe_url ?? "",
-      image_url: recipe.image_url ?? "",
-      category: recipe.category,
-      meal_types: recipe.meal_types,
-      cooking_time: recipe.cooking_time,
-      difficulty: recipe.difficulty,
-      ingredientIds: (recipe.ingredients ?? []).map(
-        (item) => item.ingredient_id,
-      ),
-      customIngredientNames: recipe.custom_ingredients ?? [],
-      dietary_tags: recipe.dietary_tags ?? [],
-      allergens: Object.values(recipe.allergen_assessments ?? {})
-        .filter((item) => item.status === "contains")
-        .map((item) => item.allergen),
-      instructionsText: recipe.instructions.join("\n"),
-      submitted_by: recipe.submitted_by,
-    },
+    recipeToSubmission(recipe),
     recipe.id,
   );
+}
+export async function updateCommunityRecipe(
+  input: CommunityRecipeSubmissionInput,
+  recipeId: string,
+  pin: string,
+  expectedVersion: string,
+) {
+  try {
+    const response = await fetch("/api/admin/update-recipe", {
+      signal: AbortSignal.timeout(50_000),
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...input, recipeId, pin, expectedVersion }),
+    });
+    const body = await response.json();
+    if (!response.ok)
+      return { success: false, message: body.error || "บันทึกไม่สำเร็จ" };
+    cacheIngredientNames([body.recipe]);
+    window.dispatchEvent(new Event("kindi-recipes-updated"));
+    return {
+      success: true,
+      message: "บันทึกการแก้ไขแล้ว",
+      submittedRecipe: body.recipe as Recipe,
+    };
+  } catch {
+    return { success: false, message: "เชื่อมต่อไม่ได้ ข้อมูลการแก้ไขยังอยู่" };
+  }
 }

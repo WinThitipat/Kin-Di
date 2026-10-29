@@ -52,6 +52,8 @@ const INGREDIENT_CATEGORY_LABELS: Record<IngredientCategory, string> = {
 
 export default function FridgeModePage() {
   const { restrictions, openRestrictionsModal } = useKinDiApp();
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [reloadKey, setReloadKey] = useState(0);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [customIngredients, setCustomIngredients] = useState<IngredientRecord[]>([]);
   const [selectedIngredientIds, setSelectedIngredientIds] = useState<string[]>([
@@ -68,21 +70,21 @@ export default function FridgeModePage() {
   useEffect(() => {
     const loadAll = () => {
       fetchApprovedRecipes().then((res) => {
-        if (!res.error) {
-          setRecipes(res.recipes);
-        }
+        setLoadError(res.error);
+        setRecipes(res.recipes);
       });
       setCustomIngredients(loadCustomIngredients());
     };
+    const syncIngredients = () => setCustomIngredients(loadCustomIngredients());
     loadAll();
 
     window.addEventListener('kindi-recipes-updated', loadAll);
-    window.addEventListener('kindi-ingredients-updated', loadAll);
+    window.addEventListener('kindi-ingredients-updated', syncIngredients);
     return () => {
       window.removeEventListener('kindi-recipes-updated', loadAll);
-      window.removeEventListener('kindi-ingredients-updated', loadAll);
+      window.removeEventListener('kindi-ingredients-updated', syncIngredients);
     };
-  }, []);
+  }, [reloadKey]);
 
   const catalog = useMemo(
     () => getMergedIngredientsCatalog(),
@@ -162,6 +164,7 @@ export default function FridgeModePage() {
 
   return (
     <div className="interior-page fridge-page">
+      {loadError && <div role="alert" className="step-error">{loadError} <button type="button" className="text-link min-h-11" onClick={() => setReloadKey(key => key + 1)}>ลองอีกครั้ง</button></div>}
       {/* Editorial Bento Header */}
       <section className="interior-header fridge-header">
         <div><h1>เปิดตู้เย็น<br /><span>เจอมื้อถัดไป</span></h1><p>ของที่มีอยู่ อาจอร่อยกว่าที่คิด เลือกวัตถุดิบในบ้าน<br className="hidden sm:block" /> แล้วค้นหาเมนูที่ทำได้ หรือขาดอีกแค่นิดเดียว</p></div>

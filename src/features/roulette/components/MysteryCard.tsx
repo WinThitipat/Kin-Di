@@ -17,6 +17,7 @@ import {
 
 interface MysteryCardProps {
   assignment: MysteryCardAssignment;
+  isDealing: boolean;
   isSelected: boolean;
   isOtherSelected: boolean;
   isTransitioning: boolean;
@@ -27,6 +28,7 @@ interface MysteryCardProps {
 
 export function MysteryCard({
   assignment,
+  isDealing,
   isSelected,
   isOtherSelected,
   isTransitioning,
@@ -36,7 +38,7 @@ export function MysteryCard({
 }: MysteryCardProps) {
   const { cardId, cardIndex, recipe } = assignment;
   const isFlipped = isSelected && (isTransitioning || isRevealed);
-  const isDisabled = isTransitioning || isRevealed || isOtherSelected;
+  const isDisabled = isDealing || isTransitioning || isRevealed || isOtherSelected;
 
   const resetTilt = (el: HTMLElement) => {
     el.style.setProperty("--tilt-x", "0deg");
@@ -70,6 +72,7 @@ export function MysteryCard({
   return (
     <div
       data-deal-card
+      data-deal-index={cardIndex - 1}
       className={`kindi-card-scene kindi-deal-card w-full aspect-[3/4] max-w-[200px] mx-auto ${sceneStateClass}`}
     >
       <button
@@ -145,13 +148,13 @@ export function MysteryCard({
             className="kindi-card-face kindi-card-face-back bg-white text-[#302923] border border-[#DDD2C2] shadow-[0_10px_24px_rgba(20,20,19,0.14)] flex flex-col overflow-hidden"
           >
             {/* Non-color-only selected indicator header */}
-            <div className="bg-[#F3E3D2] px-2.5 py-1.5 border-b border-[#DDD2C2] flex items-center justify-between gap-1">
+            <div className="kindi-card-heading bg-[#F3E3D2] px-2.5 py-1.5 border-b border-[#DDD2C2] flex items-center justify-between gap-1">
               <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#302923] tabular-nums">
                 <CheckCircle2
                   className="w-3.5 h-3.5 shrink-0"
                   aria-hidden="true"
                 />
-                <span>ใบที่ #{cardIndex}</span>
+                <span className="whitespace-nowrap">#{cardIndex}</span>
               </span>
               <span className="text-xs font-bold px-1.5 py-0.5 rounded bg-[#302923] text-[#FBF0DC] truncate">
                 {FOOD_CATEGORY_LABELS[recipe.category]}
@@ -159,7 +162,7 @@ export function MysteryCard({
             </div>
 
             {/* Recipe Thumbnail */}
-            <div className="relative w-full h-24 sm:h-28 overflow-hidden bg-[#F1EADF] shrink-0">
+            <div className="kindi-card-photo relative w-full overflow-hidden bg-[#F1EADF] shrink-0">
               <RecipeImage
                 src={recipe.image_url}
                 alt={recipe.name}
@@ -169,12 +172,12 @@ export function MysteryCard({
             </div>
 
             {/* Recipe Summary on Card Face */}
-            <div className="p-2.5 flex-1 flex flex-col justify-between bg-white">
+            <div className="kindi-card-summary p-2.5 flex flex-col justify-between bg-white">
               <h3 className="text-xs sm:text-sm font-semibold text-[#302923] line-clamp-2 leading-relaxed">
                 {recipe.name}
               </h3>
 
-              <div className="flex items-center justify-between gap-1 text-xs font-bold text-[#6E5D50] pt-1 border-t border-[#DDD2C2] tabular-nums">
+              <div className="kindi-card-meta flex flex-wrap items-center justify-between gap-1 text-xs font-bold text-[#6E5D50] pt-1 border-t border-[#DDD2C2] tabular-nums">
                 <span className="inline-flex items-center gap-1">
                   <Clock
                     className="w-3 h-3 text-[#302923]"

@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 import { hashAdminPin } from '@/lib/admin-pin.server';
@@ -65,15 +66,14 @@ describe("Admin recipe deletion authorization", () => {
     archive.mockRejectedValueOnce(new Error("offline"));
     expect((await (await endpoint())(request("12345678"))).status).toBe(503);
   });
-  it("blocks repeated guesses and allows retry after the time window", async () => {
-    const now = vi.spyOn(Date, "now").mockReturnValue(1000);
-    const post = await endpoint();
-    for (let i = 0; i < 5; i++)
-      expect((await post(request("00000000"))).status).toBe(401);
-    const locked = await post(request("12345678"));
-    expect(locked.status).toBe(429);
-    expect(locked.headers.get("retry-after")).toBe("60");
-    now.mockReturnValue(61_001);
-    expect((await post(request("12345678"))).status).toBe(200);
+  it("forwards the shared database limit and retry header", async () => {
+    sharedLimit.mockResolvedValueOnce(NextResponse.json({error:"limited"},{status:429,headers:{"Retry-After":"60"}}));
+    const locked=await (await endpoint())(request("12345678"));
+    expect(locked.status).toBe(429);expect(locked.headers.get("retry-after")).toBe("60");expect(archive).not.toHaveBeenCalled();
   });
 });
+
+
+const sharedLimit = vi.hoisted(() => vi.fn().mockResolvedValue(null));
+vi.mock("@/lib/shared-limits.server", () => ({enforceSharedLimit:sharedLimit}));
+vi.mock("@/lib/recipe-image.server", () => ({storeRecipeImage:vi.fn(async (source:string) => source)}));

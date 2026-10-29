@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { ShareRecipeButton } from '@/components/ShareRecipeButton';
 import { useParams } from 'next/navigation';
 import {
   AlertTriangle,
@@ -56,10 +57,12 @@ interface ChecklistItem {
 
 export default function RecipeDetailPage() {
   const params = useParams<{ id: string }>();
-  const rawId = typeof params?.id === 'string' ? decodeURIComponent(params.id) : '';
+  const rawId = typeof params?.id === 'string' ? params.id : '';
 
   const { restrictions, favoriteIds, toggleFavorite } = useKinDiApp();
   const [recipe, setRecipe] = useState<Recipe | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [retry, setRetry] = useState(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   // Interactive ingredient checklist tracking
@@ -70,18 +73,19 @@ export default function RecipeDetailPage() {
   useEffect(() => {
     let active = true;
     setIsLoading(true);
+    setLoadError(null);
     fetchApprovedRecipeById(rawId).then((res) => {
       if (active) {
         setRecipe(res);
         setIsLoading(false);
       }
+    }).catch(error => {
+      if (active) { setRecipe(null); setLoadError(error.message); setIsLoading(false); }
     });
-    return () => {
-      active = false;
-    };
-  }, [rawId]);
+    return () => { active = false; };
+  }, [rawId, retry]);
 
-  const catalog = useMemo(() => getMergedIngredientsCatalog(), []);
+  const catalog = useMemo(() => getMergedIngredientsCatalog(), [recipe]);
 
   // Assemble full checklist items (catalog ingredients + custom ingredients)
   const checklistItems = useMemo<ChecklistItem[]>(() => {
@@ -172,11 +176,12 @@ export default function RecipeDetailPage() {
           <AlertTriangle className="w-8 h-8" aria-hidden="true" />
         </div>
         <h1 className="text-xl sm:text-2xl font-semibold text-[#302923]">
-          ไม่พบสูตรอาหารนี้ในระบบ
+          {loadError ? "โหลดสูตรอาหารไม่สำเร็จ" : "ไม่พบสูตรอาหารนี้ในระบบ"}
         </h1>
         <p className="text-sm text-[#6E5D50] leading-relaxed max-w-sm mx-auto">
-          เมนูนี้อาจถูกลบไปแล้ว หรือรหัสสูตรอาหารไม่ถูกต้อง
+          {loadError || "เมนูนี้อาจถูกลบไปแล้ว หรือรหัสสูตรอาหารไม่ถูกต้อง"}
         </p>
+        {loadError && <button type="button" className="kindi-btn-secondary min-h-11 px-4" onClick={() => setRetry(value => value + 1)}>ลองอีกครั้ง</button>}
         <div className="pt-2 flex flex-wrap justify-center gap-3">
           <Link
             href="/"
@@ -320,6 +325,12 @@ export default function RecipeDetailPage() {
                 </p>
               </div>
 
+              <ShareRecipeButton id={recipe.id} name={recipe.name} />
+              {recipe.id === 'shared-1793208511753' && (
+                <p className="text-xs text-[#6E5D50] leading-relaxed">
+                  ภาพประกอบหมูทอดกระเทียม: <a href="https://commons.wikimedia.org/wiki/File:Mu_thot_krathiam.jpg" target="_blank" rel="noopener noreferrer" className="underline">Takeaway / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer" className="underline">CC BY-SA 3.0</a> · ย่อขนาดและแปลงเป็น WebP
+                </p>
+              )}
               {/* Verified Dietary Badges */}
               {Array.isArray(recipe.dietary_tags) && recipe.dietary_tags.length > 0 && (
                 <div className="flex flex-wrap items-center gap-2 pt-1">

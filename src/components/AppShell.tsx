@@ -1,7 +1,8 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FoodRestrictionsModal } from "@/components/FoodRestrictionsModal";
+import { usePathname } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import { DEFAULT_USER_RESTRICTIONS } from "@/features/food-safety/eligibility";
 import {
@@ -35,6 +36,19 @@ export function useKinDiApp() {
 }
 
 export function AppShell({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const mainRef = useRef<HTMLElement>(null);
+  const pendingMotion = useRef(0);
+  useLayoutEffect(() => {
+    const direction = pendingMotion.current;
+    pendingMotion.current = 0;
+    if (!direction || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const animation = mainRef.current?.animate([
+      { transform: `translateX(${direction * 16}px)` },
+      { transform: 'translateX(0)' },
+    ], { duration: 240, easing: 'cubic-bezier(.215,.61,.355,1)' });
+    return () => animation?.cancel();
+  }, [pathname]);
   const [restrictions, setRestrictionsState] = useState<UserFoodRestrictions>(
     DEFAULT_USER_RESTRICTIONS,
   );
@@ -95,10 +109,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </a>
         <Navbar
           restrictions={restrictions}
+          onNavigate={(direction, animate) => { pendingMotion.current = animate ? direction : 0; }}
           onOpenRestrictions={() => setIsRestrictionsOpen(true)}
         />
 
-        <main id="main-content" className="site-main">
+        <main ref={mainRef} id="main-content" className="site-main">
           {children}
         </main>
 

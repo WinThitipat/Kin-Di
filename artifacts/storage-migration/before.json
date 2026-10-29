@@ -1,0 +1,2506 @@
+[
+  {
+    "id": "shared-e33af958-17f4-2375-eba1-d29c60b9e795",
+    "name": "ข้าวผัดไก่อบ",
+    "status": "approved",
+    "category": "rice",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2020/12/Leftover-fried-rice.jpg",
+    "created_at": "2026-10-29T09:37:10.403Z",
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "description": "ข้าวผัดไข่ใช้ไก่อบที่เหลือจากมื้อก่อน เป็นตัวเลือกจากสูตรข้าวผัดเนื้ออบของต้นฉบับ",
+    "ingredients": [
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "jasmine_rice",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "chicken",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "egg",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "garlic",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "soy_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "fish_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "lime",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ไก่อบสุก_ใช้แทนไก่ดิบ_",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ต้นหอมหรือผักชี",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_แตงกวา",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำตาล",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_พริกไทยขาว",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำมันพืช",
+        "composition_verified": false
+      }
+    ],
+    "cooking_time": 20,
+    "dietary_tags": [],
+    "instructions": [
+      "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง"
+    ],
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "cross_contact_risk": "unknown",
+    "custom_ingredients": [
+      "ไก่อบสุก (ใช้แทนไก่ดิบ)",
+      "ต้นหอมหรือผักชี",
+      "แตงกวา",
+      "น้ำตาล",
+      "พริกไทยขาว",
+      "น้ำมันพืช"
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "jasmine_rice",
+        "name_en": "Jasmine Rice",
+        "name_th": "ข้าวสวยหอมมะลิ",
+        "category": "carb",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "chicken",
+        "name_en": "Chicken",
+        "name_th": "อกไก่ / เนื้อไก่",
+        "category": "meat",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "egg",
+        "name_en": "Chicken Egg",
+        "name_th": "ไข่ไก่",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ]
+      },
+      {
+        "id": "garlic",
+        "name_en": "Garlic",
+        "name_th": "กระเทียม",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "soy_sauce",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "fish_sauce",
+        "name_en": "Fish Sauce",
+        "name_th": "น้ำปลาแท้",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "lime",
+        "name_en": "Fresh Lime",
+        "name_th": "มะนาวสด",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "custom_ไก่อบสุก_ใช้แทนไก่ดิบ_",
+        "name_th": "ไก่อบสุก (ใช้แทนไก่ดิบ)",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ต้นหอมหรือผักชี",
+        "name_th": "ต้นหอมหรือผักชี",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_แตงกวา",
+        "name_th": "แตงกวา",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำตาล",
+        "name_th": "น้ำตาล",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_พริกไทยขาว",
+        "name_th": "พริกไทยขาว",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      }
+    ],
+    "external_recipe_url": "https://hot-thai-kitchen.com/leftover-fried-rice/",
+    "allergen_assessments": {
+      "soy": {
+        "status": "contains",
+        "allergen": "soy",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "status": "contains",
+        "allergen": "eggs",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "status": "contains",
+        "allergen": "fish",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "status": "unknown",
+        "allergen": "dairy",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "status": "unknown",
+        "allergen": "sesame",
+        "cross_contact_risk": "unknown"
+      },
+      "peanuts": {
+        "status": "unknown",
+        "allergen": "peanuts",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "status": "unknown",
+        "allergen": "shellfish",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "status": "unknown",
+        "allergen": "tree_nuts",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "status": "contains",
+        "allergen": "wheat_gluten",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "external_source_name": "hot-thai-kitchen.com",
+    "safety_metadata_complete": false
+  },
+  {
+    "id": "shared-7a240ef7-3f78-25ab-ae76-f987162c2719",
+    "name": "ผัดวุ้นเส้นหมูใส่ไข่",
+    "status": "approved",
+    "category": "noodles",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2020/05/lockdown-pad-woon-sen-blog.jpg",
+    "created_at": "2026-10-29T09:37:10.294Z",
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "description": "วุ้นเส้นผัดหมู ไข่ และผักหลายชนิด เหมาะกับการใช้วัตถุดิบที่มีในตู้เย็น",
+    "ingredients": [
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "pork",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "egg",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "garlic",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "onion",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "cabbage",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "tomato",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "oyster_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "soy_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_วุ้นเส้น",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_แครอต",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_มะเขือเทศกระป๋องหั่นเต๋า_ตามสูตรต้นฉบับ_",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ซอสปรุงรส",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำตาล",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_พริกไทย",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำมันพืช",
+        "composition_verified": false
+      }
+    ],
+    "cooking_time": 30,
+    "dietary_tags": [],
+    "instructions": [
+      "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง"
+    ],
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "cross_contact_risk": "unknown",
+    "custom_ingredients": [
+      "วุ้นเส้น",
+      "แครอต",
+      "มะเขือเทศกระป๋องหั่นเต๋า (ตามสูตรต้นฉบับ)",
+      "ซอสปรุงรส",
+      "น้ำตาล",
+      "พริกไทย",
+      "น้ำมันพืช"
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "pork",
+        "name_en": "Pork",
+        "name_th": "หมูสับ / เนื้อหมู",
+        "category": "meat",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": []
+      },
+      {
+        "id": "egg",
+        "name_en": "Chicken Egg",
+        "name_th": "ไข่ไก่",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ]
+      },
+      {
+        "id": "garlic",
+        "name_en": "Garlic",
+        "name_th": "กระเทียม",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "onion",
+        "name_en": "Onion / Shallot",
+        "name_th": "หอมหัวใหญ่ / หอมแดง",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "cabbage",
+        "name_en": "Cabbage",
+        "name_th": "กะหล่ำปลี",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "tomato",
+        "name_en": "Tomato",
+        "name_th": "มะเขือเทศ",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "oyster_sauce",
+        "name_en": "Oyster Sauce",
+        "name_th": "ซอสหอยนางรม",
+        "category": "condiment",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "soy_sauce",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "custom_วุ้นเส้น",
+        "name_th": "วุ้นเส้น",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_แครอต",
+        "name_th": "แครอต",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_มะเขือเทศกระป๋องหั่นเต๋า_ตามสูตรต้นฉบับ_",
+        "name_th": "มะเขือเทศกระป๋องหั่นเต๋า (ตามสูตรต้นฉบับ)",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ซอสปรุงรส",
+        "name_th": "ซอสปรุงรส",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำตาล",
+        "name_th": "น้ำตาล",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_พริกไทย",
+        "name_th": "พริกไทย",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      }
+    ],
+    "external_recipe_url": "https://hot-thai-kitchen.com/lockdown-pad-woon-sen/",
+    "allergen_assessments": {
+      "soy": {
+        "status": "contains",
+        "allergen": "soy",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "status": "contains",
+        "allergen": "eggs",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "status": "unknown",
+        "allergen": "fish",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "status": "unknown",
+        "allergen": "dairy",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "status": "unknown",
+        "allergen": "sesame",
+        "cross_contact_risk": "unknown"
+      },
+      "peanuts": {
+        "status": "unknown",
+        "allergen": "peanuts",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "status": "contains",
+        "allergen": "shellfish",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "status": "unknown",
+        "allergen": "tree_nuts",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "status": "contains",
+        "allergen": "wheat_gluten",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "external_source_name": "hot-thai-kitchen.com",
+    "safety_metadata_complete": false
+  },
+  {
+    "id": "shared-b15124de-ec1a-8775-1cb6-ba215b52011c",
+    "name": "ไก่ผัดพริกกระเทียม",
+    "status": "approved",
+    "category": "thai",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2024/11/chili-garlic-chicken-horz.jpg",
+    "created_at": "2026-10-29T09:37:10.143Z",
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "description": "ไก่ผัดซอสเข้มข้นกับกระเทียมและพริกป่น ปรับความเผ็ดได้ตามชอบ",
+    "ingredients": [
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "chicken",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "garlic",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "fish_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "oyster_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "soy_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "jasmine_rice",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_พริกป่น",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำตาล",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำมันพืช",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ต้นหอมหรือผักชี_ไม่บังคับ_",
+        "composition_verified": false
+      }
+    ],
+    "cooking_time": 30,
+    "dietary_tags": [],
+    "instructions": [
+      "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง"
+    ],
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "cross_contact_risk": "unknown",
+    "custom_ingredients": [
+      "พริกป่น",
+      "น้ำตาล",
+      "น้ำมันพืช",
+      "ต้นหอมหรือผักชี (ไม่บังคับ)"
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "chicken",
+        "name_en": "Chicken",
+        "name_th": "อกไก่ / เนื้อไก่",
+        "category": "meat",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "garlic",
+        "name_en": "Garlic",
+        "name_th": "กระเทียม",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "fish_sauce",
+        "name_en": "Fish Sauce",
+        "name_th": "น้ำปลาแท้",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "oyster_sauce",
+        "name_en": "Oyster Sauce",
+        "name_th": "ซอสหอยนางรม",
+        "category": "condiment",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "soy_sauce",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "jasmine_rice",
+        "name_en": "Jasmine Rice",
+        "name_th": "ข้าวสวยหอมมะลิ",
+        "category": "carb",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "custom_พริกป่น",
+        "name_th": "พริกป่น",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำตาล",
+        "name_th": "น้ำตาล",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ต้นหอมหรือผักชี_ไม่บังคับ_",
+        "name_th": "ต้นหอมหรือผักชี (ไม่บังคับ)",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      }
+    ],
+    "external_recipe_url": "https://hot-thai-kitchen.com/chili-garlic-chicken/",
+    "allergen_assessments": {
+      "soy": {
+        "status": "contains",
+        "allergen": "soy",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "status": "unknown",
+        "allergen": "eggs",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "status": "contains",
+        "allergen": "fish",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "status": "unknown",
+        "allergen": "dairy",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "status": "unknown",
+        "allergen": "sesame",
+        "cross_contact_risk": "unknown"
+      },
+      "peanuts": {
+        "status": "unknown",
+        "allergen": "peanuts",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "status": "contains",
+        "allergen": "shellfish",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "status": "unknown",
+        "allergen": "tree_nuts",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "status": "contains",
+        "allergen": "wheat_gluten",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "external_source_name": "hot-thai-kitchen.com",
+    "safety_metadata_complete": false
+  },
+  {
+    "id": "shared-44f7c5e0-1eb2-3497-90ca-b925b222ef74",
+    "name": "กะหล่ำปลีผัดน้ำปลา",
+    "status": "approved",
+    "category": "thai",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2018/09/cabbage-fish-sauce-blog.jpg",
+    "created_at": "2026-10-29T09:37:09.970Z",
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "description": "กะหล่ำปลีผัดกระเทียมและน้ำปลา ใช้เครื่องปรุงน้อย กินคู่กับข้าวและกับข้าวจานอื่น",
+    "ingredients": [
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "cabbage",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "garlic",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "fish_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_พริกไทย",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำมันพืช",
+        "composition_verified": false
+      }
+    ],
+    "cooking_time": 15,
+    "dietary_tags": [],
+    "instructions": [
+      "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง"
+    ],
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "cross_contact_risk": "unknown",
+    "custom_ingredients": [
+      "พริกไทย",
+      "น้ำมันพืช"
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "cabbage",
+        "name_en": "Cabbage",
+        "name_th": "กะหล่ำปลี",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "garlic",
+        "name_en": "Garlic",
+        "name_th": "กระเทียม",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "fish_sauce",
+        "name_en": "Fish Sauce",
+        "name_th": "น้ำปลาแท้",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "custom_พริกไทย",
+        "name_th": "พริกไทย",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      }
+    ],
+    "external_recipe_url": "https://hot-thai-kitchen.com/cabbage-fish-sauce/",
+    "allergen_assessments": {
+      "soy": {
+        "status": "unknown",
+        "allergen": "soy",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "status": "unknown",
+        "allergen": "eggs",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "status": "contains",
+        "allergen": "fish",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "status": "unknown",
+        "allergen": "dairy",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "status": "unknown",
+        "allergen": "sesame",
+        "cross_contact_risk": "unknown"
+      },
+      "peanuts": {
+        "status": "unknown",
+        "allergen": "peanuts",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "status": "unknown",
+        "allergen": "shellfish",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "status": "unknown",
+        "allergen": "tree_nuts",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "status": "unknown",
+        "allergen": "wheat_gluten",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "external_source_name": "hot-thai-kitchen.com",
+    "safety_metadata_complete": false
+  },
+  {
+    "id": "shared-58077080-1cc6-0235-07df-64c8565a574e",
+    "name": "แกงจืดวุ้นเส้นเต้าหู้ไข่หมูสับ",
+    "status": "approved",
+    "category": "thai",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2023/11/gaeng-jeud-woon-sen-sq.jpg",
+    "created_at": "2026-10-29T09:37:09.861Z",
+    "difficulty": "medium",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "description": "ซุปร้อนใส่หมูสับ เต้าหู้ไข่ วุ้นเส้น และผักกาดขาว เหมาะเป็นกับข้าวมื้อเย็น",
+    "ingredients": [
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "pork",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "garlic",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "fish_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "soy_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "onion",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_วุ้นเส้น",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_เต้าหู้ไข่",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ผักกาดขาว",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ซี่โครงหมู",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ผักชี",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ต้นหอม",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำตาล",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_พริกไทยขาว",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำมันพืช",
+        "composition_verified": false
+      }
+    ],
+    "cooking_time": 60,
+    "dietary_tags": [],
+    "instructions": [
+      "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง"
+    ],
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "cross_contact_risk": "unknown",
+    "custom_ingredients": [
+      "วุ้นเส้น",
+      "เต้าหู้ไข่",
+      "ผักกาดขาว",
+      "ซี่โครงหมู",
+      "ผักชี",
+      "ต้นหอม",
+      "น้ำตาล",
+      "พริกไทยขาว",
+      "น้ำมันพืช"
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "pork",
+        "name_en": "Pork",
+        "name_th": "หมูสับ / เนื้อหมู",
+        "category": "meat",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": []
+      },
+      {
+        "id": "garlic",
+        "name_en": "Garlic",
+        "name_th": "กระเทียม",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "fish_sauce",
+        "name_en": "Fish Sauce",
+        "name_th": "น้ำปลาแท้",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "soy_sauce",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "onion",
+        "name_en": "Onion / Shallot",
+        "name_th": "หอมหัวใหญ่ / หอมแดง",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "custom_วุ้นเส้น",
+        "name_th": "วุ้นเส้น",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_เต้าหู้ไข่",
+        "name_th": "เต้าหู้ไข่",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ผักกาดขาว",
+        "name_th": "ผักกาดขาว",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ซี่โครงหมู",
+        "name_th": "ซี่โครงหมู",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ผักชี",
+        "name_th": "ผักชี",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ต้นหอม",
+        "name_th": "ต้นหอม",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำตาล",
+        "name_th": "น้ำตาล",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_พริกไทยขาว",
+        "name_th": "พริกไทยขาว",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      }
+    ],
+    "external_recipe_url": "https://hot-thai-kitchen.com/gaeng-jued/",
+    "allergen_assessments": {
+      "soy": {
+        "status": "contains",
+        "allergen": "soy",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "status": "contains",
+        "allergen": "eggs",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "status": "contains",
+        "allergen": "fish",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "status": "unknown",
+        "allergen": "dairy",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "status": "unknown",
+        "allergen": "sesame",
+        "cross_contact_risk": "unknown"
+      },
+      "peanuts": {
+        "status": "unknown",
+        "allergen": "peanuts",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "status": "unknown",
+        "allergen": "shellfish",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "status": "unknown",
+        "allergen": "tree_nuts",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "status": "contains",
+        "allergen": "wheat_gluten",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "external_source_name": "hot-thai-kitchen.com",
+    "safety_metadata_complete": false
+  },
+  {
+    "id": "shared-594889f6-ef2c-32c1-4427-a02eb9deb383",
+    "name": "ผัดซีอิ๊วหมู",
+    "status": "approved",
+    "category": "noodles",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2023/04/pad-see-ew-sq-cu.jpg",
+    "created_at": "2026-10-29T09:37:09.745Z",
+    "difficulty": "medium",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "description": "เส้นใหญ่ผัดหมู ไข่ และคะน้า พร้อมซอสผัดซีอิ๊ว เลือกทำทีละจานเพื่อให้เส้นหอมกระทะ",
+    "ingredients": [
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "pork",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "rice_noodles",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "egg",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "garlic",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "soy_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "oyster_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "fish_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_คะน้า",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_เส้นใหญ่สด_ใช้แทนเส้นข้าวชนิดอื่น_",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ซอสปรุงรส",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ซีอิ๊วดำ",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำตาล",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_พริกไทยขาว",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำมันพืช",
+        "composition_verified": false
+      }
+    ],
+    "cooking_time": 30,
+    "dietary_tags": [],
+    "instructions": [
+      "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง"
+    ],
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "cross_contact_risk": "unknown",
+    "custom_ingredients": [
+      "คะน้า",
+      "เส้นใหญ่สด (ใช้แทนเส้นข้าวชนิดอื่น)",
+      "ซอสปรุงรส",
+      "ซีอิ๊วดำ",
+      "น้ำตาล",
+      "พริกไทยขาว",
+      "น้ำมันพืช"
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "pork",
+        "name_en": "Pork",
+        "name_th": "หมูสับ / เนื้อหมู",
+        "category": "meat",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": []
+      },
+      {
+        "id": "rice_noodles",
+        "name_en": "Rice Noodles / Vermicelli",
+        "name_th": "เส้นหมี่ / เส้นจันท์ / เส้นใหญ่ (ทำจากข้าวเจ้า)",
+        "category": "carb",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "egg",
+        "name_en": "Chicken Egg",
+        "name_th": "ไข่ไก่",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ]
+      },
+      {
+        "id": "garlic",
+        "name_en": "Garlic",
+        "name_th": "กระเทียม",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "soy_sauce",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "oyster_sauce",
+        "name_en": "Oyster Sauce",
+        "name_th": "ซอสหอยนางรม",
+        "category": "condiment",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "fish_sauce",
+        "name_en": "Fish Sauce",
+        "name_th": "น้ำปลาแท้",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "custom_คะน้า",
+        "name_th": "คะน้า",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_เส้นใหญ่สด_ใช้แทนเส้นข้าวชนิดอื่น_",
+        "name_th": "เส้นใหญ่สด (ใช้แทนเส้นข้าวชนิดอื่น)",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ซอสปรุงรส",
+        "name_th": "ซอสปรุงรส",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ซีอิ๊วดำ",
+        "name_th": "ซีอิ๊วดำ",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำตาล",
+        "name_th": "น้ำตาล",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_พริกไทยขาว",
+        "name_th": "พริกไทยขาว",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "soy",
+          "wheat_gluten",
+          "shellfish",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      }
+    ],
+    "external_recipe_url": "https://hot-thai-kitchen.com/pad-see-ew-new/",
+    "allergen_assessments": {
+      "soy": {
+        "status": "contains",
+        "allergen": "soy",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "status": "contains",
+        "allergen": "eggs",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "status": "contains",
+        "allergen": "fish",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "status": "unknown",
+        "allergen": "dairy",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "status": "unknown",
+        "allergen": "sesame",
+        "cross_contact_risk": "unknown"
+      },
+      "peanuts": {
+        "status": "unknown",
+        "allergen": "peanuts",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "status": "contains",
+        "allergen": "shellfish",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "status": "unknown",
+        "allergen": "tree_nuts",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "status": "contains",
+        "allergen": "wheat_gluten",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "external_source_name": "hot-thai-kitchen.com",
+    "safety_metadata_complete": false
+  },
+  {
+    "id": "shared-05d8d4b5-8edf-5e41-807a-88fb4d8dd225",
+    "name": "ไข่เจียวไทย",
+    "status": "approved",
+    "category": "thai",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2023/12/Thai-omelette-sq-sabai.jpg",
+    "created_at": "2026-10-29T09:37:09.621Z",
+    "difficulty": "easy",
+    "meal_types": [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ],
+    "description": "ไข่เจียวปรุงน้ำปลา เมนูเรียบง่ายสำหรับวันที่มีของในตู้เย็นไม่มาก",
+    "ingredients": [
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "egg",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "fish_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำมันพืช",
+        "composition_verified": false
+      }
+    ],
+    "cooking_time": 8,
+    "dietary_tags": [],
+    "instructions": [
+      "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง"
+    ],
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "cross_contact_risk": "unknown",
+    "custom_ingredients": [
+      "น้ำมันพืช"
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "egg",
+        "name_en": "Chicken Egg",
+        "name_th": "ไข่ไก่",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ]
+      },
+      {
+        "id": "fish_sauce",
+        "name_en": "Fish Sauce",
+        "name_th": "น้ำปลาแท้",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "eggs",
+          "fish"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      }
+    ],
+    "external_recipe_url": "https://hot-thai-kitchen.com/thai-omelette/",
+    "allergen_assessments": {
+      "soy": {
+        "status": "unknown",
+        "allergen": "soy",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "status": "contains",
+        "allergen": "eggs",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "status": "contains",
+        "allergen": "fish",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "status": "unknown",
+        "allergen": "dairy",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "status": "unknown",
+        "allergen": "sesame",
+        "cross_contact_risk": "unknown"
+      },
+      "peanuts": {
+        "status": "unknown",
+        "allergen": "peanuts",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "status": "unknown",
+        "allergen": "shellfish",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "status": "unknown",
+        "allergen": "tree_nuts",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "status": "unknown",
+        "allergen": "wheat_gluten",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "external_source_name": "hot-thai-kitchen.com",
+    "safety_metadata_complete": false
+  },
+  {
+    "id": "shared-347364b9-1c2a-e1b0-e00e-f9a3e598d61d",
+    "name": "กะเพราไก่",
+    "status": "approved",
+    "category": "rice",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2024/01/pad-gaprao-anything-sq.jpg",
+    "created_at": "2026-10-29T09:37:09.458Z",
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "description": "ไก่ผัดกะเพราหอมกระเทียมพริก เสิร์ฟกับข้าวสวย สูตรต้นฉบับเลือกเปลี่ยนโปรตีนได้",
+    "ingredients": [
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "chicken",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "holy_basil",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "garlic",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "chili",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "onion",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "fish_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "oyster_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "soy_sauce",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "jasmine_rice",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "egg",
+        "composition_verified": true
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำมันพืช",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_น้ำตาล",
+        "composition_verified": false
+      },
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "custom_ซีอิ๊วดำ_ไม่บังคับ_",
+        "composition_verified": false
+      }
+    ],
+    "cooking_time": 30,
+    "dietary_tags": [],
+    "instructions": [
+      "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง"
+    ],
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen",
+    "cross_contact_risk": "unknown",
+    "custom_ingredients": [
+      "น้ำมันพืช",
+      "น้ำตาล",
+      "ซีอิ๊วดำ (ไม่บังคับ)"
+    ],
+    "ingredient_catalog": [
+      {
+        "id": "chicken",
+        "name_en": "Chicken",
+        "name_th": "อกไก่ / เนื้อไก่",
+        "category": "meat",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "holy_basil",
+        "name_en": "Holy Basil",
+        "name_th": "ใบกะเพรา",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "garlic",
+        "name_en": "Garlic",
+        "name_th": "กระเทียม",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "chili",
+        "name_en": "Chili",
+        "name_th": "พริกขี้หนู / พริกจินดา",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "onion",
+        "name_en": "Onion / Shallot",
+        "name_th": "หอมหัวใหญ่ / หอมแดง",
+        "category": "vegetable",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "fish_sauce",
+        "name_en": "Fish Sauce",
+        "name_th": "น้ำปลาแท้",
+        "category": "condiment",
+        "allergens": [
+          "fish"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "oyster_sauce",
+        "name_en": "Oyster Sauce",
+        "name_th": "ซอสหอยนางรม",
+        "category": "condiment",
+        "allergens": [
+          "shellfish",
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "halal"
+        ]
+      },
+      {
+        "id": "soy_sauce",
+        "name_en": "Light Soy Sauce / Shoyu",
+        "name_th": "ซีอิ๊วขาว / โชยุ (หมักถั่วเหลืองและข้าวสาลี)",
+        "category": "condiment",
+        "allergens": [
+          "soy",
+          "wheat_gluten"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "jasmine_rice",
+        "name_en": "Jasmine Rice",
+        "name_th": "ข้าวสวยหอมมะลิ",
+        "category": "carb",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "vegan",
+          "halal"
+        ]
+      },
+      {
+        "id": "egg",
+        "name_en": "Chicken Egg",
+        "name_th": "ไข่ไก่",
+        "category": "egg_dairy",
+        "allergens": [
+          "eggs"
+        ],
+        "composition_known": true,
+        "dietary_compatible": [
+          "vegetarian",
+          "halal"
+        ]
+      },
+      {
+        "id": "custom_น้ำมันพืช",
+        "name_th": "น้ำมันพืช",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "eggs"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_น้ำตาล",
+        "name_th": "น้ำตาล",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "eggs"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      },
+      {
+        "id": "custom_ซีอิ๊วดำ_ไม่บังคับ_",
+        "name_th": "ซีอิ๊วดำ (ไม่บังคับ)",
+        "category": "other",
+        "allergens": [
+          "fish",
+          "shellfish",
+          "soy",
+          "wheat_gluten",
+          "eggs"
+        ],
+        "composition_known": false,
+        "dietary_compatible": []
+      }
+    ],
+    "external_recipe_url": "https://hot-thai-kitchen.com/pad-kra-pao-anything/",
+    "allergen_assessments": {
+      "soy": {
+        "status": "contains",
+        "allergen": "soy",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "status": "contains",
+        "allergen": "eggs",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "status": "contains",
+        "allergen": "fish",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "status": "unknown",
+        "allergen": "dairy",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "status": "unknown",
+        "allergen": "sesame",
+        "cross_contact_risk": "unknown"
+      },
+      "peanuts": {
+        "status": "unknown",
+        "allergen": "peanuts",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "status": "contains",
+        "allergen": "shellfish",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "status": "unknown",
+        "allergen": "tree_nuts",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "status": "contains",
+        "allergen": "wheat_gluten",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "external_source_name": "hot-thai-kitchen.com",
+    "safety_metadata_complete": false
+  },
+  {
+    "id": "shared-1793208511753",
+    "name": "หมูสามชั้นทอดกระเทียม",
+    "status": "approved",
+    "category": "thai",
+    "image_url": "/images/crispy-pork-garlic.webp",
+    "created_at": "2026-10-29T08:46:00.583Z",
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "updated_at": "2026-10-29 10:11:22.283528+00",
+    "description": "------",
+    "ingredients": [
+      {
+        "role": "main",
+        "quantity": "ตามสูตรต้นฉบับ",
+        "is_optional": false,
+        "ingredient_id": "pork",
+        "composition_verified": true
+      }
+    ],
+    "cooking_time": 20,
+    "dietary_tags": [],
+    "instructions": [
+      "ดูขั้นตอนวิธีทำอย่างละเอียดได้ที่ลิงก์สูตรอาหาร (Wongnai Cooking)"
+    ],
+    "submitted_by": "เพื่อนนักกิน KIN DI",
+    "cross_contact_risk": "unknown",
+    "custom_ingredients": [],
+    "ingredient_catalog": [
+      {
+        "id": "pork",
+        "name_en": "Pork",
+        "name_th": "หมูสับ / เนื้อหมู",
+        "category": "meat",
+        "allergens": [],
+        "composition_known": true,
+        "dietary_compatible": []
+      }
+    ],
+    "external_recipe_url": "https://www.wongnai.com/recipes/deep-fried-pork-belly-with-garlic",
+    "allergen_assessments": {
+      "soy": {
+        "status": "unknown",
+        "allergen": "soy",
+        "cross_contact_risk": "unknown"
+      },
+      "eggs": {
+        "status": "unknown",
+        "allergen": "eggs",
+        "cross_contact_risk": "unknown"
+      },
+      "fish": {
+        "status": "unknown",
+        "allergen": "fish",
+        "cross_contact_risk": "unknown"
+      },
+      "dairy": {
+        "status": "unknown",
+        "allergen": "dairy",
+        "cross_contact_risk": "unknown"
+      },
+      "sesame": {
+        "status": "unknown",
+        "allergen": "sesame",
+        "cross_contact_risk": "unknown"
+      },
+      "peanuts": {
+        "status": "unknown",
+        "allergen": "peanuts",
+        "cross_contact_risk": "unknown"
+      },
+      "shellfish": {
+        "status": "unknown",
+        "allergen": "shellfish",
+        "cross_contact_risk": "unknown"
+      },
+      "tree_nuts": {
+        "status": "unknown",
+        "allergen": "tree_nuts",
+        "cross_contact_risk": "unknown"
+      },
+      "wheat_gluten": {
+        "status": "unknown",
+        "allergen": "wheat_gluten",
+        "cross_contact_risk": "unknown"
+      }
+    },
+    "external_source_name": "Wongnai Cooking",
+    "safety_metadata_complete": false
+  }
+]

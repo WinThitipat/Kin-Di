@@ -1,0 +1,295 @@
+[
+  {
+    "name": "กะเพราไก่",
+    "description": "ไก่ผัดกะเพราหอมกระเทียมพริก เสิร์ฟกับข้าวสวย สูตรต้นฉบับเลือกเปลี่ยนโปรตีนได้",
+    "external_recipe_url": "https://hot-thai-kitchen.com/pad-kra-pao-anything/",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2024/01/pad-gaprao-anything-sq.jpg",
+    "category": "rice",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "ingredientIds": [
+      "chicken",
+      "holy_basil",
+      "garlic",
+      "chili",
+      "onion",
+      "fish_sauce",
+      "oyster_sauce",
+      "soy_sauce",
+      "jasmine_rice",
+      "egg"
+    ],
+    "customIngredientNames": [
+      "น้ำมันพืช",
+      "น้ำตาล",
+      "ซีอิ๊วดำ (ไม่บังคับ)"
+    ],
+    "dietary_tags": [],
+    "allergens": [
+      "fish",
+      "shellfish",
+      "soy",
+      "wheat_gluten",
+      "eggs"
+    ],
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen"
+  },
+  {
+    "name": "ไข่เจียวไทย",
+    "description": "ไข่เจียวปรุงน้ำปลา เมนูเรียบง่ายสำหรับวันที่มีของในตู้เย็นไม่มาก",
+    "external_recipe_url": "https://hot-thai-kitchen.com/thai-omelette/",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2023/12/Thai-omelette-sq-sabai.jpg",
+    "category": "thai",
+    "meal_types": [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 8,
+    "difficulty": "easy",
+    "ingredientIds": [
+      "egg",
+      "fish_sauce"
+    ],
+    "customIngredientNames": [
+      "น้ำมันพืช"
+    ],
+    "dietary_tags": [],
+    "allergens": [
+      "eggs",
+      "fish"
+    ],
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen"
+  },
+  {
+    "name": "ผัดซีอิ๊วหมู",
+    "description": "เส้นใหญ่ผัดหมู ไข่ และคะน้า พร้อมซอสผัดซีอิ๊ว เลือกทำทีละจานเพื่อให้เส้นหอมกระทะ",
+    "external_recipe_url": "https://hot-thai-kitchen.com/pad-see-ew-new/",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2023/04/pad-see-ew-sq-cu.jpg",
+    "category": "noodles",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "medium",
+    "ingredientIds": [
+      "pork",
+      "rice_noodles",
+      "egg",
+      "garlic",
+      "soy_sauce",
+      "oyster_sauce",
+      "fish_sauce"
+    ],
+    "customIngredientNames": [
+      "คะน้า",
+      "เส้นใหญ่สด (ใช้แทนเส้นข้าวชนิดอื่น)",
+      "ซอสปรุงรส",
+      "ซีอิ๊วดำ",
+      "น้ำตาล",
+      "พริกไทยขาว",
+      "น้ำมันพืช"
+    ],
+    "dietary_tags": [],
+    "allergens": [
+      "eggs",
+      "soy",
+      "wheat_gluten",
+      "shellfish",
+      "fish"
+    ],
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen"
+  },
+  {
+    "name": "แกงจืดวุ้นเส้นเต้าหู้ไข่หมูสับ",
+    "description": "ซุปร้อนใส่หมูสับ เต้าหู้ไข่ วุ้นเส้น และผักกาดขาว เหมาะเป็นกับข้าวมื้อเย็น",
+    "external_recipe_url": "https://hot-thai-kitchen.com/gaeng-jued/",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2023/11/gaeng-jeud-woon-sen-sq.jpg",
+    "category": "thai",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 60,
+    "difficulty": "medium",
+    "ingredientIds": [
+      "pork",
+      "garlic",
+      "fish_sauce",
+      "soy_sauce",
+      "onion"
+    ],
+    "customIngredientNames": [
+      "วุ้นเส้น",
+      "เต้าหู้ไข่",
+      "ผักกาดขาว",
+      "ซี่โครงหมู",
+      "ผักชี",
+      "ต้นหอม",
+      "น้ำตาล",
+      "พริกไทยขาว",
+      "น้ำมันพืช"
+    ],
+    "dietary_tags": [],
+    "allergens": [
+      "eggs",
+      "soy",
+      "wheat_gluten",
+      "fish"
+    ],
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen"
+  },
+  {
+    "name": "กะหล่ำปลีผัดน้ำปลา",
+    "description": "กะหล่ำปลีผัดกระเทียมและน้ำปลา ใช้เครื่องปรุงน้อย กินคู่กับข้าวและกับข้าวจานอื่น",
+    "external_recipe_url": "https://hot-thai-kitchen.com/cabbage-fish-sauce/",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2018/09/cabbage-fish-sauce-blog.jpg",
+    "category": "thai",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 15,
+    "difficulty": "easy",
+    "ingredientIds": [
+      "cabbage",
+      "garlic",
+      "fish_sauce"
+    ],
+    "customIngredientNames": [
+      "พริกไทย",
+      "น้ำมันพืช"
+    ],
+    "dietary_tags": [],
+    "allergens": [
+      "fish"
+    ],
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen"
+  },
+  {
+    "name": "ไก่ผัดพริกกระเทียม",
+    "description": "ไก่ผัดซอสเข้มข้นกับกระเทียมและพริกป่น ปรับความเผ็ดได้ตามชอบ",
+    "external_recipe_url": "https://hot-thai-kitchen.com/chili-garlic-chicken/",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2024/11/chili-garlic-chicken-horz.jpg",
+    "category": "thai",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "ingredientIds": [
+      "chicken",
+      "garlic",
+      "fish_sauce",
+      "oyster_sauce",
+      "soy_sauce",
+      "jasmine_rice"
+    ],
+    "customIngredientNames": [
+      "พริกป่น",
+      "น้ำตาล",
+      "น้ำมันพืช",
+      "ต้นหอมหรือผักชี (ไม่บังคับ)"
+    ],
+    "dietary_tags": [],
+    "allergens": [
+      "fish",
+      "shellfish",
+      "soy",
+      "wheat_gluten"
+    ],
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen"
+  },
+  {
+    "name": "ผัดวุ้นเส้นหมูใส่ไข่",
+    "description": "วุ้นเส้นผัดหมู ไข่ และผักหลายชนิด เหมาะกับการใช้วัตถุดิบที่มีในตู้เย็น",
+    "external_recipe_url": "https://hot-thai-kitchen.com/lockdown-pad-woon-sen/",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2020/05/lockdown-pad-woon-sen-blog.jpg",
+    "category": "noodles",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "ingredientIds": [
+      "pork",
+      "egg",
+      "garlic",
+      "onion",
+      "cabbage",
+      "tomato",
+      "oyster_sauce",
+      "soy_sauce"
+    ],
+    "customIngredientNames": [
+      "วุ้นเส้น",
+      "แครอต",
+      "มะเขือเทศกระป๋องหั่นเต๋า (ตามสูตรต้นฉบับ)",
+      "ซอสปรุงรส",
+      "น้ำตาล",
+      "พริกไทย",
+      "น้ำมันพืช"
+    ],
+    "dietary_tags": [],
+    "allergens": [
+      "eggs",
+      "shellfish",
+      "soy",
+      "wheat_gluten"
+    ],
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen"
+  },
+  {
+    "name": "ข้าวผัดไก่อบ",
+    "description": "ข้าวผัดไข่ใช้ไก่อบที่เหลือจากมื้อก่อน เป็นตัวเลือกจากสูตรข้าวผัดเนื้ออบของต้นฉบับ",
+    "external_recipe_url": "https://hot-thai-kitchen.com/leftover-fried-rice/",
+    "image_url": "https://hot-thai-kitchen.com/wp-content/uploads/2020/12/Leftover-fried-rice.jpg",
+    "category": "rice",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "cooking_time": 20,
+    "difficulty": "easy",
+    "ingredientIds": [
+      "jasmine_rice",
+      "chicken",
+      "egg",
+      "garlic",
+      "soy_sauce",
+      "fish_sauce",
+      "lime"
+    ],
+    "customIngredientNames": [
+      "ไก่อบสุก (ใช้แทนไก่ดิบ)",
+      "ต้นหอมหรือผักชี",
+      "แตงกวา",
+      "น้ำตาล",
+      "พริกไทยขาว",
+      "น้ำมันพืช"
+    ],
+    "dietary_tags": [],
+    "allergens": [
+      "eggs",
+      "soy",
+      "wheat_gluten",
+      "fish"
+    ],
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มจากสูตรต้นฉบับของ Pailin Chongchitnant ที่ลิงก์ด้านบน เวลาในหน้านี้เป็นเวลาเตรียมและทำโดยประมาณ โปรดตรวจส่วนผสมของซอสและเครื่องปรุงที่ใช้จริง",
+    "submitted_by": "KIN DI · คัดจาก Hot Thai Kitchen"
+  }
+]

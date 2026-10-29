@@ -9,12 +9,13 @@ function connection() {
     throw new Error("RECIPE_DATABASE_NOT_CONFIGURED");
   return {
     client: createClient(url, key, {
+      global: { fetch: (input, init) => fetch(input, { ...init, signal: AbortSignal.timeout(15_000) }) },
       auth: { persistSession: false, autoRefreshToken: false },
     }),
     secret,
   };
 }
-export async function listDatabaseRecipes(): Promise<{
+async function readDatabaseRecipes(): Promise<{
   recipes: Recipe[];
   deletedIds: string[];
 }> {
@@ -41,4 +42,25 @@ export async function archiveDatabaseRecipe(recipeId: string): Promise<void> {
     p_secret: secret,
   });
   if (error) throw new Error("RECIPE_DATABASE_DELETE_FAILED");
+}
+
+export async function updateDatabaseRecipe(
+  recipe: Recipe,
+  expectedVersion: string,
+): Promise<Recipe> {
+  const { client, secret } = connection();
+  const { data, error } = await client.rpc("kindi_update_recipe", {
+    p_recipe: recipe,
+    p_secret: secret,
+    p_expected_version: expectedVersion,
+  });
+  if (error || !data?.id) throw new Error("RECIPE_DATABASE_UPDATE_FAILED");
+  return data as Recipe;
+}
+
+// Collapse simultaneous reads within one server instance without caching stale data.
+let pendingRead: ReturnType<typeof readDatabaseRecipes> | null = null;
+export function listDatabaseRecipes() {
+  if (!pendingRead) pendingRead = readDatabaseRecipes().finally(() => { pendingRead = null; });
+  return pendingRead;
 }

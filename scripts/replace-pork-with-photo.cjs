@@ -1,0 +1,2 @@
+const fs=require('node:fs');const sharp=require('sharp');
+(async()=>{const response=await fetch('https://upload.wikimedia.org/wikipedia/commons/9/95/Mu_thot_krathiam.jpg');if(!response.ok)throw new Error(String(response.status));const photo=Buffer.from(await response.arrayBuffer());const info=await sharp(photo).resize(640,640,{fit:'inside',withoutEnlargement:true}).webp({quality:78,effort:6}).toFile('public/images/crispy-pork-garlic.webp');console.log(JSON.stringify(info));})();

@@ -1,0 +1,46 @@
+{
+  "importedAt": "2026-10-29T09:37:10.518Z",
+  "results": [
+    {
+      "name": "กะเพราไก่",
+      "id": "shared-347364b9-1c2a-e1b0-e00e-f9a3e598d61d",
+      "source": "https://hot-thai-kitchen.com/pad-kra-pao-anything/"
+    },
+    {
+      "name": "ไข่เจียวไทย",
+      "id": "shared-05d8d4b5-8edf-5e41-807a-88fb4d8dd225",
+      "source": "https://hot-thai-kitchen.com/thai-omelette/"
+    },
+    {
+      "name": "ผัดซีอิ๊วหมู",
+      "id": "shared-594889f6-ef2c-32c1-4427-a02eb9deb383",
+      "source": "https://hot-thai-kitchen.com/pad-see-ew-new/"
+    },
+    {
+      "name": "แกงจืดวุ้นเส้นเต้าหู้ไข่หมูสับ",
+      "id": "shared-58077080-1cc6-0235-07df-64c8565a574e",
+      "source": "https://hot-thai-kitchen.com/gaeng-jued/"
+    },
+    {
+      "name": "กะหล่ำปลีผัดน้ำปลา",
+      "id": "shared-44f7c5e0-1eb2-3497-90ca-b925b222ef74",
+      "source": "https://hot-thai-kitchen.com/cabbage-fish-sauce/"
+    },
+    {
+      "name": "ไก่ผัดพริกกระเทียม",
+      "id": "shared-b15124de-ec1a-8775-1cb6-ba215b52011c",
+      "source": "https://hot-thai-kitchen.com/chili-garlic-chicken/"
+    },
+    {
+      "name": "ผัดวุ้นเส้นหมูใส่ไข่",
+      "id": "shared-7a240ef7-3f78-25ab-ae76-f987162c2719",
+      "source": "https://hot-thai-kitchen.com/lockdown-pad-woon-sen/"
+    },
+    {
+      "name": "ข้าวผัดไก่อบ",
+      "id": "shared-e33af958-17f4-2375-eba1-d29c60b9e795",
+      "source": "https://hot-thai-kitchen.com/leftover-fried-rice/"
+    }
+  ],
+  "totalActive": 9
+}

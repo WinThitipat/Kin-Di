@@ -105,6 +105,7 @@ export interface Recipe {
   safety_metadata_complete?: boolean;
   submitted_by?: string;
   created_at: string;
+  updated_at?: string;
 }
 
 export interface UserFoodRestrictions {
@@ -248,6 +249,7 @@ const SafeImageUrlOrDataUriSchema = z
   .refine(
     (val) => {
       if (val.startsWith('data:image/')) return true;
+      if (/^\/images\/[a-zA-Z0-9/_-]+\.(webp|jpg|jpeg|png|avif)$/.test(val)) return true;
       try {
         const parsed = new URL(val);
         return parsed.protocol === 'https:' || parsed.protocol === 'http:';
@@ -276,7 +278,7 @@ export const CommunityRecipeSubmissionSchema = z.object({
     .array(z.enum(['breakfast', 'lunch', 'dinner', 'snack']))
     .min(1, 'เลือกมื้ออาหารอย่างน้อย 1 มื้อ'),
   cooking_time: z
-    .number({ invalid_type_error: 'ระบุเวลาเป็นตัวเลข' })
+    .number({ error: 'ระบุเวลาเป็นตัวเลข' })
     .int()
     .min(1, 'เวลาทำอาหารต้องอย่างน้อย 1 นาที')
     .max(480, 'เวลาทำอาหารไม่เกิน 480 นาที'),

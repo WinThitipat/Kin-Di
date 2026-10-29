@@ -2,6 +2,8 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ShareRecipeButton } from "@/components/ShareRecipeButton";
+import { readRecipeDraft, RECIPE_DRAFT_KEY } from "@/lib/recipe-draft";
 import { AdminDeleteRecipeDialog } from "@/components/AdminDeleteRecipeDialog";
 import {
   CheckCircle2,
@@ -18,6 +20,8 @@ import {
 import { ALL_ALLERGEN_IDS, INGREDIENT_LIST } from "@/data/recipes-seed";
 import { getExternalRecipeLinks } from "@/lib/external-recipes";
 import {
+  recipeToSubmission,
+  updateCommunityRecipe,
   fetchApprovedRecipes,
   importLocalRecipe,
   submitCommunityRecipeForModeration,
@@ -30,6 +34,7 @@ import {
 import {
   ALLERGEN_LABELS,
   AllergenId,
+  CommunityRecipeSubmissionInput,
   CommunityRecipeSubmissionSchema,
   DIFFICULTY_LABELS,
   FOOD_CATEGORY_LABELS,
@@ -110,6 +115,7 @@ export default function CommunityRecipesPage() {
   >([]);
   const [sharedRecipes, setSharedRecipes] = useState<Recipe[]>([]);
   const [recipeToDelete, setRecipeToDelete] = useState<Recipe | null>(null);
+  const [legacyRecipes, setLegacyRecipes] = useState<Recipe[]>([]);
   const [databaseRecipeIds, setDatabaseRecipeIds] = useState<string[]>([]);
   const [collectionError, setCollectionError] = useState<string | null>(null);
   const [isImporting, setIsImporting] = useState(false);
@@ -119,15 +125,151 @@ export default function CommunityRecipesPage() {
   } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const [draftReady, setDraftReady] = useState(false);
+  const [draftMessage, setDraftMessage] = useState("");
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [expectedVersion, setExpectedVersion] = useState("");
+  const [editPin, setEditPin] = useState("");
+  const restoreFields = (data: CommunityRecipeSubmissionInput) => {
+    setName(data.name);
+    setDescription(data.description);
+    setExternalRecipeUrl(data.external_recipe_url);
+    setImageUrl(data.image_url);
+    setCategory(data.category);
+    setMealTypes(data.meal_types);
+    setCookingTime(data.cooking_time);
+    setDifficulty(data.difficulty);
+    setIngredientIds(data.ingredientIds);
+    setCustomIngredientNames(data.customIngredientNames ?? []);
+    setDietaryTags(data.dietary_tags ?? []);
+    setAllergens(data.allergens ?? []);
+    setInstructionsText(data.instructionsText ?? "");
+    setSubmittedBy(data.submitted_by ?? "");
+  };
+  useEffect(() => {
+    const saved = readRecipeDraft();
+    if (saved) {
+      restoreFields(saved.data);
+      setCurrentStep(saved.step);
+      setImageMode(saved.imageMode);
+      setEditingId(saved.editId);
+      setExpectedVersion(saved.expectedVersion);
+      setOtherIngredientDraft(saved.otherIngredientDraft);
+      setShowOtherIngredientInput(!!saved.otherIngredientDraft);
+      setDraftMessage("กู้คืนร่างที่กรอกค้างไว้แล้ว");
+    }
+    setDraftReady(true);
+  }, []);
+  useEffect(() => {
+    if (!draftReady) return;
+    try {
+      if (
+        !name &&
+        !description &&
+        !imageUrl &&
+        !externalRecipeUrl &&
+        !editingId &&
+        !ingredientIds.length &&
+        !customIngredientNames.length &&
+        !otherIngredientDraft &&
+        !instructionsText &&
+        !submittedBy &&
+        currentStep === 0 &&
+        category === "thai" &&
+        cookingTime === 20 &&
+        difficulty === "easy" &&
+        mealTypes.join() === "lunch" &&
+        !dietaryTags.length &&
+        !allergens.length
+      ) {
+        localStorage.removeItem(RECIPE_DRAFT_KEY);
+        setDraftMessage("");
+        return;
+      }
+      localStorage.setItem(
+        RECIPE_DRAFT_KEY,
+        JSON.stringify({
+          version: 1,
+          step: currentStep,
+          editId: editingId,
+          expectedVersion,
+          imageMode,
+          otherIngredientDraft,
+          data: {
+            name,
+            description,
+            external_recipe_url: externalRecipeUrl,
+            image_url: imageUrl,
+            category,
+            meal_types: mealTypes,
+            cooking_time: cookingTime,
+            difficulty,
+            ingredientIds,
+            customIngredientNames,
+            dietary_tags: dietaryTags,
+            allergens,
+            instructionsText,
+            submitted_by: submittedBy,
+          },
+        }),
+      );
+      setDraftMessage("บันทึกร่างในเครื่องนี้แล้ว");
+    } catch {
+      setDraftMessage(
+        "บันทึกร่างไม่ได้ พื้นที่ในเครื่องเต็มหรือเบราว์เซอร์ไม่อนุญาต กรุณาอย่าปิดหน้านี้",
+      );
+    }
+  }, [
+    draftReady,
+    name,
+    description,
+    externalRecipeUrl,
+    imageUrl,
+    category,
+    mealTypes,
+    cookingTime,
+    difficulty,
+    ingredientIds,
+    customIngredientNames,
+    dietaryTags,
+    allergens,
+    instructionsText,
+    submittedBy,
+    currentStep,
+    editingId,
+    expectedVersion,
+    imageMode,
+    otherIngredientDraft,
+  ]);
+  const startEditing = (recipe: Recipe) => {
+    if (
+      (draftMessage || name || description || externalRecipeUrl || imageUrl || editingId) &&
+      !window.confirm("มีร่างที่กำลังกรอก ต้องการแทนที่ด้วยเมนูนี้หรือไม่?")
+    )
+      return;
+    restoreFields(recipeToSubmission(recipe));
+    setEditingId(recipe.id);
+    setExpectedVersion(recipe.updated_at ?? recipe.created_at);
+    setEditPin("");
+    setImageMode(recipe.image_url?.startsWith("data:") ? "upload" : "url");
+    setOtherIngredientDraft("");
+    setShowOtherIngredientInput(false);
+    moveToStep(0);
+    requestAnimationFrame(() =>
+      formRef.current?.scrollIntoView({ block: "start" }),
+    );
+  };
+
   const refreshCollection = useCallback(async () => {
     const result = await fetchApprovedRecipes();
     setSharedRecipes(result.recipes);
+    setLegacyRecipes(loadSharedRecipes().filter(recipe => !(result.deletedIds ?? []).includes(recipe.id)));
     setDatabaseRecipeIds(result.databaseRecipeIds ?? []);
     setCollectionError(result.error);
     setCustomCatalogItems(loadCustomIngredients());
   }, []);
 
-  const localOnlyRecipes = sharedRecipes.filter(
+  const localOnlyRecipes = legacyRecipes.filter(
     (recipe) => !databaseRecipeIds.includes(recipe.id),
   );
   const handleImportLocalRecipes = async () => {
@@ -174,7 +316,6 @@ export default function CommunityRecipesPage() {
   };
 
   useEffect(() => {
-    setSharedRecipes(loadSharedRecipes());
     setCustomCatalogItems(loadCustomIngredients());
 
     void refreshCollection();
@@ -269,8 +410,8 @@ export default function CommunityRecipesPage() {
   };
 
   const handleDeleteRecipe = (recipeId: string) => {
-    const updated = deleteSharedRecipe(recipeId);
-    setSharedRecipes(updated);
+    deleteSharedRecipe(recipeId);
+    setSharedRecipes(previous => previous.filter(recipe => recipe.id !== recipeId));
     void refreshCollection();
   };
 
@@ -329,7 +470,15 @@ export default function CommunityRecipesPage() {
     setIsSubmitting(true);
     let result;
     try {
-      result = await submitCommunityRecipeForModeration(parsed.data);
+      result = editingId
+        ? await updateCommunityRecipe(
+            parsed.data,
+            editingId,
+            editPin,
+            expectedVersion,
+          )
+        : await submitCommunityRecipeForModeration(parsed.data);
+      setEditPin("");
     } catch {
       setStatusMessage({
         type: "error",
@@ -349,6 +498,8 @@ export default function CommunityRecipesPage() {
     setCustomCatalogItems(loadCustomIngredients());
     setStatusMessage({ type: "success", text: result.message });
 
+    setEditingId(null);
+    setExpectedVersion("");
     // Reset form fields
     formRef.current?.reset();
     setName("");
@@ -378,34 +529,59 @@ export default function CommunityRecipesPage() {
 
   return (
     <div className="interior-page community-page">
-      {/* Editorial Bento Header */}
-      <section className="interior-header community-header">
-        <div>
-          <h1>
-            สูตรดี ๆ<br />
-            <span>มีไว้แบ่งกัน</span>
-          </h1>
-          <p>
-            เก็บเมนูโปรดจากเว็บหรือโซเชียล พร้อมรูปและวัตถุดิบ
-            <br className="hidden sm:block" /> ให้ทุกมื้อที่เลือกง่ายขึ้น
-            เริ่มจากจานที่คุณชอบ
-          </p>
+      <section className="community-banner" aria-labelledby="community-banner-title">
+        <div className="community-banner-copy">
+          <span className="community-banner-eyebrow">ครัว KIN DI / สูตรจากจานโปรด</span>
+          <h1 id="community-banner-title">สูตรดี ๆ<br /><span>มีไว้แบ่งกัน</span></h1>
+          <p>เก็บสูตรที่ชอบไว้ที่เดียว<br />ให้มื้อถัดไป มีอะไรอร่อยให้เลือกเสมอ</p>
+          <a href="#recipe-share-form" className="community-banner-link">เพิ่มจานโปรดของคุณ <span aria-hidden="true">↓</span></a>
         </div>
-        <div className="community-note">
-          <span>จากครัวคุณ</span>
-          <strong>สู่มื้อถัดไป</strong>
-          <p>เก็บไว้แล้ว {sharedRecipes.length} เมนู</p>
-        </div>
+        <figure className="community-banner-photo">
+          <img
+            src={sharedRecipes.find(recipe => recipe.name === "ผัดซีอิ๊วหมู")?.image_url || "/images/crispy-pork-garlic.webp"}
+            alt={sharedRecipes.some(recipe => recipe.name === "ผัดซีอิ๊วหมู") ? "ผัดซีอิ๊วหมู หนึ่งในสูตรที่เก็บไว้ใน KIN DI" : "หมูทอดกระเทียม"}
+            width={640} height={640} decoding="async"
+          />
+          <figcaption><strong>{sharedRecipes.length}</strong><span>เมนูในครัว<br />KIN DI</span></figcaption>
+        </figure>
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         <form
+          id="recipe-share-form"
           ref={formRef}
           onSubmit={handleSubmit}
           noValidate
           aria-label="แบ่งปันเมนูทีละขั้น"
           className="lg:col-span-7 space-y-5"
         >
+          {editingId && (
+            <div className="recipe-import-notice">
+              <strong>กำลังแก้ไขสูตรอาหาร</strong>
+              <button
+                type="button"
+                className="text-link"
+                disabled={isSubmitting}
+                onClick={() => {
+                  if (window.confirm("ยกเลิกการแก้ไขและล้างร่างนี้?")) {
+                    localStorage.removeItem(RECIPE_DRAFT_KEY);
+                    window.location.reload();
+                  }
+                }}
+              >
+                ยกเลิกการแก้ไข
+              </button>
+            </div>
+          )}
+          <p role="status" className="text-sm text-[#6E5D50]">
+            {draftMessage}
+          </p>
+          {!editingId && draftMessage && <button type="button" className="text-link min-h-11" disabled={isSubmitting} onClick={() => {
+            if (window.confirm("ล้างร่างนี้และเริ่มกรอกใหม่?")) {
+              localStorage.removeItem(RECIPE_DRAFT_KEY);
+              window.location.reload();
+            }
+          }}>ล้างร่างและเริ่มใหม่</button>}
           <nav className="recipe-stepper" aria-label="ขั้นตอนเพิ่มเมนู">
             <ol>
               {FORM_STEPS.map((label, index) => (
@@ -1099,6 +1275,26 @@ export default function CommunityRecipesPage() {
             </section>
           )}
 
+          {editingId && currentStep === 3 && (
+            <div className="kindi-input-group">
+              <label htmlFor="edit-admin-pin" className="block mb-2">
+                PIN ผู้ดูแลเพื่อบันทึกการแก้ไข
+              </label>
+              <input
+                id="edit-admin-pin"
+                type="password"
+                inputMode="numeric"
+                autoComplete="off"
+                maxLength={12}
+                value={editPin}
+                onChange={(e) => setEditPin(e.target.value)}
+                className="kindi-input-field w-full px-4 py-3"
+              />
+              <p className="text-xs mt-2">
+                ยืนยัน PIN ทุกครั้งที่บันทึกการแก้ไข
+              </p>
+            </div>
+          )}
           <div className="step-actions">
             {currentStep > 0 && (
               <button
@@ -1123,7 +1319,9 @@ export default function CommunityRecipesPage() {
                 {isSubmitting
                   ? "กำลังบันทึกเมนูอาหาร..."
                   : currentStep === 3
-                    ? "บันทึกเมนูอาหารเข้าสำรับ!"
+                    ? editingId
+                      ? "ยืนยัน PIN และบันทึกการแก้ไข"
+                      : "บันทึกเมนูอาหารเข้าสำรับ!"
                     : currentStep === 2
                       ? "ถัดไป: ตรวจสอบสูตร"
                       : "ถัดไป"}
@@ -1228,6 +1426,21 @@ export default function CommunityRecipesPage() {
                       </div>
                     </div>
 
+                    <div className="col-span-full flex flex-wrap gap-2">
+                      {databaseRecipeIds.includes(item.id) && (
+                        <button
+                          type="button"
+                          className="kindi-btn-secondary min-h-11 px-3"
+                          disabled={isSubmitting}
+                          onClick={() => startEditing(item)}
+                        >
+                          แก้ไขสูตร
+                        </button>
+                      )}
+                      {databaseRecipeIds.includes(item.id) && (
+                        <ShareRecipeButton id={item.id} name={item.name} />
+                      )}
+                    </div>
                     <div className="shared-menu-actions">
                       <a
                         href={ext.primaryUrl}
@@ -1250,6 +1463,7 @@ export default function CommunityRecipesPage() {
                       </Link>
                       <button
                         type="button"
+                        disabled={isSubmitting}
                         onClick={() => setRecipeToDelete(item)}
                         aria-label={`ลบเมนู ${item.name}`}
                         title="ลบเมนูนี้ออกจากระบบ"

@@ -105,7 +105,7 @@ export function FoodRouletteModal({
       typeof window !== 'undefined' &&
       window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
-    // Slightly longer than the 720ms flip keyframes so the animation always finishes first
+    // Fallback if the CSS animation-end event is interrupted.
     const delayMs = prefersReducedMotion ? 100 : 800;
     const timer = window.setTimeout(() => {
       onFlipComplete();
@@ -124,7 +124,7 @@ export function FoodRouletteModal({
       {...({ closedby: 'any' } as React.DialogHTMLAttributes<HTMLDialogElement>)}
       aria-labelledby="roulette-dialog-title"
       aria-describedby="roulette-dialog-desc"
-      className="kindi-modal m-auto w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-4xl max-h-[92dvh] rounded-xl bg-[#FBF7EF] text-[#302923] p-0 overflow-hidden"
+      className="kindi-modal roulette-modal m-auto w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-4xl max-h-[92dvh] rounded-xl bg-[#FBF7EF] text-[#302923] p-0 overflow-hidden"
     >
       {/* Clean Editorial Modal Header */}
       <div className="bg-white border-b border-[#DDD2C2] px-5 py-4 sm:px-6 sm:py-5 flex items-start justify-between gap-3 shrink-0">
@@ -206,17 +206,6 @@ export function FoodRouletteModal({
           />
         ) : (
           <div className="space-y-6">
-            {/* Step Instruction Banner before reveal */}
-            {!round.isRevealed && (
-              <div className="text-center">
-                <span className="inline-block px-3.5 py-1 rounded-full bg-[#302923] text-[#FBF0DC] text-xs sm:text-sm font-semibold">
-                  {round.isTransitioning
-                    ? 'กำลังเปิดไพ่ของคุณ...'
-                    : 'เลือกไพ่ที่ใช่ แล้วเปิดเลย!'}
-                </span>
-              </div>
-            )}
-
             {/* Revealed Recipe Reward Panel (shown once flip completes) */}
             {round.isRevealed && revealedRecipe && (
               <RecipeReveal
