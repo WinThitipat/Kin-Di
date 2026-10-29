@@ -130,6 +130,7 @@ export default function CommunityRecipesPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [expectedVersion, setExpectedVersion] = useState("");
   const [editPin, setEditPin] = useState("");
+  const handledEditRequest = useRef<string | null>(null);
   const restoreFields = (data: CommunityRecipeSubmissionInput) => {
     setName(data.name);
     setDescription(data.description);
@@ -268,6 +269,18 @@ export default function CommunityRecipesPage() {
     setCollectionError(result.error);
     setCustomCatalogItems(loadCustomIngredients());
   }, []);
+
+  useEffect(() => {
+    if (!draftReady) return;
+    const requestedId = new URLSearchParams(window.location.search).get("edit");
+    if (!requestedId || handledEditRequest.current === requestedId) return;
+    const requestedRecipe = sharedRecipes.find(recipe => recipe.id === requestedId);
+    if (!requestedRecipe) return;
+    handledEditRequest.current = requestedId;
+    // Keep the restored draft when this exact recipe is already being edited.
+    if (editingId === requestedId) return;
+    startEditing(requestedRecipe);
+  }, [draftReady, sharedRecipes, editingId, startEditing]);
 
   const localOnlyRecipes = legacyRecipes.filter(
     (recipe) => !databaseRecipeIds.includes(recipe.id),

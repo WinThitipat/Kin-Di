@@ -14,6 +14,7 @@ import {
   ExternalLink,
   Heart,
   ListChecks,
+  Pencil,
   Refrigerator,
   RotateCcw,
   ShieldAlert,
@@ -219,7 +220,14 @@ export default function RecipeDetailPage() {
           <span>กลับไปหน้าสุ่มไพ่</span>
         </Link>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <Link
+            href={`/community?edit=${encodeURIComponent(recipe.id)}#recipe-share-form`}
+            className="kindi-btn-secondary min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap"
+          >
+            <Pencil className="w-4 h-4 shrink-0" aria-hidden="true" />
+            <span>แก้ไขสูตร</span>
+          </Link>
           <Link
             href="/fridge"
             className="kindi-btn-secondary min-h-11 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap cursor-pointer"
@@ -588,12 +596,12 @@ export default function RecipeDetailPage() {
                       {isStepDone ? (
                         <Check className="w-4 h-4 stroke-[2.5]" aria-hidden="true" />
                       ) : (
-                        `Step ${stepNumber}`
+                        stepNumber
                       )}
                     </div>
 
                     {/* Step Instruction Text */}
-                    <div className="flex-1 space-y-1">
+                    <div className="min-w-0 flex-1 space-y-1 break-words">
                       <span className="text-xs font-bold text-[#6E5D50] block">
                         ขั้นตอนที่ {stepNumber}
                       </span>
