@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import {
   AlertCircle,
@@ -56,6 +56,17 @@ export default function FridgeModePage() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [loadingRecipes, setLoadingRecipes] = useState(true);
+  const [showResults, setShowResults] = useState(false);
+  const pickerHeading = useRef<HTMLHeadingElement>(null);
+  const resultsHeading = useRef<HTMLHeadingElement>(null);
+  const changedStep = useRef(false);
+  useEffect(() => {
+    if (!changedStep.current) return;
+    const target = showResults ? resultsHeading.current : pickerHeading.current;
+    target?.focus({ preventScroll: true });
+    target?.scrollIntoView({ block: 'start', behavior: 'auto' });
+  }, [showResults]);
   const [customIngredients, setCustomIngredients] = useState<IngredientRecord[]>([]);
   const [selectedIngredientIds, setSelectedIngredientIds] = useState<string[]>([]);
   const [assumeBasicCondiments, setAssumeBasicCondiments] = useState<boolean>(false);
@@ -76,9 +87,11 @@ export default function FridgeModePage() {
 
   useEffect(() => {
     const loadAll = () => {
+      setLoadingRecipes(true);
       fetchApprovedRecipes().then((res) => {
         setLoadError(res.error);
         setRecipes(res.recipes);
+        setLoadingRecipes(false);
       });
       setCustomIngredients(loadCustomIngredients());
     };
@@ -178,9 +191,13 @@ export default function FridgeModePage() {
         <div className="interior-header-actions"><Refrigerator size={64} strokeWidth={1} aria-hidden="true" /><button onClick={openRestrictionsModal} className="text-link"><ShieldCheck size={17} aria-hidden="true" /> ตั้งค่าข้อจำกัดทางอาหาร</button></div>
       </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <ol className="fridge-flow-steps" aria-label="ขั้นตอนค้นหาเมนู">
+        <li aria-current={!showResults ? 'step' : undefined}>1. เลือกของที่มี</li>
+        <li aria-current={showResults ? 'step' : undefined}>2. ดูเมนูที่เข้ากัน</li>
+      </ol>
+      <div className="fridge-flow-content">
         {/* Left: Ingredient Picker */}
-        <section
+        {!showResults && <section
           aria-labelledby="fridge-picker-heading"
           className="kindi-surface-card lg:col-span-6 p-5 sm:p-6 space-y-5"
         >
@@ -188,7 +205,7 @@ export default function FridgeModePage() {
             <div>
               <div className="flex items-center gap-2">
                 <h2
-                  id="fridge-picker-heading"
+                  id="fridge-picker-heading" ref={pickerHeading} tabIndex={-1}
                   className="text-lg font-semibold text-[#302923] tabular-nums"
                 >
                   เลือกวัตถุดิบที่มีในบ้าน
@@ -198,7 +215,7 @@ export default function FridgeModePage() {
                 </span>
               </div>
               <p className="text-xs text-[#6E5D50] mt-0.5">
-                แตะเพื่อเลือกหรือเพิ่มวัตถุดิบ ระบบจะคำนวณเมนูที่ทำได้แบบเรียลไทม์
+                ค้นหาหรือเลือกวัตถุดิบ แล้วกด “ดูเมนูจากของที่เลือก” ด้านล่าง
               </p>
             </div>
             {selectedIngredientIds.length > 0 && (
@@ -238,6 +255,13 @@ export default function FridgeModePage() {
               </div>
             </div>
           )}
+
+          <div>
+            <label htmlFor="fridge-ingredient-search" className="block text-sm mb-2">ค้นหาวัตถุดิบที่มี</label>
+            <input id="fridge-ingredient-search" type="search" value={ingredientSearch}
+              onChange={event => setIngredientSearch(event.target.value)} placeholder="เช่น ไข่ ไก่ กะหล่ำปลี"
+              className="kindi-input-field w-full min-h-11 px-3" />
+          </div>
 
           {/* Category Filter Pills */}
           <div className="flex flex-wrap gap-1.5">
@@ -292,12 +316,6 @@ export default function FridgeModePage() {
           </label>
 
           {/* Ingredient Groups */}
-          <div>
-            <label htmlFor="fridge-ingredient-search" className="block text-sm mb-2">ค้นหาวัตถุดิบที่มี</label>
-            <input id="fridge-ingredient-search" type="search" value={ingredientSearch}
-              onChange={event => setIngredientSearch(event.target.value)} placeholder="เช่น ไข่ ไก่ กะหล่ำปลี"
-              className="kindi-input-field w-full min-h-11 px-3" />
-          </div>
           <details className="ingredient-library" open={libraryOpen || !!ingredientSearch.trim()} onToggle={event => setLibraryOpen(event.currentTarget.open)}>
           <summary className="min-h-11 cursor-pointer font-medium">เลือกจากรายการวัตถุดิบทั้งหมด</summary>
           <div className="space-y-4">
@@ -385,10 +403,22 @@ export default function FridgeModePage() {
             )}
           </div>
           </details>
-        </section>
+          <div className="fridge-find-action">
+            <p className="text-sm text-[#6E5D50]">{selectedIngredientIds.length ? `เลือกไว้ ${selectedIngredientIds.length} อย่างแล้ว เพิ่มหรือลบได้ก่อนดูเมนู` : 'เลือกวัตถุดิบอย่างน้อย 1 อย่างเพื่อเริ่มค้นหา'}</p>
+            <button type="button" className="kindi-btn-primary min-h-12 px-6 py-3" disabled={!pantryReady || loadingRecipes || !!loadError || selectedIngredientIds.length === 0}
+              onClick={() => { changedStep.current = true; setShowResults(true); }}>
+              {loadingRecipes ? 'กำลังโหลดสูตรอาหาร…' : 'ดูเมนูจากของที่เลือก'}
+            </button>
+          </div>
+        </section>}
 
         {/* Right: Matched Recipes + Near-Match ("ขาดอีกนิดเดียว!") */}
-        <div className="lg:col-span-6 space-y-6">
+        {showResults && <div className="space-y-6">
+          <div className="fridge-results-summary">
+            <h2 ref={resultsHeading} tabIndex={-1} className="text-xl font-semibold">เมนูจากของที่คุณเลือก</h2>
+            <p className="text-sm text-[#6E5D50]">{selectedIngredientIds.map(id => catalog[id]?.name_th || id).join(' · ')}</p>
+            <button type="button" className="kindi-btn-secondary min-h-11 px-4" onClick={() => { changedStep.current = true; setShowResults(false); }}>← แก้ไขวัตถุดิบ</button>
+          </div>
           {/* 100% Exact Matches */}
           <section
             aria-labelledby="fridge-results-heading"
@@ -404,7 +434,7 @@ export default function FridgeModePage() {
                     id="fridge-results-heading"
                     className="text-base sm:text-lg font-semibold text-[#302923] tabular-nums"
                   >
-                    เมนูที่ทำได้ทันที ({matchedRecipes.length} เมนู)
+                    วัตถุดิบครบตามรายการ ({matchedRecipes.length} เมนู)
                   </h2>
                 </div>
               </div>
@@ -415,7 +445,7 @@ export default function FridgeModePage() {
                 <p className="text-sm sm:text-base font-semibold text-[#302923]">
                   {recipes.length === 0
                     ? 'ยังไม่มีสูตรอาหารในระบบ'
-                    : 'ยังไม่มีเมนูที่ทำได้ครบ 100% จากวัตถุดิบที่เลือก'}
+                    : 'ยังไม่มีเมนูที่วัตถุดิบครบตามรายการที่เลือก'}
                 </p>
                 <p className="text-xs sm:text-sm text-[#6E5D50] leading-relaxed max-w-sm mx-auto">
                   {recipes.length === 0
@@ -587,7 +617,7 @@ export default function FridgeModePage() {
               </div>
             )}
           </section>
-        </div>
+        </div>}
       </div>
     </div>
   );

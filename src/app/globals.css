@@ -2118,3 +2118,11 @@ body:has(dialog[open]) {
 .ingredient-library summary { padding-block: 10px; }
 .ingredient-library[open] summary { margin-bottom: 16px; }
 .ingredient-library button { min-height: 44px; }
+
+.fridge-flow-steps { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.fridge-flow-steps [aria-current="step"] { color: var(--red); font-weight: 600; }
+.fridge-flow-content { max-width: 900px; margin-inline: auto; }
+.fridge-find-action { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px; }
+.fridge-find-action button:disabled { opacity: .5; cursor: not-allowed; }
+.fridge-results-summary { display: grid; justify-items: start; gap: 12px; overflow-wrap: anywhere; }
+#fridge-picker-heading { scroll-margin-top: 24px; }
