@@ -115,6 +115,14 @@ export default function CommunityRecipesPage() {
   >([]);
   const [sharedRecipes, setSharedRecipes] = useState<Recipe[]>([]);
   const [bannerIndex, setBannerIndex] = useState(0);
+  const bannerCount = sharedRecipes.filter(recipe => recipe.image_url).length;
+  useEffect(() => {
+    if (bannerCount < 2) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden) setBannerIndex(index => (index + 1) % bannerCount);
+    }, 6000);
+    return () => window.clearInterval(timer);
+  }, [bannerCount]);
   const [recipeToDelete, setRecipeToDelete] = useState<Recipe | null>(null);
   const [legacyRecipes, setLegacyRecipes] = useState<Recipe[]>([]);
   const [databaseRecipeIds, setDatabaseRecipeIds] = useState<string[]>([]);
@@ -542,8 +550,6 @@ export default function CommunityRecipesPage() {
     ingredientIds.length + customIngredientNames.length;
   const bannerRecipes = sharedRecipes.filter(recipe => recipe.image_url);
   const bannerRecipe = bannerRecipes[bannerIndex % (bannerRecipes.length || 1)];
-  const changeBanner = (direction: number) => setBannerIndex(index =>
-    (index + direction + bannerRecipes.length) % Math.max(1, bannerRecipes.length));
 
   return (
     <div className="interior-page community-page">
@@ -561,13 +567,6 @@ export default function CommunityRecipesPage() {
             width={640} height={640} decoding="async"
           />
           <figcaption><strong>{sharedRecipes.length}</strong><span>เมนูในครัว<br />KIN DI</span></figcaption>
-          {bannerRecipe && <div className="banner-menu-controls">
-            <Link href={`/recipes/${encodeURIComponent(bannerRecipe.id)}`} aria-live="polite">{bannerRecipe.name}<span>ดูสูตร ↗</span></Link>
-            <div className="banner-menu-buttons">
-              <button type="button" aria-label="เมนูก่อนหน้าในแบนเนอร์" disabled={bannerRecipes.length < 2} onClick={() => changeBanner(-1)}>←</button>
-              <button type="button" aria-label="เมนูถัดไปในแบนเนอร์" disabled={bannerRecipes.length < 2} onClick={() => changeBanner(1)}>→</button>
-            </div>
-          </div>}
         </figure>
       </section>
 
