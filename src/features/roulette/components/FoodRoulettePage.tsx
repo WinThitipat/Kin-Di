@@ -300,8 +300,8 @@ export function FoodRoulettePage() {
             </span>
           </h1>
           <p className="hero-intro">
-            คำถามเดิมทุกวัน ให้เราช่วยเลือกสิ่งใหม่ให้คุณ
-            <br className="hidden sm:block" /> เปิดไพ่สักใบ แล้วไปอร่อยกัน
+            คิดไม่ออกว่าจะกินอะไร? เลือกไพ่สักใบ
+            <br className="hidden sm:block" /> เจอเมนูใหม่ โดยกรองตามอาหารที่คุณไม่กิน
           </p>
           <div className="hero-actions">
             <button
@@ -309,7 +309,7 @@ export function FoodRoulettePage() {
               className="action-primary"
               disabled={isLoadingRecipes}
             >
-              สุ่มเลย กินดิ! <ArrowRight size={21} aria-hidden="true" />
+              เลือกไพ่มื้อนี้ <ArrowRight size={21} aria-hidden="true" />
             </button>
             <a href="#recipes" className="text-link">
               ขอเลือกเองก่อน <ArrowRight size={16} aria-hidden="true" />
@@ -319,10 +319,11 @@ export function FoodRoulettePage() {
             <ShieldCheck size={17} aria-hidden="true" />
             <button onClick={openRestrictionsModal}>
               {activeRestrictionBadges.length > 0
-                ? `กรองตามข้อจำกัด ${activeRestrictionBadges.length} รายการของคุณ`
+                ? "ใช้ข้อจำกัดทางอาหารของคุณแล้ว · ดูหรือแก้ไข"
                 : "มีอาหารที่แพ้? บอกเราได้เลย"}
             </button>
           </div>
+          <p className="hero-play-hint">เลือกไพ่ → เปิดเมนู → ดูสูตรที่อยากทำ</p>
         </div>
         <div className="hero-visual">
           <img

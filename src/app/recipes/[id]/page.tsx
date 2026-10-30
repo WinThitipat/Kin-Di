@@ -199,6 +199,8 @@ export default function RecipeDetailPage() {
   const isSafeForCurrentUser = isRecipeSafeForUser(recipe, restrictions, catalog);
   const isFavorite = favoriteIds.includes(recipe.id);
   const externalLinks = getExternalRecipeLinks(recipe);
+  const sourceNotesOnly = recipe.instructions.length > 0 && recipe.instructions.every(text =>
+    /^(อ่านสัดส่วน|รายการวัตถุดิบ|ดูปริมาณ|ดูวิธีทำจากลิงก์|ดูวิธีทำฉบับเต็ม)/.test(text));
   const presentAllergens = ALL_ALLERGEN_IDS.filter(
     (alg) => recipe.allergen_assessments?.[alg]?.status !== 'free'
   );
@@ -550,6 +552,12 @@ export default function RecipeDetailPage() {
         </section>
 
         {/* Right Column: Step-by-Step Cooking Steps */}
+        {sourceNotesOnly ? <section className="kindi-surface-card md:col-span-7 rounded-xl p-6 sm:p-7 space-y-4" aria-labelledby="recipe-source-notes">
+          <h2 id="recipe-source-notes" className="text-lg font-semibold">เกี่ยวกับสูตรนี้</h2>
+          <p className="text-sm text-[#6E5D50]">สัดส่วนและวิธีทำฉบับเต็มอยู่ที่ {externalLinks.primarySourceName}</p>
+          {recipe.instructions.map((text, index) => <p key={index} className="text-sm leading-relaxed break-words">{text}</p>)}
+          <a href={externalLinks.primaryUrl} target="_blank" rel="noopener noreferrer" className="kindi-btn-primary min-h-11 inline-flex items-center px-4">เปิดสูตรฉบับเต็ม ↗</a>
+        </section> : <>
         <section
           aria-labelledby="cooking-steps-heading"
           className="kindi-surface-card md:col-span-7 rounded-xl p-6 sm:p-7 space-y-5"
@@ -619,6 +627,7 @@ export default function RecipeDetailPage() {
             })}
           </ol>
         </section>
+        </>}
       </div>
 
       {/* Allergen & Food Safety Assessment Section */}

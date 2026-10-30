@@ -2113,3 +2113,8 @@ body:has(dialog[open]) {
 .community-banner-photo > .banner-photo-enter { animation: banner-photo-arrive 300ms cubic-bezier(.455,.03,.515,.955) both; }
 @keyframes banner-photo-arrive { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .community-banner-photo > .banner-photo-enter { animation: none; } }
+
+.hero-play-hint { margin-top: 18px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.ingredient-library summary { padding-block: 10px; }
+.ingredient-library[open] summary { margin-bottom: 16px; }
+.ingredient-library button { min-height: 44px; }

@@ -66,6 +66,8 @@ export default function FridgeModePage() {
   const [activeIngredientCategory, setActiveIngredientCategory] = useState<IngredientCategory | 'all'>('all');
   const [showOtherInput, setShowOtherInput] = useState<boolean>(false);
   const [otherDraft, setOtherDraft] = useState<string>('');
+  const [ingredientSearch, setIngredientSearch] = useState('');
+  const [libraryOpen, setLibraryOpen] = useState(false);
 
   useEffect(() => {
     const loadAll = () => {
@@ -236,7 +238,7 @@ export default function FridgeModePage() {
           <div className="flex flex-wrap gap-1.5">
             <button
               type="button"
-              onClick={() => setActiveIngredientCategory('all')}
+              onClick={() => { setActiveIngredientCategory('all'); setLibraryOpen(true); }}
               aria-pressed={activeIngredientCategory === 'all'}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors cursor-pointer ${
                 activeIngredientCategory === 'all'
@@ -252,7 +254,7 @@ export default function FridgeModePage() {
                 <button
                   key={catKey}
                   type="button"
-                  onClick={() => setActiveIngredientCategory(catKey)}
+                  onClick={() => { setActiveIngredientCategory(catKey); setLibraryOpen(true); }}
                   aria-pressed={active}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors cursor-pointer ${
                     active
@@ -285,12 +287,20 @@ export default function FridgeModePage() {
           </label>
 
           {/* Ingredient Groups */}
+          <div>
+            <label htmlFor="fridge-ingredient-search" className="block text-sm mb-2">ค้นหาวัตถุดิบที่มี</label>
+            <input id="fridge-ingredient-search" type="search" value={ingredientSearch}
+              onChange={event => setIngredientSearch(event.target.value)} placeholder="เช่น ไข่ ไก่ กะหล่ำปลี"
+              className="kindi-input-field w-full min-h-11 px-3" />
+          </div>
+          <details className="ingredient-library" open={libraryOpen || !!ingredientSearch.trim()} onToggle={event => setLibraryOpen(event.currentTarget.open)}>
+          <summary className="min-h-11 cursor-pointer font-medium">เลือกจากรายการวัตถุดิบทั้งหมด</summary>
           <div className="space-y-4">
             {(Object.keys(groupedIngredients) as IngredientCategory[]).map((catKey) => {
-              if (activeIngredientCategory !== 'all' && activeIngredientCategory !== catKey) {
+              if (!ingredientSearch.trim() && activeIngredientCategory !== 'all' && activeIngredientCategory !== catKey) {
                 return null;
               }
-              const items = groupedIngredients[catKey];
+              const items = groupedIngredients[catKey].filter(item => item.name_th.includes(ingredientSearch.trim()));
               if ((!items || items.length === 0) && catKey !== 'other') return null;
               return (
                 <div key={catKey} className="ingredient-group space-y-2.5">
@@ -369,6 +379,7 @@ export default function FridgeModePage() {
               </div>
             )}
           </div>
+          </details>
         </section>
 
         {/* Right: Matched Recipes + Near-Match ("ขาดอีกนิดเดียว!") */}

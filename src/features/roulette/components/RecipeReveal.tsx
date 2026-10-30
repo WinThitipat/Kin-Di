@@ -168,9 +168,10 @@ export function RecipeReveal({
               rel="noopener noreferrer"
               className="kindi-btn-primary min-h-11 w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold text-sm"
             >
-              <span>ลิงก์สูตรอาหาร</span>
+              <span>ดูสูตรและวิธีทำ</span>
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
             </a>
+            <p className="text-xs text-[#6E5D50]">เปิด {externalLinks.primarySourceName} ในแท็บใหม่</p>
 
             {/* Secondary Actions: KIN DI Safety/Ingredient Summary + New Round */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
@@ -189,7 +190,7 @@ export function RecipeReveal({
                 className="kindi-btn-accent min-h-10 flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm cursor-pointer"
               >
                 <RefreshCw className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>สุ่มรอบใหม่ (เอาอีกใบไหม?)</span>
+                <span>ลองเมนูอื่น</span>
               </button>
             </div>
           </div>
