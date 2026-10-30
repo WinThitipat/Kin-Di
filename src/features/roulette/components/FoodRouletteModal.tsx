@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { RefreshCw, ShieldCheck, Sparkles, X } from 'lucide-react';
-import { CardCountSelector } from '@/features/roulette/components/CardCountSelector';
+import { RouletteOptions } from './RouletteOptions';
 import { CardDeck } from '@/features/roulette/components/CardDeck';
 import { RecipeReveal } from '@/features/roulette/components/RecipeReveal';
 import {
@@ -11,7 +11,7 @@ import {
 } from '@/features/roulette/components/RouletteEmptyState';
 import { RouletteLoadingState } from '@/features/roulette/components/RouletteLoadingState';
 import { getRevealedRecipeFromRound } from '@/features/roulette/roulette-engine';
-import { CardCountOption, RouletteRoundState, SAFETY_DISCLAIMER_TH } from '@/types/recipe';
+import { CardCountOption, RouletteQuickFilters, RouletteRoundState, SAFETY_DISCLAIMER_TH } from '@/types/recipe';
 
 interface FoodRouletteModalProps {
   emptyExplanation?: string;
@@ -19,7 +19,8 @@ interface FoodRouletteModalProps {
   onClose: () => void;
   round: RouletteRoundState | null;
   cardCount: CardCountOption;
-  onChangeCardCount: (count: CardCountOption) => void;
+  filters: RouletteQuickFilters;
+  onApplyOptions: (filters: RouletteQuickFilters, count: CardCountOption) => void;
   onSelectCard: (cardId: string) => void;
   onFlipComplete: () => void;
   onStartNewRound: () => void;
@@ -38,7 +39,8 @@ export function FoodRouletteModal({
   onClose,
   round,
   cardCount,
-  onChangeCardCount,
+  filters,
+  onApplyOptions,
   onSelectCard,
   onFlipComplete,
   onStartNewRound,
@@ -51,6 +53,9 @@ export function FoodRouletteModal({
   onToggleFavorite,
 }: FoodRouletteModalProps) {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const optionsButtonRef = useRef<HTMLButtonElement>(null);
+  const [showOptions, setShowOptions] = useState(false);
+  useEffect(() => { if (!isOpen) setShowOptions(false); }, [isOpen]);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -118,7 +123,10 @@ export function FoodRouletteModal({
 
   const revealedRecipe = getRevealedRecipeFromRound(round);
   const selectedAssignment = round?.cards.find((c) => c.cardId === round.selectedCardId);
-  const isCardChosen = Boolean(round?.selectedCardId);
+  const closeOptions = () => {
+    setShowOptions(false);
+    requestAnimationFrame(() => optionsButtonRef.current?.focus({ preventScroll: true }));
+  };
 
   return (
     <dialog
@@ -162,11 +170,8 @@ export function FoodRouletteModal({
 
       {/* Controls Bar (Card Count Selector & Available Pool Indicator) */}
       <div className="px-5 py-3 sm:px-6 bg-[#F1EADF]/80 border-b border-[#DDD2C2] flex flex-wrap items-center justify-between gap-3 shrink-0">
-        <CardCountSelector
-          selectedCount={cardCount}
-          onSelectCount={onChangeCardCount}
-          disabled={isLoading || isCardChosen}
-        />
+        <button ref={optionsButtonRef} type="button" className="kindi-btn-secondary min-h-11 px-4" aria-expanded={showOptions}
+          disabled={isLoading || !!round?.isTransitioning} onClick={() => setShowOptions(value => !value)}>ปรับตัวเลือก</button>
 
         <div className="flex items-center gap-2.5">
           {round && !isLoading && !error && (
@@ -176,7 +181,7 @@ export function FoodRouletteModal({
             </span>
           )}
 
-          {round && round.cards.length > 0 && !isLoading && (
+          {round && round.cards.length > 0 && !isLoading && !showOptions && (
             <button
               type="button"
               onClick={onStartNewRound}
@@ -192,7 +197,7 @@ export function FoodRouletteModal({
 
       {/* Scrollable Modal Body */}
       <div className="p-4 sm:p-6 overflow-y-auto flex-1 space-y-6">
-        {isLoading ? (
+        {showOptions ? <RouletteOptions filters={filters} cardCount={cardCount} onCancel={closeOptions} onApply={(nextFilters, count) => { onApplyOptions(nextFilters, count); closeOptions(); }} /> : isLoading ? (
           <RouletteLoadingState cardCount={cardCount} />
         ) : error ? (
           <RouletteErrorState

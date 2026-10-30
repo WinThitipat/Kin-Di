@@ -2151,3 +2151,7 @@ body:has(dialog[open]) {
   .hero-banner .hero-copy h1 { font-size: 40px; }
   .hero-banner .hero-copy h1 > span { display: block; margin-left: 0; }
 }
+
+.roulette-options { max-width: 540px; margin-inline: auto; }
+.roulette-options > label { display: grid; gap: 6px; font-size: 14px; }
+.roulette-options select { width: 100%; min-height: 44px; padding: 8px 12px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; }

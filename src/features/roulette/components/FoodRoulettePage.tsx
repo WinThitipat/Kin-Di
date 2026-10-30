@@ -50,15 +50,6 @@ import {
   RouletteRoundState,
 } from "@/types/recipe";
 
-const COOKING_TIME_PRESETS: { value: number | null; label: string }[] = [
-  { value: null, label: "ไม่จำกัดเวลา" },
-  { value: 10, label: "ไม่เกิน 10 นาที" },
-  { value: 15, label: "ไม่เกิน 15 นาที" },
-  { value: 30, label: "ไม่เกิน 30 นาที" },
-];
-
-const CARD_COUNT_OPTIONS: CardCountOption[] = [3, 5, 7];
-
 export function FoodRoulettePage() {
   const { restrictions, openRestrictionsModal, favoriteIds, toggleFavorite } =
     useKinDiApp();
@@ -109,16 +100,6 @@ export function FoodRoulettePage() {
   }, [loadCandidates]);
 
   const catalog = useMemo(() => getMergedIngredientsCatalog(), [allRecipes]);
-
-  // Compute current eligible pool count for the main page preview
-  const eligiblePreview = useMemo(() => {
-    return getEligibleRouletteRecipes(
-      allRecipes,
-      restrictions,
-      filters,
-      catalog,
-    );
-  }, [allRecipes, restrictions, filters, catalog]);
 
   // Compute filtered list for "รวมเมนูทั้งหมด" (Browse & Search All Recipes)
   const browsableRecipes = useMemo(() => {
@@ -200,14 +181,6 @@ export function FoodRoulettePage() {
       }
     } else {
       generateNewRound(cardCount, allRecipes, filters, round);
-    }
-  };
-
-  // Change card count before revealing a card -> immediately regenerate round with new count
-  const handleChangeCardCount = (nextCount: CardCountOption) => {
-    setCardCount(nextCount);
-    if (isModalOpen && (!round || !round.selectedCardId)) {
-      generateNewRound(nextCount, allRecipes, filters, round);
     }
   };
 
@@ -334,113 +307,6 @@ export function FoodRoulettePage() {
             height="1000"
           />
         </div>
-      </section>
-      <section
-        className="roulette-workbench"
-        aria-labelledby="roulette-workbench-title"
-      >
-        <div className="workbench-title">
-          <div>
-            <h2 id="roulette-workbench-title">ให้โชคเลือกมื้อนี้</h2>
-            <p>เลือกขอบเขตนิดหน่อย ที่เหลือให้ไพ่จัดการ</p>
-          </div>
-          <div className="pool-count" aria-live="polite">
-            {isLoadingRecipes
-              ? "กำลังจัดสำรับ…"
-              : `${eligiblePreview.length} เมนูในสำรับ`}
-          </div>
-        </div>
-        <div className="workbench-controls">
-          <label>
-            อยากกินมื้อไหน
-            <select
-              value={filters.mealType}
-              onChange={(e) =>
-                setFilters((prev) => ({
-                  ...prev,
-                  mealType: e.target.value as MealType | "all",
-                }))
-              }
-            >
-              <option value="all">ทุกมื้อ</option>
-              {(Object.keys(MEAL_TYPE_LABELS) as MealType[]).map((key) => (
-                <option key={key} value={key}>
-                  {MEAL_TYPE_LABELS[key]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            อาหารสไตล์ไหน
-            <select
-              value={filters.category}
-              onChange={(e) =>
-                setFilters((prev) => ({
-                  ...prev,
-                  category: e.target.value as FoodCategory | "all",
-                }))
-              }
-            >
-              <option value="all">ทุกสไตล์</option>
-              {(Object.keys(FOOD_CATEGORY_LABELS) as FoodCategory[]).map(
-                (key) => (
-                  <option key={key} value={key}>
-                    {FOOD_CATEGORY_LABELS[key]}
-                  </option>
-                ),
-              )}
-            </select>
-          </label>
-          <label>
-            มีเวลาสักเท่าไร
-            <select
-              value={filters.maxCookingTime ?? ""}
-              onChange={(e) =>
-                setFilters((prev) => ({
-                  ...prev,
-                  maxCookingTime: e.target.value
-                    ? Number(e.target.value)
-                    : null,
-                }))
-              }
-            >
-              {COOKING_TIME_PRESETS.map((preset) => (
-                <option key={String(preset.value)} value={preset.value ?? ""}>
-                  {preset.label}
-                </option>
-              ))}
-            </select>
-          </label>
-          <fieldset className="deck-selector">
-            <legend>จำนวนไพ่</legend>
-            {CARD_COUNT_OPTIONS.map((count) => (
-              <button
-                key={count}
-                onClick={() => handleChangeCardCount(count)}
-                aria-pressed={cardCount === count}
-              >
-                {count}
-              </button>
-            ))}
-          </fieldset>
-          <button
-            onClick={handleOpenRouletteModal}
-            className="deal-button"
-            disabled={isLoadingRecipes}
-          >
-            เปิดไพ่ <ArrowUpRight size={20} aria-hidden="true" />
-          </button>
-        </div>
-        {hasOptionalFilters && (
-          <button className="reset-link" onClick={handleResetOptionalFilters}>
-            <RotateCcw size={14} aria-hidden="true" /> ล้างตัวกรอง
-          </button>
-        )}
-        {loadError && (
-          <p role="alert" className="load-error">
-            {loadError} <button onClick={loadCandidates}>ลองอีกครั้ง</button>
-          </p>
-        )}
       </section>
       <Link href="/fridge" className="pantry-banner">
         <div className="pantry-symbol">
@@ -640,7 +506,8 @@ export function FoodRoulettePage() {
         onClose={handleCloseModal}
         round={round}
         cardCount={cardCount}
-        onChangeCardCount={handleChangeCardCount}
+        filters={filters}
+        onApplyOptions={(nextFilters, count) => { setFilters(nextFilters); setCardCount(count); generateNewRound(count, allRecipes, nextFilters, round); }}
         onSelectCard={handleSelectCard}
         onFlipComplete={handleFlipComplete}
         onStartNewRound={handleStartNewRoundInModal}
