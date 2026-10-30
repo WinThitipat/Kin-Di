@@ -15,6 +15,7 @@ import {
   PlusCircle,
   Send,
   Search,
+  MoreHorizontal,
   ShieldAlert,
   Trash2,
   X,
@@ -121,6 +122,15 @@ export default function CommunityRecipesPage() {
   const [collectionLimit, setCollectionLimit] = useState(6);
   const [mobileView, setMobileView] = useState<"form" | "collection">("form");
   const [ingredientSearch, setIngredientSearch] = useState("");
+  useEffect(() => {
+    const closeOutside = (event: PointerEvent) => {
+      document.querySelectorAll<HTMLDetailsElement>(".community-manage[open]").forEach(menu => {
+        if (event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+      });
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, []);
   const bannerCount = sharedRecipes.filter(recipe => recipe.image_url).length;
   useEffect(() => {
     if (bannerCount < 2) return;
@@ -1481,8 +1491,8 @@ export default function CommunityRecipesPage() {
 
                     <div className="community-card-controls">
                       <Link href={`/recipes/${encodeURIComponent(item.id)}`} className="kindi-btn-secondary community-open-recipe">ดูเมนู</Link>
-                      <details className="community-manage" onKeyDown={event => { if (event.key === "Escape") { event.currentTarget.open = false; event.currentTarget.querySelector("summary")?.focus(); } }}>
-                        <summary aria-label={`จัดการเมนู ${item.name}`}>⋯</summary>
+                      <details name="community-recipe-actions" className="community-manage" onKeyDown={event => { if (event.key === "Escape") { event.currentTarget.open = false; event.currentTarget.querySelector("summary")?.focus(); } }}>
+                        <summary aria-label={`จัดการเมนู ${item.name}`}><MoreHorizontal size={20} aria-hidden="true" /></summary>
                         <div className="community-manage-options">
                           <a href={ext.primaryUrl} target="_blank" rel="noopener noreferrer">สูตรต้นฉบับ <ExternalLink size={14} aria-hidden="true" /></a>
                           {databaseRecipeIds.includes(item.id) && <button type="button" disabled={isSubmitting} onClick={() => startEditing(item)}>แก้ไขสูตร</button>}

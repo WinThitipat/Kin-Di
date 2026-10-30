@@ -22,6 +22,20 @@ const fs = require('node:fs');
       await search.fill('zzzzzzไม่พบแน่นอน'); assert.equal(await page.locator('.shared-menu-card').count(),0);
       assert(await page.getByRole('status').filter({hasText:'ไม่พบเมนูที่ค้นหา'}).isVisible());
       await search.fill(''); assert.equal(await page.locator('.shared-menu-card').count(),initial);
+      const cards=page.locator('.shared-menu-card');
+      const firstHeight=await cards.first().evaluate(el=>el.getBoundingClientRect().height);
+      const menus=page.locator('.community-manage');
+      await menus.first().locator('summary').click();
+      assert.equal(await menus.first().getAttribute('open'),'');
+      assert.equal(await cards.first().evaluate(el=>el.getBoundingClientRect().height),firstHeight);
+      const menuBox=await menus.first().locator('.community-manage-options').boundingBox();
+      assert(menuBox.x>=0 && menuBox.x+menuBox.width<=width);
+      await page.screenshot({path:`artifacts/community-concept/actions-${width}.png`,fullPage:true});
+      await menus.nth(1).locator('summary').focus(); await menus.nth(1).locator('summary').press('Enter');
+      assert.equal(await menus.first().getAttribute('open'),null);
+      await page.locator('#shared-recipes-heading').click();
+      assert.equal(await page.locator('.community-manage[open]').count(),0);
+
       await page.evaluate(()=>scrollTo(0,0));
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
       if(width<1024) { await page.screenshot({path:`artifacts/community-concept/collection-${width}.png`,fullPage:true}); await page.getByRole('button',{name:'เพิ่มสูตร',exact:true}).click(); }

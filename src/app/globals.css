@@ -2298,3 +2298,27 @@ body:has(dialog[open]) {
   .community-page[data-mobile-view='form'] .shared-recipes-panel { display: none; }
   .community-page[data-mobile-view='collection'] .community-form-panel { display: none; }
 }
+
+/* Compact recipe rows: primary link and one anchored action menu. */
+.community-page .community-recipe-list { max-height: none; overflow: visible; scrollbar-gutter: auto; }
+.community-page .shared-menu-card { grid-template-columns: 72px minmax(0, 1fr); gap: 4px 14px; padding: 18px 0; position: relative; }
+.community-page .shared-menu-card > img, .community-page .shared-menu-card > div:first-child:not(.shared-menu-info) { width: 72px; height: 88px; grid-row: 1 / 3; border-radius: 6px; }
+.community-page .shared-menu-info { grid-column: 2; }
+.community-page .shared-menu-info > div > div { gap: 4px 10px; }
+.community-page .shared-menu-info p { font-size: 16px; line-height: 1.6; margin-top: 4px; }
+.community-page .community-card-controls { grid-column: 2; grid-template-columns: minmax(0, 1fr) 44px; gap: 8px; align-items: center; }
+.community-page .community-open-recipe { width: fit-content; min-height: 44px; padding: 0; background: transparent; border: 0; border-radius: 0; color: var(--red); font-size: 14px; box-shadow: none; }
+.community-page .community-open-recipe:hover { text-decoration: underline; text-underline-offset: 4px; }
+.community-page .community-manage, .community-page .community-manage[open] { position: relative; grid-column: auto; }
+.community-page .community-manage summary, .community-page .community-manage[open] summary { width: 44px; min-height: 44px; margin: 0; border: 0; background: transparent; color: var(--muted); border-radius: 6px; }
+.community-page .community-manage summary:hover, .community-page .community-manage[open] summary { background: #f1eadf; color: var(--ink); }
+.community-page .community-manage[open] { z-index: 5; }
+.community-page .community-manage-options { position: absolute; right: 0; top: 48px; z-index: 10; width: 200px; max-width: calc(100vw - 64px); display: flex; flex-direction: column; flex-wrap: nowrap; gap: 2px; margin: 0; padding: 6px; background: #fffdf8; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px #30292314; }
+.community-page .community-manage-options > a, .community-page .community-manage-options > button, .community-page .community-manage-options .kindi-btn-secondary { width: 100%; justify-content: flex-start; min-height: 44px; padding: 10px 12px; border: 0; border-radius: 4px; background: transparent; box-shadow: none; font-size: 14px; }
+.community-page .community-manage-options > a:hover, .community-page .community-manage-options > button:hover, .community-page .community-manage-options .kindi-btn-secondary:hover { background: #f1eadf; }
+.community-page .community-manage-options .community-delete { border-top: 1px solid var(--line); margin-top: 4px; border-radius: 0 0 4px 4px; }
+.community-page .community-manage-options [role='status']:empty { display: none; }
+@media (max-width: 370px) {
+  .community-page .shared-menu-card { grid-template-columns: 60px minmax(0, 1fr); column-gap: 10px; }
+  .community-page .shared-menu-card > img, .community-page .shared-menu-card > div:first-child:not(.shared-menu-info) { width: 60px; height: 80px; }
+}
