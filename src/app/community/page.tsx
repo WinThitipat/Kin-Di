@@ -84,11 +84,35 @@ const FIELD_IDS: Record<string, string> = {
   instructionsText: "recipe-steps",
   submitted_by: "recipe-author",
   cooking_time: "recipe-time-range",
+  category: "recipe-cat",
+  customIngredientNames: "custom-ingredient-input",
 };
 
 export default function CommunityRecipesPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const [stepError, setStepError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const validationProps = (field: string) => ({
+    "aria-invalid": fieldErrors[field] ? true : undefined,
+    "aria-describedby": fieldErrors[field] ? `recipe-error-${field}` : undefined,
+    "data-validation-field": field,
+  });
+  const fieldError = (field: string) => fieldErrors[field] ? (
+    <p id={`recipe-error-${field}`} className="text-sm text-rose-800 mt-1">{fieldErrors[field]}</p>
+  ) : null;
+  const clearFieldError = (target: EventTarget) => {
+    if (!(target instanceof Element)) return;
+    const field = target.closest<HTMLElement>("[data-validation-field]")?.dataset.validationField;
+    if (field) {
+      setStepError(null);
+      setFieldErrors(previous => {
+        if (!previous[field]) return previous;
+        const next = { ...previous };
+        delete next[field];
+        return next;
+      });
+    }
+  };
   const stepHeadingRef = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const shouldFocusStep = useRef(false);
@@ -357,6 +381,7 @@ export default function CommunityRecipesPage() {
 
   const moveToStep = (step: number) => {
     setStepError(null);
+    setFieldErrors({});
     setStatusMessage(null);
     shouldFocusStep.current = true;
     setCurrentStep(step);
@@ -483,16 +508,19 @@ export default function CommunityRecipesPage() {
       submitted_by: submittedBy,
     };
     const parsed = CommunityRecipeSubmissionSchema.safeParse(draft);
-    const issue = !parsed.success
-      ? parsed.error.issues.find(
+    const issues = !parsed.success
+      ? parsed.error.issues.filter(
           (item) =>
             currentStep === 3 ||
             STEP_FIELDS[currentStep].includes(String(item.path[0])),
         )
-      : undefined;
+      : [];
+    const issue = issues[0];
     if (issue) {
+      setFieldErrors(Object.fromEntries(issues.map(item => [String(item.path[0]), item.message])));
       setStepError(issue.message);
-      const fieldId = FIELD_IDS[String(issue.path[0])];
+      const field = String(issue.path[0]);
+      const fieldId = field === "image_url" ? (imageMode === "url" ? "recipe-image-url" : "recipe-image-upload") : FIELD_IDS[field];
       requestAnimationFrame(() =>
         (
           document.getElementById(fieldId) ??
@@ -501,7 +529,9 @@ export default function CommunityRecipesPage() {
       );
       return;
     }
+    setFieldErrors({});
     if (currentStep === 2 && otherIngredientDraft.trim()) {
+      setFieldErrors({ customIngredientNames: "กดเพิ่มวัตถุดิบ หรือล้างข้อความที่พิมพ์ค้างไว้ก่อนไปต่อ" });
       setStepError(
         "คุณยังมีวัตถุดิบที่พิมพ์ค้างไว้ กดเพิ่มวัตถุดิบหรือล้างข้อความก่อนไปต่อ",
       );
@@ -603,6 +633,10 @@ export default function CommunityRecipesPage() {
           id="recipe-share-form"
           ref={formRef}
           onSubmit={handleSubmit}
+          onChangeCapture={event => clearFieldError(event.target)}
+          onClickCapture={event => {
+            if (event.target instanceof Element && event.target.closest("button")) clearFieldError(event.target);
+          }}
           noValidate
           aria-label="แบ่งปันเมนูทีละขั้น"
           className="community-form-panel lg:col-span-7 space-y-5"
@@ -742,8 +776,9 @@ export default function CommunityRecipesPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="เช่น ข้าวหมูแดงฮ่องกง (หม้อทอดไร้น้ำมัน)"
-                className="kindi-input-field w-full px-3.5 py-2.5 text-sm font-medium"
+                className="kindi-input-field w-full px-3.5 py-2.5 text-sm font-medium" {...validationProps("name")}
               />
+              {fieldError("name")}
             </div>
 
             {/* 1.2 ลิงก์สูตรอาหาร (บังคับ ไม่จำกัดค่าย) */}
@@ -765,13 +800,14 @@ export default function CommunityRecipesPage() {
                   value={externalRecipeUrl}
                   onChange={(e) => setExternalRecipeUrl(e.target.value)}
                   placeholder="https://... (Wongnai, Krua.co, YouTube, TikTok, Lemon8 ฯลฯ)"
-                  className="kindi-input-field w-full pl-9 pr-3.5 py-2.5 text-sm font-medium"
+                  className="kindi-input-field w-full pl-9 pr-3.5 py-2.5 text-sm font-medium" {...validationProps("external_recipe_url")}
                 />
                 <Link2
                   className="w-4 h-4 text-[#76685C] absolute left-3 top-1/2 -translate-y-1/2"
                   aria-hidden="true"
                 />
               </div>
+              {fieldError("external_recipe_url")}
               <p className="text-xs text-[#6E5D50] mt-1">
                 เมื่อกดปุ่ม &ldquo;ลิงก์สูตรอาหาร&rdquo; ในการ์ด
                 ระบบจะพาไปเปิดสูตรต้นฉบับนี้ทันที
@@ -834,7 +870,7 @@ export default function CommunityRecipesPage() {
                     type="file"
                     accept="image/*"
                     onChange={handleImageFileUpload}
-                    className="sr-only"
+                    className="sr-only" {...validationProps("image_url")}
                   />
                 </label>
               ) : (
@@ -848,10 +884,11 @@ export default function CommunityRecipesPage() {
                   value={imageUrl.startsWith("data:") ? "" : imageUrl}
                   onChange={(e) => setImageUrl(e.target.value)}
                   placeholder="https://example.com/food-image.jpg"
-                  className="kindi-input-field w-full px-3.5 py-2.5 text-sm font-medium"
+                  className="kindi-input-field w-full px-3.5 py-2.5 text-sm font-medium" {...validationProps("image_url")}
                 />
               )}
 
+              {fieldError("image_url")}
               {imageUrl && (
                 <div className="relative rounded-lg overflow-hidden border border-[#DDD2C2] bg-[#F1EADF] h-48">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -887,8 +924,9 @@ export default function CommunityRecipesPage() {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="ความอร่อย จุดเด่น หรือเคล็ดลับของเมนูนี้..."
-                className="kindi-input-field w-full px-3.5 py-2.5 text-sm font-medium"
+                className="kindi-input-field w-full px-3.5 py-2.5 text-sm font-medium" {...validationProps("description")}
               />
+              {fieldError("description")}
             </div>
           </fieldset>
 
@@ -921,7 +959,7 @@ export default function CommunityRecipesPage() {
                   id="recipe-cat"
                   value={category}
                   onChange={(e) => setCategory(e.target.value as FoodCategory)}
-                  className="kindi-input-field w-full px-3.5 py-2.5 text-xs sm:text-sm font-bold"
+                  className="kindi-input-field w-full px-3.5 py-2.5 text-xs sm:text-sm font-bold" {...validationProps("category")}
                 >
                   {(Object.keys(FOOD_CATEGORY_LABELS) as FoodCategory[]).map(
                     (cat) => (
@@ -931,6 +969,7 @@ export default function CommunityRecipesPage() {
                     ),
                   )}
                 </select>
+              {fieldError("category")}
               </div>
 
               {/* เวลาทำ (Range Slider) */}
@@ -962,8 +1001,9 @@ export default function CommunityRecipesPage() {
                       "--control-value": cookingTime,
                     } as React.CSSProperties
                   }
-                  className="kindi-range-slider"
+                  className="kindi-range-slider" {...validationProps("cooking_time")}
                 />
+              {fieldError("cooking_time")}
                 <div className="flex justify-between text-xs font-medium text-[#6E5D50] mt-0.5 tabular-nums">
                   <span>5 นาที</span>
                   <span>60 นาที</span>
@@ -979,9 +1019,11 @@ export default function CommunityRecipesPage() {
                   มื้ออาหารที่เหมาะ *
                 </span>
                 <div
+                  role="group"
+                  aria-label="มื้ออาหารที่เหมาะ"
                   id="recipe-meals"
                   tabIndex={-1}
-                  className="flex flex-wrap gap-1.5"
+                  className="flex flex-wrap gap-1.5" {...validationProps("meal_types")}
                 >
                   {(Object.keys(MEAL_TYPE_LABELS) as MealType[]).map((mt) => {
                     const active = mealTypes.includes(mt);
@@ -1002,6 +1044,7 @@ export default function CommunityRecipesPage() {
                     );
                   })}
                 </div>
+              {fieldError("meal_types")}
               </div>
 
               <div>
@@ -1055,7 +1098,8 @@ export default function CommunityRecipesPage() {
                 </span>
               </div>
               <label className="ingredient-search-label" htmlFor="community-ingredient-search">ค้นหาวัตถุดิบ</label>
-              <input id="community-ingredient-search" type="search" value={ingredientSearch} onChange={event => setIngredientSearch(event.target.value)} placeholder="เช่น ไข่ ไก่ กระเทียม" className="kindi-input-field community-ingredient-search" />
+              <input id="community-ingredient-search" type="search" value={ingredientSearch} onChange={event => setIngredientSearch(event.target.value)} placeholder="เช่น ไข่ ไก่ กระเทียม" className="kindi-input-field community-ingredient-search" {...validationProps("ingredientIds")} />
+              {fieldError("ingredientIds")}
               {ingredientIds.length > 0 && <div className="community-selected-ingredients" aria-label="วัตถุดิบที่เลือกแล้ว">
                 <p>เลือกแล้ว {ingredientIds.length} รายการ · แตะเพื่อนำออก</p>
                 <div>{ingredientIds.map(id => <button key={id} type="button" onClick={() => toggleIngredient(id)} aria-label={`นำ ${allAvailableIngredients.find(ing => ing.id === id)?.name_th ?? id} ออก`}>{allAvailableIngredients.find(ing => ing.id === id)?.name_th ?? id}<X size={14} aria-hidden="true" /></button>)}</div>
@@ -1109,8 +1153,9 @@ export default function CommunityRecipesPage() {
                         }
                       }}
                       placeholder="เช่น แหนม, วุ้นเส้น, ชะอม, หมูยอ, เห็ดเข็มทอง..."
-                      className="kindi-input-field flex-1 px-3 py-2 text-xs font-medium bg-white"
+                      className="kindi-input-field flex-1 px-3 py-2 text-xs font-medium bg-white" {...validationProps("customIngredientNames")}
                     />
+              {fieldError("customIngredientNames")}
                     <button
                       type="button"
                       onClick={addCustomIngredient}
@@ -1215,8 +1260,9 @@ export default function CommunityRecipesPage() {
                   value={instructionsText}
                   onChange={(e) => setInstructionsText(e.target.value)}
                   placeholder="เช่น หมักหมูไว้ข้ามคืนจะนุ่มเข้าเนื้อมาก"
-                  className="kindi-input-field w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium"
+                  className="kindi-input-field w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium" {...validationProps("instructionsText")}
                 />
+              {fieldError("instructionsText")}
               </div>
 
               <div className="kindi-input-group">
@@ -1232,8 +1278,9 @@ export default function CommunityRecipesPage() {
                   value={submittedBy}
                   onChange={(e) => setSubmittedBy(e.target.value)}
                   placeholder="เช่น เชฟกระทะเหล็ก"
-                  className="kindi-input-field w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium"
+                  className="kindi-input-field w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium" {...validationProps("submitted_by")}
                 />
+              {fieldError("submitted_by")}
               </div>
             </div>
           </fieldset>

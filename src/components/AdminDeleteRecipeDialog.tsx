@@ -16,16 +16,30 @@ export function AdminDeleteRecipeDialog({ recipe, onClose, onDelete }: Props) {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const pendingRef = useRef(false);
+  const requestRef = useRef<AbortController | null>(null);
+
+  const cancelRequest = () => {
+    requestRef.current?.abort();
+    requestRef.current = null;
+    pendingRef.current = false;
+    setBusy(false);
+  };
 
   useEffect(() => {
+    cancelRequest();
     setPin("");
     setError("");
     if (recipe && !dialogRef.current?.open) dialogRef.current?.showModal();
     else if (!recipe) dialogRef.current?.close();
+    return () => {
+      requestRef.current?.abort();
+      requestRef.current = null;
+    };
   }, [recipe]);
 
   const close = () => {
-    if (!pendingRef.current) dialogRef.current?.close();
+    cancelRequest();
+    dialogRef.current?.close();
   };
   const submit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -38,14 +52,19 @@ export function AdminDeleteRecipeDialog({ recipe, onClose, onDelete }: Props) {
     pendingRef.current = true;
     setBusy(true);
     setError("");
+    const controller = new AbortController();
+    requestRef.current = controller;
+    const timeout = window.setTimeout(() => controller.abort(), 25_000);
     try {
       const response = await fetch("/api/admin/authorize-recipe-deletion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         cache: "no-store",
         body: JSON.stringify({ pin, recipeId: recipe.id }),
+        signal: controller.signal,
       });
       const result = await response.json();
+      if (requestRef.current !== controller || !dialogRef.current?.open) return;
       if (!response.ok || result.authorizedRecipeId !== recipe.id) {
         setError(result.error || "ตรวจสอบ PIN ไม่สำเร็จ กรุณาลองใหม่");
         setPin("");
@@ -56,11 +75,18 @@ export function AdminDeleteRecipeDialog({ recipe, onClose, onDelete }: Props) {
       setPin("");
       dialogRef.current?.close();
     } catch {
-      setError("ลบเมนูไม่สำเร็จ เมนูยังอยู่ กรุณาลองใหม่");
+      if (requestRef.current !== controller) return;
+      setError(controller.signal.aborted
+        ? "รอนานเกินไป ยังยืนยันผลการลบไม่ได้ กรุณาตรวจสอบรายการก่อนลองใหม่"
+        : "ยังยืนยันผลการลบไม่ได้ กรุณาตรวจสอบรายการก่อนลองใหม่");
       setPin("");
     } finally {
-      pendingRef.current = false;
-      setBusy(false);
+      window.clearTimeout(timeout);
+      if (requestRef.current === controller) {
+        requestRef.current = null;
+        pendingRef.current = false;
+        setBusy(false);
+      }
     }
   };
 
@@ -71,12 +97,14 @@ export function AdminDeleteRecipeDialog({ recipe, onClose, onDelete }: Props) {
       aria-labelledby="admin-delete-title"
       aria-describedby="admin-delete-description"
       onClose={() => {
+        cancelRequest();
         setPin("");
         setError("");
         onClose();
       }}
       onCancel={(event) => {
-        if (pendingRef.current) event.preventDefault();
+        event.preventDefault();
+        close();
       }}
     >
       <form onSubmit={submit}>
@@ -86,7 +114,6 @@ export function AdminDeleteRecipeDialog({ recipe, onClose, onDelete }: Props) {
           <button
             type="button"
             onClick={close}
-            disabled={busy}
             aria-label="ปิดหน้าต่างยืนยันการลบ"
           >
             <X size={20} aria-hidden="true" />
@@ -126,13 +153,13 @@ export function AdminDeleteRecipeDialog({ recipe, onClose, onDelete }: Props) {
         )}
         <p className="admin-delete-note">
           เมนูนี้จะถูกซ่อนจากฐานข้อมูลส่วนกลางและนำออกจากรายการบนเว็บ
+          {busy && <span role="status" className="block mt-2">ปิดหน้าต่างได้ระหว่างรอ แต่เซิร์ฟเวอร์อาจลบไปแล้ว กรุณาตรวจสอบรายการก่อนลองใหม่</span>}
         </p>
         <div className="admin-delete-actions">
           <button
             type="button"
             className="kindi-btn-secondary"
             onClick={close}
-            disabled={busy}
           >
             ยกเลิก
           </button>
