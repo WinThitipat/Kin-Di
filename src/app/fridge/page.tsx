@@ -79,8 +79,10 @@ export default function FridgeModePage() {
   useEffect(() => {
     if (pantryReady) savePantry({ ingredientIds: selectedIngredientIds, assumeBasicCondiments });
   }, [pantryReady, selectedIngredientIds, assumeBasicCondiments]);
+  const [activeIngredientCategory, setActiveIngredientCategory] = useState<IngredientCategory | 'all'>('all');
   const [showOtherInput, setShowOtherInput] = useState<boolean>(false);
   const [ingredientSearch, setIngredientSearch] = useState('');
+  const [libraryOpen, setLibraryOpen] = useState(false);
 
   useEffect(() => {
     const loadAll = () => {
@@ -266,6 +268,40 @@ export default function FridgeModePage() {
             {ingredientSearch.trim() && !Object.values(catalog).some(item => item.name_th.includes(ingredientSearch.trim())) && <p className="text-sm mt-2" role="status">ไม่พบวัตถุดิบนี้ กดเพิ่มเพื่อเลือก “{ingredientSearch.trim()}”</p>}
           </div>
 
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap gap-1.5">
+            <button
+              type="button"
+              onClick={() => { setActiveIngredientCategory('all'); setLibraryOpen(true); }}
+              aria-pressed={activeIngredientCategory === 'all'}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors cursor-pointer ${
+                activeIngredientCategory === 'all'
+                  ? 'bg-[#302923] text-[#FBF0DC] border-[#302923] shadow-xs'
+                  : 'bg-white text-[#302923] border-[#DDD2C2] hover:border-[#C6B7A5]'
+              }`}
+            >
+              ทั้งหมด
+            </button>
+            {(Object.keys(INGREDIENT_CATEGORY_LABELS) as IngredientCategory[]).filter(key => key !== 'condiment').map((catKey) => {
+              const active = activeIngredientCategory === catKey;
+              return (
+                <button
+                  key={catKey}
+                  type="button"
+                  onClick={() => { setActiveIngredientCategory(catKey); setLibraryOpen(true); }}
+                  aria-pressed={active}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors cursor-pointer ${
+                    active
+                      ? 'bg-[#302923] text-[#FBF0DC] border-[#302923] shadow-xs'
+                      : 'bg-white text-[#302923] border-[#DDD2C2] hover:border-[#C6B7A5]'
+                  }`}
+                >
+                  {INGREDIENT_CATEGORY_LABELS[catKey]}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Basic Pantry Condiments Toggle */}
           <label className="flex items-center justify-between gap-3 p-4 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2] hover:border-[#C6B7A5] transition-colors cursor-pointer select-none">
             <div>
@@ -285,11 +321,16 @@ export default function FridgeModePage() {
           </label>
 
           {/* Ingredient Groups */}
-          <section className="fridge-search-results" hidden={!ingredientSearch.trim()} aria-label="ผลค้นหาวัตถุดิบ">
+          <details className="ingredient-library" open={libraryOpen || !!ingredientSearch.trim()} onToggle={event => setLibraryOpen(event.currentTarget.open)}>
+          <summary className="min-h-11 cursor-pointer font-medium">เลือกจากรายการวัตถุดิบทั้งหมด</summary>
           <div className="space-y-4">
             {(Object.keys(groupedIngredients) as IngredientCategory[]).map((catKey) => {
+              if (catKey === 'condiment' && !ingredientSearch.trim()) return null;
+              if (!ingredientSearch.trim() && activeIngredientCategory !== 'all' && activeIngredientCategory !== catKey) {
+                return null;
+              }
               const items = groupedIngredients[catKey].filter(item => item.name_th.includes(ingredientSearch.trim()));
-              if (!items || items.length === 0) return null;
+              if ((!items || items.length === 0) && catKey !== 'other') return null;
               return (
                 <div key={catKey} className="ingredient-group space-y-2.5">
                   <h3 className="text-xs font-semibold text-[#6E5D50]">
@@ -325,7 +366,7 @@ export default function FridgeModePage() {
             })}
 
           </div>
-          </section>
+          </details>
 
           <div className="fridge-find-action">
             <p className="text-sm text-[#6E5D50]">{selectedIngredientIds.length ? `เลือกไว้ ${selectedIngredientIds.length} อย่างแล้ว เพิ่มหรือลบได้ก่อนดูเมนู` : 'เลือกวัตถุดิบอย่างน้อย 1 อย่างเพื่อเริ่มค้นหา'}</p>
