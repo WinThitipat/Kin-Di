@@ -95,7 +95,7 @@ export default function RecipeDetailPage() {
     const items: ChecklistItem[] = [];
 
     (recipe.ingredients ?? []).forEach((item, index) => {
-      const entry = catalog[item.ingredient_id];
+      const entry = recipe.ingredient_catalog?.find(record => record.id === item.ingredient_id) || catalog[item.ingredient_id];
       const name = entry?.name_th || item.ingredient_id;
       const roleText = ROLE_LABELS[item.role] || item.role;
       items.push({
@@ -108,6 +108,7 @@ export default function RecipeDetailPage() {
     });
 
     (recipe.custom_ingredients ?? []).forEach((customName, index) => {
+      if (items.some(item => item.name.trim().normalize('NFC') === customName.trim().normalize('NFC'))) return;
       items.push({
         id: `custom-${index}-${customName}`,
         name: customName,
@@ -197,6 +198,8 @@ export default function RecipeDetailPage() {
   }
 
   const isSafeForCurrentUser = isRecipeSafeForUser(recipe, restrictions, catalog);
+  const safetyIncomplete = recipe.safety_metadata_complete !== true ||
+    ALL_ALLERGEN_IDS.some(id => !recipe.allergen_assessments?.[id] || recipe.allergen_assessments[id].status === 'unknown');
   const isFavorite = favoriteIds.includes(recipe.id);
   const externalLinks = getExternalRecipeLinks(recipe);
   const sourceNotesOnly = recipe.instructions.length > 0 && recipe.instructions.every(text =>
@@ -270,7 +273,7 @@ export default function RecipeDetailPage() {
           </div>
           <div className="text-xs sm:text-sm text-[#302923] space-y-1">
             <p className="font-semibold text-rose-900 text-sm sm:text-base">
-              คำเตือน: เมนูนี้ไม่ตรงกับ &ldquo;ข้อจำกัดทางอาหาร&rdquo; ที่คุณตั้งค่าไว้ในปัจจุบัน
+              {safetyIncomplete ? 'ข้อมูลส่วนผสมหรือภูมิแพ้ยังไม่ครบ จึงยืนยันว่าเข้ากับข้อจำกัดของคุณไม่ได้' : 'เมนูนี้ไม่ผ่านข้อจำกัดทางอาหารที่คุณตั้งไว้'}
             </p>
             <p className="text-[#6E5D50] leading-relaxed">
               ระบบสุ่มไพ่จะคัดเมนูนี้ออกโดยอัตโนมัติ โปรดตรวจสอบรายการวัตถุดิบและสารก่อภูมิแพ้ด้านล่างอย่างละเอียดก่อนรับประทาน
@@ -278,14 +281,14 @@ export default function RecipeDetailPage() {
           </div>
         </div>
       ) : (
-        <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center gap-3.5 text-xs sm:text-sm text-emerald-950 shadow-xs">
-          <div className="w-9 h-9 rounded-xl bg-white border border-emerald-200 flex items-center justify-center shrink-0 text-emerald-700">
-            <ShieldCheck className="w-5 h-5" aria-hidden="true" />
+        <div className={`p-4 rounded-lg border flex items-center gap-3.5 text-xs sm:text-sm shadow-xs ${safetyIncomplete ? 'bg-amber-50 border-amber-200 text-amber-950' : 'bg-emerald-50 border-emerald-200 text-emerald-950'}`}>
+          <div className="w-9 h-9 rounded-xl bg-white border flex items-center justify-center shrink-0">
+            {safetyIncomplete ? <ShieldAlert className="w-5 h-5" aria-hidden="true" /> : <ShieldCheck className="w-5 h-5" aria-hidden="true" />}
           </div>
           <div className="leading-relaxed">
-            <span className="font-semibold text-[#302923]">ปลอดภัยสำหรับคุณ:</span>{' '}
-            <span className="font-medium text-emerald-900">
-              เมนูนี้ผ่านเกณฑ์ข้อจำกัดทางอาหารและสารก่อภูมิแพ้ที่คุณตั้งค่าไว้ทั้งหมด
+            <span className="font-semibold text-[#302923]">{safetyIncomplete ? 'ข้อมูลภูมิแพ้ยังไม่ครบ:' : 'ไม่พบข้อขัดแย้งจากข้อมูลที่มี:'}</span>{' '}
+            <span className="font-medium">
+              {safetyIncomplete ? 'การแสดงเมนูนี้ไม่ใช่การยืนยันว่าปลอดสารก่อภูมิแพ้ โปรดตรวจสูตรและฉลากเครื่องปรุง' : 'ผลนี้อิงข้อมูลในระบบและข้อจำกัดที่ตั้งไว้ ไม่ใช่การรับรองความปลอดภัยในการรับประทาน'}
             </span>
           </div>
         </div>

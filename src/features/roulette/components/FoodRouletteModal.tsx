@@ -14,6 +14,7 @@ import { getRevealedRecipeFromRound } from '@/features/roulette/roulette-engine'
 import { CardCountOption, RouletteRoundState, SAFETY_DISCLAIMER_TH } from '@/types/recipe';
 
 interface FoodRouletteModalProps {
+  emptyExplanation?: string;
   isOpen: boolean;
   onClose: () => void;
   round: RouletteRoundState | null;
@@ -32,6 +33,7 @@ interface FoodRouletteModalProps {
 }
 
 export function FoodRouletteModal({
+  emptyExplanation,
   isOpen,
   onClose,
   round,
@@ -200,6 +202,7 @@ export function FoodRouletteModal({
           />
         ) : !round || round.cards.length === 0 ? (
           <RouletteEmptyState
+            explanation={emptyExplanation}
             hasOptionalFilters={hasOptionalFilters}
             onResetOptionalFilters={onResetOptionalFilters}
             onCloseModal={() => dialogRef.current?.close()}

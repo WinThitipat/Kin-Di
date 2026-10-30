@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { AlertTriangle, RotateCcw, SearchX, Share2, SlidersHorizontal } from 'lucide-react';
 
 interface RouletteEmptyStateProps {
+  explanation?: string;
   hasOptionalFilters: boolean;
   onResetOptionalFilters: () => void;
   onCloseModal: () => void;
 }
 
 export function RouletteEmptyState({
+  explanation,
   hasOptionalFilters,
   onResetOptionalFilters,
   onCloseModal,
@@ -26,11 +28,10 @@ export function RouletteEmptyState({
 
       <div className="space-y-1.5">
         <h3 className="text-lg sm:text-xl font-semibold text-[#171717]">
-          วันนี้ยังไม่มีเมนูที่ตรงเงื่อนไข ลองปรับตัวกรองดูไหม?
+          ยังไม่พบเมนูที่ผ่านเงื่อนไขตอนนี้
         </h3>
         <p className="text-xs sm:text-sm text-[#6E6A63] leading-relaxed">
-          หากยังไม่มีสูตรอาหารในระบบ คุณสามารถไปที่หน้า &ldquo;เพิ่มเมนูอาหาร&rdquo;
-          เพื่อเพิ่มเมนูโปรดของคุณ หรือปรับตัวกรองมื้ออาหารและเวลาทำอาหารได้
+          {explanation || 'ยังไม่มีเมนูที่ผ่านเงื่อนไขปัจจุบัน'}
         </p>
       </div>
 
@@ -38,7 +39,7 @@ export function RouletteEmptyState({
         <Link
           href="/community"
           onClick={onCloseModal}
-          className="kindi-btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm"
+          className="kindi-btn-secondary min-h-11 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm"
         >
           <Share2 className="w-4 h-4" aria-hidden="true" />
           <span>ไปหน้าเพิ่มเมนูอาหาร</span>
@@ -48,10 +49,10 @@ export function RouletteEmptyState({
           <button
             type="button"
             onClick={onResetOptionalFilters}
-            className="kindi-btn-accent w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm cursor-pointer"
+            className="kindi-btn-primary min-h-11 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" aria-hidden="true" />
-            <span>ล้างตัวกรองด่วนแล้วสุ่มใหม่</span>
+            <span>ล้างเฉพาะมื้อ หมวด และเวลา แล้วสุ่มใหม่</span>
           </button>
         )}
 
@@ -64,6 +65,7 @@ export function RouletteEmptyState({
           <span>ปิดหน้าต่าง</span>
         </button>
       </div>
+      <p className="text-xs text-[#6E6A63]">ข้อจำกัดทางอาหารและรายการที่แพ้จะยังคงเดิม</p>
     </div>
   );
 }

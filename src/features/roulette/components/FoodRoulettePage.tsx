@@ -661,6 +661,10 @@ export function FoodRoulettePage() {
         </div>
       )}
       <FoodRouletteModal
+        emptyExplanation={allRecipes.length === 0 ? 'ยังไม่มีเมนูในฐานข้อมูล เพิ่มสูตรอาหารก่อนเริ่มสุ่มได้' :
+          getEligibleRouletteRecipes(allRecipes, restrictions, DEFAULT_ROULETTE_FILTERS, catalog).length === 0 ?
+          'ยังไม่มีเมนูที่ผ่านข้อจำกัดทางอาหารของคุณ อาจมีส่วนผสมที่ขัดกัน หรือข้อมูลส่วนผสมและภูมิแพ้ยังไม่ครบ ระบบจึงไม่นำมาสุ่ม' :
+          `มีเมนูที่ผ่านข้อจำกัดทางอาหาร แต่ไม่ตรงตัวกรองที่เลือก: ${filters.mealType === 'all' ? 'ทุกมื้อ' : MEAL_TYPE_LABELS[filters.mealType]} · ${filters.category === 'all' ? 'ทุกหมวด' : FOOD_CATEGORY_LABELS[filters.category]} · ${filters.maxCookingTime === null ? 'ไม่จำกัดเวลา' : `ไม่เกิน ${filters.maxCookingTime} นาที`}`}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         round={round}
