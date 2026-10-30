@@ -245,10 +245,10 @@ svg {
   color: var(--red);
 }
 .question-mark {
-  font-family: Georgia, serif;
-  font-weight: 400;
-  font-style: italic;
-  margin-left: 8px;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: normal;
+  margin-left: 0.08em;
 }
 .hero-intro {
   margin-top: 23px;
