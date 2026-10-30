@@ -3,7 +3,7 @@ const assert=require('assert/strict');const fs=require('fs');
 const base=process.env.TEST_BASE_URL||'http://127.0.0.1:3102';
 (async()=>{const browser=await chromium.launch({channel:'chrome',headless:true});fs.mkdirSync('artifacts/nav-sizing',{recursive:true});try{
 for(const reduced of [false,true]){const context=await browser.newContext({reducedMotion:reduced?'reduce':'no-preference'});const page=await context.newPage();await page.goto(base);await page.waitForLoadState('networkidle');
-async function aligned(){await page.waitForFunction(()=>{const nav=document.querySelector('.primary-nav');const a=nav.querySelector('[aria-current="page"]').getBoundingClientRect();const b=nav.querySelector('.nav-active-indicator').getBoundingClientRect();return Math.abs(a.left-b.left)<.75&&Math.abs(a.right-b.right)<.75;},{},{timeout:5000});}
+async function aligned(){await page.waitForFunction(()=>{const nav=document.querySelector('.primary-nav');return !nav.querySelector('.nav-active-indicator')&&[...nav.querySelectorAll('a')].every(a=>{const s=getComputedStyle(a);return parseFloat(s.borderBottomWidth)>=2&&(a.hasAttribute('aria-current')?s.borderBottomColor===getComputedStyle(document.documentElement).getPropertyValue('--red').trim()||s.borderBottomColor==='rgb(163, 51, 38)':s.borderBottomColor==='rgba(0, 0, 0, 0)');});},{},{timeout:5000});}
 for(const width of [320,375,390,430,760,768,1024,1440,1920]){await page.setViewportSize({width,height:850});
 for(const path of ['/fridge','/community','/']){await page.locator(`.primary-nav a[href="${path}"]`).click();await page.waitForURL(base+path);await aligned();
 // Simulate a font swap changing only link metrics, not the nav container.

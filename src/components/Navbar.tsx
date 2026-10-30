@@ -1,5 +1,5 @@
 "use client";
-import React, { useLayoutEffect, useRef } from "react";
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
@@ -37,30 +37,6 @@ export function Navbar({
       active: pathname.startsWith("/community"),
     },
   ];
-  const navRef = useRef<HTMLElement>(null);
-  const indicatorRef = useRef<HTMLSpanElement>(null);
-  useLayoutEffect(() => {
-    const nav = navRef.current;
-    const indicator = indicatorRef.current;
-    if (!nav || !indicator) return;
-    const update = () => {
-      const active = nav.querySelector<HTMLElement>('a[aria-current="page"]');
-      indicator.style.opacity = active ? '1' : '0';
-      if (active) {
-        const bounds = active.getBoundingClientRect();
-        const navBounds = nav.getBoundingClientRect();
-        indicator.style.transform = `translateX(${bounds.left - navBounds.left}px) scaleX(${bounds.width})`;
-      }
-    };
-    update();
-    const frame = requestAnimationFrame(() => { indicator.dataset.ready = 'true'; });
-    const observer = new ResizeObserver(update);
-    observer.observe(nav);
-    nav.querySelectorAll('a').forEach(link => observer.observe(link));
-    let disposed = false;
-    void document.fonts.ready.then(() => { if (!disposed) update(); });
-    return () => { disposed = true; cancelAnimationFrame(frame); observer.disconnect(); };
-  }, [pathname]);
   return (
     <header className="site-header">
       <div className="nav-inner">
@@ -68,8 +44,7 @@ export function Navbar({
           กินดิ<span>!</span>
           <small>KIN DI</small>
         </Link>
-        <nav ref={navRef} className="primary-nav" aria-label="เมนูหลัก">
-          <span ref={indicatorRef} className="nav-active-indicator" aria-hidden="true" />
+        <nav className="primary-nav" aria-label="เมนูหลัก">
           {links.map((link, index) => (
             <Link
               key={link.href}
