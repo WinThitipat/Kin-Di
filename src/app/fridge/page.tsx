@@ -81,7 +81,6 @@ export default function FridgeModePage() {
   }, [pantryReady, selectedIngredientIds, assumeBasicCondiments]);
   const [activeIngredientCategory, setActiveIngredientCategory] = useState<IngredientCategory | 'all'>('all');
   const [showOtherInput, setShowOtherInput] = useState<boolean>(false);
-  const [otherDraft, setOtherDraft] = useState<string>('');
   const [ingredientSearch, setIngredientSearch] = useState('');
   const [libraryOpen, setLibraryOpen] = useState(false);
 
@@ -119,7 +118,7 @@ export default function FridgeModePage() {
   };
 
   const handleAddOtherIngredient = () => {
-    const clean = otherDraft.trim();
+    const clean = ingredientSearch.trim();
     if (!clean) return;
     const slugId = `custom_${clean.toLowerCase().replace(/[^a-z0-9ก-๙]+/g, '_')}`;
     const newRecord: IngredientRecord = {
@@ -133,7 +132,7 @@ export default function FridgeModePage() {
     const updated = saveCustomIngredient(newRecord);
     setCustomIngredients(updated);
     setSelectedIngredientIds((prev) => (prev.includes(slugId) ? prev : [...prev, slugId]));
-    setOtherDraft('');
+    setIngredientSearch('');
   };
 
   const matchedRecipes = useMemo(() => {
@@ -258,9 +257,15 @@ export default function FridgeModePage() {
 
           <div>
             <label htmlFor="fridge-ingredient-search" className="block text-sm mb-2">ค้นหาวัตถุดิบที่มี</label>
-            <input id="fridge-ingredient-search" type="search" value={ingredientSearch}
-              onChange={event => setIngredientSearch(event.target.value)} placeholder="เช่น ไข่ ไก่ กะหล่ำปลี"
-              className="kindi-input-field w-full min-h-11 px-3" />
+            <div className="fridge-search-add">
+              <input id="fridge-ingredient-search" type="search" value={ingredientSearch}
+                onChange={event => setIngredientSearch(event.target.value)} placeholder="เช่น ไข่ ไก่ กะหล่ำปลี"
+                className="kindi-input-field w-full min-h-11 px-3" />
+              {ingredientSearch.trim() && !Object.values(catalog).some(item => item.name_th.includes(ingredientSearch.trim())) && (
+                <button type="button" className="kindi-btn-primary" onClick={handleAddOtherIngredient} aria-label={`เพิ่มวัตถุดิบ ${ingredientSearch.trim()}`}>+ เพิ่ม</button>
+              )}
+            </div>
+            {ingredientSearch.trim() && !Object.values(catalog).some(item => item.name_th.includes(ingredientSearch.trim())) && <p className="text-sm mt-2" role="status">ไม่พบวัตถุดิบนี้ กดเพิ่มเพื่อเลือก “{ingredientSearch.trim()}”</p>}
           </div>
 
           {/* Category Filter Pills */}
@@ -362,39 +367,7 @@ export default function FridgeModePage() {
 
           </div>
           </details>
-            {(
-              <div className="kindi-input-group p-4 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2] space-y-2">
-                <label
-                  htmlFor="fridge-other-ing"
-                  className="block text-xs font-semibold text-[#302923]"
-                >
-                  เพิ่มวัตถุดิบอื่นๆ ที่มีในตู้เย็น:
-                </label>
-                <div className="flex gap-2">
-                  <input
-                    id="fridge-other-ing"
-                    type="text"
-                    value={otherDraft}
-                    onChange={(e) => setOtherDraft(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
-                        e.preventDefault();
-                        handleAddOtherIngredient();
-                      }
-                    }}
-                    placeholder="เช่น แหนม, หมูยอ, วุ้นเส้น, ผักกาดขาว..."
-                    className="kindi-input-field flex-1 px-3.5 py-2.5 rounded-xl bg-white text-xs sm:text-sm font-medium"
-                  />
-                  <button
-                    type="button"
-                    onClick={handleAddOtherIngredient}
-                    className="kindi-btn-primary px-4 py-2.5 rounded-xl text-xs font-bold cursor-pointer shrink-0"
-                  >
-                    + เพิ่ม
-                  </button>
-                </div>
-              </div>
-            )}
+
           <div className="fridge-find-action">
             <p className="text-sm text-[#6E5D50]">{selectedIngredientIds.length ? `เลือกไว้ ${selectedIngredientIds.length} อย่างแล้ว เพิ่มหรือลบได้ก่อนดูเมนู` : 'เลือกวัตถุดิบอย่างน้อย 1 อย่างเพื่อเริ่มค้นหา'}</p>
             <button type="button" className="kindi-btn-primary min-h-12 px-6 py-3" disabled={!pantryReady || loadingRecipes || !!loadError || selectedIngredientIds.length === 0}
