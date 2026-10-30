@@ -114,6 +114,7 @@ export default function CommunityRecipesPage() {
     IngredientRecord[]
   >([]);
   const [sharedRecipes, setSharedRecipes] = useState<Recipe[]>([]);
+  const [bannerIndex, setBannerIndex] = useState(0);
   const [recipeToDelete, setRecipeToDelete] = useState<Recipe | null>(null);
   const [legacyRecipes, setLegacyRecipes] = useState<Recipe[]>([]);
   const [databaseRecipeIds, setDatabaseRecipeIds] = useState<string[]>([]);
@@ -539,6 +540,10 @@ export default function CommunityRecipesPage() {
 
   const totalSelectedIngredients =
     ingredientIds.length + customIngredientNames.length;
+  const bannerRecipes = sharedRecipes.filter(recipe => recipe.image_url);
+  const bannerRecipe = bannerRecipes[bannerIndex % (bannerRecipes.length || 1)];
+  const changeBanner = (direction: number) => setBannerIndex(index =>
+    (index + direction + bannerRecipes.length) % Math.max(1, bannerRecipes.length));
 
   return (
     <div className="interior-page community-page">
@@ -551,11 +556,18 @@ export default function CommunityRecipesPage() {
         </div>
         <figure className="community-banner-photo">
           <img
-            src={sharedRecipes.find(recipe => recipe.name === "ผัดซีอิ๊วหมู")?.image_url || "/images/crispy-pork-garlic.webp"}
-            alt={sharedRecipes.some(recipe => recipe.name === "ผัดซีอิ๊วหมู") ? "ผัดซีอิ๊วหมู หนึ่งในสูตรที่เก็บไว้ใน KIN DI" : "หมูทอดกระเทียม"}
+            src={bannerRecipe?.image_url || "/images/crispy-pork-garlic.webp"}
+            alt={bannerRecipe?.name || "หมูทอดกระเทียม"}
             width={640} height={640} decoding="async"
           />
           <figcaption><strong>{sharedRecipes.length}</strong><span>เมนูในครัว<br />KIN DI</span></figcaption>
+          {bannerRecipe && <div className="banner-menu-controls">
+            <Link href={`/recipes/${encodeURIComponent(bannerRecipe.id)}`} aria-live="polite">{bannerRecipe.name}<span>ดูสูตร ↗</span></Link>
+            <div className="banner-menu-buttons">
+              <button type="button" aria-label="เมนูก่อนหน้าในแบนเนอร์" disabled={bannerRecipes.length < 2} onClick={() => changeBanner(-1)}>←</button>
+              <button type="button" aria-label="เมนูถัดไปในแบนเนอร์" disabled={bannerRecipes.length < 2} onClick={() => changeBanner(1)}>→</button>
+            </div>
+          </div>}
         </figure>
       </section>
 

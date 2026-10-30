@@ -2106,3 +2106,14 @@ body:has(dialog[open]) {
   .community-banner-photo > img { object-position: center 55%; }
   .community-banner-photo figcaption { left: 16px; bottom: 16px; padding: 8px 14px; }
 }
+
+/* Manual banner browsing keeps the selected recipe steady while reading. */
+.community-banner-photo figcaption { top: 16px; bottom: auto; left: 16px; padding: 6px 12px; }
+.community-banner-photo figcaption strong { font-size: 26px; }
+.banner-menu-controls { position: absolute; inset: auto 12px 12px; display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 6px; background: var(--paper); color: var(--ink); }
+.banner-menu-controls > a { flex: 1; min-width: 0; overflow-wrap: anywhere; font-size: 14px; font-weight: 500; }
+.banner-menu-controls > a span { display: block; color: var(--red); font-size: 12px; margin-top: 3px; }
+.banner-menu-buttons { display: flex; gap: 6px; flex-shrink: 0; }
+.banner-menu-buttons button { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 4px; background: transparent; font-size: 20px; cursor: pointer; }
+.banner-menu-buttons button:disabled { opacity: .4; cursor: default; }
+@media (max-width: 760px) { .community-banner-photo { min-height: 270px; max-height: 270px; } }
