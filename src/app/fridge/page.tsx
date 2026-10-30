@@ -187,7 +187,7 @@ export default function FridgeModePage() {
       {loadError && <div role="alert" className="step-error">{loadError} <button type="button" className="text-link min-h-11" onClick={() => setReloadKey(key => key + 1)}>ลองอีกครั้ง</button></div>}
       {/* Editorial Bento Header */}
       <section className="interior-header fridge-header">
-        <div><h1>เปิดตู้เย็น<br /><span>เจอมื้อถัดไป</span></h1><p>ของที่มีอยู่ อาจอร่อยกว่าที่คิด เลือกวัตถุดิบในบ้าน<br className="hidden sm:block" /> แล้วค้นหาเมนูที่ทำได้ หรือขาดอีกแค่นิดเดียว</p></div>
+        <div><h1>ของในตู้เย็น</h1><p>เลือกวัตถุดิบที่มี แล้วดูเมนูที่เข้ากัน</p></div>
         <div className="interior-header-actions"><Refrigerator size={64} strokeWidth={1} aria-hidden="true" /><button onClick={openRestrictionsModal} className="text-link"><ShieldCheck size={17} aria-hidden="true" /> ตั้งค่าข้อจำกัดทางอาหาร</button></div>
       </section>
 

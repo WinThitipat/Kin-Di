@@ -123,9 +123,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               กินดิ!<small>คิดน้อยลง อร่อยมากขึ้น</small>
             </div>
             <p>{SAFETY_DISCLAIMER_TH}</p>
-            <span className="footer-signoff">
-              MADE FOR THE EVERYDAY APPETITE.
-            </span>
           </div>
         </footer>
 

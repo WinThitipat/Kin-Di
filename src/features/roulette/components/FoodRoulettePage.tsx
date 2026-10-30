@@ -68,6 +68,7 @@ export function FoodRoulettePage() {
 
   // "รวมเมนูทั้งหมด" (Browse & Search All Recipes) state
   const [catalogSearchQuery, setCatalogSearchQuery] = useState<string>("");
+  const [visibleCount, setVisibleCount] = useState(6);
   const [catalogCategoryFilter, setCatalogCategoryFilter] = useState<
     FoodCategory | "all" | "favorites"
   >("all");
@@ -313,7 +314,7 @@ export function FoodRoulettePage() {
           <Refrigerator size={33} strokeWidth={1.3} aria-hidden="true" />
         </div>
         <div>
-          <h2>ของในตู้ ก็เป็นมื้ออร่อยได้</h2>
+          <h2>มีของในตู้เย็นอยู่แล้ว?</h2>
           <p>บอกวัตถุดิบที่มี แล้วมาดูว่าทำอะไรกินได้บ้าง</p>
         </div>
         <span>
@@ -342,24 +343,24 @@ export function FoodRoulettePage() {
               aria-label="ค้นหาเมนูอาหาร"
               placeholder="ค้นหาเมนู หรือวัตถุดิบ"
               value={catalogSearchQuery}
-              onChange={(e) => setCatalogSearchQuery(e.target.value)}
+              onChange={(e) => { setCatalogSearchQuery(e.target.value); setVisibleCount(6); }}
             />
           </search>
         </div>
         <div className="category-tabs" role="group" aria-label="หมวดหมู่เมนู">
           <button
-            onClick={() => setCatalogCategoryFilter("all")}
+            onClick={() => { setCatalogCategoryFilter("all"); setVisibleCount(6); }}
             aria-pressed={catalogCategoryFilter === "all"}
           >
             ทั้งหมด
           </button>
-          <button onClick={() => setCatalogCategoryFilter('favorites')} aria-pressed={catalogCategoryFilter === 'favorites'}>
+          <button onClick={() => { setCatalogCategoryFilter('favorites'); setVisibleCount(6); }} aria-pressed={catalogCategoryFilter === 'favorites'}>
             เมนูโปรด
           </button>
           {(Object.keys(FOOD_CATEGORY_LABELS) as FoodCategory[]).map((cat) => (
             <button
               key={cat}
-              onClick={() => setCatalogCategoryFilter(cat)}
+              onClick={() => { setCatalogCategoryFilter(cat); setVisibleCount(6); }}
               aria-pressed={catalogCategoryFilter === cat}
             >
               {FOOD_CATEGORY_LABELS[cat]}
@@ -394,14 +395,14 @@ export function FoodRoulettePage() {
                   ? "มีสูตรที่ชอบอยู่แล้ว? เก็บไว้ที่นี่ แล้วให้มื้อถัดไปเลือกง่ายขึ้น"
                   : "ลองเปลี่ยนคำค้น หมวดหมู่ หรือข้อจำกัดทางอาหาร"}
               </p>
-              {catalogCategoryFilter === 'favorites' ? <button type="button" className="text-link" onClick={() => { setCatalogCategoryFilter('all'); setCatalogSearchQuery(''); }}>ดูเมนูทั้งหมด →</button> : <Link href="/community" className="text-link">
+              {catalogCategoryFilter === 'favorites' ? <button type="button" className="text-link" onClick={() => { setCatalogCategoryFilter('all'); setCatalogSearchQuery(''); setVisibleCount(6); }}>ดูเมนูทั้งหมด →</button> : <Link href="/community" className="text-link">
                 เพิ่มเมนูอาหาร <ArrowUpRight size={18} aria-hidden="true" />
               </Link>}
             </div>
           </div>
         ) : (
           <div className="recipe-grid">
-            {browsableRecipes.map((recipe) => (
+            {browsableRecipes.slice(0, visibleCount).map((recipe) => (
               <article className="editorial-recipe" key={recipe.id}>
                 <div className="recipe-photo">
                   <Link href={`/recipes/${encodeURIComponent(recipe.id)}`}>
@@ -461,6 +462,10 @@ export function FoodRoulettePage() {
           </div>
         )}
       </section>
+      {!isLoadingRecipes && !loadError && browsableRecipes.length > 0 && <div className="catalog-more">
+        <p role="status">แสดง {Math.min(visibleCount, browsableRecipes.length)} จาก {browsableRecipes.length} เมนู</p>
+        {visibleCount < browsableRecipes.length && <button type="button" className="kindi-btn-secondary min-h-11 px-5" onClick={() => setVisibleCount(count => count + 6)}>ดูเพิ่มอีก {Math.min(6, browsableRecipes.length - visibleCount)} เมนู</button>}
+      </div>}
       {(history.length > 0) && (
         <div className="saved-sections">
           {history.length > 0 && (

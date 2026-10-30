@@ -556,17 +556,14 @@ export default function CommunityRecipesPage() {
     <div className="interior-page community-page">
       <section className="community-banner" aria-labelledby="community-banner-title">
         <div className="community-banner-copy">
-          <span className="community-banner-eyebrow">ครัว KIN DI / สูตรจากจานโปรด</span>
-          <h1 id="community-banner-title">สูตรดี ๆ<br /><span>มีไว้แบ่งกัน</span></h1>
-          <p>เก็บสูตรที่ชอบไว้ที่เดียว<br />ให้มื้อถัดไป มีอะไรอร่อยให้เลือกเสมอ</p>
-          <a href="#recipe-share-form" className="community-banner-link">เพิ่มจานโปรดของคุณ <span aria-hidden="true">↓</span></a>
+          <h1 id="community-banner-title">แบ่งปันเมนู</h1>
+          <p>เก็บและแบ่งปันสูตรที่คุณชอบ</p>
         </div>
         <figure className="community-banner-photo">
           <BannerPhoto
             src={bannerRecipe?.image_url || "/images/crispy-pork-garlic.webp"}
             alt={bannerRecipe?.name || "หมูทอดกระเทียม"}
           />
-          <figcaption><strong>{sharedRecipes.length}</strong><span>เมนูในครัว<br />KIN DI</span></figcaption>
         </figure>
       </section>
 

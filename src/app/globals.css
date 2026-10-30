@@ -2155,3 +2155,52 @@ body:has(dialog[open]) {
 .roulette-options { max-width: 540px; margin-inline: auto; }
 .roulette-options > label { display: grid; gap: 6px; font-size: 14px; }
 .roulette-options select { width: 100%; min-height: 44px; padding: 8px 12px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; }
+
+/* Readable product screens: compact headers, fewer type roles, shared photo ratio. */
+.fridge-header.interior-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; margin-bottom: 20px; }
+.fridge-header.interior-header h1 { font-size: 32px; line-height: 1.5; letter-spacing: -.02em; }
+.fridge-header.interior-header p { font-size: 16px; line-height: 1.7; margin-top: 6px; }
+.fridge-header .interior-header-actions { background: none; border-radius: 0; width: auto; min-height: 0; padding: 0; }
+.fridge-header .interior-header-actions > svg { display: none; }
+.fridge-flow-content { max-width: 100%; }
+.fridge-flow-content > section { padding: 20px 0; }
+.fridge-flow-content p, .fridge-flow-content label { font-size: 16px; line-height: 1.7; }
+.fridge-flow-content .ingredient-group button, .fridge-flow-content .ingredient-group h3 { font-size: 14px; }
+.community-banner { grid-template-columns: 1fr 180px; margin: 20px 0 24px; background: #f1eadf; }
+.community-banner-copy { padding: 20px 24px; color: var(--ink); align-self: center; }
+.community-banner h1 { font-size: 32px; line-height: 1.5; color: var(--ink); }
+.community-banner-copy > p { font-size: 16px; line-height: 1.7; color: var(--muted); margin: 6px 0 0; }
+.community-banner-photo { min-height: 140px; max-height: 140px; }
+.community-banner-photo > img { object-position: center; }
+.community-page .step-intro > p, .community-page .step-next { font-size: 14px; line-height: 1.7; }
+.community-page .recipe-step label { font-size: 16px; }
+.community-page .recipe-step p { font-size: 14px; line-height: 1.7; }
+.home-page .pantry-banner { padding: 16px 20px; gap: 16px; min-height: 0; margin-block: 24px; }
+.home-page .pantry-symbol, .home-page .pantry-banner p { display: none; }
+.home-page .pantry-banner h2 { font-size: 16px; line-height: 1.6; }
+.home-page .pantry-banner > span { font-size: 14px; }
+.home-page .editorial-recipe > p { font-size: 16px; line-height: 1.7; color: var(--ink); }
+.home-page .recipe-meta, .home-page .recipe-links, .home-page .category-tabs button, .home-page .hero-note { font-size: 14px; }
+.home-page .editorial-recipe h3 { font-size: 20px; line-height: 1.6; }
+.home-page .recipe-photo { height: auto; aspect-ratio: 4 / 3; border-radius: 4px; }
+.home-page .recipe-photo img { object-fit: cover; object-position: center; }
+.home-page .collection-heading > div > p, .home-page .hero-intro { font-size: 16px; line-height: 1.7; }
+.home-page .hero-actions .text-link { font-size: 14px; }
+.catalog-more { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 16px; margin: 24px 0 40px; font-size: 14px; }
+@media (max-width: 760px) {
+  .fridge-header.interior-header { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+  .fridge-header.interior-header h1 { font-size: 28px; }
+  .fridge-flow-steps { margin-bottom: 12px; }
+  .community-banner { grid-template-columns: 1fr 100px; margin: 16px 0 20px; }
+  .community-banner-copy { padding: 16px; }
+  .community-banner h1 { font-size: 28px; }
+  .community-banner-copy > p { font-size: 14px; }
+  .community-banner-photo { min-height: 132px; max-height: 132px; }
+  .home-page .pantry-banner { display: flex; flex-wrap: wrap; justify-content: space-between; padding: 14px 16px; gap: 4px 12px; }
+  .home-page .pantry-banner > span { margin: 0; }
+}
+
+.footer-inner { grid-template-columns: 220px minmax(0, 1fr); }
+.footer-inner > p { font-size: 16px; line-height: 1.7; color: var(--ink); max-width: 75ch; }
+.footer-brand small, .saved-row small { font-size: 14px; }
+@media (max-width: 760px) { .footer-inner { grid-template-columns: 1fr; gap: 20px; } }
