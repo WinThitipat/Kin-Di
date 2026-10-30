@@ -17,14 +17,18 @@ const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:3101';
       await page.route('**/api/recipes', route => route.fulfill({ json: { recipes, databaseRecipeIds: recipes.map(r => r.id), deletedIds: [] } }));
       await page.goto(base + '/recipes/' + recipe.id);
       const step = page.getByRole('button', { name: /ขั้นตอนที่ 1/ });
-      await step.waitFor();
-      assert(!await step.innerText().then(t => t.includes('Step')));
-      const badge = step.locator(':scope > div').first();
-      assert.equal((await badge.innerText()).trim(), '1');
-      assert(await badge.evaluate(el => el.scrollWidth <= el.clientWidth && el.scrollHeight <= el.clientHeight));
-      await step.click();
-      assert.equal(await step.getAttribute('aria-pressed'), 'true');
-      await step.click();
+      const sourceNotes = page.getByRole('heading', {name:'เกี่ยวกับสูตรนี้',exact:true});
+      await page.getByRole('heading',{name:recipe.name,exact:true}).waitFor();
+      if(await sourceNotes.count()) {
+        assert(await sourceNotes.isVisible());
+        assert.equal(await step.count(),0,'Source notes must not be shown as cooking steps');
+      } else {
+        await step.waitFor();
+        const badge=step.locator(':scope > div').first();
+        assert.equal((await badge.innerText()).trim(),'1');
+        assert(await badge.evaluate(el=>el.scrollWidth<=el.clientWidth&&el.scrollHeight<=el.clientHeight));
+        await step.click(); assert.equal(await step.getAttribute('aria-pressed'),'true'); await step.click();
+      }
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
       await page.screenshot({ path: `artifacts/detail-edit/detail-${width}.png`, fullPage: true });
       await page.getByRole('link', { name: 'แก้ไขสูตร', exact: true }).click();
@@ -36,7 +40,7 @@ const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:3101';
       assert.equal(await page.locator('#edit-admin-pin').inputValue(), '');
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
       assert.equal(errors.length, 0, errors.join('\n'));
-      console.log('PASS', width, 'step fits, toggle works, edit prefilled, final PIN required, no overflow');
+      console.log('PASS', width, 'source-note/step presentation verified, edit prefilled, final PIN required, no overflow');
       await context.close();
     }
   } finally { await browser.close(); }

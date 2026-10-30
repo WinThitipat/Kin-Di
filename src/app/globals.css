@@ -2322,3 +2322,8 @@ body:has(dialog[open]) {
   .community-page .shared-menu-card { grid-template-columns: 60px minmax(0, 1fr); column-gap: 10px; }
   .community-page .shared-menu-card > img, .community-page .shared-menu-card > div:first-child:not(.shared-menu-info) { width: 60px; height: 80px; }
 }
+
+/* Audit fixes: legible task controls and honest collection loading state. */
+.diet-trigger { font-size: 14px; }
+.diet-trigger b { font-size: 12px; }
+.collection-loading { padding: 20px 0; font-size: 14px; color: var(--muted); }

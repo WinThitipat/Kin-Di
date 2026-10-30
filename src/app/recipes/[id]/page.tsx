@@ -66,6 +66,10 @@ export default function RecipeDetailPage() {
   const [retry, setRetry] = useState(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  useEffect(() => {
+    document.title = `${recipe?.name ?? (loadError ? "ไม่พบสูตรอาหาร" : "สูตรอาหาร")} | กินดิ! — KIN DI`;
+  }, [recipe?.name, loadError]);
+
   // Interactive ingredient checklist tracking
   const [checkedIngredients, setCheckedIngredients] = useState<Set<string>>(new Set());
   // Interactive cooking steps tracking
@@ -527,11 +531,11 @@ export default function RecipeDetailPage() {
                           {item.name}
                         </p>
                         <div className="flex items-center gap-1.5 mt-0.5">
-                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-[#F1EADF] text-[#6E5D50] border border-[#DDD2C2] whitespace-nowrap">
+                          <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-[#F1EADF] text-[#6E5D50] border border-[#DDD2C2] whitespace-nowrap">
                             {item.roleText}
                           </span>
                           {item.isOptional && (
-                            <span className="text-[11px] font-medium text-[#76685C] whitespace-nowrap">
+                            <span className="text-xs font-medium text-[#76685C] whitespace-nowrap">
                               (ไม่บังคับ)
                             </span>
                           )}

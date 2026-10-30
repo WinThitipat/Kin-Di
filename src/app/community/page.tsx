@@ -142,6 +142,7 @@ export default function CommunityRecipesPage() {
   const [recipeToDelete, setRecipeToDelete] = useState<Recipe | null>(null);
   const [legacyRecipes, setLegacyRecipes] = useState<Recipe[]>([]);
   const [databaseRecipeIds, setDatabaseRecipeIds] = useState<string[]>([]);
+  const [isLoadingCollection, setIsLoadingCollection] = useState(true);
   const [collectionError, setCollectionError] = useState<string | null>(null);
   const [isImporting, setIsImporting] = useState(false);
   const [statusMessage, setStatusMessage] = useState<{
@@ -288,12 +289,19 @@ export default function CommunityRecipesPage() {
   };
 
   const refreshCollection = useCallback(async () => {
+    setIsLoadingCollection(true);
+    try {
     const result = await fetchApprovedRecipes();
     setSharedRecipes(result.recipes);
     setLegacyRecipes(loadSharedRecipes().filter(recipe => !(result.deletedIds ?? []).includes(recipe.id)));
     setDatabaseRecipeIds(result.databaseRecipeIds ?? []);
     setCollectionError(result.error);
     setCustomCatalogItems(loadCustomIngredients());
+    } catch {
+      setCollectionError("โหลดเมนูไม่สำเร็จ กรุณาลองอีกครั้ง");
+    } finally {
+      setIsLoadingCollection(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -1397,7 +1405,7 @@ export default function CommunityRecipesPage() {
               id="shared-recipes-heading"
               className="text-base font-semibold text-[#302923] tabular-nums"
             >
-              เมนูที่แบ่งปันแล้ว <span className="community-recipe-count">({sharedRecipes.length})</span>
+              เมนูที่แบ่งปันแล้ว <span className="community-recipe-count">({isLoadingCollection && !sharedRecipes.length ? "…" : sharedRecipes.length})</span>
             </h2>
           </div>
           <p className="text-xs text-[#6E5D50] leading-relaxed">
@@ -1441,7 +1449,8 @@ export default function CommunityRecipesPage() {
             </div>
           )}
 
-          {sharedRecipes.length === 0 ? (
+          {isLoadingCollection && <p role="status" className="collection-loading">กำลังโหลดเมนูที่แบ่งปัน…</p>}
+          {!isLoadingCollection && !collectionError && sharedRecipes.length === 0 ? (
             <div className="p-6 rounded-lg bg-[#FBF7EF] border border-dashed border-[#C6B7A5] text-center space-y-1.5">
               <p className="text-sm font-bold text-[#302923]">
                 ยังไม่มีเมนูอาหารที่เพิ่มไว้
@@ -1452,7 +1461,7 @@ export default function CommunityRecipesPage() {
             </div>
           ) : (
             <div className="community-recipe-list">
-              {matchingRecipes.length === 0 && <p className="community-no-results" role="status">ไม่พบเมนูที่ค้นหา ลองใช้ชื่ออื่นหรือหมวดหมู่อาหาร</p>}
+              {!isLoadingCollection && !collectionError && matchingRecipes.length === 0 && <p className="community-no-results" role="status">ไม่พบเมนูที่ค้นหา ลองใช้ชื่ออื่นหรือหมวดหมู่อาหาร</p>}
               {matchingRecipes.slice(0, collectionLimit).map((item) => {
                 const ext = getExternalRecipeLinks(item);
                 return (
@@ -1476,7 +1485,7 @@ export default function CommunityRecipesPage() {
                     <div className="shared-menu-info">
                       <div>
                         <div className="flex items-center justify-between gap-1.5">
-                          <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-[#F3E3D2] border border-[#DDD2C2] text-[#302923]">
+                          <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-[#F3E3D2] border border-[#DDD2C2] text-[#302923]">
                             {FOOD_CATEGORY_LABELS[item.category]}
                           </span>
                           <span className="text-xs text-[#6E5D50] font-medium tabular-nums">
