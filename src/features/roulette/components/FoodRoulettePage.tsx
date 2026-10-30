@@ -78,7 +78,7 @@ export function FoodRoulettePage() {
   // "รวมเมนูทั้งหมด" (Browse & Search All Recipes) state
   const [catalogSearchQuery, setCatalogSearchQuery] = useState<string>("");
   const [catalogCategoryFilter, setCatalogCategoryFilter] = useState<
-    FoodCategory | "all"
+    FoodCategory | "all" | "favorites"
   >("all");
 
   const loadCandidates = useCallback(async () => {
@@ -129,11 +129,12 @@ export function FoodRoulettePage() {
 
     return safeRecipes.filter((recipe) => {
       if (
-        catalogCategoryFilter !== "all" &&
+        catalogCategoryFilter !== "all" && catalogCategoryFilter !== "favorites" &&
         recipe.category !== catalogCategoryFilter
       ) {
         return false;
       }
+      if (catalogCategoryFilter === "favorites" && !favoriteIds.includes(recipe.id)) return false;
       if (!q) return true;
       const inName = recipe.name.toLowerCase().includes(q);
       const inDesc = (recipe.description ?? "").toLowerCase().includes(q);
@@ -152,6 +153,7 @@ export function FoodRoulettePage() {
     catalog,
     catalogSearchQuery,
     catalogCategoryFilter,
+    favoriteIds,
   ]);
 
   const hasOptionalFilters =
@@ -264,9 +266,7 @@ export function FoodRoulettePage() {
     setIsModalOpen(false);
   };
 
-  const favoriteRecipes = useMemo(() => {
-    return allRecipes.filter((r) => favoriteIds.includes(r.id));
-  }, [allRecipes, favoriteIds]);
+
 
   const activeRestrictionBadges: string[] = [];
   if (restrictions.dietaryPreference !== "unrestricted") {
@@ -487,6 +487,9 @@ export function FoodRoulettePage() {
           >
             ทั้งหมด
           </button>
+          <button onClick={() => setCatalogCategoryFilter('favorites')} aria-pressed={catalogCategoryFilter === 'favorites'}>
+            เมนูโปรด
+          </button>
           {(Object.keys(FOOD_CATEGORY_LABELS) as FoodCategory[]).map((cat) => (
             <button
               key={cat}
@@ -516,18 +519,18 @@ export function FoodRoulettePage() {
             </div>
             <div>
               <h3>
-                {allRecipes.length === 0
+                {catalogCategoryFilter === 'favorites' ? 'ยังไม่พบเมนูโปรดที่ตรงเงื่อนไข' : allRecipes.length === 0
                   ? "สมุดเมนูเล่มนี้ รอจานแรกจากคุณ"
                   : "ยังไม่เจอจานที่ตรงใจ"}
               </h3>
               <p>
-                {allRecipes.length === 0
+                {catalogCategoryFilter === 'favorites' ? 'กดหัวใจบนการ์ดอาหารเพื่อเก็บไว้ เมนูโปรดยังคงกรองตามคำค้นและข้อจำกัดทางอาหารของคุณ' : allRecipes.length === 0
                   ? "มีสูตรที่ชอบอยู่แล้ว? เก็บไว้ที่นี่ แล้วให้มื้อถัดไปเลือกง่ายขึ้น"
                   : "ลองเปลี่ยนคำค้น หมวดหมู่ หรือข้อจำกัดทางอาหาร"}
               </p>
-              <Link href="/community" className="text-link">
+              {catalogCategoryFilter === 'favorites' ? <button type="button" className="text-link" onClick={() => { setCatalogCategoryFilter('all'); setCatalogSearchQuery(''); }}>ดูเมนูทั้งหมด →</button> : <Link href="/community" className="text-link">
                 เพิ่มเมนูอาหาร <ArrowUpRight size={18} aria-hidden="true" />
-              </Link>
+              </Link>}
             </div>
           </div>
         ) : (
@@ -592,7 +595,7 @@ export function FoodRoulettePage() {
           </div>
         )}
       </section>
-      {(history.length > 0 || favoriteRecipes.length > 0) && (
+      {(history.length > 0) && (
         <div className="saved-sections">
           {history.length > 0 && (
             <section>
@@ -625,24 +628,7 @@ export function FoodRoulettePage() {
               ))}
             </section>
           )}
-          {favoriteRecipes.length > 0 && (
-            <section>
-              <h2>จานที่เก็บไว้ในใจ</h2>
-              {favoriteRecipes.map((recipe) => (
-                <Link
-                  className="saved-row"
-                  key={recipe.id}
-                  href={`/recipes/${encodeURIComponent(recipe.id)}`}
-                >
-                  <span>
-                    {recipe.name}
-                    <small>{recipe.cooking_time} นาที</small>
-                  </span>
-                  <Heart size={18} />
-                </Link>
-              ))}
-            </section>
-          )}
+
         </div>
       )}
       <FoodRouletteModal
