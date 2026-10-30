@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { BannerPhoto } from "@/components/BannerPhoto";
 import { ShareRecipeButton } from "@/components/ShareRecipeButton";
 import { readRecipeDraft, RECIPE_DRAFT_KEY } from "@/lib/recipe-draft";
 import { AdminDeleteRecipeDialog } from "@/components/AdminDeleteRecipeDialog";
@@ -561,10 +562,9 @@ export default function CommunityRecipesPage() {
           <a href="#recipe-share-form" className="community-banner-link">เพิ่มจานโปรดของคุณ <span aria-hidden="true">↓</span></a>
         </div>
         <figure className="community-banner-photo">
-          <img
+          <BannerPhoto
             src={bannerRecipe?.image_url || "/images/crispy-pork-garlic.webp"}
             alt={bannerRecipe?.name || "หมูทอดกระเทียม"}
-            width={640} height={640} decoding="async"
           />
           <figcaption><strong>{sharedRecipes.length}</strong><span>เมนูในครัว<br />KIN DI</span></figcaption>
         </figure>
