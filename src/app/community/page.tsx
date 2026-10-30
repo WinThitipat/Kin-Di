@@ -119,6 +119,8 @@ export default function CommunityRecipesPage() {
   const [bannerIndex, setBannerIndex] = useState(0);
   const [collectionSearch, setCollectionSearch] = useState("");
   const [collectionLimit, setCollectionLimit] = useState(6);
+  const [mobileView, setMobileView] = useState<"form" | "collection">("form");
+  const [ingredientSearch, setIngredientSearch] = useState("");
   const bannerCount = sharedRecipes.filter(recipe => recipe.image_url).length;
   useEffect(() => {
     if (bannerCount < 2) return;
@@ -261,6 +263,7 @@ export default function CommunityRecipesPage() {
       !window.confirm("มีร่างที่กำลังกรอก ต้องการแทนที่ด้วยเมนูนี้หรือไม่?")
     )
       return;
+    setMobileView("form");
     restoreFields(recipeToSubmission(recipe));
     setEditingId(recipe.id);
     setExpectedVersion(recipe.updated_at ?? recipe.created_at);
@@ -559,7 +562,7 @@ export default function CommunityRecipesPage() {
   );
 
   return (
-    <div className="interior-page community-page">
+    <div className="interior-page community-page" data-mobile-view={mobileView}>
       <section className="community-banner" aria-labelledby="community-banner-title">
         <div className="community-banner-copy">
           <h1 id="community-banner-title">แบ่งปันเมนูโปรดของคุณ</h1>
@@ -573,6 +576,10 @@ export default function CommunityRecipesPage() {
         </figure>
       </section>
 
+      <div className="community-view-switch" role="group" aria-label="เลือกส่วนของหน้าแบ่งปัน">
+        <button type="button" aria-pressed={mobileView === "form"} onClick={() => setMobileView("form")}>เพิ่มสูตร</button>
+        <button type="button" aria-pressed={mobileView === "collection"} onClick={() => setMobileView("collection")}>ดูเมนูที่แบ่งปัน ({sharedRecipes.length})</button>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         <form
           id="recipe-share-form"
@@ -1029,12 +1036,19 @@ export default function CommunityRecipesPage() {
                   เลือกวัตถุดิบหลักที่ใช้ ({totalSelectedIngredients} รายการ) *
                 </span>
               </div>
+              <label className="ingredient-search-label" htmlFor="community-ingredient-search">ค้นหาวัตถุดิบ</label>
+              <input id="community-ingredient-search" type="search" value={ingredientSearch} onChange={event => setIngredientSearch(event.target.value)} placeholder="เช่น ไข่ ไก่ กระเทียม" className="kindi-input-field community-ingredient-search" />
+              {ingredientIds.length > 0 && <div className="community-selected-ingredients" aria-label="วัตถุดิบที่เลือกแล้ว">
+                <p>เลือกแล้ว {ingredientIds.length} รายการ · แตะเพื่อนำออก</p>
+                <div>{ingredientIds.map(id => <button key={id} type="button" onClick={() => toggleIngredient(id)} aria-label={`นำ ${allAvailableIngredients.find(ing => ing.id === id)?.name_th ?? id} ออก`}>{allAvailableIngredients.find(ing => ing.id === id)?.name_th ?? id}<X size={14} aria-hidden="true" /></button>)}</div>
+              </div>}
+              {ingredientSearch.trim() && !allAvailableIngredients.some(ing => ing.name_th.includes(ingredientSearch.trim())) && <p role="status">ไม่พบวัตถุดิบนี้ ใช้ปุ่ม “อื่นๆ” เพื่อเพิ่มเองได้</p>}
               <div
                 id="recipe-ingredients"
                 tabIndex={-1}
                 className="flex flex-wrap gap-1.5 max-h-52 overflow-y-auto p-3.5 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2]"
               >
-                {allAvailableIngredients.map((ing) => {
+                {allAvailableIngredients.filter(ing => ing.name_th.includes(ingredientSearch.trim())).map((ing) => {
                   const selected = ingredientIds.includes(ing.id);
                   return (
                     <button
@@ -1465,51 +1479,17 @@ export default function CommunityRecipesPage() {
                       </div>
                     </div>
 
-                    <div className="col-span-full flex flex-wrap gap-2">
-                      {databaseRecipeIds.includes(item.id) && (
-                        <button
-                          type="button"
-                          className="kindi-btn-secondary min-h-11 px-3"
-                          disabled={isSubmitting}
-                          onClick={() => startEditing(item)}
-                        >
-                          แก้ไขสูตร
-                        </button>
-                      )}
-                      {databaseRecipeIds.includes(item.id) && (
-                        <ShareRecipeButton id={item.id} name={item.name} />
-                      )}
-                    </div>
-                    <div className="shared-menu-actions">
-                      <a
-                        href={ext.primaryUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`เปิดสูตรต้นฉบับ ${item.name}`}
-                        className="kindi-btn-primary inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap cursor-pointer"
-                      >
-                        <span>ดูสูตร</span>
-                        <ExternalLink
-                          className="w-3.5 h-3.5 shrink-0"
-                          aria-hidden="true"
-                        />
-                      </a>
-                      <Link
-                        href={`/recipes/${encodeURIComponent(item.id)}`}
-                        className="kindi-btn-secondary inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-bold text-[#302923] whitespace-nowrap cursor-pointer"
-                      >
-                        ส่วนผสม
-                      </Link>
-                      <button
-                        type="button"
-                        disabled={isSubmitting}
-                        onClick={() => setRecipeToDelete(item)}
-                        aria-label={`ลบเมนู ${item.name}`}
-                        title="ลบเมนูนี้ออกจากระบบ"
-                        className="p-1.5 rounded-xl text-rose-700 hover:bg-rose-50 border border-transparent hover:border-rose-200 transition-colors ml-auto cursor-pointer"
-                      >
-                        <Trash2 className="w-4 h-4" aria-hidden="true" />
-                      </button>
+                    <div className="community-card-controls">
+                      <Link href={`/recipes/${encodeURIComponent(item.id)}`} className="kindi-btn-secondary community-open-recipe">ดูเมนู</Link>
+                      <details className="community-manage" onKeyDown={event => { if (event.key === "Escape") { event.currentTarget.open = false; event.currentTarget.querySelector("summary")?.focus(); } }}>
+                        <summary aria-label={`จัดการเมนู ${item.name}`}>⋯</summary>
+                        <div className="community-manage-options">
+                          <a href={ext.primaryUrl} target="_blank" rel="noopener noreferrer">สูตรต้นฉบับ <ExternalLink size={14} aria-hidden="true" /></a>
+                          {databaseRecipeIds.includes(item.id) && <button type="button" disabled={isSubmitting} onClick={() => startEditing(item)}>แก้ไขสูตร</button>}
+                          {databaseRecipeIds.includes(item.id) && <ShareRecipeButton id={item.id} name={item.name} />}
+                          <button type="button" className="community-delete" disabled={isSubmitting} onClick={() => setRecipeToDelete(item)} aria-label={`ลบเมนู ${item.name}`}><Trash2 size={16} aria-hidden="true" /> ลบเมนู</button>
+                        </div>
+                      </details>
                     </div>
                   </div>
                 );

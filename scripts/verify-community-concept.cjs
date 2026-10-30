@@ -10,6 +10,7 @@ const fs = require('node:fs');
       const errors=[]; page.on('pageerror',e=>errors.push(e.message));
       await page.goto((process.env.TEST_BASE_URL || 'http://127.0.0.1:3115')+'/community');
       await page.waitForLoadState('networkidle');
+      if(width<1024) await page.getByRole('button',{name:/ดูเมนูที่แบ่งปัน/}).click();
       await page.locator('.shared-menu-card').first().waitFor();
       const initial=await page.locator('.shared-menu-card').count();
       assert(initial<=6);
@@ -23,6 +24,7 @@ const fs = require('node:fs');
       await search.fill(''); assert.equal(await page.locator('.shared-menu-card').count(),initial);
       await page.evaluate(()=>scrollTo(0,0));
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      if(width<1024) { await page.screenshot({path:`artifacts/community-concept/collection-${width}.png`,fullPage:true}); await page.getByRole('button',{name:'เพิ่มสูตร',exact:true}).click(); }
       if(width<=600) { assert(await page.locator('.community-mobile-progress').isVisible()); assert.equal(await page.locator('progress').getAttribute('value'),'1'); }
       await page.screenshot({path:`artifacts/community-concept/${width}.png`,fullPage:true});
       assert.deepEqual(errors,[]); console.log('PASS community responsive/search',width);
