@@ -46,14 +46,20 @@ export function Navbar({
     const update = () => {
       const active = nav.querySelector<HTMLElement>('a[aria-current="page"]');
       indicator.style.opacity = active ? '1' : '0';
-      if (active) indicator.style.transform = `translateX(${active.offsetLeft}px) scaleX(${active.offsetWidth})`;
+      if (active) {
+        const bounds = active.getBoundingClientRect();
+        const navBounds = nav.getBoundingClientRect();
+        indicator.style.transform = `translateX(${bounds.left - navBounds.left}px) scaleX(${bounds.width})`;
+      }
     };
     update();
     const frame = requestAnimationFrame(() => { indicator.dataset.ready = 'true'; });
     const observer = new ResizeObserver(update);
     observer.observe(nav);
-    void document.fonts.ready.then(() => { if (nav.isConnected) update(); });
-    return () => { cancelAnimationFrame(frame); observer.disconnect(); };
+    nav.querySelectorAll('a').forEach(link => observer.observe(link));
+    let disposed = false;
+    void document.fonts.ready.then(() => { if (!disposed) update(); });
+    return () => { disposed = true; cancelAnimationFrame(frame); observer.disconnect(); };
   }, [pathname]);
   return (
     <header className="site-header">
