@@ -37,6 +37,8 @@ fs.mkdirSync('artifacts/community-steps', {recursive:true});
    assert.equal(await page.locator('#recipe-name').inputValue(),'สูตรทดสอบทีละขั้น');
    assert(await page.getByAltText('ตัวอย่างรูปอาหาร').isVisible());
    await click(next());await step(1);await click(next());await step(2);
+   assert.equal(await page.locator('#recipe-ingredients').isVisible(),false);
+   assert(await page.locator('#custom-ingredient-input').isVisible());
    await click(page.getByRole('button',{name:'ถัดไป: ตรวจสอบสูตร'}));await step(2);assert(await page.locator('#community-step-error').isVisible());
    await page.getByRole('searchbox',{name:'ค้นหาวัตถุดิบ',exact:true}).fill('หมูสับ');
    await click(page.getByRole('button',{name:'หมูสับ / เนื้อหมู',exact:true}));

@@ -2327,3 +2327,9 @@ body:has(dialog[open]) {
 .diet-trigger { font-size: 14px; }
 .diet-trigger b { font-size: 12px; }
 .collection-loading { padding: 20px 0; font-size: 14px; color: var(--muted); }
+
+/* Explicit custom ingredient entry and visible edit cancellation. */
+#recipe-ingredients[hidden] { display: none; }
+.community-edit-notice { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; border: 1px solid #b54636; border-left: 4px solid var(--red); }
+.community-edit-notice .cancel-recipe-edit { min-height: 44px; padding: 10px 16px; border: 1px solid var(--red); color: var(--red); background: #fffdf8; font-size: 14px; font-weight: 600; text-decoration: none; }
+#custom-ingredient-input, #fridge-other-ing { min-width: 0; font-size: 16px; }

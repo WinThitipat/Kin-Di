@@ -277,7 +277,7 @@ export default function FridgeModePage() {
             >
               ทั้งหมด
             </button>
-            {(Object.keys(INGREDIENT_CATEGORY_LABELS) as IngredientCategory[]).map((catKey) => {
+            {(Object.keys(INGREDIENT_CATEGORY_LABELS) as IngredientCategory[]).filter(key => key !== 'condiment').map((catKey) => {
               const active = activeIngredientCategory === catKey;
               return (
                 <button
@@ -320,6 +320,7 @@ export default function FridgeModePage() {
           <summary className="min-h-11 cursor-pointer font-medium">เลือกจากรายการวัตถุดิบทั้งหมด</summary>
           <div className="space-y-4">
             {(Object.keys(groupedIngredients) as IngredientCategory[]).map((catKey) => {
+              if (catKey === 'condiment' && !ingredientSearch.trim()) return null;
               if (!ingredientSearch.trim() && activeIngredientCategory !== 'all' && activeIngredientCategory !== catKey) {
                 return null;
               }
@@ -353,22 +354,15 @@ export default function FridgeModePage() {
                       );
                     })}
 
-                    {catKey === 'other' && (
-                      <button
-                        type="button"
-                        onClick={() => setShowOtherInput((prev) => !prev)}
-                        className="min-h-9 px-3 py-1.5 rounded-xl text-xs font-semibold border border-dashed border-[#C6B7A5] bg-white text-[#302923] hover:border-[#302923] inline-flex items-center gap-1 transition-colors cursor-pointer"
-                      >
-                        <Plus className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
-                        <span>อื่นๆ (พิมพ์เพิ่มเอง)</span>
-                      </button>
-                    )}
+
                   </div>
                 </div>
               );
             })}
 
-            {showOtherInput && (
+          </div>
+          </details>
+            {(
               <div className="kindi-input-group p-4 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2] space-y-2">
                 <label
                   htmlFor="fridge-other-ing"
@@ -401,8 +395,6 @@ export default function FridgeModePage() {
                 </div>
               </div>
             )}
-          </div>
-          </details>
           <div className="fridge-find-action">
             <p className="text-sm text-[#6E5D50]">{selectedIngredientIds.length ? `เลือกไว้ ${selectedIngredientIds.length} อย่างแล้ว เพิ่มหรือลบได้ก่อนดูเมนู` : 'เลือกวัตถุดิบอย่างน้อย 1 อย่างเพื่อเริ่มค้นหา'}</p>
             <button type="button" className="kindi-btn-primary min-h-12 px-6 py-3" disabled={!pantryReady || loadingRecipes || !!loadError || selectedIngredientIds.length === 0}

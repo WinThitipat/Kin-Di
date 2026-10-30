@@ -80,7 +80,7 @@ const FIELD_IDS: Record<string, string> = {
   external_recipe_url: "recipe-link",
   image_url: "recipe-image-label",
   meal_types: "recipe-meals",
-  ingredientIds: "recipe-ingredients",
+  ingredientIds: "community-ingredient-search",
   instructionsText: "recipe-steps",
   submitted_by: "recipe-author",
   cooking_time: "recipe-time-range",
@@ -608,11 +608,11 @@ export default function CommunityRecipesPage() {
           className="community-form-panel lg:col-span-7 space-y-5"
         >
           {editingId && (
-            <div className="recipe-import-notice">
+            <div className="recipe-import-notice community-edit-notice">
               <strong>กำลังแก้ไขสูตรอาหาร</strong>
               <button
                 type="button"
-                className="text-link"
+                className="kindi-btn-secondary cancel-recipe-edit"
                 disabled={isSubmitting}
                 onClick={() => {
                   if (window.confirm("ยกเลิกการแก้ไขและล้างร่างนี้?")) {
@@ -1060,8 +1060,9 @@ export default function CommunityRecipesPage() {
                 <p>เลือกแล้ว {ingredientIds.length} รายการ · แตะเพื่อนำออก</p>
                 <div>{ingredientIds.map(id => <button key={id} type="button" onClick={() => toggleIngredient(id)} aria-label={`นำ ${allAvailableIngredients.find(ing => ing.id === id)?.name_th ?? id} ออก`}>{allAvailableIngredients.find(ing => ing.id === id)?.name_th ?? id}<X size={14} aria-hidden="true" /></button>)}</div>
               </div>}
-              {ingredientSearch.trim() && !allAvailableIngredients.some(ing => ing.name_th.includes(ingredientSearch.trim())) && <p role="status">ไม่พบวัตถุดิบนี้ ใช้ปุ่ม “อื่นๆ” เพื่อเพิ่มเองได้</p>}
+              {ingredientSearch.trim() && !allAvailableIngredients.some(ing => ing.name_th.includes(ingredientSearch.trim())) && <p role="status">ไม่พบวัตถุดิบนี้ เพิ่มชื่อเองในช่องด้านล่างได้</p>}
               <div
+                hidden={!ingredientSearch.trim()}
                 id="recipe-ingredients"
                 tabIndex={-1}
                 className="flex flex-wrap gap-1.5 max-h-52 overflow-y-auto p-3.5 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2]"
@@ -1085,26 +1086,9 @@ export default function CommunityRecipesPage() {
                   );
                 })}
 
-                {/* ปุ่ม "อื่นๆ" เพื่อเพิ่มวัตถุดิบเอง */}
-                <button
-                  type="button"
-                  onClick={() => setShowOtherIngredientInput((prev) => !prev)}
-                  aria-expanded={
-                    showOtherIngredientInput || customIngredientNames.length > 0
-                  }
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors cursor-pointer inline-flex items-center gap-1 ${
-                    showOtherIngredientInput || customIngredientNames.length > 0
-                      ? "bg-[#F3E3D2] text-[#302923] border-[#302923]"
-                      : "bg-white text-[#302923] border-dashed border-[#C6B7A5] hover:border-[#302923]"
-                  }`}
-                >
-                  <Plus className="w-3.5 h-3.5" aria-hidden="true" />
-                  <span>อื่นๆ (เพิ่มวัตถุดิบเอง)</span>
-                </button>
               </div>
 
-              {(showOtherIngredientInput ||
-                customIngredientNames.length > 0) && (
+              {(
                 <div className="mt-2.5 p-3.5 rounded-lg bg-[#FBF7EF] border border-[#DDD2C2] space-y-2.5">
                   <label
                     htmlFor="custom-ingredient-input"
