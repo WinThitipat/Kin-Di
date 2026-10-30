@@ -1,0 +1,1535 @@
+{
+ "url": "https://kin-di.vercel.app/",
+ "at": "2026-10-30T12:57:44.423Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.57,
+    0.43,
+    0.49,
+    0.46,
+    0.46,
+    0.34
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4784,
+     "screens": 5.3,
+     "words": 293,
+     "img": 25,
+     "video": 0,
+     "canvas": 0,
+     "svg": 116,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 25,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "thai-table.jpg",
+      "bb3a59e7f97783137d0e20cf44d98ef11c59e96bfcfaa2e7",
+      "86def66fd03e2b9293e347241df600a109c9d12a00ec55ca",
+      "8e2218a13d6517e07077f86dfa7095ff65e09c36d7e151ad",
+      "1cb38c452134f53ef5b9c32989a140903303d7034b3c5451",
+      "d5574aadab0781960a74f884307ce05a125baed405641448",
+      "9e65be4acfb53e8ee3f26a250af36134d3648fdb8b848b1f",
+      "ff69febcd0c188186e98f900cd26c12beb568ae967554054"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "มื้อนี้ กินอะไร?",
+     "words": 2,
+     "chars": 16,
+     "lines": 2,
+     "size": 67.7,
+     "vw": 4.7,
+     "font": "Plex Thai",
+     "weight": 600,
+     "tracking": -0.035,
+     "leading": 1.45,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.35,
+     "top": 190,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "มื้อนี้ กินอะไร?",
+     "words": 2,
+     "lines": 2,
+     "size": 67.7,
+     "font": "Plex Thai"
+    },
+    "headings": [
+     {
+      "text": "กินดิ ! KIN DI",
+      "words": 4,
+      "chars": 14,
+      "lines": 1,
+      "size": 43,
+      "vw": 3,
+      "font": "Plex Thai",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 29,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "มื้อนี้ กินอะไร?",
+      "words": 2,
+      "chars": 16,
+      "lines": 2,
+      "size": 67.7,
+      "vw": 4.7,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 190,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "เผื่อวันนี้มีจานที่ใช่ 24",
+      "words": 2,
+      "chars": 25,
+      "lines": 1,
+      "size": 29,
+      "vw": 2,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.18,
+      "top": 847,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "กินดิ! คิดน้อยลง อร่อยมากขึ้น",
+      "words": 3,
+      "chars": 29,
+      "lines": 2,
+      "size": 31,
+      "vw": 2.2,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.15,
+      "top": 4692,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plex Thai",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      21,
+      29,
+      31,
+      43,
+      68
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Plex Thai",
+      "size": 13,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.9
+     },
+     "measureChars": 72,
+     "max": {
+      "size": 67.7,
+      "vw": 4.7,
+      "font": "Plex Thai",
+      "text": "มื้อนี้"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 1,
+     "microLabelShare": 0.009,
+     "microSamples": [
+      "MADE FOR THE EVERYDAY APPETITE."
+     ],
+     "upperShare": 0.01,
+     "centerShare": 0.04,
+     "smallText": 37
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf7ef",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f1eadf",
+       "top": 133,
+       "hsl": {
+        "h": 37,
+        "s": 0.39,
+        "l": 0.91
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#6e5d50",
+       "share": 0.65
+      },
+      {
+       "color": "#302923",
+       "share": 0.24
+      },
+      {
+       "color": "#a33326",
+       "share": 0.08
+      },
+      {
+       "color": "#56624c",
+       "share": 0.01
+      },
+      {
+       "color": "#354331",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#302923",
+      "hsl": {
+       "h": 28,
+       "s": 0.16,
+       "l": 0.16
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 3,
+     "radius": 5,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "ข้ามไปเนื้อหา",
+      "ข้อจำกัดทางอาหาร",
+      "เลือกไพ่มื้อนี้"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 28,
+     "hairlineSamples": [
+      "header.site-header 1440px",
+      "search.recipe-search 270px",
+      "div.category-tabs 1240px",
+      "div.recipe-links 396px",
+      "div.recipe-links 396px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 26,
+     "boxRadius": 7,
+     "squareMedia": 0,
+     "roundedMedia": 25,
+     "mediaRadius": 7,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.24
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 101,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plex thai"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 4784,
+    "margins": {
+     "left": 100,
+     "right": 100
+    },
+    "sections": [
+     {
+      "sel": "main#main-content.site-main",
+      "tag": "main",
+      "top": 101,
+      "height": 4477,
+      "words": 305,
+      "media": 25,
+      "middle": 14,
+      "heading": {
+       "text": "มื้อนี้",
+       "size": 68,
+       "tag": "h1"
+      },
+      "left": 100,
+      "right": 100,
+      "textLeft": 100,
+      "textRight": 100,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.site-footer",
+      "tag": "footer",
+      "top": 4658,
+      "height": 126,
+      "words": 25,
+      "media": 0,
+      "middle": 432,
+      "heading": {
+       "text": "กินดิ!",
+       "size": 31,
+       "tag": "div"
+      },
+      "left": 100,
+      "right": 148,
+      "textLeft": 100,
+      "textRight": 148,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "มื้อนี้ กินอะไร?",
+      "size": 68,
+      "top": 190,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 100,
+      "n": 9
+     },
+     {
+      "x": 522,
+      "n": 8
+     },
+     {
+      "x": 944,
+      "n": 8
+     },
+     {
+      "x": 157,
+      "n": 2
+     },
+     {
+      "x": 216,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 28,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.14,
+    "voidBox": {
+     "x": 480,
+     "y": 120,
+     "w": 240,
+     "h": 780
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    0.59,
+    0.68,
+    0.67,
+    0.59,
+    0.56,
+    0.68,
+    0.44
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 6650,
+     "screens": 6.5,
+     "words": 288,
+     "img": 25,
+     "video": 0,
+     "canvas": 0,
+     "svg": 116,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 25,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "thai-table.jpg",
+      "bb3a59e7f97783137d0e20cf44d98ef11c59e96bfcfaa2e7",
+      "86def66fd03e2b9293e347241df600a109c9d12a00ec55ca",
+      "8e2218a13d6517e07077f86dfa7095ff65e09c36d7e151ad",
+      "1cb38c452134f53ef5b9c32989a140903303d7034b3c5451",
+      "d5574aadab0781960a74f884307ce05a125baed405641448",
+      "9e65be4acfb53e8ee3f26a250af36134d3648fdb8b848b1f",
+      "ff69febcd0c188186e98f900cd26c12beb568ae967554054"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "มื้อนี้ กินอะไร?",
+     "words": 2,
+     "chars": 16,
+     "lines": 2,
+     "size": 48,
+     "vw": 6.3,
+     "font": "Plex Thai",
+     "weight": 600,
+     "tracking": -0.035,
+     "leading": 1.45,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.38,
+     "top": 165,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "มื้อนี้ กินอะไร?",
+     "words": 2,
+     "lines": 2,
+     "size": 48,
+     "font": "Plex Thai"
+    },
+    "headings": [
+     {
+      "text": "กินดิ ! KIN DI",
+      "words": 4,
+      "chars": 14,
+      "lines": 1,
+      "size": 43,
+      "vw": 5.6,
+      "font": "Plex Thai",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 29,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "มื้อนี้ กินอะไร?",
+      "words": 2,
+      "chars": 16,
+      "lines": 2,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 165,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "เผื่อวันนี้มีจานที่ใช่ 24",
+      "words": 2,
+      "chars": 25,
+      "lines": 1,
+      "size": 29,
+      "vw": 3.8,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 786,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "กินดิ! คิดน้อยลง อร่อยมากขึ้น",
+      "words": 3,
+      "chars": 29,
+      "lines": 2,
+      "size": 31,
+      "vw": 4,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.23,
+      "top": 6558,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plex Thai",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      21,
+      29,
+      31,
+      43,
+      48
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Plex Thai",
+      "size": 13,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.9
+     },
+     "measureChars": 72,
+     "max": {
+      "size": 48,
+      "vw": 6.3,
+      "font": "Plex Thai",
+      "text": "มื้อนี้"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.04,
+     "smallText": 36
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf7ef",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f1eadf",
+       "top": 133,
+       "hsl": {
+        "h": 37,
+        "s": 0.39,
+        "l": 0.91
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#6e5d50",
+       "share": 0.64
+      },
+      {
+       "color": "#302923",
+       "share": 0.24
+      },
+      {
+       "color": "#a33326",
+       "share": 0.08
+      },
+      {
+       "color": "#56624c",
+       "share": 0.01
+      },
+      {
+       "color": "#354331",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#302923",
+      "hsl": {
+       "h": 28,
+       "s": 0.16,
+       "l": 0.16
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 3,
+     "radius": 5,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "ข้ามไปเนื้อหา",
+      "ข้อจำกัดทางอาหาร",
+      "เลือกไพ่มื้อนี้"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 28,
+     "hairlineSamples": [
+      "header.site-header 768px",
+      "search.recipe-search 270px",
+      "div.category-tabs 704px",
+      "div.recipe-links 339px",
+      "div.recipe-links 339px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 26,
+     "boxRadius": 7,
+     "squareMedia": 0,
+     "roundedMedia": 25,
+     "mediaRadius": 7,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.2
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 101,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plex thai"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 6650,
+    "margins": {
+     "left": 32,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "main#main-content.site-main",
+      "tag": "main",
+      "top": 101,
+      "height": 6343,
+      "words": 305,
+      "media": 25,
+      "middle": 0,
+      "heading": {
+       "text": "มื้อนี้",
+       "size": 48,
+       "tag": "h1"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.site-footer",
+      "tag": "footer",
+      "top": 6524,
+      "height": 126,
+      "words": 20,
+      "media": 0,
+      "middle": 94,
+      "heading": {
+       "text": "กินดิ!",
+       "size": 31,
+       "tag": "div"
+      },
+      "left": 32,
+      "right": 148,
+      "textLeft": 32,
+      "textRight": 148,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "มื้อนี้ กินอะไร?",
+      "size": 48,
+      "top": 165,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 32,
+      "n": 13
+     },
+     {
+      "x": 397,
+      "n": 12
+     },
+     {
+      "x": 64,
+      "n": 2
+     },
+     {
+      "x": 142,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 28,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.69,
+    0.39,
+    0.6,
+    0.6,
+    0.64,
+    0.68,
+    0.68,
+    0.67,
+    0.66,
+    0.66,
+    0.64,
+    0.62
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 11626,
+     "screens": 13.8,
+     "words": 286,
+     "img": 25,
+     "video": 0,
+     "canvas": 0,
+     "svg": 116,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 25,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "thai-table.jpg",
+      "bb3a59e7f97783137d0e20cf44d98ef11c59e96bfcfaa2e7",
+      "86def66fd03e2b9293e347241df600a109c9d12a00ec55ca",
+      "8e2218a13d6517e07077f86dfa7095ff65e09c36d7e151ad",
+      "1cb38c452134f53ef5b9c32989a140903303d7034b3c5451",
+      "d5574aadab0781960a74f884307ce05a125baed405641448",
+      "9e65be4acfb53e8ee3f26a250af36134d3648fdb8b848b1f",
+      "ff69febcd0c188186e98f900cd26c12beb568ae967554054"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "มื้อนี้กินอะไร?",
+     "words": 1,
+     "chars": 15,
+     "lines": 1,
+     "size": 42,
+     "vw": 10.8,
+     "font": "Plex Thai",
+     "weight": 600,
+     "tracking": -0.035,
+     "leading": 1.45,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.77,
+     "top": 180,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "มื้อนี้กินอะไร?",
+     "words": 1,
+     "lines": 1,
+     "size": 42,
+     "font": "Plex Thai"
+    },
+    "headings": [
+     {
+      "text": "กินดิ ! KIN DI",
+      "words": 4,
+      "chars": 14,
+      "lines": 1,
+      "size": 35,
+      "vw": 9,
+      "font": "Plex Thai",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 27,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "มื้อนี้กินอะไร?",
+      "words": 1,
+      "chars": 15,
+      "lines": 1,
+      "size": 42,
+      "vw": 10.8,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 180,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "เผื่อวันนี้มีจานที่ใช่ 24",
+      "words": 2,
+      "chars": 25,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 906,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "กินดิ!คิดน้อยลง อร่อยมากขึ้น",
+      "words": 2,
+      "chars": 28,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 11504,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plex Thai",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      25,
+      28,
+      35,
+      42
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Plex Thai",
+      "size": 12,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.9
+     },
+     "measureChars": 70,
+     "max": {
+      "size": 42,
+      "vw": 10.8,
+      "font": "Plex Thai",
+      "text": "มื้อนี้"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.04,
+     "smallText": 65
+    },
+    "eyebrows": [
+     {
+      "text": "ลองค้นตู้เย็น",
+      "above": "เผื่อวันนี้มีจานที่ใช่ 24",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 817
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf7ef",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f1eadf",
+       "top": 155,
+       "hsl": {
+        "h": 37,
+        "s": 0.39,
+        "l": 0.91
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#6e5d50",
+       "share": 0.64
+      },
+      {
+       "color": "#302923",
+       "share": 0.24
+      },
+      {
+       "color": "#a33326",
+       "share": 0.08
+      },
+      {
+       "color": "#56624c",
+       "share": 0.01
+      },
+      {
+       "color": "#354331",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#a33326",
+      "hsl": {
+       "h": 6,
+       "s": 0.62,
+       "l": 0.39
+      },
+      "fg": "#fbf7ef"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 11,
+     "inHero": 3,
+     "radius": 5,
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "ข้ามไปเนื้อหา",
+      "ข้อจำกัดทางอาหาร",
+      "เลือกไพ่มื้อนี้"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 27,
+     "hairlineSamples": [
+      "header.site-header 390px",
+      "search.recipe-search 350px",
+      "div.recipe-links 350px",
+      "div.recipe-links 350px",
+      "div.recipe-links 350px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 26,
+     "boxRadius": 7,
+     "squareMedia": 0,
+     "roundedMedia": 25,
+     "mediaRadius": 7,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.24
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 135,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plex thai"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 11626,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "header.site-header",
+      "tag": "header",
+      "top": 0,
+      "height": 135,
+      "words": 7,
+      "media": 0,
+      "middle": 24,
+      "heading": {
+       "text": "กินดิ",
+       "size": 35,
+       "tag": "a"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 31,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "main#main-content.site-main",
+      "tag": "main",
+      "top": 135,
+      "height": 11293,
+      "words": 305,
+      "media": 25,
+      "middle": 0,
+      "heading": {
+       "text": "มื้อนี้",
+       "size": 42,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.site-footer",
+      "tag": "footer",
+      "top": 11478,
+      "height": 148,
+      "words": 20,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "กินดิ!",
+       "size": 28,
+       "tag": "div"
+      },
+      "left": 20,
+      "right": 26,
+      "textLeft": 20,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "มื้อนี้กินอะไร?",
+      "size": 42,
+      "top": 180,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 25
+     },
+     {
+      "x": 45,
+      "n": 1
+     },
+     {
+      "x": 101,
+      "n": 1
+     },
+     {
+      "x": 122,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 28,
+    "bodySize": 12,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "1 tiny uppercase letter-spaced label(s): \"MADE FOR THE EVERYDAY APPETITE.\"",
+   "fix": "Prefer sentence case at body size."
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "28 thin rule(s)/divider line(s): header.site-header 1440px | search.recipe-search 270px | div.category-tabs 1240px | div.recipe-links 396px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "1 box(es) drawn with a 1px outline.",
+   "fix": "Prefer a filled surface or no box.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #fbf7ef, section #f1eadf).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "12 different font sizes (9, 10, 11, 12, 13, 14, 16, 21, 29, 31, 43, 68).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 13px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 1440,
+   "message": "The running text is a soft grey on its ground (5.9:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "37 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "name-only-title",
+   "width": 1440,
+   "message": "The h1 is a bare name (\"มื้อนี้ กินอะไร?\") and nothing else on the first screen says what this is.",
+   "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 0 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 390,
+   "message": "1 eyebrow/kicker label(s) above headings: \"ลองค้นตู้เย็น\" above \"เผื่อวันนี้มีจานที่ใช่ 24\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-home\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-home\\desktop-page-01.jpg",
+    "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-home\\desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-home\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-home\\tablet-page-01.jpg",
+    "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-home\\tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-home\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-home\\mobile-page-01.jpg",
+    "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-home\\mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

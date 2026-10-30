@@ -1,0 +1,286 @@
+[
+  {
+    "api": {
+      "status": 200,
+      "recipeCount": 24,
+      "cacheControl": "no-store"
+    }
+  },
+  {
+    "width": 390,
+    "path": "/",
+    "title": "กินดิ! — KIN DI | คิดไม่ออก ก็สุ่มดิ! (Stop thinking. Start eating.)",
+    "h1": [
+      "มื้อนี้กินอะไร?"
+    ],
+    "overflow": false,
+    "brokenImages": [],
+    "smallVisibleText": [
+      {
+        "text": "KIN DI",
+        "size": "9px"
+      },
+      {
+        "text": "ข้อจำกัดทางอาหาร",
+        "size": "11px"
+      },
+      {
+        "text": "ข้อจำกัดทางอาหาร",
+        "size": "11px"
+      }
+    ],
+    "height": 4458,
+    "apiRequestsDuringIdle": 1,
+    "errors": [],
+    "failed": []
+  },
+  {
+    "width": 390,
+    "path": "/fridge",
+    "title": "กินดิ! — KIN DI | คิดไม่ออก ก็สุ่มดิ! (Stop thinking. Start eating.)",
+    "h1": [
+      "ของในตู้เย็น"
+    ],
+    "overflow": false,
+    "brokenImages": [],
+    "smallVisibleText": [
+      {
+        "text": "KIN DI",
+        "size": "9px"
+      },
+      {
+        "text": "ข้อจำกัดทางอาหาร",
+        "size": "11px"
+      },
+      {
+        "text": "ข้อจำกัดทางอาหาร",
+        "size": "11px"
+      }
+    ],
+    "height": 1425,
+    "apiRequestsDuringIdle": 1,
+    "errors": [],
+    "failed": []
+  },
+  {
+    "width": 390,
+    "path": "/community",
+    "title": "กินดิ! — KIN DI | คิดไม่ออก ก็สุ่มดิ! (Stop thinking. Start eating.)",
+    "h1": [
+      "แบ่งปันเมนูโปรดของคุณ"
+    ],
+    "overflow": false,
+    "brokenImages": [],
+    "smallVisibleText": [
+      {
+        "text": "KIN DI",
+        "size": "9px"
+      },
+      {
+        "text": "ข้อจำกัดทางอาหาร",
+        "size": "11px"
+      },
+      {
+        "text": "ข้อจำกัดทางอาหาร",
+        "size": "11px"
+      }
+    ],
+    "height": 1496,
+    "apiRequestsDuringIdle": 1,
+    "errors": [],
+    "failed": []
+  },
+  {
+    "width": 390,
+    "path": "/recipes/shared-9a26cb8e-60dc-3e5d-e0fc-0bdfd57d18a4",
+    "title": "กินดิ! — KIN DI | คิดไม่ออก ก็สุ่มดิ! (Stop thinking. Start eating.)",
+    "h1": [
+      "สุกี้น้ำไก่"
+    ],
+    "overflow": false,
+    "brokenImages": [],
+    "smallVisibleText": [
+      {
+        "text": "KIN DI",
+        "size": "9px"
+      },
+      {
+        "text": "ข้อจำกัดทางอาหาร",
+        "size": "11px"
+      },
+      {
+        "text": "ข้อจำกัดทางอาหาร",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      }
+    ],
+    "height": 3421,
+    "apiRequestsDuringIdle": 1,
+    "errors": [],
+    "failed": []
+  },
+  {
+    "width": 1440,
+    "path": "/",
+    "title": "กินดิ! — KIN DI | คิดไม่ออก ก็สุ่มดิ! (Stop thinking. Start eating.)",
+    "h1": [
+      "มื้อนี้กินอะไร?"
+    ],
+    "overflow": false,
+    "brokenImages": [],
+    "smallVisibleText": [
+      {
+        "text": "KIN DI",
+        "size": "10px"
+      }
+    ],
+    "height": 2270,
+    "apiRequestsDuringIdle": 1,
+    "errors": [],
+    "failed": [
+      {
+        "url": "https://kin-di.vercel.app/recipes/shared-3704e61f-a709-8efe-6fe0-ee1e82cc57d9?_rsc=1p-R_iEY6bj0jY31",
+        "error": "net::ERR_ABORTED"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "path": "/fridge",
+    "title": "กินดิ! — KIN DI | คิดไม่ออก ก็สุ่มดิ! (Stop thinking. Start eating.)",
+    "h1": [
+      "ของในตู้เย็น"
+    ],
+    "overflow": false,
+    "brokenImages": [],
+    "smallVisibleText": [
+      {
+        "text": "KIN DI",
+        "size": "10px"
+      }
+    ],
+    "height": 1135,
+    "apiRequestsDuringIdle": 1,
+    "errors": [],
+    "failed": []
+  },
+  {
+    "width": 1440,
+    "path": "/community",
+    "title": "กินดิ! — KIN DI | คิดไม่ออก ก็สุ่มดิ! (Stop thinking. Start eating.)",
+    "h1": [
+      "แบ่งปันเมนูโปรดของคุณ"
+    ],
+    "overflow": false,
+    "brokenImages": [],
+    "smallVisibleText": [
+      {
+        "text": "KIN DI",
+        "size": "10px"
+      },
+      {
+        "text": "เมนูเส้น",
+        "size": "11px"
+      },
+      {
+        "text": "อาหารไทย",
+        "size": "11px"
+      },
+      {
+        "text": "อาหารนานาชาติ",
+        "size": "11px"
+      },
+      {
+        "text": "อาหารไทย",
+        "size": "11px"
+      },
+      {
+        "text": "อาหารนานาชาติ",
+        "size": "11px"
+      },
+      {
+        "text": "เมนูเส้น",
+        "size": "11px"
+      }
+    ],
+    "height": 1711,
+    "apiRequestsDuringIdle": 1,
+    "errors": [],
+    "failed": []
+  },
+  {
+    "width": 1440,
+    "path": "/recipes/shared-9a26cb8e-60dc-3e5d-e0fc-0bdfd57d18a4",
+    "title": "กินดิ! — KIN DI | คิดไม่ออก ก็สุ่มดิ! (Stop thinking. Start eating.)",
+    "h1": [
+      "สุกี้น้ำไก่"
+    ],
+    "overflow": false,
+    "brokenImages": [],
+    "smallVisibleText": [
+      {
+        "text": "KIN DI",
+        "size": "10px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      },
+      {
+        "text": "วัตถุดิบหลัก",
+        "size": "11px"
+      }
+    ],
+    "height": 2272,
+    "apiRequestsDuringIdle": 1,
+    "errors": [],
+    "failed": []
+  }
+]

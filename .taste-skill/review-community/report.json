@@ -1,0 +1,1833 @@
+{
+ "url": "https://kin-di.vercel.app/community",
+ "at": "2026-10-30T12:59:01.103Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.5,
+    0.49
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 1,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1667,
+     "screens": 1.9,
+     "words": 285,
+     "img": 25,
+     "video": 0,
+     "canvas": 0,
+     "svg": 86,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "bb3a59e7f97783137d0e20cf44d98ef11c59e96bfcfaa2e7"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+     "words": 3,
+     "chars": 21,
+     "lines": 2,
+     "size": 50,
+     "vw": 3.5,
+     "font": "Plex Thai",
+     "weight": 500,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 225,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+     "words": 3,
+     "lines": 2,
+     "size": 50.4,
+     "font": "Plex Thai"
+    },
+    "headings": [
+     {
+      "text": "กินดิ ! KIN DI",
+      "words": 4,
+      "chars": 14,
+      "lines": 1,
+      "size": 43,
+      "vw": 3,
+      "font": "Plex Thai",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 29,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+      "words": 3,
+      "chars": 21,
+      "lines": 2,
+      "size": 50.4,
+      "vw": 3.5,
+      "font": "Plex Thai",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 225,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "กินดิ! คิดน้อยลง อร่อยมากขึ้น",
+      "words": 3,
+      "chars": 29,
+      "lines": 2,
+      "size": 31,
+      "vw": 2.2,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.15,
+      "top": 1575,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plex Thai",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      22,
+      26,
+      27,
+      31,
+      43,
+      50
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Plex Thai",
+      "size": 11,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.9
+     },
+     "measureChars": 72,
+     "max": {
+      "size": 50.4,
+      "vw": 3.5,
+      "font": "Plex Thai",
+      "text": "สูตรดี ๆ"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 1,
+     "microLabelShare": 0.013,
+     "microSamples": [
+      "MADE FOR THE EVERYDAY APPETITE."
+     ],
+     "upperShare": 0.05,
+     "centerShare": 0.15,
+     "smallText": 19
+    },
+    "eyebrows": [
+     {
+      "text": "ครัว KIN DI / สูตรจากจานโปรด",
+      "above": "สูตรดี ๆ มีไว้แบ่งกัน",
+      "upper": true,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 193
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf7ef",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#a33326",
+       "top": 161,
+       "hsl": {
+        "h": 6,
+        "s": 0.62,
+        "l": 0.39
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#302923",
+       "share": 0.57
+      },
+      {
+       "color": "#6e5d50",
+       "share": 0.29
+      },
+      {
+       "color": "#fbf7ef",
+       "share": 0.06
+      },
+      {
+       "color": "#f4e3d7",
+       "share": 0.03
+      },
+      {
+       "color": "#fff8ec",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#a33326",
+      "hsl": {
+       "h": 6,
+       "s": 0.62,
+       "l": 0.39
+      },
+      "fg": "#fbf7ef"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 100,
+     "inHero": 6,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "ข้ามไปเนื้อหา",
+      "ข้อจำกัดทางอาหาร",
+      "แก้ไขสูตร",
+      "แชร์",
+      "ดูสูตร"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 29,
+     "hairlineSamples": [
+      "header.site-header 1440px",
+      "fieldset.recipe-step.kindi-surface-card 713px",
+      "div.step-actions 713px",
+      "div.flex.items-center 503px",
+      "div.shared-menu-actions 465px"
+     ],
+     "outlinedBoxes": 24,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 26,
+     "boxRadius": 7,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 24,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 674
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.18
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 101,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plex thai"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1667,
+    "margins": {
+     "left": 100,
+     "right": 121
+    },
+    "sections": [
+     {
+      "sel": "main#main-content.site-main",
+      "tag": "main",
+      "top": 101,
+      "height": 1360,
+      "words": 83,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "สูตรดี ๆ",
+       "size": 50,
+       "tag": "h1"
+      },
+      "left": 100,
+      "right": 100,
+      "textLeft": 100,
+      "textRight": 121,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "footer.site-footer",
+      "tag": "footer",
+      "top": 1541,
+      "height": 126,
+      "words": 25,
+      "media": 0,
+      "middle": 432,
+      "heading": {
+       "text": "กินดิ!",
+       "size": 31,
+       "tag": "div"
+      },
+      "left": 100,
+      "right": 148,
+      "textLeft": 100,
+      "textRight": 148,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+      "size": 50,
+      "top": 225,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 142,
+      "n": 2
+     },
+     {
+      "x": 100,
+      "n": 1
+     },
+     {
+      "x": 837,
+      "n": 1
+     },
+     {
+      "x": 979,
+      "n": 1
+     },
+     {
+      "x": 998,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 11,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.13,
+    "voidBox": {
+     "x": 360,
+     "y": 120,
+     "w": 360,
+     "h": 480
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#fbf7ef",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 100,
+     "right": 121
+    },
+    "hero": {
+     "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+     "words": 3,
+     "chars": 21,
+     "lines": 2,
+     "size": 50,
+     "vw": 3.5,
+     "font": "Plex Thai",
+     "weight": 500,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 225,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 31,
+     "firstScreen": 6,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 31,
+     "radii": [
+      [
+       7,
+       24
+      ],
+      [
+       0,
+       5
+      ],
+      [
+       8,
+       2
+      ]
+     ],
+     "heavyBorders": 25,
+     "borderSamples": [
+      "#a33326 on #fbf7ef (6.42:1)",
+      "#ddd2c2 on #fffdf8 (1.47:1)",
+      "#ddd2c2 on #fffdf8 (1.47:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 1,
+     "tabularShare": 1,
+     "kpiMax": 26
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.35,
+     "tiny": 2,
+     "tinySamples": [
+      "KIN DI 10px",
+      "MADE FOR THE EVERYDAY AP 9px"
+     ],
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      21,
+      26,
+      27,
+      31,
+      43,
+      50
+     ]
+    },
+    "title": {
+     "text": "สูตรดี ๆ\nมีไว้แบ่งกัน",
+     "size": 50,
+     "top": 225
+    },
+    "colourShare": 0.202
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.47,
+    0.73,
+    0.62
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 1,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2318,
+     "screens": 2.3,
+     "words": 280,
+     "img": 25,
+     "video": 0,
+     "canvas": 0,
+     "svg": 86,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "bb3a59e7f97783137d0e20cf44d98ef11c59e96bfcfaa2e7"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+     "words": 3,
+     "chars": 21,
+     "lines": 2,
+     "size": 34,
+     "vw": 4.4,
+     "font": "Plex Thai",
+     "weight": 500,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 225,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+     "words": 3,
+     "lines": 2,
+     "size": 34,
+     "font": "Plex Thai"
+    },
+    "headings": [
+     {
+      "text": "กินดิ ! KIN DI",
+      "words": 4,
+      "chars": 14,
+      "lines": 1,
+      "size": 43,
+      "vw": 5.6,
+      "font": "Plex Thai",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 29,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "24",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Plex Thai",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.04,
+      "top": 185,
+      "tag": "strong",
+      "kind": "statement"
+     },
+     {
+      "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+      "words": 3,
+      "chars": 21,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Plex Thai",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.36,
+      "top": 225,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "ข้อมูลเมนู",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 27,
+      "vw": 3.5,
+      "font": "Plex Thai",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 668,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "กินดิ! คิดน้อยลง อร่อยมากขึ้น",
+      "words": 3,
+      "chars": 29,
+      "lines": 2,
+      "size": 31,
+      "vw": 4,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.23,
+      "top": 2226,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plex Thai",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      22,
+      26,
+      27,
+      31,
+      34,
+      43
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Plex Thai",
+      "size": 11,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.9
+     },
+     "measureChars": 72,
+     "max": {
+      "size": 43,
+      "vw": 5.6,
+      "font": "Plex Thai",
+      "text": "กินดิ"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.04,
+     "centerShare": 0.15,
+     "smallText": 18
+    },
+    "eyebrows": [
+     {
+      "text": "ครัว KIN DI / สูตรจากจานโปรด",
+      "above": "สูตรดี ๆ มีไว้แบ่งกัน",
+      "upper": true,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 193
+     },
+     {
+      "text": "ขั้นตอนที่ 1 จาก 4",
+      "above": "ข้อมูลเมนู",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 640
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf7ef",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#302923",
+       "share": 0.58
+      },
+      {
+       "color": "#6e5d50",
+       "share": 0.28
+      },
+      {
+       "color": "#fbf7ef",
+       "share": 0.06
+      },
+      {
+       "color": "#f4e3d7",
+       "share": 0.03
+      },
+      {
+       "color": "#fff8ec",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#a33326",
+      "hsl": {
+       "h": 6,
+       "s": 0.62,
+       "l": 0.39
+      },
+      "fg": "#fbf7ef"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 100,
+     "inHero": 3,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "ข้ามไปเนื้อหา",
+      "ข้อจำกัดทางอาหาร",
+      "อัปโหลดรูป"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 29,
+     "hairlineSamples": [
+      "header.site-header 768px",
+      "fieldset.recipe-step.kindi-surface-card 704px",
+      "div.step-actions 704px",
+      "div.flex.items-center 704px",
+      "div.shared-menu-actions 666px"
+     ],
+     "outlinedBoxes": 24,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 26,
+     "boxRadius": 7,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.14
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 101,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plex thai"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2318,
+    "margins": {
+     "left": 32,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "main#main-content.site-main",
+      "tag": "main",
+      "top": 101,
+      "height": 2011,
+      "words": 83,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "สูตรดี ๆ",
+       "size": 34,
+       "tag": "h1"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 47,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "footer.site-footer",
+      "tag": "footer",
+      "top": 2192,
+      "height": 126,
+      "words": 20,
+      "media": 0,
+      "middle": 94,
+      "heading": {
+       "text": "กินดิ!",
+       "size": 31,
+       "tag": "div"
+      },
+      "left": 32,
+      "right": 148,
+      "textLeft": 32,
+      "textRight": 148,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+      "size": 34,
+      "top": 225,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 32,
+      "n": 2
+     },
+     {
+      "x": 74,
+      "n": 2
+     },
+     {
+      "x": 173,
+      "n": 1
+     },
+     {
+      "x": 192,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 11,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#fbf7ef",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 32,
+     "right": 48
+    },
+    "hero": {
+     "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+     "words": 3,
+     "chars": 21,
+     "lines": 2,
+     "size": 34,
+     "vw": 4.4,
+     "font": "Plex Thai",
+     "weight": 500,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 225,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 31,
+     "firstScreen": 5,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 31,
+     "radii": [
+      [
+       7,
+       24
+      ],
+      [
+       0,
+       5
+      ],
+      [
+       8,
+       2
+      ]
+     ],
+     "heavyBorders": 25,
+     "borderSamples": [
+      "#a33326 on #fbf7ef (6.42:1)",
+      "#ddd2c2 on #fffdf8 (1.47:1)",
+      "#ddd2c2 on #fffdf8 (1.47:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 1,
+     "tabularShare": 1,
+     "kpiMax": 26
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.35,
+     "tiny": 1,
+     "tinySamples": [
+      "KIN DI 10px"
+     ],
+     "sizes": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      21,
+      26,
+      27,
+      31,
+      34,
+      43
+     ]
+    },
+    "title": {
+     "text": "สูตรดี ๆ\nมีไว้แบ่งกัน",
+     "size": 34,
+     "top": 225
+    },
+    "colourShare": 0.164
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.62,
+    0.59,
+    0.62,
+    0.66
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 1,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2565,
+     "screens": 3,
+     "words": 281,
+     "img": 25,
+     "video": 0,
+     "canvas": 0,
+     "svg": 86,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "bb3a59e7f97783137d0e20cf44d98ef11c59e96bfcfaa2e7"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+     "words": 3,
+     "chars": 21,
+     "lines": 2,
+     "size": 36,
+     "vw": 9.2,
+     "font": "Plex Thai",
+     "weight": 500,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 221,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+     "words": 3,
+     "lines": 2,
+     "size": 36,
+     "font": "Plex Thai"
+    },
+    "headings": [
+     {
+      "text": "กินดิ ! KIN DI",
+      "words": 4,
+      "chars": 14,
+      "lines": 1,
+      "size": 35,
+      "vw": 9,
+      "font": "Plex Thai",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 27,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+      "words": 3,
+      "chars": 21,
+      "lines": 2,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Plex Thai",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 221,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "↓",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Plex Thai",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.05,
+      "top": 420,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "24",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Plex Thai",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.08,
+      "top": 509,
+      "tag": "strong",
+      "kind": "statement"
+     },
+     {
+      "text": "ข้อมูลเมนู",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Plex Thai",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 846,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "กินดิ!คิดน้อยลง อร่อยมากขึ้น",
+      "words": 2,
+      "chars": 28,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Plex Thai",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2443,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 6,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plex Thai",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      22,
+      26,
+      28,
+      35,
+      36
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "Plex Thai",
+      "size": 10,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.9
+     },
+     "measureChars": 70,
+     "max": {
+      "size": 36,
+      "vw": 9.2,
+      "font": "Plex Thai",
+      "text": "สูตรดี ๆ"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.04,
+     "centerShare": 0.15,
+     "smallText": 20
+    },
+    "eyebrows": [
+     {
+      "text": "ครัว KIN DI / สูตรจากจานโปรด",
+      "above": "สูตรดี ๆ มีไว้แบ่งกัน",
+      "upper": true,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 189
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf7ef",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#a33326",
+       "top": 165,
+       "hsl": {
+        "h": 6,
+        "s": 0.62,
+        "l": 0.39
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#302923",
+       "share": 0.6
+      },
+      {
+       "color": "#6e5d50",
+       "share": 0.25
+      },
+      {
+       "color": "#fbf7ef",
+       "share": 0.06
+      },
+      {
+       "color": "#f4e3d7",
+       "share": 0.03
+      },
+      {
+       "color": "#a33326",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#a33326",
+      "hsl": {
+       "h": 6,
+       "s": 0.62,
+       "l": 0.39
+      },
+      "fg": "#fbf7ef"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 100,
+     "inHero": 2,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "ข้ามไปเนื้อหา",
+      "ข้อจำกัดทางอาหาร"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 29,
+     "hairlineSamples": [
+      "header.site-header 390px",
+      "fieldset.recipe-step.kindi-surface-card 350px",
+      "div.step-actions 350px",
+      "div.flex.items-center 350px",
+      "div.shared-menu-actions 316px"
+     ],
+     "outlinedBoxes": 25,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 27,
+     "boxRadius": 7,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 24,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 1783
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.2
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 135,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plex thai"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2565,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "header.site-header",
+      "tag": "header",
+      "top": 0,
+      "height": 135,
+      "words": 7,
+      "media": 0,
+      "middle": 24,
+      "heading": {
+       "text": "กินดิ",
+       "size": 35,
+       "tag": "a"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 31,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "main#main-content.site-main",
+      "tag": "main",
+      "top": 135,
+      "height": 2232,
+      "words": 81,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "สูตรดี ๆ",
+       "size": 36,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.site-footer",
+      "tag": "footer",
+      "top": 2417,
+      "height": 148,
+      "words": 20,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "กินดิ!",
+       "size": 28,
+       "tag": "div"
+      },
+      "left": 20,
+      "right": 26,
+      "textLeft": 20,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+      "size": 36,
+      "top": 221,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 3
+     },
+     {
+      "x": 44,
+      "n": 2
+     },
+     {
+      "x": 161,
+      "n": 1
+     },
+     {
+      "x": 180,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 7,
+    "bodySize": 10,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#fbf7ef",
+    "sidebar": null,
+    "topbar": null,
+    "canvas": {
+     "left": 20,
+     "right": 20
+    },
+    "hero": {
+     "text": "สูตรดี ๆ มีไว้แบ่งกัน",
+     "words": 3,
+     "chars": 21,
+     "lines": 2,
+     "size": 36,
+     "vw": 9.2,
+     "font": "Plex Thai",
+     "weight": 500,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 221,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 28,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 28,
+     "radii": [
+      [
+       7,
+       24
+      ],
+      [
+       8,
+       3
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "heavyBorders": 24,
+     "borderSamples": [
+      "#ddd2c2 on #fffdf8 (1.47:1)",
+      "#ddd2c2 on #fffdf8 (1.47:1)",
+      "#ddd2c2 on #fffdf8 (1.47:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 1,
+     "tabularShare": 1,
+     "kpiMax": 26
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.37,
+     "tiny": 2,
+     "tinySamples": [
+      "KIN DI 9px",
+      "ข้อมูลนี้ใช้ช่วยกรองเมนู 10px"
+     ],
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      23,
+      26,
+      28,
+      35,
+      36
+     ]
+    },
+    "title": {
+     "text": "สูตรดี ๆ\nมีไว้แบ่งกัน",
+     "size": 36,
+     "top": 221
+    },
+    "colourShare": 0.351
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "1 tiny uppercase letter-spaced label(s): \"MADE FOR THE EVERYDAY APPETITE.\"",
+   "fix": "Prefer sentence case at body size."
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #fbf7ef, text #fbf7ef, text #f4e3d7).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "heavy-borders",
+   "width": 1440,
+   "message": "25 panel borders are dark against their ground: #a33326 on #fbf7ef (6.42:1) | #ddd2c2 on #fffdf8 (1.47:1) | #ddd2c2 on #fffdf8 (1.47:1)",
+   "fix": "A panel border is a whisper: about 1.1–1.3:1 against its ground on a light screen (#e5e7eb–#ededed on white), and about 1.2–1.5:1 on a dark one (#1a1a1a on #000, #2e2e2e on #111). Darker lines turn the screen into a grid of boxes; keep the stronger line for controls.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "colour-sprawl",
+   "width": 1440,
+   "message": "20% of the first screen is strongly coloured.",
+   "fix": "Keep the screen neutral and spend colour on data and status: the studied screens sit near 3%, and only tinted styles reach 10–15%, as pale tints rather than saturated fills.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "below-fold",
+   "width": 1440,
+   "message": "Only 6 of 31 blocks start on the first 1440px screen.",
+   "fix": "Every block the brief names shows its header and first rows on the first desktop screen: size the headline block to its question, cap long lists with \"View all\", and put time-sensitive blocks before long tables."
+  },
+  {
+   "level": "WARN",
+   "id": "app-title-size",
+   "width": 1440,
+   "message": "The h1 is 50px (\"สูตรดี ๆ\nมีไว้แบ่งกัน\").",
+   "fix": "An app screen is not a landing page: the title is 18-32px (20-24px on a phone).",
+   "alsoAt": [
+    390
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-community\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-community\\desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-community\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-community\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-community\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\Admin\\Desktop\\Kin Di\\.taste-skill\\review-community\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

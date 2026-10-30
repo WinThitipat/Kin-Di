@@ -1,0 +1,16 @@
+TASTESKILL · LINT   3 file(s)
+
+FAIL
+  [placeholder-data] Placeholder data. Use believable names, amounts that add up and real units for this product.  (1×)
+      src/app/community/page.tsx:816  example.com
+  [gradient-text] Gradient / clipped text. Use solid colour.  (1×)
+      src/app/recipes/[id]/page.tsx:513  text-transparent
+
+WARN
+  [eyebrow] Eyebrow / kicker label above a heading.  (1×)
+      src/app/community/page.tsx:559  className="community-banner-eyebrow
+  [bounce] Looping attention animation (bounce / ping / pulse dot).  (1×)
+      src/app/recipes/[id]/page.tsx:159  animate-pulse
+
+RESULT: 2 FAIL, 2 WARN — fix the FAILs before rendering.
+Interface fragments marked data-ui keep their own borders and shadows. Any other line that must keep a flagged pattern for a real reason can carry the comment taste-skill-ignore.

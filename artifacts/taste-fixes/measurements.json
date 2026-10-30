@@ -1,0 +1,30 @@
+[
+  {
+    "width": 320,
+    "initialHomeHeight": 4327,
+    "fridgeSearchTop": 523.140625,
+    "fridgeTitleSize": 28,
+    "recipeNameTop": 663.515625
+  },
+  {
+    "width": 390,
+    "initialHomeHeight": 4458,
+    "fridgeSearchTop": 523.140625,
+    "fridgeTitleSize": 28,
+    "recipeNameTop": 639.71875
+  },
+  {
+    "width": 768,
+    "initialHomeHeight": 2732,
+    "fridgeSearchTop": 505.953125,
+    "fridgeTitleSize": 32,
+    "recipeNameTop": 610.5625
+  },
+  {
+    "width": 1440,
+    "initialHomeHeight": 2270,
+    "fridgeSearchTop": 505.953125,
+    "fridgeTitleSize": 32,
+    "recipeNameTop": 610.5625
+  }
+]
