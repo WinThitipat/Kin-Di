@@ -14,6 +14,7 @@ import {
   Plus,
   PlusCircle,
   Send,
+  Search,
   ShieldAlert,
   Trash2,
   X,
@@ -116,6 +117,8 @@ export default function CommunityRecipesPage() {
   >([]);
   const [sharedRecipes, setSharedRecipes] = useState<Recipe[]>([]);
   const [bannerIndex, setBannerIndex] = useState(0);
+  const [collectionSearch, setCollectionSearch] = useState("");
+  const [collectionLimit, setCollectionLimit] = useState(6);
   const bannerCount = sharedRecipes.filter(recipe => recipe.image_url).length;
   useEffect(() => {
     if (bannerCount < 2) return;
@@ -551,13 +554,16 @@ export default function CommunityRecipesPage() {
     ingredientIds.length + customIngredientNames.length;
   const bannerRecipes = sharedRecipes.filter(recipe => recipe.image_url);
   const bannerRecipe = bannerRecipes[bannerIndex % (bannerRecipes.length || 1)];
+  const matchingRecipes = sharedRecipes.filter(recipe =>
+    `${recipe.name} ${FOOD_CATEGORY_LABELS[recipe.category]}`.toLocaleLowerCase("th").includes(collectionSearch.trim().toLocaleLowerCase("th")),
+  );
 
   return (
     <div className="interior-page community-page">
       <section className="community-banner" aria-labelledby="community-banner-title">
         <div className="community-banner-copy">
-          <h1 id="community-banner-title">แบ่งปันเมนู</h1>
-          <p>เก็บและแบ่งปันสูตรที่คุณชอบ</p>
+          <h1 id="community-banner-title">แบ่งปันเมนูโปรดของคุณ</h1>
+          <p>เก็บสูตรจากเว็บไซต์ที่คุณชอบไว้ที่เดียว<br className="hidden sm:block" /> ให้คุณและทุกคนเลือกทำในมื้อถัดไป</p>
         </div>
         <figure className="community-banner-photo">
           <BannerPhoto
@@ -574,7 +580,7 @@ export default function CommunityRecipesPage() {
           onSubmit={handleSubmit}
           noValidate
           aria-label="แบ่งปันเมนูทีละขั้น"
-          className="lg:col-span-7 space-y-5"
+          className="community-form-panel lg:col-span-7 space-y-5"
         >
           {editingId && (
             <div className="recipe-import-notice">
@@ -594,7 +600,7 @@ export default function CommunityRecipesPage() {
               </button>
             </div>
           )}
-          <p role="status" className="text-sm text-[#6E5D50]">
+          <p role="status" className="community-draft-status text-sm text-[#6E5D50]">
             {draftMessage}
           </p>
           {!editingId && draftMessage && <button type="button" className="text-link min-h-11" disabled={isSubmitting} onClick={() => {
@@ -604,6 +610,10 @@ export default function CommunityRecipesPage() {
             }
           }}>ล้างร่างและเริ่มใหม่</button>}
           <nav className="recipe-stepper" aria-label="ขั้นตอนเพิ่มเมนู">
+            <div className="community-mobile-progress">
+              <p>ขั้นตอนที่ {currentStep + 1} จาก {FORM_STEPS.length} <span>{FORM_STEPS[currentStep]}</span></p>
+              <progress max={FORM_STEPS.length} value={currentStep + 1} aria-label="ความคืบหน้าการกรอกสูตร" />
+            </div>
             <ol>
               {FORM_STEPS.map((label, index) => (
                 <li
@@ -628,12 +638,14 @@ export default function CommunityRecipesPage() {
               ขั้นตอนที่ {currentStep + 1} จาก {FORM_STEPS.length}
             </p>
             <h2 id="community-step-title" ref={stepHeadingRef} tabIndex={-1}>
-              {FORM_STEPS[currentStep]}
+              {currentStep === 0 ? "เริ่มจากเมนูที่คุณชอบ" : FORM_STEPS[currentStep]}
             </h2>
             <p>
               {currentStep === 3
                 ? "เช็กข้อมูลให้พร้อม แล้วค่อยบันทึกสูตรเข้าสำรับ"
-                : "กรอกหัวข้อนี้ให้ครบ แล้วกดถัดไป ข้อมูลจะอยู่ครบเมื่อย้อนกลับ"}
+                : currentStep === 0
+                  ? "วางลิงก์สูตรอาหาร แล้วเพิ่มชื่อและรูปเมนูของคุณ"
+                  : "กรอกหัวข้อนี้ให้ครบ แล้วกดถัดไป ข้อมูลจะอยู่ครบเมื่อย้อนกลับ"}
             </p>
             {currentStep < 3 && (
               <p className="step-next">ถัดไป: {FORM_STEPS[currentStep + 1]}</p>
@@ -1361,7 +1373,7 @@ export default function CommunityRecipesPage() {
               id="shared-recipes-heading"
               className="text-base font-semibold text-[#302923] tabular-nums"
             >
-              เมนูอาหารที่เพิ่มแล้ว ({sharedRecipes.length} เมนู)
+              เมนูที่แบ่งปันแล้ว <span className="community-recipe-count">({sharedRecipes.length})</span>
             </h2>
           </div>
           <p className="text-xs text-[#6E5D50] leading-relaxed">
@@ -1370,6 +1382,10 @@ export default function CommunityRecipesPage() {
             ทันที
           </p>
 
+          <label className="community-collection-search">
+            <Search size={18} aria-hidden="true" />
+            <input type="search" aria-label="ค้นหาเมนูที่แบ่งปันแล้ว" placeholder="ค้นหาชื่อเมนูหรือหมวดหมู่" value={collectionSearch} onChange={event => { setCollectionSearch(event.target.value); setCollectionLimit(6); }} />
+          </label>
           {collectionError && (
             <p role="alert" className="step-error">
               {collectionError}{" "}
@@ -1411,8 +1427,9 @@ export default function CommunityRecipesPage() {
               </p>
             </div>
           ) : (
-            <div className="space-y-3.5 max-h-[580px] overflow-y-auto pr-1">
-              {sharedRecipes.map((item) => {
+            <div className="community-recipe-list">
+              {matchingRecipes.length === 0 && <p className="community-no-results" role="status">ไม่พบเมนูที่ค้นหา ลองใช้ชื่ออื่นหรือหมวดหมู่อาหาร</p>}
+              {matchingRecipes.slice(0, collectionLimit).map((item) => {
                 const ext = getExternalRecipeLinks(item);
                 return (
                   <div
@@ -1423,6 +1440,7 @@ export default function CommunityRecipesPage() {
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={item.image_url}
+                        loading="lazy"
                         alt={item.name}
                         className="w-20 h-20 rounded-lg object-cover border border-[#DDD2C2] shrink-0 bg-[#F1EADF] group-hover:scale-102 transition-transform duration-200"
                       />
@@ -1497,6 +1515,11 @@ export default function CommunityRecipesPage() {
                 );
               })}
             </div>
+          )}
+          {matchingRecipes.length > collectionLimit && (
+            <button type="button" className="kindi-btn-secondary community-load-more" onClick={() => setCollectionLimit(limit => limit + 6)}>
+              ดูเพิ่มอีก {Math.min(6, matchingRecipes.length - collectionLimit)} เมนู
+            </button>
           )}
         </section>
       </div>

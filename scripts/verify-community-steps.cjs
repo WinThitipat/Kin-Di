@@ -14,7 +14,7 @@ fs.mkdirSync('artifacts/community-steps', {recursive:true});
    const click = async locator => mobile ? locator.tap() : locator.click();
    await page.goto(base+'/community');await page.waitForLoadState('networkidle');
    const next=()=>page.getByRole('button',{name:'ถัดไป',exact:true});
-   const step=async n=>assert.equal(await page.locator('.step-intro h2').innerText(),['ข้อมูลเมนู','หมวดหมู่และเวลา','วัตถุดิบและสารก่อภูมิแพ้','ตรวจสอบก่อนบันทึก'][n]);
+   const step=async n=>assert.equal(await page.locator('.step-intro h2').innerText(),['เริ่มจากเมนูที่คุณชอบ','หมวดหมู่และเวลา','วัตถุดิบและสารก่อภูมิแพ้','ตรวจสอบก่อนบันทึก'][n]);
    await step(0);
    assert.equal(await page.locator('fieldset:visible').count(),1);
    assert.equal(await page.getByRole('button',{name:'บันทึกเมนูอาหารเข้าสำรับ!'}).count(),0);

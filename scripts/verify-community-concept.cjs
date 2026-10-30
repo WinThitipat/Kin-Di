@@ -1,0 +1,32 @@
+const { chromium } = require('C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+(async () => {
+  const browser = await chromium.launch({channel:'chrome',headless:true});
+  fs.mkdirSync('artifacts/community-concept',{recursive:true});
+  try {
+    for (const width of [320,390,600,768,1024,1440]) {
+      const page = await browser.newPage({viewport:{width,height:900}});
+      const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+      await page.goto((process.env.TEST_BASE_URL || 'http://127.0.0.1:3115')+'/community');
+      await page.waitForLoadState('networkidle');
+      await page.locator('.shared-menu-card').first().waitFor();
+      const initial=await page.locator('.shared-menu-card').count();
+      assert(initial<=6);
+      const more=page.getByRole('button',{name:/ดูเพิ่มอีก/});
+      if(await more.count()) { await more.click(); assert(await page.locator('.shared-menu-card').count()>initial); }
+      const name=await page.locator('.shared-menu-card .shared-menu-info p').first().innerText();
+      const search=page.getByRole('searchbox',{name:'ค้นหาเมนูที่แบ่งปันแล้ว'});
+      await search.fill(name); assert(await page.locator('.shared-menu-card').count()>0);
+      await search.fill('zzzzzzไม่พบแน่นอน'); assert.equal(await page.locator('.shared-menu-card').count(),0);
+      assert(await page.getByRole('status').filter({hasText:'ไม่พบเมนูที่ค้นหา'}).isVisible());
+      await search.fill(''); assert.equal(await page.locator('.shared-menu-card').count(),initial);
+      await page.evaluate(()=>scrollTo(0,0));
+      assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      if(width<=600) { assert(await page.locator('.community-mobile-progress').isVisible()); assert.equal(await page.locator('progress').getAttribute('value'),'1'); }
+      await page.screenshot({path:`artifacts/community-concept/${width}.png`,fullPage:true});
+      assert.deepEqual(errors,[]); console.log('PASS community responsive/search',width);
+      await page.close();
+    }
+  } finally { await browser.close(); }
+})().catch(e=>{console.error(e);process.exitCode=1});

@@ -2204,3 +2204,71 @@ body:has(dialog[open]) {
 .footer-inner > p { font-size: 16px; line-height: 1.7; color: var(--ink); max-width: 75ch; }
 .footer-brand small, .saved-row small { font-size: 14px; }
 @media (max-width: 760px) { .footer-inner { grid-template-columns: 1fr; gap: 20px; } }
+
+/* Community recipe desk: form first, searchable collection alongside. */
+.community-page .community-banner { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); min-height: 210px; background: #f1eadf; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.community-page .community-banner-copy { padding: 28px 32px; }
+.community-page .community-banner h1 { font-size: clamp(28px, 2.7vw, 38px); line-height: 1.5; font-weight: 600; letter-spacing: -.025em; }
+.community-page .community-banner-copy > p { margin-top: 10px; font-size: 16px; line-height: 1.8; }
+.community-page .community-banner-photo { min-height: 210px; max-height: none; }
+.community-form-panel, .community-page > .grid > .shared-recipes-panel { min-width: 0; background: #fffdf8; border: 1px solid var(--line); border-radius: 8px; padding: 24px; }
+.community-page > .grid > .shared-recipes-panel { position: static; gap: 18px; }
+.community-page .recipe-stepper { padding: 0 0 24px; margin: 0; border: 0; background: transparent; border-radius: 0; }
+.community-page .recipe-stepper ol { gap: 12px; }
+.community-page .recipe-stepper li { position: relative; align-items: center; gap: 10px; padding: 0; border: 0; text-align: center; font-size: 13px; }
+.community-page .recipe-stepper li:not(:last-child)::after { content: ''; position: absolute; height: 1px; background: var(--line); left: calc(50% + 25px); right: calc(-50% + 13px); top: 20px; }
+.community-page .recipe-stepper li > span:first-child { display: grid; place-items: center; width: 40px; height: 40px; min-height: 40px; border-radius: 50%; background: #eee9e0; color: var(--muted); font-size: 16px; font-weight: 600; border: 0; }
+.community-page .recipe-stepper li[aria-current='step'] > span:first-child { background: var(--red); color: #fff; }
+.community-page .recipe-stepper li[data-complete='true'] > span:first-child { background: #e5ebdd; color: #536347; }
+.community-page .recipe-stepper li > span:last-child { font-size: 13px; line-height: 1.6; }
+.community-mobile-progress { display: none; }
+.community-page .step-intro { border-top: 1px solid var(--line); padding: 20px 0 0; }
+.community-page .step-intro > p:first-child, .community-page .step-next { display: none; }
+.community-page .step-intro h2 { font-size: 25px; margin: 0 0 8px; font-weight: 600; }
+.community-page form > .recipe-step { padding: 0; border: 0; margin-bottom: 0; background: transparent; }
+.community-page form > .recipe-step > div:first-child { display: none; }
+.community-draft-status:empty { display: none; }
+.community-page .community-draft-status { font-size: 13px; color: #536347; margin: 0; }
+.community-page .recipe-step label { font-size: 14px; }
+
+.community-recipe-count { color: var(--muted); font-size: 16px; font-weight: 400; }
+.community-collection-search { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 6px; padding: 0 12px; color: var(--muted); }
+.community-collection-search input { min-width: 0; width: 100%; border: 0; background: transparent; padding: 12px 0; font-size: 14px; outline-offset: 3px; }
+.community-recipe-list { max-height: 760px; overflow-y: auto; scrollbar-gutter: stable; }
+.community-page .shared-menu-card { background: transparent; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 18px 0; box-shadow: none; }
+.community-page .shared-menu-card:first-child { padding-top: 0; }
+.community-page .shared-menu-actions { border-top: 0; padding-top: 0; }
+.community-page .shared-menu-actions > a { font-size: 13px; }
+.community-no-results { font-size: 14px; line-height: 1.8; padding: 16px 0; }
+@media (max-width: 1023px) {
+  .community-page .community-banner { min-height: 180px; }
+  .community-page .community-banner-photo { min-height: 180px; }
+  .community-page .community-banner-copy { padding: 24px; }
+  .community-recipe-list { max-height: none; overflow: visible; }
+}
+@media (max-width: 600px) {
+  .community-page .community-banner { grid-template-columns: minmax(0, 1fr) 100px; min-height: 148px; margin: 16px 0; }
+  .community-page .community-banner-copy { padding: 16px; }
+  .community-page .community-banner h1 { font-size: 22px; line-height: 1.5; }
+  .community-page .community-banner-copy > p { font-size: 13px; line-height: 1.7; margin-top: 6px; }
+  .community-page .community-banner-photo { min-height: 148px; }
+  .community-form-panel, .community-page > .grid > .shared-recipes-panel { padding: 18px 16px; }
+  .community-page .recipe-stepper { padding-bottom: 18px; }
+  .community-page .recipe-stepper ol { display: none; }
+  .community-mobile-progress { display: block; }
+  .community-mobile-progress p { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+  .community-mobile-progress p span { color: var(--muted); font-size: 13px; font-weight: 400; }
+  .community-mobile-progress progress { display: block; width: 100%; height: 9px; border: 0; border-radius: 6px; overflow: hidden; background: #e9e3da; accent-color: var(--red); }
+  .community-mobile-progress progress::-webkit-progress-bar { background: #e9e3da; }
+  .community-mobile-progress progress::-webkit-progress-value { background: var(--red); border-radius: 6px; }
+  .community-mobile-progress progress::-moz-progress-bar { background: var(--red); border-radius: 6px; }
+  .community-page .step-intro h2 { font-size: 22px; }
+}
+.community-page .shared-recipes-panel h2 { font-size: 21px; font-weight: 600; }
+.community-page .shared-menu-actions > a.kindi-btn-primary { background: transparent; color: var(--red); border: 1px solid var(--line); box-shadow: none; }
+.community-page .step-actions { border-top: 1px solid var(--line); padding-top: 18px; }
+.community-page .step-actions > button[type='submit'] { max-width: 280px; margin-left: auto; }
+@media (max-width: 600px) { .community-page .step-actions > button[type='submit'] { max-width: none; } }
+.community-load-more { min-height: 44px; width: 100%; font-size: 14px; }
+.community-collection-search:focus-within { outline: 2px solid var(--red); outline-offset: 2px; }
+.community-collection-search input:focus-visible { outline: none; }
