@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useKinDiApp } from '@/components/AppShell';
 import { RecipeImage } from '@/components/RecipeImage';
+import { readPantry, savePantry } from '@/lib/fridge-pantry';
 import { INGREDIENT_LIST } from '@/data/recipes-seed';
 import {
   getEligibleFridgeRecipes,
@@ -56,13 +57,17 @@ export default function FridgeModePage() {
   const [reloadKey, setReloadKey] = useState(0);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [customIngredients, setCustomIngredients] = useState<IngredientRecord[]>([]);
-  const [selectedIngredientIds, setSelectedIngredientIds] = useState<string[]>([
-    'egg',
-    'jasmine_rice',
-    'pork',
-    'holy_basil',
-  ]);
-  const [assumeBasicCondiments, setAssumeBasicCondiments] = useState<boolean>(true);
+  const [selectedIngredientIds, setSelectedIngredientIds] = useState<string[]>([]);
+  const [assumeBasicCondiments, setAssumeBasicCondiments] = useState<boolean>(false);
+  const [pantryReady, setPantryReady] = useState(false);
+  useEffect(() => {
+    const saved = readPantry();
+    if (saved) { setSelectedIngredientIds(saved.ingredientIds); setAssumeBasicCondiments(saved.assumeBasicCondiments); }
+    setPantryReady(true);
+  }, []);
+  useEffect(() => {
+    if (pantryReady) savePantry({ ingredientIds: selectedIngredientIds, assumeBasicCondiments });
+  }, [pantryReady, selectedIngredientIds, assumeBasicCondiments]);
   const [activeIngredientCategory, setActiveIngredientCategory] = useState<IngredientCategory | 'all'>('all');
   const [showOtherInput, setShowOtherInput] = useState<boolean>(false);
   const [otherDraft, setOtherDraft] = useState<string>('');

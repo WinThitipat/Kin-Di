@@ -641,3 +641,20 @@ describe('KIN DI UI State, Share Recipe Form ("แบ่งปันสูตร
     expect(isSafeHttpUrl('javascript:alert(1)')).toBe(false);
   });
 });
+
+describe('recent revealed dishes across rounds', () => {
+  it('avoids five recent dishes when enough eligible alternatives exist', () => {
+    const recent = TEST_POOL.slice(0,5).map(recipe=>recipe.id);
+    const round = createRouletteRound({candidates:TEST_POOL,requestedCardCount:3,recentRevealedRecipeIds:recent,rng:()=>0});
+    expect(round.cards).toHaveLength(3);
+    expect(round.cards.every(card=>!recent.includes(card.recipe.id))).toBe(true);
+  });
+  it('fills a small pool without duplicates and never bypasses restrictions', () => {
+    const recent=TEST_POOL.map(recipe=>recipe.id);
+    const round=createRouletteRound({candidates:TEST_POOL.slice(0,2),requestedCardCount:7,recentRevealedRecipeIds:recent,rng:()=>0});
+    expect(round.cards).toHaveLength(2);
+    expect(new Set(round.cards.map(card=>card.recipe.id)).size).toBe(2);
+    const rejected=createRouletteRound({candidates:TEST_POOL,requestedCardCount:3,recentRevealedRecipeIds:recent,restrictions:{...DEFAULT_USER_RESTRICTIONS,avoidedIngredients:['jasmine_rice']}});
+    expect(rejected.cards).toHaveLength(0);
+  });
+});

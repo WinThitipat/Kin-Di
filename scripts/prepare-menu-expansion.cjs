@@ -1,0 +1,13 @@
+const fs=require('fs');const facts=JSON.parse(fs.readFileSync('.firecrawl/menu-expansion-facts.json'));
+const specs=[
+ ['ไข่ตุ๋นหมูสับ','ไข่ตุ๋นใส่หมูสับ ปรุงด้วยซีอิ๊วและซอสหอยนางรม','thai',20,'Kanit Kanit A',['egg','pork','garlic','soy_sauce','oyster_sauce'],['หอมซอย','พริกไทย','ผงปรุงรส'],['eggs','soy','wheat_gluten','shellfish']],
+ ['ผัดมักกะโรนีอกไก่','มักกะโรนีผัดอกไก่ ไข่ และแครอท คลุกซอสมะเขือเทศ','noodles',25,'Suku Jaaor',['chicken','egg','garlic','soy_sauce'],['มักกะโรนี','แครอท','ซอสพริก','ซอสมะเขือเทศ','น้ำตาล','น้ำมันพืช'],['eggs','soy','wheat_gluten']],
+ ['กิวด้ง ข้าวหน้าเนื้อญี่ปุ่น','เนื้อสไลซ์กับหอมใหญ่ในซอสโชยุและดาชิ เสิร์ฟกับข้าวญี่ปุ่น','international',30,'ซีโนคุกกิ้งคลับ',['beef','onion','soy_sauce','egg'],['ข้าวญี่ปุ่น','ขิง','มิริน','สาเกปรุงอาหาร','น้ำตาล','ซุปดาชิ','ต้นหอม','ขิงดอง'],['soy','wheat_gluten','eggs','fish']],
+ ['ยำปลากระป๋อง','ปลากระป๋องคลุกตะไคร้ หอมแดง พริก และมะนาว ใช้วัตถุดิบไม่กี่อย่าง','thai',10,'小金',['chili','lime'],['ปลากระป๋องในซอสมะเขือเทศ','ตะไคร้','หอมแดง'],['fish']],
+ ['มะเขือเทศผัดไข่แบบจีน','ไข่ผัดมะเขือเทศ กระเทียม และต้นหอม ปรุงเกลือกับน้ำตาล','international',20,'Aj.zhu',['tomato','egg','garlic','sea_salt'],['ต้นหอม','น้ำมันพืช','น้ำตาล'],['eggs']],
+ ['เต้าหู้ผัดขิงเจ','เต้าหู้เหลืองผัดขิง เห็ดฟาง และขึ้นฉ่าย ใช้เครื่องปรุงสูตรเจ','thai',20,'Healthy_onair',['tofu','mushroom','chili'],['เต้าหู้เหลืองทอด','ขิง','ขึ้นฉ่าย','ซีอิ๊วขาวเห็ดหอมสูตรเจ','ซอสปรุงรสสูตรเจ','น้ำมันพืช','น้ำสต๊อกผัก','พริกไทย','น้ำตาล'],['soy','wheat_gluten']],
+ ['สุกี้น้ำไก่','สุกี้น้ำอกไก่ วุ้นเส้น และผัก เลือกน้ำจิ้มตามชอบ','noodles',30,'ROCKETSALAD',['chicken','morning_glory','mushroom'],['ผักกาดขาว','ขึ้นฉ่าย','วุ้นเส้น','น้ำจิ้มสุกี้'],['soy','wheat_gluten','sesame']],
+];
+const rows=specs.map(([name,description,category,cooking_time,author,ingredientIds,customIngredientNames,allergens],i)=>({name,description,category,cooking_time,difficulty:'easy',meal_types:['lunch','dinner'],ingredientIds,customIngredientNames,allergens,dietary_tags:[],external_recipe_url:facts[i].url,image_url:String(facts[i].image).split(',')[0].replace('/400x0/','/800x0/'),submitted_by:`KIN DI · ${author} (Wongnai Cooking)`,instructionsText:`ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มภาษาไทยของ ${author} จากลิงก์สูตรอาหาร เวลาเป็นค่าเตรียมและทำโดยประมาณ โปรดตรวจฉลากเครื่องปรุงและสารก่อภูมิแพ้ก่อนทำ รูปประกอบจากหน้าสูตรต้นทาง`}));
+fs.writeFileSync('data/curated-menus-2026-10-30.json',JSON.stringify(rows,null,2)+'\n');
+let importer=fs.readFileSync('scripts/import-world-menus.cjs','utf8').replaceAll('curated-world-menus-2026-10-29.json','curated-menus-2026-10-30.json').replaceAll('artifacts/world-menus','artifacts/menu-expansion-2026-10-30');fs.writeFileSync('scripts/import-menu-expansion.cjs',importer);

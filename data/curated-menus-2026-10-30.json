@@ -1,0 +1,235 @@
+[
+  {
+    "name": "ไข่ตุ๋นหมูสับ",
+    "description": "ไข่ตุ๋นใส่หมูสับ ปรุงด้วยซีอิ๊วและซอสหอยนางรม",
+    "category": "thai",
+    "cooking_time": 20,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "egg",
+      "pork",
+      "garlic",
+      "soy_sauce",
+      "oyster_sauce"
+    ],
+    "customIngredientNames": [
+      "หอมซอย",
+      "พริกไทย",
+      "ผงปรุงรส"
+    ],
+    "allergens": [
+      "eggs",
+      "soy",
+      "wheat_gluten",
+      "shellfish"
+    ],
+    "dietary_tags": [],
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/c40c93c4ba72409a947973e19140fd23",
+    "image_url": "https://img.wongnai.com/p/800x0/2019/03/21/87fec746802e4654a307b758db06510c.jpg",
+    "submitted_by": "KIN DI · Kanit Kanit A (Wongnai Cooking)",
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มภาษาไทยของ Kanit Kanit A จากลิงก์สูตรอาหาร เวลาเป็นค่าเตรียมและทำโดยประมาณ โปรดตรวจฉลากเครื่องปรุงและสารก่อภูมิแพ้ก่อนทำ รูปประกอบจากหน้าสูตรต้นทาง"
+  },
+  {
+    "name": "ผัดมักกะโรนีอกไก่",
+    "description": "มักกะโรนีผัดอกไก่ ไข่ และแครอท คลุกซอสมะเขือเทศ",
+    "category": "noodles",
+    "cooking_time": 25,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "chicken",
+      "egg",
+      "garlic",
+      "soy_sauce"
+    ],
+    "customIngredientNames": [
+      "มักกะโรนี",
+      "แครอท",
+      "ซอสพริก",
+      "ซอสมะเขือเทศ",
+      "น้ำตาล",
+      "น้ำมันพืช"
+    ],
+    "allergens": [
+      "eggs",
+      "soy",
+      "wheat_gluten"
+    ],
+    "dietary_tags": [],
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/38be8508d5c4474486f0bfc9efd0d585",
+    "image_url": "https://img.wongnai.com/p/800x0/2018/05/07/44e584e94a8742d7a754828b9f8847dd.jpg",
+    "submitted_by": "KIN DI · Suku Jaaor (Wongnai Cooking)",
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มภาษาไทยของ Suku Jaaor จากลิงก์สูตรอาหาร เวลาเป็นค่าเตรียมและทำโดยประมาณ โปรดตรวจฉลากเครื่องปรุงและสารก่อภูมิแพ้ก่อนทำ รูปประกอบจากหน้าสูตรต้นทาง"
+  },
+  {
+    "name": "กิวด้ง ข้าวหน้าเนื้อญี่ปุ่น",
+    "description": "เนื้อสไลซ์กับหอมใหญ่ในซอสโชยุและดาชิ เสิร์ฟกับข้าวญี่ปุ่น",
+    "category": "international",
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "beef",
+      "onion",
+      "soy_sauce",
+      "egg"
+    ],
+    "customIngredientNames": [
+      "ข้าวญี่ปุ่น",
+      "ขิง",
+      "มิริน",
+      "สาเกปรุงอาหาร",
+      "น้ำตาล",
+      "ซุปดาชิ",
+      "ต้นหอม",
+      "ขิงดอง"
+    ],
+    "allergens": [
+      "soy",
+      "wheat_gluten",
+      "eggs",
+      "fish"
+    ],
+    "dietary_tags": [],
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/aaca840e77764e11834effee9875852b",
+    "image_url": "https://img.wongnai.com/p/800x0/2020/05/12/a1e8df26f01d48f0a3ec77def60fd290.jpg",
+    "submitted_by": "KIN DI · ซีโนคุกกิ้งคลับ (Wongnai Cooking)",
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มภาษาไทยของ ซีโนคุกกิ้งคลับ จากลิงก์สูตรอาหาร เวลาเป็นค่าเตรียมและทำโดยประมาณ โปรดตรวจฉลากเครื่องปรุงและสารก่อภูมิแพ้ก่อนทำ รูปประกอบจากหน้าสูตรต้นทาง"
+  },
+  {
+    "name": "ยำปลากระป๋อง",
+    "description": "ปลากระป๋องคลุกตะไคร้ หอมแดง พริก และมะนาว ใช้วัตถุดิบไม่กี่อย่าง",
+    "category": "thai",
+    "cooking_time": 10,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "chili",
+      "lime"
+    ],
+    "customIngredientNames": [
+      "ปลากระป๋องในซอสมะเขือเทศ",
+      "ตะไคร้",
+      "หอมแดง"
+    ],
+    "allergens": [
+      "fish"
+    ],
+    "dietary_tags": [],
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/d870f4cbed66421fac4283cb6bf4ac7d",
+    "image_url": "https://img.wongnai.com/p/800x0/2018/05/10/58e5ec69874b4b28866539fc7300018e.jpg",
+    "submitted_by": "KIN DI · 小金 (Wongnai Cooking)",
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มภาษาไทยของ 小金 จากลิงก์สูตรอาหาร เวลาเป็นค่าเตรียมและทำโดยประมาณ โปรดตรวจฉลากเครื่องปรุงและสารก่อภูมิแพ้ก่อนทำ รูปประกอบจากหน้าสูตรต้นทาง"
+  },
+  {
+    "name": "มะเขือเทศผัดไข่แบบจีน",
+    "description": "ไข่ผัดมะเขือเทศ กระเทียม และต้นหอม ปรุงเกลือกับน้ำตาล",
+    "category": "international",
+    "cooking_time": 20,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "tomato",
+      "egg",
+      "garlic",
+      "sea_salt"
+    ],
+    "customIngredientNames": [
+      "ต้นหอม",
+      "น้ำมันพืช",
+      "น้ำตาล"
+    ],
+    "allergens": [
+      "eggs"
+    ],
+    "dietary_tags": [],
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/9b3274837092476ea615f2c32dfbe1d3",
+    "image_url": "https://img.wongnai.com/p/800x0/2018/12/01/8625f812a62f4c22b19fafecea6ec3ea.jpg",
+    "submitted_by": "KIN DI · Aj.zhu (Wongnai Cooking)",
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มภาษาไทยของ Aj.zhu จากลิงก์สูตรอาหาร เวลาเป็นค่าเตรียมและทำโดยประมาณ โปรดตรวจฉลากเครื่องปรุงและสารก่อภูมิแพ้ก่อนทำ รูปประกอบจากหน้าสูตรต้นทาง"
+  },
+  {
+    "name": "เต้าหู้ผัดขิงเจ",
+    "description": "เต้าหู้เหลืองผัดขิง เห็ดฟาง และขึ้นฉ่าย ใช้เครื่องปรุงสูตรเจ",
+    "category": "thai",
+    "cooking_time": 20,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "tofu",
+      "mushroom",
+      "chili"
+    ],
+    "customIngredientNames": [
+      "เต้าหู้เหลืองทอด",
+      "ขิง",
+      "ขึ้นฉ่าย",
+      "ซีอิ๊วขาวเห็ดหอมสูตรเจ",
+      "ซอสปรุงรสสูตรเจ",
+      "น้ำมันพืช",
+      "น้ำสต๊อกผัก",
+      "พริกไทย",
+      "น้ำตาล"
+    ],
+    "allergens": [
+      "soy",
+      "wheat_gluten"
+    ],
+    "dietary_tags": [],
+    "external_recipe_url": "https://www.wongnai.com/recipes/vegan-tofu-stir-with-ginger",
+    "image_url": "https://img.wongnai.com/p/1920x0/2017/10/24/9a9c81d443c645f0a7975b0c7229c8b6.jpg",
+    "submitted_by": "KIN DI · Healthy_onair (Wongnai Cooking)",
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มภาษาไทยของ Healthy_onair จากลิงก์สูตรอาหาร เวลาเป็นค่าเตรียมและทำโดยประมาณ โปรดตรวจฉลากเครื่องปรุงและสารก่อภูมิแพ้ก่อนทำ รูปประกอบจากหน้าสูตรต้นทาง"
+  },
+  {
+    "name": "สุกี้น้ำไก่",
+    "description": "สุกี้น้ำอกไก่ วุ้นเส้น และผัก เลือกน้ำจิ้มตามชอบ",
+    "category": "noodles",
+    "cooking_time": 30,
+    "difficulty": "easy",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "ingredientIds": [
+      "chicken",
+      "morning_glory",
+      "mushroom"
+    ],
+    "customIngredientNames": [
+      "ผักกาดขาว",
+      "ขึ้นฉ่าย",
+      "วุ้นเส้น",
+      "น้ำจิ้มสุกี้"
+    ],
+    "allergens": [
+      "soy",
+      "wheat_gluten",
+      "sesame"
+    ],
+    "dietary_tags": [],
+    "external_recipe_url": "https://www.wongnai.com/recipes/ugc/1f6185f1b9674859b000d23ab334ebce",
+    "image_url": "https://img.wongnai.com/p/800x0/2017/09/26/999f64ffb3c44813ada057df6d80aed4.jpg",
+    "submitted_by": "KIN DI · ROCKETSALAD (Wongnai Cooking)",
+    "instructionsText": "ดูปริมาณวัตถุดิบและวิธีทำฉบับเต็มภาษาไทยของ ROCKETSALAD จากลิงก์สูตรอาหาร เวลาเป็นค่าเตรียมและทำโดยประมาณ โปรดตรวจฉลากเครื่องปรุงและสารก่อภูมิแพ้ก่อนทำ รูปประกอบจากหน้าสูตรต้นทาง"
+  }
+]

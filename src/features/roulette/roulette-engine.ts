@@ -40,6 +40,7 @@ export interface CreateRouletteRoundOptions {
   filters?: RouletteQuickFilters;
   previousRevealedRecipeId?: string | null;
   previousRoundRecipeIds?: string[];
+  recentRevealedRecipeIds?: string[];
   catalog?: Record<string, IngredientRecord>;
   rng?: () => number;
   roundIdGenerator?: () => string;
@@ -66,6 +67,7 @@ export function createRouletteRound({
   filters = DEFAULT_ROULETTE_FILTERS,
   previousRevealedRecipeId = null,
   previousRoundRecipeIds = [],
+  recentRevealedRecipeIds = [],
   catalog,
   rng = Math.random,
   roundIdGenerator = defaultRoundIdGenerator,
@@ -92,6 +94,12 @@ export function createRouletteRound({
   // If we have strictly more eligible recipes than requested cards and there was a previously
   // revealed recipe, prioritize fresh candidates first while still keeping everything randomized.
   let pool = fisherYatesShuffle(eligible, rng);
+  // Prefer unseen dishes, then reintroduce the oldest recent results only if needed.
+  const recent = [...new Set(recentRevealedRecipeIds)].slice(0, 5);
+  pool = [
+    ...pool.filter(recipe => !recent.includes(recipe.id)),
+    ...pool.filter(recipe => recent.includes(recipe.id)).sort((a, b) => recent.indexOf(b.id) - recent.indexOf(a.id)),
+  ];
 
   if (previousRevealedRecipeId && totalEligibleCount > targetCount) {
     const withoutPrevRevealed = pool.filter((r) => r.id !== previousRevealedRecipeId);

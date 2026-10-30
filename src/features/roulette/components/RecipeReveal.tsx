@@ -1,6 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { readPantry, FridgePantry } from '@/lib/fridge-pantry';
+import { BASIC_PANTRY_CONDIMENT_IDS } from '@/features/food-safety/eligibility';
+import { INGREDIENTS_CATALOG } from '@/data/recipes-seed';
 import Link from 'next/link';
 import {
   ChefHat,
@@ -41,6 +44,13 @@ export function RecipeReveal({
 }: RecipeRevealProps) {
   const verifiedDietaryTags = Array.isArray(recipe.dietary_tags) ? recipe.dietary_tags : [];
   const externalLinks = getExternalRecipeLinks(recipe);
+  const [pantry, setPantry] = useState<FridgePantry | null>(null);
+  useEffect(() => { const sync = () => setPantry(readPantry()); sync(); window.addEventListener('storage', sync); window.addEventListener('kindi-pantry-updated', sync); return () => { window.removeEventListener('storage', sync); window.removeEventListener('kindi-pantry-updated', sync); }; }, []);
+  const available = new Set(pantry?.ingredientIds ?? []);
+  if (pantry?.assumeBasicCondiments) BASIC_PANTRY_CONDIMENT_IDS.forEach(id => available.add(id));
+  const required = recipe.ingredients?.filter(entry => !entry.is_optional) ?? [];
+  const missing = [...new Set(required.filter(entry => !available.has(entry.ingredient_id)).map(entry => entry.ingredient_id))];
+  const ingredientName = (id: string) => recipe.ingredient_catalog?.find(item => item.id === id)?.name_th || INGREDIENTS_CATALOG[id]?.name_th || id.replace(/^custom_/, '').replaceAll('_', ' ');
 
   return (
     <div
@@ -160,6 +170,14 @@ export function RecipeReveal({
           </div>
 
           {/* Primary & Secondary Actions */}
+          <div className="reveal-pantry text-sm leading-relaxed" aria-label="วัตถุดิบจากตู้เย็นของคุณ">
+            {!pantry || pantry.ingredientIds.length === 0 ? <Link href="/fridge" onClick={onCloseModal} className="text-link">เลือกของในตู้เย็น เพื่อดูว่าขาดอะไร →</Link> : <>
+              <strong>{required.length === 0 ? 'สูตรนี้ยังไม่มีรายการวัตถุดิบครบ' : missing.length === 0 ? 'มีครบตามรายการที่เลือกไว้' : `ยังไม่ได้เลือก ${missing.length} อย่าง`}</strong>
+              {missing.length > 0 && <p>{missing.map(ingredientName).join(' · ')}</p>}
+              <p className="text-xs text-[#6E5D50]">เทียบเฉพาะรายการวัตถุดิบ ไม่ได้ตรวจปริมาณหรือรับรองความปลอดภัย</p>
+              <Link href="/fridge" onClick={onCloseModal} className="text-link">แก้ไขของในตู้เย็น →</Link>
+            </>}
+          </div>
           <div className="pt-3 border-t border-[#DDD2C2] space-y-2">
             {/* Primary Action: Open External Recipe Website directly in New Tab */}
             <a

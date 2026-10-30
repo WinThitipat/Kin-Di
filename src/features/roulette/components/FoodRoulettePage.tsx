@@ -179,12 +179,13 @@ export function FoodRoulettePage() {
         filters: activeFilters,
         previousRevealedRecipeId: prevRevealed?.id ?? null,
         previousRoundRecipeIds: prevRoundIds,
+        recentRevealedRecipeIds: history.map(entry => entry.recipeId),
         catalog,
       });
 
       setRound(nextRound);
     },
-    [restrictions, catalog],
+    [restrictions, catalog, history],
   );
 
   // Open modal and deal mystery cards
