@@ -292,7 +292,7 @@ export function FoodRoulettePage() {
 
   return (
     <div className="home-page">
-      <section className="meal-hero" aria-labelledby="meal-hero-title">
+      <section className="meal-hero hero-banner" aria-labelledby="meal-hero-title">
         <div className="hero-copy">
           <h1 id="meal-hero-title">
             มื้อนี้
@@ -301,8 +301,7 @@ export function FoodRoulettePage() {
             </span>
           </h1>
           <p className="hero-intro">
-            คิดไม่ออกว่าจะกินอะไร? เลือกไพ่สักใบ
-            <br className="hidden sm:block" /> เจอเมนูใหม่ โดยกรองตามอาหารที่คุณไม่กิน
+            เปิดไพ่สักใบ ให้เราช่วยเลือกมื้อนี้
           </p>
           <div className="hero-actions">
             <button
@@ -324,7 +323,6 @@ export function FoodRoulettePage() {
                 : "มีอาหารที่แพ้? บอกเราได้เลย"}
             </button>
           </div>
-          <p className="hero-play-hint">เลือกไพ่ → เปิดเมนู → ดูสูตรที่อยากทำ</p>
         </div>
         <div className="hero-visual">
           <img
@@ -335,19 +333,6 @@ export function FoodRoulettePage() {
             width="1200"
             height="1000"
           />
-          <div className="photo-caption">
-            <span>เรื่องกิน เรื่องใหญ่</span>
-            <span>EVERYDAY, A GOOD MEAL.</span>
-          </div>
-          <button
-            className="hero-stamp"
-            onClick={handleOpenRouletteModal}
-            aria-label="เปิดไพ่สุ่มเมนู"
-          >
-            <span>คิดไม่ออก</span>
-            <strong>ก็สุ่มดิ!</strong>
-            <ArrowUpRight size={22} aria-hidden="true" />
-          </button>
         </div>
       </section>
       <section
