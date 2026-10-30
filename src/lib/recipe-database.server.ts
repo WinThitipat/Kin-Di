@@ -64,3 +64,10 @@ export function listDatabaseRecipes() {
   if (!pendingRead) pendingRead = readDatabaseRecipes().finally(() => { pendingRead = null; });
   return pendingRead;
 }
+
+export async function ingredientDatabase(action: "list" | "save", record?: import("@/types/recipe").IngredientRecord) {
+  const { client, secret } = connection();
+  const { data, error } = await client.rpc(action === "list" ? "kindi_list_ingredients" : "kindi_save_ingredient", action === "list" ? {p_secret: secret} : {p_secret: secret, p_record: record});
+  if(error) throw new Error("INGREDIENT_DATABASE_FAILED");
+  return data;
+}

@@ -83,6 +83,8 @@ export default function FridgeModePage() {
   const [showOtherInput, setShowOtherInput] = useState<boolean>(false);
   const [ingredientSearch, setIngredientSearch] = useState('');
   const [libraryOpen, setLibraryOpen] = useState(false);
+  const [savingIngredient, setSavingIngredient] = useState(false);
+  const [ingredientMessage, setIngredientMessage] = useState('');
 
   useEffect(() => {
     const loadAll = () => {
@@ -96,6 +98,11 @@ export default function FridgeModePage() {
     };
     const syncIngredients = () => setCustomIngredients(loadCustomIngredients());
     loadAll();
+    fetch('/api/ingredients').then(response => {if(!response.ok)throw Error();return response.json()}).then(data => {
+      for(const item of data.ingredients ?? []) saveCustomIngredient(item);
+      setCustomIngredients(loadCustomIngredients());
+    }).catch(() => setIngredientMessage('โหลดวัตถุดิบส่วนกลางไม่ได้ กำลังแสดงรายการในเครื่อง'));
+
 
     window.addEventListener('kindi-recipes-updated', loadAll);
     window.addEventListener('kindi-ingredients-updated', syncIngredients);
@@ -117,22 +124,25 @@ export default function FridgeModePage() {
     );
   };
 
-  const handleAddOtherIngredient = () => {
+  const handleAddOtherIngredient = async () => {
     const clean = ingredientSearch.trim();
-    if (!clean) return;
-    const slugId = `custom_${clean.toLowerCase().replace(/[^a-z0-9ก-๙]+/g, '_')}`;
-    const newRecord: IngredientRecord = {
-      id: slugId,
-      name_th: clean,
-      category: 'other',
-      allergens: [],
-      dietary_compatible: ['vegetarian', 'vegan', 'halal'],
-      composition_known: true,
-    };
-    const updated = saveCustomIngredient(newRecord);
-    setCustomIngredients(updated);
-    setSelectedIngredientIds((prev) => (prev.includes(slugId) ? prev : [...prev, slugId]));
-    setIngredientSearch('');
+    if (!clean || savingIngredient) return;
+    const existing = Object.values(catalog).find(item => item.name_th.toLowerCase() === clean.toLowerCase());
+    if(existing && !existing.id.startsWith('custom_')) {
+      setSelectedIngredientIds(previous => previous.includes(existing.id) ? previous : [...previous, existing.id]);
+      setIngredientSearch(''); return;
+    }
+    setSavingIngredient(true); setIngredientMessage('');
+    try {
+      const response = await fetch('/api/ingredients',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:clean})});
+      const result = await response.json();
+      if(!response.ok)throw new Error(result.error || 'บันทึกไม่ได้');
+      const item = result.ingredient as IngredientRecord;
+      setCustomIngredients(saveCustomIngredient(item));
+      setSelectedIngredientIds(previous => previous.includes(item.id) ? previous : [...previous,item.id]);
+      setIngredientSearch(''); setIngredientMessage('บันทึกวัตถุดิบลงฐานข้อมูลแล้ว');
+    } catch(error) { setIngredientMessage(error instanceof Error ? error.message : 'บันทึกไม่ได้ กรุณาลองใหม่'); }
+    finally { setSavingIngredient(false); }
   };
 
   const matchedRecipes = useMemo(() => {
@@ -261,10 +271,11 @@ export default function FridgeModePage() {
               <input id="fridge-ingredient-search" type="search" value={ingredientSearch}
                 onChange={event => setIngredientSearch(event.target.value)} placeholder="เช่น ไข่ ไก่ กะหล่ำปลี"
                 className="kindi-input-field w-full min-h-11 px-3" />
-              {ingredientSearch.trim() && !Object.values(catalog).some(item => item.name_th.includes(ingredientSearch.trim())) && (
-                <button type="button" className="kindi-btn-primary" onClick={handleAddOtherIngredient} aria-label={`เพิ่มวัตถุดิบ ${ingredientSearch.trim()}`}>+ เพิ่ม</button>
+              {ingredientSearch.trim() && (
+                <button type="button" className="kindi-btn-primary" disabled={savingIngredient} onClick={handleAddOtherIngredient} aria-label={`เพิ่มวัตถุดิบ ${ingredientSearch.trim()}`}>{savingIngredient ? "กำลังบันทึก…" : "+ เพิ่ม"}</button>
               )}
             </div>
+            {ingredientMessage && <p role="status" className="text-sm mt-2">{ingredientMessage}</p>}
             {ingredientSearch.trim() && !Object.values(catalog).some(item => item.name_th.includes(ingredientSearch.trim())) && <p className="text-sm mt-2" role="status">ไม่พบวัตถุดิบนี้ กดเพิ่มเพื่อเลือก “{ingredientSearch.trim()}”</p>}
           </div>
 
