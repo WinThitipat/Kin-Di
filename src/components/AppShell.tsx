@@ -121,6 +121,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div className="footer-inner">
             <div className="footer-brand">
               กินดิ!<small>คิดน้อยลง อร่อยมากขึ้น</small>
+              <a className="footer-credit" href="https://github.com/WinThitipat" target="_blank" rel="noopener noreferrer">
+                โดย WinThitipat · GitHub ↗
+              </a>
             </div>
             <p>{SAFETY_DISCLAIMER_TH}</p>
           </div>

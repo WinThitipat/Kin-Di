@@ -2337,3 +2337,17 @@ body:has(dialog[open]) {
 .fridge-search-add { display: flex; align-items: stretch; gap: 8px; }
 .fridge-search-add input { min-width: 0; flex: 1; font-size: 16px; }
 .fridge-search-add button { flex-shrink: 0; min-height: 44px; padding: 10px 16px; font-size: 14px; border-radius: 6px; }
+
+.footer-brand .footer-credit {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.footer-brand .footer-credit:hover { color: var(--red); }
