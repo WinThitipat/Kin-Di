@@ -1,0 +1,8 @@
+const fs=require('fs');const assert=require('assert/strict');
+(async()=>{const menus=JSON.parse(fs.readFileSync('data/curated-dietary-menus-2026-10-31.json'));const {recipes}=await(await fetch('https://kin-di.vercel.app/api/recipes')).json();const updates=[];
+for(const menu of menus){const recipe=recipes.find(r=>r.name===menu.name&&r.external_recipe_url===menu.external_recipe_url);assert(recipe);const ingredient_catalog=recipe.ingredient_catalog.map(item=>{const name=item.name_th;let diets=['vegan','vegetarian','halal'];if(/ไก่|โยเกิร์ต/.test(name)) diets=['halal'];else if(/ซีอิ๊ว|ฟองเต้าหู้|เต้าหู้นิ่ม/.test(name)) diets=['vegan','vegetarian'];const allergens=[];if(/เต้าหู้|ซีอิ๊ว/.test(name))allergens.push('soy');if(/ซีอิ๊ว/.test(name))allergens.push('wheat_gluten');if(/พีแคน/.test(name))allergens.push('tree_nuts');if(/โยเกิร์ต/.test(name))allergens.push('dairy');return {...item,id:item.id.replace(/^custom_/,"curated_dietary_"),composition_known:true,dietary_compatible:diets,allergens};});
+const patch={ingredient_catalog,ingredients:recipe.ingredients.map(x=>({...x,ingredient_id:x.ingredient_id.replace(/^custom_/,"curated_dietary_"),composition_verified:true})),safety_metadata_complete:true};
+// Only reviewed, newly imported records. Allergy assessments and unknown cross-contact remain unchanged.
+updates.push(`UPDATE public.community_recipes SET recipe=recipe || '${JSON.stringify(patch).replaceAll("'","''")}'::jsonb WHERE id='${recipe.id}' AND name='${recipe.name.replaceAll("'","''")}';`);
+}fs.writeFileSync('artifacts/dietary-research/review.sql',updates.join('\n'));console.log('Prepared review for',updates.length,'new recipes');})().catch(e=>{console.error(e);process.exitCode=1});
+

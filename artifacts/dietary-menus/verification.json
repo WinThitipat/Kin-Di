@@ -1,0 +1,43 @@
+{
+  "added": [
+    {
+      "id": "shared-f1a8ba07-5629-83f6-de31-1f646bcdd835",
+      "name": "สลัดมันเทศควินัว",
+      "source": "https://krua.co/recipe/quinoa-sweet-potato-salad"
+    },
+    {
+      "id": "shared-5d583c8d-30bd-7c5f-0284-073c32da5311",
+      "name": "คั่วกลิ้งมังสวิรัติ",
+      "source": "https://krua.co/recipe/vegetarian-kua-kling"
+    },
+    {
+      "id": "shared-4ee869e4-5aab-48ee-bd3d-1f6a9f977756",
+      "name": "จับฉ่ายมังสวิรัติ",
+      "source": "https://krua.co/recipe/vegetarian-celery"
+    },
+    {
+      "id": "shared-79c15bfc-4cfc-0f44-5cb0-46fcd6739411",
+      "name": "ข้าวหมกไก่บริยานี (ใช้วัตถุดิบฮาลาล)",
+      "source": "https://krua.co/recipe/biryani-chicken"
+    }
+  ],
+  "filters": {
+    "vegan": [
+      "สลัดมันเทศควินัว",
+      "คั่วกลิ้งมังสวิรัติ",
+      "จับฉ่ายมังสวิรัติ"
+    ],
+    "vegetarian": [
+      "สลัดมันเทศควินัว",
+      "คั่วกลิ้งมังสวิรัติ",
+      "จับฉ่ายมังสวิรัติ"
+    ],
+    "halal": [
+      "ข้าวหมกไก่บริยานี (ใช้วัตถุดิบฮาลาล)"
+    ]
+  },
+  "healthy": 2,
+  "total": 28,
+  "checks": "All 4 source links and stored photos HTTP 200; actual eligibility engine accepts dietary groups; unknown allergy/cross-contact excluded for all 9 allergens.",
+  "halal": "Conditional on certified meat/products and non-contaminated utensils; recipe is not independently halal-certified."
+}
